@@ -1,0 +1,75 @@
+POST /api/2.3/auctions/6428763175bc491b9514dc7de4771281/awards/0be2b9c4dc4b43a8a203b239d726a74f/complaints?acc_token=684390d5a4634e7bba129476b3262a3c HTTP/1.0
+Authorization: Basic YnJva2VyOg==
+Content-Length: 794
+Content-Type: application/json
+Host: api-sandbox.ea.openprocurement.org
+
+{
+  "data": {
+    "status": "claim", 
+    "title": "complaint title", 
+    "description": "complaint description", 
+    "author": {
+      "contactPoint": {
+        "telephone": "+380 (432) 21-69-30", 
+        "name": "Сергій Олексюк", 
+        "email": "soleksuk@gmail.com"
+      }, 
+      "identifier": {
+        "scheme": "UA-EDR", 
+        "id": "00137256", 
+        "uri": "http://www.sc.gov.ua/"
+      }, 
+      "name": "ДКП «Школяр»", 
+      "address": {
+        "countryName": "Україна", 
+        "postalCode": "21100", 
+        "region": "м. Вінниця", 
+        "streetAddress": "вул. Островського, 33", 
+        "locality": "м. Вінниця"
+      }
+    }
+  }
+}
+
+
+201 Created
+Content-Type: application/json; charset=UTF-8
+Location: http://api-sandbox.ea.openprocurement.org/api/2.3/auctions/6428763175bc491b9514dc7de4771281/awards/0be2b9c4dc4b43a8a203b239d726a74f/complaints/5a6fc5709c4b4eb7a1adf84c9a8a2cce
+
+{
+  "access": {
+    "token": "1ea144f57b1449ac84f606e203108482"
+  }, 
+  "data": {
+    "status": "claim", 
+    "description": "complaint description", 
+    "author": {
+      "contactPoint": {
+        "email": "soleksuk@gmail.com", 
+        "telephone": "+380 (432) 21-69-30", 
+        "name": "Сергій Олексюк"
+      }, 
+      "identifier": {
+        "scheme": "UA-EDR", 
+        "id": "00137256", 
+        "uri": "http://www.sc.gov.ua/"
+      }, 
+      "name": "ДКП «Школяр»", 
+      "address": {
+        "postalCode": "21100", 
+        "countryName": "Україна", 
+        "streetAddress": "вул. Островського, 33", 
+        "region": "м. Вінниця", 
+        "locality": "м. Вінниця"
+      }
+    }, 
+    "title": "complaint title", 
+    "dateSubmitted": "2016-09-16T16:17:49.137058+03:00", 
+    "complaintID": "UA-EA-2016-09-16-000001.6", 
+    "date": "2016-09-16T16:17:49.137031+03:00", 
+    "type": "claim", 
+    "id": "5a6fc5709c4b4eb7a1adf84c9a8a2cce"
+  }
+}
+

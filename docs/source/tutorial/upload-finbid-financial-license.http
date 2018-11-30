@@ -1,0 +1,35 @@
+POST /api/2.3/auctions/dea1897bef8e477799e5d6111f1f83b4/bids/11d5b0fcb829464cb0cbb082ebbc437a/documents?acc_token=4f0b0503e2ea41609a1b0eabd288d190 HTTP/1.0
+Authorization: Basic YnJva2VyOg==
+Content-Length: 377
+Content-Type: application/json
+Host: api-sandbox.ea.openprocurement.org
+
+{
+  "data": {
+    "url": "http://public.docs-sandbox.ea.openprocurement.org/get/8d92e8d1f12f4b7281a5ace2db46bab5?KeyID=db300312&Signature=qJJBw%2F8YCkg4G12FdvPbEftoYHv6RUT16cUUdt9MvfN5KIU%2BM%2BVu8OcqqB2QuxOGmmM2DZxHWtiwFC8RDfb7BQ%3D%3D", 
+    "title": "FinancialLicense.pdf", 
+    "format": "application/pdf", 
+    "hash": "md5:00000000000000000000000000000000", 
+    "documentType": "financialLicense"
+  }
+}
+
+
+201 Created
+Content-Type: application/json; charset=UTF-8
+Location: http://api-sandbox.ea.openprocurement.org/api/2.3/auctions/dea1897bef8e477799e5d6111f1f83b4/bids/11d5b0fcb829464cb0cbb082ebbc437a/documents/e59d180bb0bd4d9e893ec48148a310ae
+
+{
+  "data": {
+    "hash": "md5:00000000000000000000000000000000", 
+    "format": "application/pdf", 
+    "url": "http://api-sandbox.ea.openprocurement.org/api/2.3/auctions/dea1897bef8e477799e5d6111f1f83b4/bids/11d5b0fcb829464cb0cbb082ebbc437a/documents/e59d180bb0bd4d9e893ec48148a310ae?download=8d92e8d1f12f4b7281a5ace2db46bab5", 
+    "title": "FinancialLicense.pdf", 
+    "documentOf": "tender", 
+    "datePublished": "2017-09-27T15:00:47.766096+03:00", 
+    "documentType": "financialLicense", 
+    "dateModified": "2017-09-27T15:00:47.766125+03:00", 
+    "id": "e59d180bb0bd4d9e893ec48148a310ae"
+  }
+}
+

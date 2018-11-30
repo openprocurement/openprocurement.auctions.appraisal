@@ -1,0 +1,73 @@
+POST /api/2.3/auctions/6428763175bc491b9514dc7de4771281/awards/0be2b9c4dc4b43a8a203b239d726a74f/complaints?acc_token=684390d5a4634e7bba129476b3262a3c HTTP/1.0
+Authorization: Basic YnJva2VyOg==
+Content-Length: 775
+Content-Type: application/json
+Host: api-sandbox.ea.openprocurement.org
+
+{
+  "data": {
+    "title": "complaint title", 
+    "description": "complaint description", 
+    "author": {
+      "contactPoint": {
+        "telephone": "+380 (432) 21-69-30", 
+        "name": "Сергій Олексюк", 
+        "email": "soleksuk@gmail.com"
+      }, 
+      "identifier": {
+        "scheme": "UA-EDR", 
+        "id": "00137256", 
+        "uri": "http://www.sc.gov.ua/"
+      }, 
+      "name": "ДКП «Школяр»", 
+      "address": {
+        "countryName": "Україна", 
+        "postalCode": "21100", 
+        "region": "м. Вінниця", 
+        "streetAddress": "вул. Островського, 33", 
+        "locality": "м. Вінниця"
+      }
+    }
+  }
+}
+
+
+201 Created
+Content-Type: application/json; charset=UTF-8
+Location: http://api-sandbox.ea.openprocurement.org/api/2.3/auctions/6428763175bc491b9514dc7de4771281/awards/0be2b9c4dc4b43a8a203b239d726a74f/complaints/cf9360b712ac479ea06d6c606c9db8d1
+
+{
+  "access": {
+    "token": "8b1c57a5a0b94f61af02d31184bd2d69"
+  }, 
+  "data": {
+    "status": "draft", 
+    "description": "complaint description", 
+    "author": {
+      "contactPoint": {
+        "email": "soleksuk@gmail.com", 
+        "telephone": "+380 (432) 21-69-30", 
+        "name": "Сергій Олексюк"
+      }, 
+      "identifier": {
+        "scheme": "UA-EDR", 
+        "id": "00137256", 
+        "uri": "http://www.sc.gov.ua/"
+      }, 
+      "name": "ДКП «Школяр»", 
+      "address": {
+        "postalCode": "21100", 
+        "countryName": "Україна", 
+        "streetAddress": "вул. Островського, 33", 
+        "region": "м. Вінниця", 
+        "locality": "м. Вінниця"
+      }
+    }, 
+    "title": "complaint title", 
+    "complaintID": "UA-EA-2016-09-16-000001.5", 
+    "date": "2016-09-16T16:17:48.324397+03:00", 
+    "type": "claim", 
+    "id": "cf9360b712ac479ea06d6c606c9db8d1"
+  }
+}
+

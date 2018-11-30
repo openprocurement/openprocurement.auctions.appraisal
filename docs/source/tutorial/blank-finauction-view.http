@@ -1,0 +1,107 @@
+GET /api/2.3/auctions/dea1897bef8e477799e5d6111f1f83b4 HTTP/1.0
+Authorization: Basic YnJva2VyOg==
+Host: api-sandbox.ea.openprocurement.org
+
+
+200 OK
+Content-Type: application/json; charset=UTF-8
+
+{
+  "data": {
+    "procurementMethod": "open", 
+    "auctionID": "UA-EA-2017-09-27-000001", 
+    "enquiryPeriod": {
+      "startDate": "2017-09-27T15:00:47.125812+03:00", 
+      "endDate": "2017-10-10T23:59:50+03:00"
+    }, 
+    "submissionMethod": "electronicAuction", 
+    "dgfDecisionDate": "2016-11-17", 
+    "next_check": "2017-10-10T23:59:50+03:00", 
+    "awardCriteria": "highestCost", 
+    "dgfDecisionID": "219560", 
+    "owner": "broker", 
+    "id": "dea1897bef8e477799e5d6111f1f83b4", 
+    "eligibilityCriteria_ru": "Участником электронного аукциона, предметом продажи на которых являются права требования по кредитным договорам и договорам обеспечения, не может быть пользователь, являющийся заёмщиком (должником относительно банка) и\\или поручителем (имущественным поручителем) по таким кредитным договорам и/или договорам обеспечения.", 
+    "documents": [
+      {
+        "title": "Місце та форма прийому заяв на участь в аукціоні та банківські реквізити для зарахування гарантійних внесків", 
+        "url": "http://torgi.fg.gov.ua/prozorrosale", 
+        "documentOf": "tender", 
+        "datePublished": "2017-09-27T15:00:47.126310+03:00", 
+        "documentType": "x_dgfPlatformLegalDetails", 
+        "dateModified": "2017-09-27T15:00:47.126347+03:00", 
+        "id": "f618f5b83a624593be24b61fafc465b4"
+      }
+    ], 
+    "title": "футляри до державних нагород", 
+    "tenderAttempts": 1, 
+    "eligibilityCriteria_en": "The user, who is the borrower (the debtor of the bank) and/or guarantor (property guarantor) for loan agreements and/or collateral agreements, cannot be the bidder of the electronic auction, where the items for sale are the claim rights on such loan agreements and collateral agreements.", 
+    "procurementMethodDetails": "quick, accelerator=1440", 
+    "dateModified": "2017-09-27T15:00:47.130709+03:00", 
+    "status": "active.tendering", 
+    "eligibilityCriteria": "Учасником електронного аукціону, предметом продажу на яких є права вимоги за кредитними договорами та договорами забезпечення, не може бути користувач, який є позичальником (боржником відносно банку) та/або поручителем (майновим поручителем) за такими кредитними договорами та/або договорами забезпечення.", 
+    "tenderPeriod": {
+      "startDate": "2017-09-27T15:00:47.125812+03:00", 
+      "endDate": "2017-10-11T00:09:50+03:00"
+    }, 
+    "auctionPeriod": {
+      "shouldStartAfter": "2017-10-11T00:00:00+03:00"
+    }, 
+    "procurementMethodType": "appraisal",
+    "dgfID": "219560", 
+    "date": "2017-09-27T15:00:47.125812+03:00", 
+    "minimalStep": {
+      "currency": "UAH", 
+      "amount": 0.0, 
+      "valueAddedTaxIncluded": true
+    }, 
+    "items": [
+      {
+        "description": "Земля для військовослужбовців", 
+        "classification": {
+          "scheme": "CAV", 
+          "description": "Земельні ділянки", 
+          "id": "06000000-2"
+        }, 
+        "address": {
+          "postalCode": "79000", 
+          "countryName": "Україна", 
+          "streetAddress": "вул. Банкова 1", 
+          "region": "м. Київ", 
+          "locality": "м. Київ"
+        }, 
+        "id": "5403cee3fc90468287066a04b5cd84bb", 
+        "unit": {
+          "code": "44617100-9", 
+          "name": "item"
+        }, 
+        "quantity": 5
+      }
+    ], 
+    "value": {
+      "currency": "UAH", 
+      "amount": 100.0, 
+      "valueAddedTaxIncluded": true
+    }, 
+    "procuringEntity": {
+      "contactPoint": {
+        "name": "Державне управління справами", 
+        "telephone": "0440000000"
+      }, 
+      "identifier": {
+        "scheme": "UA-EDR", 
+        "id": "00037256", 
+        "uri": "http://www.dus.gov.ua/"
+      }, 
+      "name": "Державне управління справами", 
+      "address": {
+        "postalCode": "01220", 
+        "countryName": "Україна", 
+        "streetAddress": "вул. Банкова, 11, корпус 1", 
+        "region": "м. Київ", 
+        "locality": "м. Київ"
+      }
+    }
+  }
+}
+

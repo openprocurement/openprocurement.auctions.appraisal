@@ -1,0 +1,80 @@
+POST /api/2.3/auctions/dea1897bef8e477799e5d6111f1f83b4/bids HTTP/1.0
+Authorization: Basic YnJva2VyOg==
+Content-Length: 794
+Content-Type: application/json
+Host: api-sandbox.ea.openprocurement.org
+
+{
+  "data": {
+    "status": "draft", 
+    "qualified": true, 
+    "tenderers": [
+      {
+        "contactPoint": {
+          "telephone": "+380 (432) 21-69-30", 
+          "name": "Сергій Олексюк", 
+          "email": "soleksuk@gmail.com"
+        }, 
+        "identifier": {
+          "scheme": "UA-EDR", 
+          "id": "00137256", 
+          "uri": "http://www.sc.gov.ua/"
+        }, 
+        "name": "ДКП «Школяр»", 
+        "address": {
+          "countryName": "Україна", 
+          "postalCode": "21100", 
+          "region": "м. Вінниця", 
+          "streetAddress": "вул. Островського, 33", 
+          "locality": "м. Вінниця"
+        }
+      }
+    ], 
+    "value": {
+      "amount": 500
+    }, 
+    "eligible": true
+  }
+}
+
+
+201 Created
+Content-Type: application/json; charset=UTF-8
+Location: http://api-sandbox.ea.openprocurement.org/api/2.3/auctions/dea1897bef8e477799e5d6111f1f83b4/bids/11d5b0fcb829464cb0cbb082ebbc437a
+
+{
+  "access": {
+    "token": "4f0b0503e2ea41609a1b0eabd288d190"
+  }, 
+  "data": {
+    "status": "draft", 
+    "eligible": true, 
+    "date": "2017-09-27T15:00:47.616806+03:00", 
+    "qualified": true, 
+    "tenderers": [
+      {
+        "contactPoint": {
+          "email": "soleksuk@gmail.com", 
+          "telephone": "+380 (432) 21-69-30", 
+          "name": "Сергій Олексюк"
+        }, 
+        "identifier": {
+          "scheme": "UA-EDR", 
+          "id": "00137256", 
+          "uri": "http://www.sc.gov.ua/"
+        }, 
+        "name": "ДКП «Школяр»", 
+        "address": {
+          "postalCode": "21100", 
+          "countryName": "Україна", 
+          "streetAddress": "вул. Островського, 33", 
+          "region": "м. Вінниця", 
+          "locality": "м. Вінниця"
+        }
+      }
+    ], 
+    "owner": "broker", 
+    "id": "11d5b0fcb829464cb0cbb082ebbc437a"
+  }
+}
+

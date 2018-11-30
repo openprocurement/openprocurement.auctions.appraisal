@@ -1,0 +1,90 @@
+PATCH /api/2.3/auctions/ca31727f31f243b089cbc005b8fda5ba/awards/7d4e36e2232f45b0910f887feaf23af1?acc_token=0ce53b3a0d5d47778c36b80f90b81ad5 HTTP/1.0
+Authorization: Basic YnJva2VyOg==
+Content-Length: 30
+Content-Type: application/json
+Host: api-sandbox.ea.openprocurement.org
+
+{
+  "data": {
+    "status": "active"
+  }
+}
+
+
+200 OK
+Content-Type: application/json; charset=UTF-8
+
+{
+  "data": {
+    "status": "active", 
+    "documents": [
+      {
+        "dateModified": "2018-03-13T17:49:03.449222+02:00", 
+        "hash": "md5:00000000000000000000000000000000", 
+        "format": "application/pdf", 
+        "url": "http://public.docs-sandbox.ea.openprocurement.org/get/a896d2bee21d48669b866b658a2b5421?KeyID=9051732b&Signature=i6P59QQMzh8%252BfWJik6jodxWwsAdokeAWTfJbaM76B5amghHYoZqUgrQxx%252BUU3WDT9Tr5cxxwrps4%2FZixJDgFDw%253D%253D", 
+        "author": "bid_owner", 
+        "documentOf": "tender", 
+        "datePublished": "2018-03-13T17:49:03.449202+02:00", 
+        "documentType": "auctionProtocol", 
+        "title": "SignedAuctionProtocol.pdf", 
+        "id": "dc7ccdfb41a44533a03a9cffff4a8850"
+      }, 
+      {
+        "dateModified": "2018-03-13T17:49:03.539780+02:00", 
+        "hash": "md5:00000000000000000000000000000000", 
+        "format": "application/pdf", 
+        "url": "http://public.docs-sandbox.ea.openprocurement.org/get/d34f99a7d7974129b0b07a29cc6fab83?KeyID=9051732b&Signature=JfJFODRl68KuCQto%252BnHrgJeaQ7ZGLG8wRL42YA8PH5aDbXPDVds1gVQGyqTNXGKB7sqwdLnhRXGJpMLlpBIqCA%253D%253D", 
+        "author": "auction_owner", 
+        "documentOf": "tender", 
+        "datePublished": "2018-03-13T17:49:03.539741+02:00", 
+        "documentType": "auctionProtocol", 
+        "title": "SignedAuctionProtocol.pdf", 
+        "id": "9aa74f7dd18a486d8f2950d1ca989ae7"
+      }
+    ], 
+    "verificationPeriod": {
+      "startDate": "2018-03-13T17:49:03.167518+02:00", 
+      "endDate": "2018-03-13T17:49:03.647933+02:00"
+    }, 
+    "signingPeriod": {
+      "startDate": "2018-03-13T17:49:03.167518+02:00", 
+      "endDate": "2018-03-13T18:09:02.790434+02:00"
+    }, 
+    "suppliers": [
+      {
+        "contactPoint": {
+          "email": "aagt@gmail.com", 
+          "telephone": "+380 (322) 91-69-30", 
+          "name": "Андрій Олексюк"
+        }, 
+        "identifier": {
+          "scheme": "UA-EDR", 
+          "id": "00137226", 
+          "uri": "http://www.sc.gov.ua/"
+        }, 
+        "name": "ДКП «Книга»", 
+        "address": {
+          "postalCode": "79013", 
+          "countryName": "Україна", 
+          "streetAddress": "вул. Островського, 34", 
+          "region": "м. Львів", 
+          "locality": "м. Львів"
+        }
+      }
+    ], 
+    "complaintPeriod": {
+      "startDate": "2018-03-13T17:49:03.167518+02:00", 
+      "endDate": "2018-03-13T17:49:03.647933+02:00"
+    }, 
+    "bid_id": "86459d45ea7847a199f1ad3b0b983b05", 
+    "value": {
+      "currency": "UAH", 
+      "amount": 479.0, 
+      "valueAddedTaxIncluded": true
+    }, 
+    "date": "2018-03-13T17:49:03.658341+02:00", 
+    "id": "7d4e36e2232f45b0910f887feaf23af1"
+  }
+}
+

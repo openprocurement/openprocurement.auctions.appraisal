@@ -1,0 +1,200 @@
+GET /api/2.3/auctions/ca31727f31f243b089cbc005b8fda5ba HTTP/1.0
+Authorization: Basic YnJva2VyOg==
+Host: api-sandbox.ea.openprocurement.org
+
+
+200 OK
+Content-Type: application/json; charset=UTF-8
+
+{
+  "data": {
+    "procurementMethod": "open", 
+    "auctionID": "UA-EA-2018-03-13-000001", 
+    "auctionUrl": "http://auction-sandbox.openprocurement.org/insider-auctions/ca31727f31f243b089cbc005b8fda5ba",
+    "enquiryPeriod": {
+      "startDate": "2018-02-21T17:48:55.444253+02:00", 
+      "endDate": "2018-03-13T17:48:55.444253+02:00"
+    }, 
+    "submissionMethod": "electronicAuction", 
+    "dgfDecisionDate": "2016-11-17", 
+    "next_check": "2018-03-14T01:04:45.444253+02:00", 
+    "awardCriteria": "highestCost", 
+    "questions": [
+      {
+        "description": "Просимо додати таблицю потрібної калорійності харчування", 
+        "title": "Калорійність", 
+        "date": "2018-03-13T17:49:02.343126+02:00", 
+        "answer": "Таблицю додано в файлі \"Kalorijnist.xslx\"", 
+        "id": "e87d7b1491a94908bb914e4210e0994b", 
+        "questionOf": "tender"
+      }
+    ], 
+    "dgfDecisionID": "219560", 
+    "owner": "broker", 
+    "id": "ca31727f31f243b089cbc005b8fda5ba", 
+    "eligibilityCriteria_ru": "Участником электронного аукциона, предметом продажи на которых являются права требования по кредитным договорам и договорам обеспечения, не может быть пользователь, являющийся заёмщиком (должником относительно банка) и\\или поручителем (имущественным поручителем) по таким кредитным договорам и/или договорам обеспечения.", 
+    "documents": [
+      {
+        "title": "Місце та форма прийому заяв на участь в аукціоні та банківські реквізити для зарахування гарантійних внесків", 
+        "url": "http://torgi.fg.gov.ua/prozorrosale", 
+        "documentOf": "tender", 
+        "datePublished": "2018-03-13T17:49:01.717914+02:00", 
+        "documentType": "x_dgfPlatformLegalDetails", 
+        "dateModified": "2018-03-13T17:49:01.717937+02:00", 
+        "id": "dd4e71968a2c4585846704771946ffb4"
+      }, 
+      {
+        "hash": "md5:00000000000000000000000000000000", 
+        "description": "document description", 
+        "format": "application/pdf", 
+        "url": "http://public.docs-sandbox.ea.openprocurement.org/get/6e9dad0af471454ba2e3bb2ffce1ba30?KeyID=9051732b&Signature=GJpo7izivTVGQ7zfncgV7ZPWkZ5mbUvz7sZANw0x2lAZ9nb0jqr2WOwF3rNVGG2O0n2qGSpDIQC8KMGxt%2F9sDQ%253D%253D", 
+        "title": "Notice.pdf", 
+        "documentOf": "tender", 
+        "datePublished": "2018-03-13T17:49:01.954983+02:00", 
+        "documentType": "technicalSpecifications", 
+        "dateModified": "2018-03-13T17:49:01.955008+02:00", 
+        "id": "d2bb192ca9d04d74a20ff43354925739"
+      }, 
+      {
+        "hash": "md5:00000000000000000000000000000000", 
+        "format": "application/pdf", 
+        "url": "http://public.docs-sandbox.ea.openprocurement.org/get/c53f5a29c33f48fe88c94ba1978e3636?KeyID=9051732b&Signature=dkQjsWyizoNpcOrbXPCKaJkVSRMjtnyjOYBdqwwu%252BBM4dL3jfTYsKQ6mYy5aFfOvYXHs5MoGMjKyxTFxO5YuDQ%253D%253D", 
+        "title": "AwardCriteria.pdf", 
+        "documentOf": "tender", 
+        "datePublished": "2018-03-13T17:49:02.007367+02:00", 
+        "dateModified": "2018-03-13T17:49:02.007397+02:00", 
+        "id": "6d59ea99d07546efb587bc43c7d04a5b"
+      }, 
+      {
+        "hash": "md5:00000000000000000000000000000000", 
+        "format": "application/pdf", 
+        "url": "http://public.docs-sandbox.ea.openprocurement.org/get/9abe5606eb7c46dbae8af95de91a6571?KeyID=9051732b&Signature=ciAZjBQOOYzNZVQzLejH4Sk2kHgB%252BbIJNd2%2FnB3NZFgE0qDtUL2%2FKp0nolXWoINRa%252BzqBcOITbXJvpQ5jt95Cw%253D%253D", 
+        "title": "AwardCriteria-2.pdf", 
+        "documentOf": "tender", 
+        "datePublished": "2018-03-13T17:49:02.007367+02:00", 
+        "dateModified": "2018-03-13T17:49:02.059143+02:00", 
+        "id": "6d59ea99d07546efb587bc43c7d04a5b"
+      }, 
+      {
+        "index": 1, 
+        "hash": "md5:00000000000000000000000000000000", 
+        "description": "First illustration description", 
+        "format": "image/jpeg", 
+        "url": "http://public.docs-sandbox.ea.openprocurement.org/get/d5a56252751245e493d7a5fb3b143f25?KeyID=9051732b&Signature=YZ317VHUZ%252B%252BnVQa%2FFC6qqI9ZZHhlPx6l%2FRrR2NWWcB%252BB2bdAoxDdg9YtwEg3aZi0V2Oi9ZS2afqLKYUGOW7UDA%253D%253D", 
+        "title": "first_illustration.jpeg", 
+        "documentOf": "tender", 
+        "datePublished": "2018-03-13T17:49:02.110025+02:00", 
+        "documentType": "illustration", 
+        "dateModified": "2018-03-13T17:49:02.110045+02:00", 
+        "id": "31d1a44dd9924687afb1a50be3e330f6"
+      }, 
+      {
+        "index": 2, 
+        "hash": "md5:00000000000000000000000000000000", 
+        "description": "Second illustration description", 
+        "format": "image/jpeg", 
+        "url": "http://public.docs-sandbox.ea.openprocurement.org/get/a08e06066d06463498b6682b6aa5548c?KeyID=9051732b&Signature=FDbJjboLrT9Lo3ey%252B8MkXR6oyLBF2MZSeGHglx7y1nhG3ASrLSCQJu6Z0GjqdJFkl1YeeKLHWnNXVRLAmFHPDg%253D%253D", 
+        "title": "second_illustration.jpeg", 
+        "documentOf": "tender", 
+        "datePublished": "2018-03-13T17:49:02.165811+02:00", 
+        "documentType": "illustration", 
+        "dateModified": "2018-03-13T17:49:02.165831+02:00", 
+        "id": "76ce8a740ea6437c96b081489123d870"
+      }, 
+      {
+        "index": 2, 
+        "hash": "md5:00000000000000000000000000000000", 
+        "description": "Third illustration description", 
+        "format": "image/jpeg", 
+        "url": "http://public.docs-sandbox.ea.openprocurement.org/get/8728cd5d2dfb4ca2b21fff932fa0a9b6?KeyID=9051732b&Signature=w%2F0W0Z%252Bf%252B%2FEt9%2FsEZqq97NmLTiSg1d8CZopcTPwG1UZW2yfWLeSymMDfoIc1eHUftR9v0rXUmw0Xrl3qFSiCAA%253D%253D", 
+        "title": "third_illustration.jpeg", 
+        "documentOf": "tender", 
+        "datePublished": "2018-03-13T17:49:02.207809+02:00", 
+        "documentType": "illustration", 
+        "dateModified": "2018-03-13T17:49:02.207831+02:00", 
+        "id": "508315674c6c489cb8f9f93fd1c88a2d"
+      }, 
+      {
+        "title": "Familiarization with bank asset", 
+        "format": "offline/on-site-examination", 
+        "accessDetails": "Familiar with asset: days, time, address", 
+        "documentOf": "tender", 
+        "datePublished": "2018-03-13T17:49:02.273728+02:00", 
+        "documentType": "x_dgfAssetFamiliarization", 
+        "dateModified": "2018-03-13T17:49:02.273747+02:00", 
+        "id": "c2cc28c265a64cdcb3f2bd1bafcd892f"
+      }
+    ], 
+    "title": "футляри до державних нагород", 
+    "tenderAttempts": 1, 
+    "eligibilityCriteria_en": "The user, who is the borrower (the debtor of the bank) and/or guarantor (property guarantor) for loan agreements and/or collateral agreements, cannot be the bidder of the electronic auction, where the items for sale are the claim rights on such loan agreements and collateral agreements.", 
+    "procurementMethodDetails": "quick, accelerator=1440", 
+    "dateModified": "2018-03-13T17:49:02.901426+02:00", 
+    "status": "active.auction", 
+    "eligibilityCriteria": "Учасником електронного аукціону, предметом продажу на яких є права вимоги за кредитними договорами та договорами забезпечення, не може бути користувач, який є позичальником (боржником відносно банку) та/або поручителем (майновим поручителем) за такими кредитними договорами та/або договорами забезпечення.", 
+    "tenderPeriod": {
+      "startDate": "2018-02-21T17:48:55.444253+02:00", 
+      "endDate": "2018-03-13T17:49:12.319253+02:00"
+    }, 
+    "auctionPeriod": {
+      "startDate": "2018-03-13T17:48:55.444253+02:00", 
+      "shouldStartAfter": "2018-03-14T00:00:00+02:00"
+    }, 
+    "procurementMethodType": "appraisal",
+    "dgfID": "219560", 
+    "date": "2018-03-13T17:49:02.901426+02:00", 
+    "minimalStep": {
+      "currency": "UAH", 
+      "amount": 0.0, 
+      "valueAddedTaxIncluded": true
+    }, 
+    "items": [
+      {
+        "description": "Земля для військовослужбовців", 
+        "classification": {
+          "scheme": "CAV", 
+          "description": "Земельні ділянки", 
+          "id": "06000000-2"
+        }, 
+        "address": {
+          "postalCode": "79000", 
+          "countryName": "Україна", 
+          "streetAddress": "вул. Банкова 1", 
+          "region": "м. Київ", 
+          "locality": "м. Київ"
+        }, 
+        "id": "e24b924ada114a0d95d03a8c89eadda7", 
+        "unit": {
+          "code": "44617100-9", 
+          "name": "item"
+        }, 
+        "quantity": 5
+      }
+    ], 
+    "value": {
+      "currency": "UAH", 
+      "amount": 100.0, 
+      "valueAddedTaxIncluded": true
+    }, 
+    "procuringEntity": {
+      "contactPoint": {
+        "name": "Державне управління справами", 
+        "telephone": "0440000000"
+      }, 
+      "identifier": {
+        "scheme": "UA-EDR", 
+        "id": "00037256", 
+        "uri": "http://www.dus.gov.ua/"
+      }, 
+      "name": "Державне управління справами", 
+      "address": {
+        "postalCode": "01220", 
+        "countryName": "Україна", 
+        "streetAddress": "вул. Банкова, 11, корпус 1", 
+        "region": "м. Київ", 
+        "locality": "м. Київ"
+      }
+    }
+  }
+}
+

@@ -1,0 +1,12 @@
+PATCH /api/2.3/auctions/f286dd83f6f0475abf06f75d34486918/awards/e00f0f4e529c427096517fec0d32036b?acc_token=8afef504e6e64f1f94342c77c88294f3 HTTP/1.0
+Authorization: Basic YnJva2VyOg==
+Content-Length: 39
+Content-Type: application/json
+Host: api-sandbox.ea.openprocurement.org
+
+{
+  "data": {
+    "status": "pending.payment"
+  }
+}
+

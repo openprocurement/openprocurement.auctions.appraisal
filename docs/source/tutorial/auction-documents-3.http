@@ -1,0 +1,44 @@
+GET /api/2.3/auctions/ca31727f31f243b089cbc005b8fda5ba/documents HTTP/1.0
+Authorization: Basic YnJva2VyOg==
+Host: api-sandbox.ea.openprocurement.org
+
+
+200 OK
+Content-Type: application/json; charset=UTF-8
+
+{
+  "data": [
+    {
+      "title": "Місце та форма прийому заяв на участь в аукціоні та банківські реквізити для зарахування гарантійних внесків", 
+      "url": "http://torgi.fg.gov.ua/prozorrosale", 
+      "documentOf": "tender", 
+      "datePublished": "2018-03-13T17:49:01.717914+02:00", 
+      "documentType": "x_dgfPlatformLegalDetails", 
+      "dateModified": "2018-03-13T17:49:01.717937+02:00", 
+      "id": "dd4e71968a2c4585846704771946ffb4"
+    }, 
+    {
+      "hash": "md5:00000000000000000000000000000000", 
+      "description": "document description", 
+      "format": "application/pdf", 
+      "url": "http://public.docs-sandbox.ea.openprocurement.org/get/6e9dad0af471454ba2e3bb2ffce1ba30?KeyID=9051732b&Signature=GJpo7izivTVGQ7zfncgV7ZPWkZ5mbUvz7sZANw0x2lAZ9nb0jqr2WOwF3rNVGG2O0n2qGSpDIQC8KMGxt%2F9sDQ%253D%253D", 
+      "title": "Notice.pdf", 
+      "documentOf": "tender", 
+      "datePublished": "2018-03-13T17:49:01.954983+02:00", 
+      "documentType": "technicalSpecifications", 
+      "dateModified": "2018-03-13T17:49:01.955008+02:00", 
+      "id": "d2bb192ca9d04d74a20ff43354925739"
+    }, 
+    {
+      "hash": "md5:00000000000000000000000000000000", 
+      "format": "application/pdf", 
+      "url": "http://public.docs-sandbox.ea.openprocurement.org/get/9abe5606eb7c46dbae8af95de91a6571?KeyID=9051732b&Signature=ciAZjBQOOYzNZVQzLejH4Sk2kHgB%252BbIJNd2%2FnB3NZFgE0qDtUL2%2FKp0nolXWoINRa%252BzqBcOITbXJvpQ5jt95Cw%253D%253D", 
+      "title": "AwardCriteria-2.pdf", 
+      "documentOf": "tender", 
+      "datePublished": "2018-03-13T17:49:02.007367+02:00", 
+      "dateModified": "2018-03-13T17:49:02.059143+02:00", 
+      "id": "6d59ea99d07546efb587bc43c7d04a5b"
+    }
+  ]
+}
+

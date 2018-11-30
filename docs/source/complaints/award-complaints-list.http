@@ -1,0 +1,85 @@
+GET /api/2.3/auctions/6428763175bc491b9514dc7de4771281/awards/0be2b9c4dc4b43a8a203b239d726a74f/complaints HTTP/1.0
+Host: api-sandbox.ea.openprocurement.org
+
+
+200 OK
+Content-Type: application/json; charset=UTF-8
+
+{
+  "data": [
+    {
+      "status": "claim", 
+      "documents": [
+        {
+          "dateModified": "2016-09-16T16:17:48.648245+03:00", 
+          "hash": "md5:00000000000000000000000000000000", 
+          "format": "application/pdf", 
+          "url": "http://public.docs-sandbox.ea.openprocurement.org/get/e9e1c7c580e747439db62314cee0c630?KeyID=278be238&Signature=PkGIj3rCf9L6lh1r0ErzGghZY4ghfWLkaRr6c5iTN6sUi%252BF2OYjnZ3VVTIgJ5oxhNtL0EwQmTu0eLbATexD1CQ%253D%253D", 
+          "author": "complaint_owner", 
+          "documentOf": "tender", 
+          "datePublished": "2016-09-16T16:17:48.648216+03:00", 
+          "title": "Complaint_Attachement.pdf", 
+          "id": "1f8fc9d2042f420b92b7aaa4cba24a43"
+        }
+      ], 
+      "description": "complaint description", 
+      "author": {
+        "contactPoint": {
+          "email": "soleksuk@gmail.com", 
+          "telephone": "+380 (432) 21-69-30", 
+          "name": "Сергій Олексюк"
+        }, 
+        "identifier": {
+          "scheme": "UA-EDR", 
+          "id": "00137256", 
+          "uri": "http://www.sc.gov.ua/"
+        }, 
+        "name": "ДКП «Школяр»", 
+        "address": {
+          "postalCode": "21100", 
+          "countryName": "Україна", 
+          "streetAddress": "вул. Островського, 33", 
+          "region": "м. Вінниця", 
+          "locality": "м. Вінниця"
+        }
+      }, 
+      "title": "complaint title", 
+      "dateSubmitted": "2016-09-16T16:17:48.899601+03:00", 
+      "complaintID": "UA-EA-2016-09-16-000001.5", 
+      "date": "2016-09-16T16:17:48.913250+03:00", 
+      "type": "claim", 
+      "id": "cf9360b712ac479ea06d6c606c9db8d1"
+    }, 
+    {
+      "status": "claim", 
+      "description": "complaint description", 
+      "author": {
+        "contactPoint": {
+          "email": "soleksuk@gmail.com", 
+          "telephone": "+380 (432) 21-69-30", 
+          "name": "Сергій Олексюк"
+        }, 
+        "identifier": {
+          "scheme": "UA-EDR", 
+          "id": "00137256", 
+          "uri": "http://www.sc.gov.ua/"
+        }, 
+        "name": "ДКП «Школяр»", 
+        "address": {
+          "postalCode": "21100", 
+          "countryName": "Україна", 
+          "streetAddress": "вул. Островського, 33", 
+          "region": "м. Вінниця", 
+          "locality": "м. Вінниця"
+        }
+      }, 
+      "title": "complaint title", 
+      "dateSubmitted": "2016-09-16T16:17:49.137058+03:00", 
+      "complaintID": "UA-EA-2016-09-16-000001.6", 
+      "date": "2016-09-16T16:17:49.137031+03:00", 
+      "type": "claim", 
+      "id": "5a6fc5709c4b4eb7a1adf84c9a8a2cce"
+    }
+  ]
+}
+

@@ -1,0 +1,33 @@
+PUT /api/2.3/auctions/ca31727f31f243b089cbc005b8fda5ba/cancellations/7465de80754845dfa596f704a7b40393/documents/3a1a42be6a1e4beead06cf68b634b8e9?acc_token=0ce53b3a0d5d47778c36b80f90b81ad5 HTTP/1.0
+Authorization: Basic YnJva2VyOg==
+Content-Length: 327
+Content-Type: application/json
+Host: api-sandbox.ea.openprocurement.org
+
+{
+  "data": {
+    "url": "http://public.docs-sandbox.ea.openprocurement.org/get/54b18e96888648e996cd04e6ba416e58?KeyID=9051732b&Signature=EoZExOvGpEtpbJe5BurLPHs2IfsRjOiFfc3Vw6R5rcr6q4zslblzMsFMkbNR5dszYaXWkRsJJPeqUpFXja5wCQ%3D%3D", 
+    "title": "Notice-2.pdf", 
+    "hash": "md5:00000000000000000000000000000000", 
+    "format": "application/pdf"
+  }
+}
+
+
+200 OK
+Content-Type: application/json; charset=UTF-8
+
+{
+  "data": {
+    "hash": "md5:00000000000000000000000000000000", 
+    "description": "Changed description", 
+    "format": "application/pdf", 
+    "url": "http://public.docs-sandbox.ea.openprocurement.org/get/54b18e96888648e996cd04e6ba416e58?KeyID=9051732b&Signature=tH5MoraFQRPZc01RX7pu1gjXhlP4vPaIwCmwFx9tttJgCQWJn0rbkZq5p2jerzGAV2MFNNVKSkpWchK%252B8h%252BtDA%253D%253D", 
+    "title": "Notice-2.pdf", 
+    "documentOf": "tender", 
+    "datePublished": "2018-03-13T17:49:05.501173+02:00", 
+    "dateModified": "2018-03-13T17:49:05.764704+02:00", 
+    "id": "3a1a42be6a1e4beead06cf68b634b8e9"
+  }
+}
+

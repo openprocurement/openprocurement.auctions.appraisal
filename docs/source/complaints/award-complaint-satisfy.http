@@ -1,0 +1,69 @@
+PATCH /api/2.3/auctions/6428763175bc491b9514dc7de4771281/awards/0be2b9c4dc4b43a8a203b239d726a74f/complaints/cf9360b712ac479ea06d6c606c9db8d1?acc_token=8b1c57a5a0b94f61af02d31184bd2d69 HTTP/1.0
+Authorization: Basic YnJva2VyOg==
+Content-Length: 51
+Content-Type: application/json
+Host: api-sandbox.ea.openprocurement.org
+
+{
+  "data": {
+    "status": "resolved", 
+    "satisfied": true
+  }
+}
+
+
+200 OK
+Content-Type: application/json; charset=UTF-8
+
+{
+  "data": {
+    "status": "resolved", 
+    "tendererActionDate": "2016-09-16T16:17:49.565691+03:00", 
+    "description": "complaint description", 
+    "title": "complaint title", 
+    "resolutionType": "resolved", 
+    "type": "claim", 
+    "author": {
+      "contactPoint": {
+        "email": "soleksuk@gmail.com", 
+        "telephone": "+380 (432) 21-69-30", 
+        "name": "Сергій Олексюк"
+      }, 
+      "identifier": {
+        "scheme": "UA-EDR", 
+        "id": "00137256", 
+        "uri": "http://www.sc.gov.ua/"
+      }, 
+      "name": "ДКП «Школяр»", 
+      "address": {
+        "postalCode": "21100", 
+        "countryName": "Україна", 
+        "streetAddress": "вул. Островського, 33", 
+        "region": "м. Вінниця", 
+        "locality": "м. Вінниця"
+      }
+    }, 
+    "satisfied": true, 
+    "id": "cf9360b712ac479ea06d6c606c9db8d1", 
+    "dateAnswered": "2016-09-16T16:17:49.565661+03:00", 
+    "tendererAction": "Виправлено неконкурентні умови", 
+    "dateSubmitted": "2016-09-16T16:17:48.899601+03:00", 
+    "complaintID": "UA-EA-2016-09-16-000001.5", 
+    "date": "2016-09-16T16:17:49.849593+03:00", 
+    "resolution": "Виправлено неконкурентні умови", 
+    "documents": [
+      {
+        "dateModified": "2016-09-16T16:17:48.648245+03:00", 
+        "hash": "md5:00000000000000000000000000000000", 
+        "format": "application/pdf", 
+        "url": "http://public.docs-sandbox.ea.openprocurement.org/get/e9e1c7c580e747439db62314cee0c630?KeyID=278be238&Signature=PkGIj3rCf9L6lh1r0ErzGghZY4ghfWLkaRr6c5iTN6sUi%252BF2OYjnZ3VVTIgJ5oxhNtL0EwQmTu0eLbATexD1CQ%253D%253D", 
+        "author": "complaint_owner", 
+        "documentOf": "tender", 
+        "datePublished": "2016-09-16T16:17:48.648216+03:00", 
+        "title": "Complaint_Attachement.pdf", 
+        "id": "1f8fc9d2042f420b92b7aaa4cba24a43"
+      }
+    ]
+  }
+}
+

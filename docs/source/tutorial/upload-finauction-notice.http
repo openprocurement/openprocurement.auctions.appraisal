@@ -1,0 +1,37 @@
+POST /api/2.3/auctions/dea1897bef8e477799e5d6111f1f83b4/documents?acc_token=2e76fdd27a3f4868a0ffcf73910603eb HTTP/1.0
+Authorization: Basic YnJva2VyOg==
+Content-Length: 422
+Content-Type: application/json
+Host: api-sandbox.ea.openprocurement.org
+
+{
+  "data": {
+    "hash": "md5:00000000000000000000000000000000", 
+    "description": "technical specification", 
+    "title": "Notice.pdf", 
+    "url": "http://public.docs-sandbox.ea.openprocurement.org/get/994b64ab1b07465ba96e5f054f376bb1?KeyID=db300312&Signature=KQeWVZ%2Foi9uyldLg3B3Kj9d4oG1bZA0sDfvhfob3YwwZvZfxb4P%2FYNSI%2F%2Ft%2BKcQDz%2BZoZcRr8fMzTiWo6jatAQ%3D%3D", 
+    "format": "application/pdf", 
+    "documentType": "technicalSpecifications"
+  }
+}
+
+
+201 Created
+Content-Type: application/json; charset=UTF-8
+Location: http://api-sandbox.ea.openprocurement.org/api/2.3/auctions/dea1897bef8e477799e5d6111f1f83b4/documents/f8000fa1086541b6b5a06fe5ed8f41c9
+
+{
+  "data": {
+    "hash": "md5:00000000000000000000000000000000", 
+    "description": "technical specification", 
+    "format": "application/pdf", 
+    "url": "http://public.docs-sandbox.ea.openprocurement.org/get/994b64ab1b07465ba96e5f054f376bb1?KeyID=db300312&Signature=xMzqDZioPRbWGDFDWcvkYYEcE7rsc33Oe4euO7sQBxj1d2K4DmCWZTGoLBqArOADL9Js6DeZfnZ4QM1Y0hDxBQ%253D%253D", 
+    "title": "Notice.pdf", 
+    "documentOf": "tender", 
+    "datePublished": "2017-09-27T15:00:47.303656+03:00", 
+    "documentType": "technicalSpecifications", 
+    "dateModified": "2017-09-27T15:00:47.303691+03:00", 
+    "id": "f8000fa1086541b6b5a06fe5ed8f41c9"
+  }
+}
+

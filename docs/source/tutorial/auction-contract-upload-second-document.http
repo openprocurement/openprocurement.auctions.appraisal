@@ -1,0 +1,34 @@
+POST /api/2.3/auctions/ca31727f31f243b089cbc005b8fda5ba/contracts/30925f126c174b389a1eed392c9f0c9e/documents?acc_token=0ce53b3a0d5d47778c36b80f90b81ad5 HTTP/1.0
+Authorization: Basic YnJva2VyOg==
+Content-Length: 352
+Content-Type: application/json
+Host: api-sandbox.ea.openprocurement.org
+
+{
+  "data": {
+    "url": "http://public.docs-sandbox.ea.openprocurement.org/get/88721cf4cae843ee80ce612a2fe1b79b?KeyID=9051732b&Signature=tL9k0SRxwU0cs%2BbHY3xF0UcTDMqhxd3t2BGCUNGgioWi09k%2BgHKE5vjRz4rmOYYIttUEy3WIyVjeDZdg%2BeaABQ%3D%3D", 
+    "title": "contract_second_document.doc", 
+    "hash": "md5:00000000000000000000000000000000", 
+    "format": "application/msword"
+  }
+}
+
+
+201 Created
+Content-Type: application/json; charset=UTF-8
+Location: http://api-sandbox.ea.openprocurement.org/api/2.3/auctions/ca31727f31f243b089cbc005b8fda5ba/contracts/30925f126c174b389a1eed392c9f0c9e/documents/718396f63ab84e5d805f02e0026c9ded
+
+{
+  "data": {
+    "hash": "md5:00000000000000000000000000000000", 
+    "format": "application/msword", 
+    "url": "http://public.docs-sandbox.ea.openprocurement.org/get/88721cf4cae843ee80ce612a2fe1b79b?KeyID=9051732b&Signature=ZA%2FjEQr6RDA%2F7FhI6UstyyAqrqKmIsxU4EyuYfLUVSu8Wj3BPm3E3ypVkeG3dVLIhZm785Un8%2Fr4ZM%252BvC8F0AQ%253D%253D", 
+    "title": "contract_second_document.doc", 
+    "documentOf": "tender", 
+    "datePublished": "2018-03-13T17:49:04.104741+02:00", 
+    "documentType": "prolongationProtocol", 
+    "dateModified": "2018-03-13T17:49:04.104761+02:00", 
+    "id": "718396f63ab84e5d805f02e0026c9ded"
+  }
+}
+

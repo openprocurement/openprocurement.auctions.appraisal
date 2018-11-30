@@ -1,0 +1,54 @@
+GET /api/2.3/auctions/ca31727f31f243b089cbc005b8fda5ba/bids/2d61cec5ecd340d5b72e8193a84ec6e1?acc_token=a2b9dcbe25774fe2a9331a7c5da3b88e HTTP/1.0
+Authorization: Basic YnJva2VyOg==
+Host: api-sandbox.ea.openprocurement.org
+
+
+200 OK
+Content-Type: application/json; charset=UTF-8
+
+{
+  "data": {
+    "status": "active", 
+    "documents": [
+      {
+        "hash": "md5:00000000000000000000000000000000", 
+        "format": "application/pdf", 
+        "url": "http://api-sandbox.ea.openprocurement.org/api/2.3/auctions/ca31727f31f243b089cbc005b8fda5ba/bids/2d61cec5ecd340d5b72e8193a84ec6e1/documents/bc8f62c615d8467fac907dd9b9522d6e?download=90f5ca27a7ea4708a1c3a8e79617a134", 
+        "title": "Proposal.pdf", 
+        "documentOf": "tender", 
+        "datePublished": "2018-03-13T17:49:02.616512+02:00", 
+        "dateModified": "2018-03-13T17:49:02.616532+02:00", 
+        "id": "bc8f62c615d8467fac907dd9b9522d6e"
+      }
+    ], 
+    "eligible": true, 
+    "date": "2018-03-13T17:49:02.490172+02:00", 
+    "qualified": true, 
+    "tenderers": [
+      {
+        "contactPoint": {
+          "email": "soleksuk@gmail.com", 
+          "telephone": "+380 (432) 21-69-30", 
+          "name": "Сергій Олексюк"
+        }, 
+        "identifier": {
+          "scheme": "UA-EDR", 
+          "id": "00137256", 
+          "uri": "http://www.sc.gov.ua/"
+        }, 
+        "name": "ДКП «Школяр»", 
+        "address": {
+          "postalCode": "21100", 
+          "countryName": "Україна", 
+          "streetAddress": "вул. Островського, 33", 
+          "region": "м. Вінниця", 
+          "locality": "м. Вінниця"
+        }
+      }
+    ], 
+    "owner": "broker", 
+    "id": "2d61cec5ecd340d5b72e8193a84ec6e1", 
+    "participationUrl": "http://auction-sandbox.openprocurement.org/insider-auctions/ca31727f31f243b089cbc005b8fda5ba/login?bidder_id=2d61cec5ecd340d5b72e8193a84ec6e1&signature=06SLpa1457CetL%2BUdB3Pza%2B6xacncLA8MFnKtQx%2B%2BFgm94uCVjeSxSqRtVlCIPQR1Ng64Mg5%2BMxy0GDRUFZBCw%3D%3D"
+  }
+}
+

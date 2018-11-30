@@ -1,0 +1,33 @@
+POST /api/2.3/auctions/ca31727f31f243b089cbc005b8fda5ba/contracts/30925f126c174b389a1eed392c9f0c9e/prolongations?acc_token=0ce53b3a0d5d47778c36b80f90b81ad5 HTTP/1.0
+Authorization: Basic YnJva2VyOg==
+Content-Length: 172
+Content-Type: application/json
+Host: api-sandbox.ea.openprocurement.org
+
+{
+  "data": {
+    "decisionID": "ZM-937-99-92", 
+    "reason": "other", 
+    "documents": [], 
+    "description": "Prolongation description", 
+    "datePublished": "2018-03-13T17:48:55.444916+02:00"
+  }
+}
+
+
+201 Created
+Content-Type: application/json; charset=UTF-8
+Location: http://api-sandbox.ea.openprocurement.org/api/2.3/auctions/ca31727f31f243b089cbc005b8fda5ba/contracts/30925f126c174b389a1eed392c9f0c9e/prolongations
+
+{
+  "data": {
+    "status": "draft", 
+    "decisionID": "ZM-937-99-92", 
+    "description": "Prolongation description", 
+    "dateCreated": "2018-03-13T17:48:56.056522+02:00", 
+    "reason": "other", 
+    "datePublished": "2018-03-13T17:48:55.444916+02:00", 
+    "id": "5a7332f6287f4f36ab23e2f00b755a5b"
+  }
+}
+

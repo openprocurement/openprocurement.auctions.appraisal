@@ -1,0 +1,87 @@
+PATCH /api/2.3/auctions/ca31727f31f243b089cbc005b8fda5ba/contracts/30925f126c174b389a1eed392c9f0c9e?acc_token=0ce53b3a0d5d47778c36b80f90b81ad5 HTTP/1.0
+Authorization: Basic YnJva2VyOg==
+Content-Length: 106
+Content-Type: application/json
+Host: api-sandbox.ea.openprocurement.org
+
+{
+  "data": {
+    "period": {
+      "startDate": "2018-03-13T17:48:55.444611", 
+      "endDate": "2019-03-13T17:48:55.444611"
+    }
+  }
+}
+
+
+200 OK
+Content-Type: application/json; charset=UTF-8
+
+{
+  "data": {
+    "status": "pending", 
+    "signingPeriod": {
+      "startDate": "2018-03-13T17:49:03.167518+02:00", 
+      "endDate": "2018-03-13T18:09:02.790434+02:00"
+    }, 
+    "items": [
+      {
+        "description": "Земля для військовослужбовців", 
+        "classification": {
+          "scheme": "CAV", 
+          "description": "Земельні ділянки", 
+          "id": "06000000-2"
+        }, 
+        "address": {
+          "postalCode": "79000", 
+          "countryName": "Україна", 
+          "streetAddress": "вул. Банкова 1", 
+          "region": "м. Київ", 
+          "locality": "м. Київ"
+        }, 
+        "id": "e24b924ada114a0d95d03a8c89eadda7", 
+        "unit": {
+          "code": "44617100-9", 
+          "name": "item"
+        }, 
+        "quantity": 5
+      }
+    ], 
+    "suppliers": [
+      {
+        "contactPoint": {
+          "email": "aagt@gmail.com", 
+          "telephone": "+380 (322) 91-69-30", 
+          "name": "Андрій Олексюк"
+        }, 
+        "identifier": {
+          "scheme": "UA-EDR", 
+          "id": "00137226", 
+          "uri": "http://www.sc.gov.ua/"
+        }, 
+        "name": "ДКП «Книга»", 
+        "address": {
+          "postalCode": "79013", 
+          "countryName": "Україна", 
+          "streetAddress": "вул. Островського, 34", 
+          "region": "м. Львів", 
+          "locality": "м. Львів"
+        }
+      }
+    ], 
+    "period": {
+      "startDate": "2018-03-13T17:48:55.444611+02:00", 
+      "endDate": "2019-03-13T17:48:55.444611+02:00"
+    }, 
+    "value": {
+      "currency": "UAH", 
+      "amount": 479.0, 
+      "valueAddedTaxIncluded": true
+    }, 
+    "date": "2018-03-13T17:49:03.652359+02:00", 
+    "awardID": "7d4e36e2232f45b0910f887feaf23af1", 
+    "id": "30925f126c174b389a1eed392c9f0c9e", 
+    "contractID": "UA-EA-2018-03-13-000001-1"
+  }
+}
+

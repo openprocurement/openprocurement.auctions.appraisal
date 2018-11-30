@@ -1,0 +1,55 @@
+PATCH /api/2.3/auctions/6428763175bc491b9514dc7de4771281/complaints/1fd393d1afab4cb69632391afa3712e9 HTTP/1.0
+Authorization: Basic cmV2aWV3ZXI6
+Content-Length: 31
+Content-Type: application/json
+Host: api-sandbox.ea.openprocurement.org
+
+{
+  "data": {
+    "status": "invalid"
+  }
+}
+
+
+200 OK
+Content-Type: application/json; charset=UTF-8
+
+{
+  "data": {
+    "status": "invalid", 
+    "dateDecision": "2016-09-16T16:17:44.554603+03:00", 
+    "description": "complaint description", 
+    "title": "complaint title", 
+    "resolutionType": "resolved", 
+    "type": "complaint", 
+    "author": {
+      "contactPoint": {
+        "email": "soleksuk@gmail.com", 
+        "telephone": "+380 (432) 21-69-30", 
+        "name": "Сергій Олексюк"
+      }, 
+      "identifier": {
+        "scheme": "UA-EDR", 
+        "id": "00137256", 
+        "uri": "http://www.sc.gov.ua/"
+      }, 
+      "name": "ДКП «Школяр»", 
+      "address": {
+        "postalCode": "21100", 
+        "countryName": "Україна", 
+        "streetAddress": "вул. Островського, 33", 
+        "region": "м. Вінниця", 
+        "locality": "м. Вінниця"
+      }
+    }, 
+    "satisfied": false, 
+    "dateEscalated": "2016-09-16T16:17:44.434853+03:00", 
+    "dateAnswered": "2016-09-16T16:17:44.341476+03:00", 
+    "dateSubmitted": "2016-09-16T16:17:44.001693+03:00", 
+    "complaintID": "UA-EA-2016-09-16-000001.2", 
+    "date": "2016-09-16T16:17:44.560110+03:00", 
+    "resolution": "Виправлено неконкурентні умови", 
+    "id": "1fd393d1afab4cb69632391afa3712e9"
+  }
+}
+

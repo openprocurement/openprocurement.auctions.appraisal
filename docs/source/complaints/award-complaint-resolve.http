@@ -1,0 +1,68 @@
+PATCH /api/2.3/auctions/6428763175bc491b9514dc7de4771281/awards/0be2b9c4dc4b43a8a203b239d726a74f/complaints/fe684319f9dd417fa680a252363f67aa HTTP/1.0
+Authorization: Basic cmV2aWV3ZXI6
+Content-Length: 32
+Content-Type: application/json
+Host: api-sandbox.ea.openprocurement.org
+
+{
+  "data": {
+    "status": "resolved"
+  }
+}
+
+
+200 OK
+Content-Type: application/json; charset=UTF-8
+
+{
+  "data": {
+    "status": "resolved", 
+    "dateDecision": "2016-09-16T16:17:52.929570+03:00", 
+    "documents": [
+      {
+        "dateModified": "2016-09-16T16:17:52.615704+03:00", 
+        "hash": "md5:00000000000000000000000000000000", 
+        "format": "application/pdf", 
+        "url": "http://public.docs-sandbox.ea.openprocurement.org/get/10b2098547f941858fa63609dfefe02d?KeyID=278be238&Signature=e3moEZBo6gWiPI9UAheRHa1w%2FLkWmIs1mj%2FmiMip%252BKzgLNyzIGNpShGzJ9NJOfFzh1SDbsUBIXhFoOomCGB6Dw%253D%253D", 
+        "author": "reviewers", 
+        "documentOf": "tender", 
+        "datePublished": "2016-09-16T16:17:52.615675+03:00", 
+        "title": "ComplaintResolution.pdf", 
+        "id": "ee0fbfdd6e2e4f24b7483cbc8383b520"
+      }
+    ], 
+    "description": "complaint description", 
+    "title": "complaint title", 
+    "resolutionType": "resolved", 
+    "type": "complaint", 
+    "author": {
+      "contactPoint": {
+        "email": "soleksuk@gmail.com", 
+        "telephone": "+380 (432) 21-69-30", 
+        "name": "Сергій Олексюк"
+      }, 
+      "identifier": {
+        "scheme": "UA-EDR", 
+        "id": "00137256", 
+        "uri": "http://www.sc.gov.ua/"
+      }, 
+      "name": "ДКП «Школяр»", 
+      "address": {
+        "postalCode": "21100", 
+        "countryName": "Україна", 
+        "streetAddress": "вул. Островського, 33", 
+        "region": "м. Вінниця", 
+        "locality": "м. Вінниця"
+      }
+    }, 
+    "satisfied": false, 
+    "dateEscalated": "2016-09-16T16:17:51.456780+03:00", 
+    "dateAnswered": "2016-09-16T16:17:51.175990+03:00", 
+    "dateSubmitted": "2016-09-16T16:17:50.911841+03:00", 
+    "complaintID": "UA-EA-2016-09-16-000001.7", 
+    "date": "2016-09-16T16:17:52.943580+03:00", 
+    "resolution": "Виправлено неконкурентні умови", 
+    "id": "fe684319f9dd417fa680a252363f67aa"
+  }
+}
+

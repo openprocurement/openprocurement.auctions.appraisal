@@ -1,0 +1,33 @@
+POST /api/2.3/auctions/dea1897bef8e477799e5d6111f1f83b4/documents?acc_token=2e76fdd27a3f4868a0ffcf73910603eb HTTP/1.0
+Authorization: Basic YnJva2VyOg==
+Content-Length: 332
+Content-Type: application/json
+Host: api-sandbox.ea.openprocurement.org
+
+{
+  "data": {
+    "url": "http://public.docs-sandbox.ea.openprocurement.org/get/4872a0f242cd42f087cda1c137432a4d?KeyID=db300312&Signature=GyfMSuA3xZD24uFYR6InqJdetHIWKHCDhkNB9Arb99caKFsBTdIxXMcI3KQLO5UYUpVXRiWWqsJr3aQykuGvBA%3D%3D", 
+    "title": "AwardCriteria.pdf", 
+    "hash": "md5:00000000000000000000000000000000", 
+    "format": "application/pdf"
+  }
+}
+
+
+201 Created
+Content-Type: application/json; charset=UTF-8
+Location: http://api-sandbox.ea.openprocurement.org/api/2.3/auctions/dea1897bef8e477799e5d6111f1f83b4/documents/05e1d5dcbae84e9f93ed99ed20373a93
+
+{
+  "data": {
+    "hash": "md5:00000000000000000000000000000000", 
+    "format": "application/pdf", 
+    "url": "http://public.docs-sandbox.ea.openprocurement.org/get/4872a0f242cd42f087cda1c137432a4d?KeyID=db300312&Signature=7jI97TtrHrO65Morifrgg1XmIq3nEXiMi%2FDG2LCRbzxSajWaWJQfbXZzp1BxPmbXuclkfovycCyoFpDMM9N3AA%253D%253D", 
+    "title": "AwardCriteria.pdf", 
+    "documentOf": "tender", 
+    "datePublished": "2017-09-27T15:00:47.389161+03:00", 
+    "dateModified": "2017-09-27T15:00:47.389195+03:00", 
+    "id": "05e1d5dcbae84e9f93ed99ed20373a93"
+  }
+}
+
