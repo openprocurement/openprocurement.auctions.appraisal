@@ -22,28 +22,27 @@ from openprocurement.auctions.appraisal.models import AppraisalAuction
 from openprocurement.auctions.appraisal.tests.base import (
     test_insider_auction_data,
     test_organization,
-    BaseInsiderAuctionWebTest, BaseInsiderWebTest,
+    BaseAppraisalAuctionWebTest, BaseAppraisalWebTest,
     test_insider_auction_data_with_schema
 )
 from openprocurement.auctions.appraisal.tests.blanks.tender_blanks import (
-    # InsiderAuctionTest
+    # AppraisalAuctionTest
     create_role,
     edit_role,
-    # InsiderAuctionResourceTest
-    create_auction_in_pending_activation,
+    # AppraisalAuctionResourceTest
     create_auction_invalid,
     create_auction_auctionPeriod,
     create_auction_generated,
     create_auction,
     check_daylight_savings_timezone,
-    # InsiderAuctionProcessTest
+    # AppraisalAuctionProcessTest
     first_bid_auction,
     auctionUrl_in_active_auction,
     suspended_auction
 )
 
 
-class InsiderAuctionTest(BaseInsiderWebTest):
+class AppraisalAuctionTest(BaseAppraisalWebTest):
     auction = AppraisalAuction
     initial_data = test_insider_auction_data
 
@@ -52,7 +51,7 @@ class InsiderAuctionTest(BaseInsiderWebTest):
     test_edit_role = snitch(edit_role)
 
 
-class InsiderAuctionResourceTest(BaseInsiderWebTest, AuctionResourceTestMixin, DgfInsiderResourceTestMixin):
+class AppraisalAuctionResourceTest(BaseAppraisalWebTest, AuctionResourceTestMixin, DgfInsiderResourceTestMixin):
     initial_status = 'active.tendering'
     initial_data = test_insider_auction_data
     initial_organization = test_organization
@@ -64,16 +63,15 @@ class InsiderAuctionResourceTest(BaseInsiderWebTest, AuctionResourceTestMixin, D
     test_create_auction_auctionPeriod = snitch(create_auction_auctionPeriod)
     test_create_auction_generated = snitch(create_auction_generated)
     test_create_auction = snitch(create_auction)
-    test_create_auction_in_pending_activation = snitch(create_auction_in_pending_activation)
 
 
-class InsiderAuctionProcessTest(BaseInsiderAuctionWebTest):
+class AppraisalAuctionProcessTest(BaseAppraisalAuctionWebTest):
     test_financial_organization = test_organization
     docservice = True
 
-    # setUp = BaseInsiderWebTest.setUp
+    # setUp = BaseAppraisalWebTest.setUp
     def setUp(self):
-        super(InsiderAuctionProcessTest.__bases__[0], self).setUp()
+        super(AppraisalAuctionProcessTest.__bases__[0], self).setUp()
 
     def test_auctionParameters(self):
         data = deepcopy(self.initial_data)
@@ -145,7 +143,7 @@ class InsiderAuctionProcessTest(BaseInsiderAuctionWebTest):
     test_suspended_auction = snitch(suspended_auction)
 
 
-class InsiderAuctionSchemaResourceTest(InsiderAuctionResourceTest):
+class AppraisalAuctionSchemaResourceTest(AppraisalAuctionResourceTest):
     initial_data = test_insider_auction_data_with_schema
 
     # def test_create_auction_with_bad_schemas_code(self):
@@ -168,21 +166,21 @@ class InsiderAuctionSchemaResourceTest(InsiderAuctionResourceTest):
     #                      }])
 
 
-class InsiderAuctionSchemaProcessTest(InsiderAuctionProcessTest):
+class AppraisalAuctionSchemaProcessTest(AppraisalAuctionProcessTest):
     initial_data = test_insider_auction_data_with_schema
 
 
-class AuctionExtractCredentialsTest(BaseInsiderAuctionWebTest, ExtractCredentialsMixin):
+class AuctionExtractCredentialsTest(BaseAppraisalAuctionWebTest, ExtractCredentialsMixin):
     pass
 
 
 def suite():
     suite = unittest.TestSuite()
-    suite.addTest(unittest.makeSuite(InsiderAuctionProcessTest))
-    suite.addTest(unittest.makeSuite(InsiderAuctionResourceTest))
-    suite.addTest(unittest.makeSuite(InsiderAuctionTest))
-    suite.addTest(unittest.makeSuite(InsiderAuctionSchemaResourceTest))
-    suite.addTest(unittest.makeSuite(InsiderAuctionSchemaProcessTest))
+    suite.addTest(unittest.makeSuite(AppraisalAuctionProcessTest))
+    suite.addTest(unittest.makeSuite(AppraisalAuctionResourceTest))
+    suite.addTest(unittest.makeSuite(AppraisalAuctionTest))
+    suite.addTest(unittest.makeSuite(AppraisalAuctionSchemaResourceTest))
+    suite.addTest(unittest.makeSuite(AppraisalAuctionSchemaProcessTest))
     suite.addTest(unittest.makeSuite(AuctionExtractCredentialsTest))
     return suite
 

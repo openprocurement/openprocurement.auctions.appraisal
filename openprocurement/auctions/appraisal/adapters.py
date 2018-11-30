@@ -19,7 +19,6 @@ from openprocurement.auctions.appraisal.constants import (
     DUTCH_PERIOD,
     QUICK_DUTCH_PERIOD
 )
-from openprocurement.auctions.appraisal.validation import validate_post_auction_status_role
 
 
 class AuctionAppraisalConfigurator(AuctionConfigurator,
@@ -30,17 +29,12 @@ class AuctionAppraisalConfigurator(AuctionConfigurator,
 
 
 class AuctionAppraisalManagerAdapter(AuctionManagerAdapter):
-    create_validation = (validate_post_auction_status_role,)
+    create_validation = []
 
     def create_auction(self, request):
         self._validate(request, self.create_validation)
 
         auction = request.validated['auction']
-
-        for i in request.validated['json_data'].get('documents', []):
-            document = type(auction).documents.model_class(i)
-            document.__parent__ = auction
-            auction.documents.append(document)
 
         if not auction.enquiryPeriod:
             auction.enquiryPeriod = type(auction).enquiryPeriod.model_class()

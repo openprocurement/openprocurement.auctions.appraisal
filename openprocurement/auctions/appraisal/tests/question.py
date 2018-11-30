@@ -3,16 +3,16 @@ import unittest
 
 from openprocurement.auctions.core.tests.question import AuctionQuestionResourceTestMixin
 
-from openprocurement.auctions.appraisal.tests.base import BaseInsiderAuctionWebTest
+from openprocurement.auctions.appraisal.tests.base import BaseAppraisalAuctionWebTest
 
 
-class InsiderAuctionQuestionResourceTest(BaseInsiderAuctionWebTest, AuctionQuestionResourceTestMixin):
+class AppraisalAuctionQuestionResourceTest(BaseAppraisalAuctionWebTest, AuctionQuestionResourceTestMixin):
     pass
 
 
 def suite():
     tests = unittest.TestSuite()
-    tests.addTest(unittest.makeSuite(InsiderAuctionQuestionResourceTest))
+    tests.addTest(unittest.makeSuite(AppraisalAuctionQuestionResourceTest))
     return tests
 
 

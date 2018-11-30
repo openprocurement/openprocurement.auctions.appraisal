@@ -3,7 +3,7 @@ from datetime import timedelta
 
 from openprocurement.auctions.core.utils import get_now
 
-# InsiderAuctionAuctionResourceTest
+# AppraisalAuctionAuctionResourceTest
 
 
 def get_auction_auction(self):
@@ -184,7 +184,7 @@ def patch_auction_auction(self):
     self.assertEqual(response.json['errors'][0]["description"],
                      "Can't update auction urls in current (complete) auction status")
 
-# InsiderAuctionBidInvalidationAuctionResourceTest
+# AppraisalAuctionBidInvalidationAuctionResourceTest
 
 
 def post_auction_all_invalid_bids(self):
@@ -290,7 +290,7 @@ def post_auction_zero_bids(self):
 
     self.assertEqual('unsuccessful', auction["status"])
 
-# InsiderAuctionDraftBidAuctionResourceTest
+# AppraisalAuctionDraftBidAuctionResourceTest
 
 
 def post_auction_all_draft_bids(self):
@@ -315,7 +315,7 @@ def post_auction_all_draft_bids(self):
         self.assertNotIn("bids", auction)
         self.assertEqual('unsuccessful', auction["status"])
 
-# InsiderAuctionSameValueAuctionResourceTest
+# AppraisalAuctionSameValueAuctionResourceTest
 
 
 def post_auction_auction_not_changed(self):
@@ -369,7 +369,7 @@ def post_auction_auction_reversed(self):
         self.assertEqual(auction["awards"][0]['value']['amount'], patch_data['bids'][2]['value']['amount'])
         self.assertEqual(auction["awards"][0]['suppliers'], self.initial_bids[2]['tenderers'])
 
-# InsiderAuctionNoBidsResourceTest
+# AppraisalAuctionNoBidsResourceTest
 
 
 def post_auction_no_bids(self):

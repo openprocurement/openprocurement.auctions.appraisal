@@ -19,7 +19,7 @@ from openprocurement.auctions.appraisal.constants import TENDER_PERIOD_STATUSES
             path='/auctions/{auction_id}/bids/{bid_id}',
             auctionsprocurementMethodType="appraisal",
             description="Appraisal auction bids")
-class InsiderAuctionBidResource(AuctionBidResource):
+class AppraisalAuctionBidResource(AuctionBidResource):
 
     @json_view(content_type="application/json", permission='create_bid', validators=(validate_bid_data,))
     def collection_post(self):

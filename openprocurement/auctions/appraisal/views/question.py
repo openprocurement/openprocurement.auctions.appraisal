@@ -19,7 +19,7 @@ from openprocurement.auctions.core.views.mixins import AuctionQuestionResource
             path='/auctions/{auction_id}/questions/{question_id}',
             auctionsprocurementMethodType="appraisal",
             description="appraisal:Auction questions")
-class InsiderAuctionQuestionResource(AuctionQuestionResource):
+class AppraisalAuctionQuestionResource(AuctionQuestionResource):
 
     @json_view(content_type="application/json", validators=(validate_question_data,), permission='create_question')
     def collection_post(self):

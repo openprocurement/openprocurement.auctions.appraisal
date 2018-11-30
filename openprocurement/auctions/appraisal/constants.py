@@ -18,14 +18,15 @@ VIEW_LOCATIONS = [
     "openprocurement.auctions.appraisal.views",
 ]
 
-DEFAULT_PROCUREMENT_METHOD_TYPE = "sellout.insider"
+DEFAULT_PROCUREMENT_METHOD_TYPE = "insider"
 
 AUCTION_STATUSES = [
-    'draft', 'pending.activation', 'active.tendering', 'active.auction', 'active.qualification',
+    'draft', 'active.tendering', 'active.auction', 'active.qualification',
     'active.awarded', 'complete', 'cancelled', 'unsuccessful'
 ]
 
 CONTRACT_TYPES = ['yoke']
 
-DEFAULT_LEVEL_OF_ACCREDITATION = {'create': [3],
-                                  'edit': [4]}
+DEFAULT_LEVEL_OF_ACCREDITATION = {'create': [1],
+                                  'edit': [2]}
+

@@ -22,7 +22,7 @@ from openprocurement.auctions.core.views.mixins import AuctionComplaintDocumentR
             path='/auctions/{auction_id}/complaints/{complaint_id}/documents/{document_id}',
             auctionsprocurementMethodType="appraisal",
             description="Appraisal auction complaint documents")
-class InsiderComplaintDocumentResource(AuctionComplaintDocumentResource):
+class AppraisalComplaintDocumentResource(AuctionComplaintDocumentResource):
 
     @json_view(validators=(validate_file_upload,), permission='edit_complaint')
     def collection_post(self):

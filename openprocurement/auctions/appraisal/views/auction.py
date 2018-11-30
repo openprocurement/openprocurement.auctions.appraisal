@@ -21,7 +21,7 @@ from openprocurement.auctions.appraisal.validation import (
             path='/auctions/{auction_id}/auction/{auction_lot_id}',
             auctionsprocurementMethodType="appraisal",
             description="Appraisal auction auction data")
-class InsiderAuctionAuctionResource(AuctionAuctionResource):
+class AppraisalAuctionAuctionResource(AuctionAuctionResource):
 
     @json_view(permission='auction')
     def collection_get(self):

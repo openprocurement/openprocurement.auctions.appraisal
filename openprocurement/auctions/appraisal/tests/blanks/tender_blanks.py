@@ -14,7 +14,7 @@ from openprocurement.auctions.appraisal.constants import (
     CONTRACT_TYPES
 )
 
-# InsiderAuctionTest
+# AppraisalAuctionTest
 
 
 def create_role(self):
@@ -23,10 +23,10 @@ def create_role(self):
         'description', 'description_en', 'description_ru', 'tenderAttempts',
         'features', 'guarantee', 'hasEnquiries', 'items', 'lots', 'minimalStep', 'mode',
         'procurementMethodRationale', 'procurementMethodRationale_en', 'procurementMethodRationale_ru',
-        'procurementMethodType', 'procuringEntity', 'status', 'contractTerms',
+        'procurementMethodType', 'procuringEntity', 'status',
         'submissionMethodDetails', 'submissionMethodDetails_en', 'submissionMethodDetails_ru',
-        'title', 'title_en', 'title_ru', 'value', 'auctionPeriod',
-        'auctionParameters', 'merchandisingObject', 'bankAccount', 'registrationFee',
+        'title', 'title_en', 'title_ru', 'value', 'auctionPeriod', 'lotIdentifier',
+        'auctionParameters', 'bankAccount', 'registrationFee',
     ])
     if SANDBOX_MODE:
         fields.add('procurementMethodDetails')
@@ -34,7 +34,12 @@ def create_role(self):
 
 
 def edit_role(self):
-    fields = set([])
+    fields = set([
+        'bankAccount', 'description', 'title', 'title_en', 'title_ru',
+        'minimalStep', 'items', 'tenderAttempts', 'description', 'description_en',
+        'description_ru', 'registrationFee', 'guarantee', 'hasEnquiries', 'lotIdentifier',
+        'features'
+    ])
     role = self.auction._options.roles['edit_active.tendering']
     if role.function.__name__ == 'blacklist':
         self.assertEqual(set(self.auction._fields) - role.fields, fields)
@@ -42,7 +47,7 @@ def edit_role(self):
         self.assertEqual(set(self.auction._fields).intersection(role.fields), fields)
 
 
-# InsiderAuctionResourceTest
+# AppraisalAuctionResourceTest
 
 
 def create_auction_invalid(self):
@@ -254,15 +259,6 @@ def create_auction_invalid(self):
         {u'description': {u'contactPoint': {u'email': [u'telephone or email should be present']}}, u'location': u'body', u'name': u'procuringEntity'}
     ])
 
-    self.initial_data['contractTerms'] = {'type': 'wrong_type'}
-    response = self.app.post_json(request_path, {'data': self.initial_data}, status=422)
-    del self.initial_data["contractTerms"]
-    self.assertEqual(response.status, '422 Unprocessable Entity')
-    self.assertEqual(response.content_type, 'application/json')
-    self.assertEqual(response.json['status'], 'error')
-    self.assertEqual(response.json['errors'], [
-        {u'description': [u'type must be one of {}'.format(CONTRACT_TYPES)], u'location': u'body', u'name': u'contractTerms'}
-    ])
 
 
 def create_auction_auctionPeriod(self):
@@ -290,23 +286,6 @@ def create_auction_auctionPeriod(self):
         self.assertGreater(parse_date(auction['tenderPeriod']['endDate']).time(), parse_date(auction['auctionPeriod']['shouldStartAfter'], TZ).time())
 
 
-def create_auction_in_pending_activation(self):
-    not_used_transfer = self.app.post_json('/transfers', {"data": {}}).json
-    self.app.authorization = ('Basic', ('concierge', ''))
-    transfer_token = sha512(not_used_transfer['access']['transfer']).hexdigest()
-    data = deepcopy(self.initial_data)
-    data['transfer_token'] = transfer_token
-    data['status'] = 'pending.activation'
-    data['merchandisingObject'] = uuid4().hex
-
-    response = self.app.post_json('/auctions', {'data': data})
-    self.assertEqual(response.status, '201 Created')
-    self.assertEqual(response.content_type, 'application/json')
-    self.assertEqual(response.json['data']['status'], data['status'])
-    self.assertEqual(response.json['data']['merchandisingObject'], data['merchandisingObject'])
-    self.assertNotIn('transfer', response.json['access'])
-
-
 def create_auction_generated(self):
     document = {
         'id': '1' * 32,
@@ -316,8 +295,6 @@ def create_auction_generated(self):
         'format': 'application/msword',
         'datePublished': get_now().isoformat(),
         'dateModified': get_now().isoformat(),
-        'documentOf': 'lot',
-        'relatedItem': '2' * 32
     }
 
     data = self.initial_data.copy()
@@ -335,13 +312,12 @@ def create_auction_generated(self):
         u'procurementMethodType', u'id', u'date', u'dateModified', u'auctionID', u'status', u'enquiryPeriod',
         u'tenderPeriod', u'minimalStep', u'items', u'value', u'procuringEntity', u'next_check',
         u'procurementMethod', u'awardCriteria', u'submissionMethod', u'title', u'owner', u'auctionPeriod',
-        u'documents', u'tenderAttempts', u'auctionParameters', u'bankAccount', u'registrationFee'
+        u'tenderAttempts', u'auctionParameters', u'bankAccount', u'registrationFee', u'lotIdentifier'
     ]))
     self.assertNotEqual(data['id'], auction['id'])
     self.assertNotEqual(data['doc_id'], auction['id'])
     self.assertNotEqual(data['auctionID'], auction['auctionID'])
     # Check all field of document in post data appear in created auction
-    self.assertEqual(document, auction['documents'][0])
 
 
 def create_auction(self):
@@ -419,7 +395,7 @@ def check_daylight_savings_timezone(self):
         list_of_timezone_bools.append(timezone_before != timezone_after)
     self.assertTrue(any(list_of_timezone_bools))
 
-# InsiderAuctionProcessTest
+# AppraisalAuctionProcessTest
 
 
 def first_bid_auction(self):

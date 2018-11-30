@@ -29,8 +29,8 @@ PARTIAL_MOCK_CONFIG = {
         "migration": False,
         "aliases": [],
         "accreditation": {
-            "create": [3],
-            "edit": [4]
+            "create": [1],
+            "edit": [2]
         }
     }
 }
@@ -55,6 +55,7 @@ MOCK_CONFIG = connection_mock_config(
 )
 
 test_insider_auction_data = deepcopy(test_auction_data)
+test_insider_auction_data['lotIdentifier'] = 'Q24421K222'
 for item in test_insider_auction_data['items']:
     item['classification']['scheme'] = 'CPV'
     item['classification']['id'] = '51413000-0'
@@ -141,7 +142,7 @@ for data in test_insider_auction_data, test_insider_auction_data_with_schema:
     del data['minimalStep']
 
 
-class BaseInsiderWebTest(BaseWebTest):
+class BaseAppraisalWebTest(BaseWebTest):
 
     """Base Web Test to test openprocurement.auctions.appraisal.
 
@@ -152,7 +153,7 @@ class BaseInsiderWebTest(BaseWebTest):
     mock_config = MOCK_CONFIG
 
 
-class BaseInsiderAuctionWebTest(BaseAuctionWebTest):
+class BaseAppraisalAuctionWebTest(BaseAuctionWebTest):
     relative_to = os.path.dirname(__file__)
     initial_data = test_insider_auction_data
     initial_organization = test_organization

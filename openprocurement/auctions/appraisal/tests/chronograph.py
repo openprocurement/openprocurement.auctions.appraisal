@@ -4,9 +4,9 @@ from datetime import timedelta
 
 from openprocurement.auctions.core.tests.base import snitch
 from openprocurement.auctions.core.tests.blanks.chronograph_blanks import (
-    # InsiderAuctionSwitchAuctionResourceTest
+    # AppraisalAuctionSwitchAuctionResourceTest
     switch_to_auction,
-    # InsiderAuctionDontSwitchSuspendedAuction2ResourceTest
+    # AppraisalAuctionDontSwitchSuspendedAuction2ResourceTest
     switch_suspended_auction_to_auction,
 )
 from openprocurement.auctions.core.tests.plugins.awarding.v3_1.tests.chronograph import (
@@ -17,34 +17,34 @@ from openprocurement.auctions.core.tests.plugins.awarding.v3_1.tests.chronograph
 from openprocurement.auctions.core.utils import get_now
 
 from openprocurement.auctions.appraisal.tests.base import (
-    BaseInsiderAuctionWebTest, test_bids,
+    BaseAppraisalAuctionWebTest, test_bids,
 )
 from openprocurement.auctions.appraisal.tests.blanks.chronograph_blanks import (
-    # InsiderAuctionAuctionPeriodResourceTest
+    # AppraisalAuctionAuctionPeriodResourceTest
     set_auction_period,
     reset_auction_period
 )
 
 
-class InsiderAuctionSwitchAuctionResourceTest(BaseInsiderAuctionWebTest):
+class AppraisalAuctionSwitchAuctionResourceTest(BaseAppraisalAuctionWebTest):
     initial_bids = test_bids
 
     test_switch_to_auction = snitch(switch_to_auction)
 
 
-class InsiderAuctionAuctionPeriodResourceTest(BaseInsiderAuctionWebTest):
+class AppraisalAuctionAuctionPeriodResourceTest(BaseAppraisalAuctionWebTest):
     initial_bids = test_bids
 
     test_set_auction_period = snitch(set_auction_period)
     test_reset_auction_period = snitch(reset_auction_period)
 
 
-class InsiderAuctionAwardSwitchResourceTest(BaseInsiderAuctionWebTest, AuctionAwardSwitchResourceTestMixin):
+class AppraisalAuctionAwardSwitchResourceTest(BaseAppraisalAuctionWebTest, AuctionAwardSwitchResourceTestMixin):
     initial_status = 'active.auction'
     initial_bids = test_bids
 
     def setUp(self):
-        super(InsiderAuctionAwardSwitchResourceTest, self).setUp()
+        super(AppraisalAuctionAwardSwitchResourceTest, self).setUp()
         authorization = self.app.authorization
         self.app.authorization = ('Basic', ('auction', ''))
         now = get_now()
@@ -79,12 +79,12 @@ class InsiderAuctionAwardSwitchResourceTest(BaseInsiderAuctionWebTest, AuctionAw
 
 
 
-class InsiderAuctionAwardSwitch2ResourceTest(BaseInsiderAuctionWebTest):
+class AppraisalAuctionAwardSwitch2ResourceTest(BaseAppraisalAuctionWebTest):
     initial_status = 'active.auction'
     initial_bids = test_bids
 
     def setUp(self):
-        super(InsiderAuctionAwardSwitch2ResourceTest, self).setUp()
+        super(AppraisalAuctionAwardSwitch2ResourceTest, self).setUp()
         authorization = self.app.authorization
         self.app.authorization = ('Basic', ('auction', ''))
 
@@ -119,7 +119,7 @@ class InsiderAuctionAwardSwitch2ResourceTest(BaseInsiderAuctionWebTest):
         self.app.authorization = authorization
 
 
-class InsiderAuctionDontSwitchSuspendedAuction2ResourceTest(BaseInsiderAuctionWebTest):
+class AppraisalAuctionDontSwitchSuspendedAuction2ResourceTest(BaseAppraisalAuctionWebTest):
     initial_bids = test_bids
 
     test_switch_suspended_auction_to_auction = snitch(switch_suspended_auction_to_auction)
@@ -128,11 +128,11 @@ class InsiderAuctionDontSwitchSuspendedAuction2ResourceTest(BaseInsiderAuctionWe
 
 def suite():
     tests = unittest.TestSuite()
-    tests.addTest(unittest.makeSuite(InsiderAuctionSwitchAuctionResourceTest))
-    tests.addTest(unittest.makeSuite(InsiderAuctionAuctionPeriodResourceTest))
-    tests.addTest(unittest.makeSuite(InsiderAuctionAwardSwitchResourceTest))
-    tests.addTest(unittest.makeSuite(InsiderAuctionAwardSwitch2ResourceTest))
-    tests.addTest(unittest.makeSuite(InsiderAuctionDontSwitchSuspendedAuction2ResourceTest))
+    tests.addTest(unittest.makeSuite(AppraisalAuctionSwitchAuctionResourceTest))
+    tests.addTest(unittest.makeSuite(AppraisalAuctionAuctionPeriodResourceTest))
+    tests.addTest(unittest.makeSuite(AppraisalAuctionAwardSwitchResourceTest))
+    tests.addTest(unittest.makeSuite(AppraisalAuctionAwardSwitch2ResourceTest))
+    tests.addTest(unittest.makeSuite(AppraisalAuctionDontSwitchSuspendedAuction2ResourceTest))
     return tests
 
 

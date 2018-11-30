@@ -16,12 +16,10 @@ from openprocurement.api.models.schema import (
 from openprocurement.auctions.core.models import (
     Auction as BaseAuction,
     LokiItem as Item,
-    swiftsureDocument,
-    swiftsureBidDocument,
-    dgfComplaint as Complaint,
-    swiftsureCancellation,
+    dgfCDB2Document,
+    dgfCDB2Complaint as Complaint,
+    dgfCancellation,
     AuctionParameters,
-    ContractTerms,
     appraisal_auction_roles,
     ComplaintModelType,
     Model,
@@ -70,6 +68,8 @@ validate_contract_type = partial(validate_contract_type, choices=CONTRACT_TYPES)
 
 
 class AppraisalAuctionParameters(AuctionParameters):
+    dutchSteps = IntType(min_value=1, max_value=99, default=80)
+
     class Options:
         roles = {
             'create': blacklist()
@@ -109,7 +109,7 @@ class Bid(BaseBid):
 
     status = StringType(choices=['active', 'draft', 'invalid'], default='active')
     qualified = BooleanType(required=True, choices=[True])
-    documents = ListType(ModelType(swiftsureBidDocument), default=list())
+    documents = ListType(ModelType(dgfCDB2Document), default=list())
     eligible = BooleanType(required=True, choices=[True])
 
     def validate_value(self, data, value):
@@ -142,10 +142,10 @@ class AppraisalAuction(BaseAuction):
         roles = appraisal_auction_roles
     _internal_type = "appraisal"
     awards = ListType(ModelType(Award), default=list())
-    cancellations = ListType(ModelType(swiftsureCancellation), default=list())
+    cancellations = ListType(ModelType(dgfCancellation), default=list())
     complaints = ListType(ComplaintModelType(Complaint), default=list())
     contracts = ListType(ModelType(Contract), default=list())
-    documents = ListType(ModelType(swiftsureDocument), default=list())  # All documents and attachments related to the auction.
+    documents = ListType(ModelType(dgfCDB2Document), default=list())  # All documents and attachments related to the auction.
     enquiryPeriod = ModelType(Period)  # The period during which enquiries may be made and will be answered.
     tenderPeriod = ModelType(Period)  # The period when the auction is open for submissions. The end date is the closing date for auction submissions.
     tenderAttempts = IntType(choices=[1, 2, 3, 4, 5, 6, 7, 8])
@@ -154,7 +154,6 @@ class AppraisalAuction(BaseAuction):
     lots = ListType(ModelType(Lot), default=list(), validators=[validate_lots_uniq, validate_not_available])
     items = ListType(ModelType(Item), required=True, min_size=1, validators=[validate_items_uniq])
     suspended = BooleanType()
-    merchandisingObject = MD5Type()
     bids = ListType(ModelType(Bid), default=list())  # A list of all the companies who entered submissions for the auction.
     auctionPeriod = ModelType(AuctionAuctionPeriod, required=True, default={})
     auctionParameters = ModelType(AppraisalAuctionParameters)
@@ -162,7 +161,7 @@ class AppraisalAuction(BaseAuction):
     registrationFee = ModelType(Guarantee)
     bankAccount = ModelType(BankAccount)
     procuringEntity = ModelType(SwiftsureProcuringEntity, required=True)
-    contractTerms = ModelType(ContractTerms, validators=[validate_contract_type])
+    lotIdentifier = StringType(required=True)
 
     def __acl__(self):
         return [
@@ -182,6 +181,8 @@ class AppraisalAuction(BaseAuction):
             role = 'auction_{}'.format(request.method.lower())
         elif request.authenticated_role == 'convoy':
             role = 'convoy'
+        elif request.authenticated_role == 'concierge':
+            role = 'concierge'
         else:
             role = 'edit_{}'.format(request.context.status)
         return role

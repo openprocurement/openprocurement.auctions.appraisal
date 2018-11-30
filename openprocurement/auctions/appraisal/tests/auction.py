@@ -7,32 +7,32 @@ from openprocurement.auctions.core.tests.blanks.auction_blanks import (
     post_auction_auction_document
 )
 from openprocurement.auctions.appraisal.tests.base import (
-    BaseInsiderAuctionWebTest,
+    BaseAppraisalAuctionWebTest,
     test_bids,
     test_organization,
     test_insider_auction_data
 )
 from openprocurement.auctions.appraisal.tests.blanks.auction_blanks import (
-    # InsiderAuctionAuctionResourceTest
+    # AppraisalAuctionAuctionResourceTest
     get_auction_auction,
     post_auction_auction,
     patch_auction_auction,
-    # InsiderAuctionBidInvalidationAuctionResourceTest
+    # AppraisalAuctionBidInvalidationAuctionResourceTest
     post_auction_all_invalid_bids,
     post_auction_one_bid_without_value,
     post_auction_zero_bids,
     post_auction_one_valid_bid,
-    # InsiderAuctionDraftBidAuctionResourceTest
+    # AppraisalAuctionDraftBidAuctionResourceTest
     post_auction_all_draft_bids,
-    # InsiderAuctionSameValueAuctionResourceTest
+    # AppraisalAuctionSameValueAuctionResourceTest
     post_auction_auction_not_changed,
     post_auction_auction_reversed,
-    # InsiderAuctionNoBidsResourceTest
+    # AppraisalAuctionNoBidsResourceTest
     post_auction_no_bids
 )
 
 
-class InsiderAuctionAuctionResourceTest(BaseInsiderAuctionWebTest):
+class AppraisalAuctionAuctionResourceTest(BaseAppraisalAuctionWebTest):
     initial_status = 'active.tendering'
     initial_bids = test_bids
 
@@ -43,7 +43,7 @@ class InsiderAuctionAuctionResourceTest(BaseInsiderAuctionWebTest):
     test_post_auction_auction_document = snitch(post_auction_auction_document)
 
 
-class InsiderAuctionBidInvalidationAuctionResourceTest(BaseInsiderAuctionWebTest):
+class AppraisalAuctionBidInvalidationAuctionResourceTest(BaseAppraisalAuctionWebTest):
     initial_status = 'active.auction'
     initial_data = test_insider_auction_data
     initial_bids = [
@@ -63,7 +63,7 @@ class InsiderAuctionBidInvalidationAuctionResourceTest(BaseInsiderAuctionWebTest
     test_post_auction_one_valid_bid = snitch(post_auction_one_valid_bid)
 
 
-class InsiderAuctionDraftBidAuctionResourceTest(BaseInsiderAuctionWebTest):
+class AppraisalAuctionDraftBidAuctionResourceTest(BaseAppraisalAuctionWebTest):
     initial_status = 'active.auction'
     # initial_data = test_insider_auction_data
     initial_bids = [
@@ -81,7 +81,7 @@ class InsiderAuctionDraftBidAuctionResourceTest(BaseInsiderAuctionWebTest):
     test_post_auction_all_draft_bids = snitch(post_auction_all_draft_bids)
 
 
-class InsiderAuctionSameValueAuctionResourceTest(BaseInsiderAuctionWebTest):
+class AppraisalAuctionSameValueAuctionResourceTest(BaseAppraisalAuctionWebTest):
     initial_status = 'active.auction'
     initial_bids = [
         {
@@ -98,7 +98,7 @@ class InsiderAuctionSameValueAuctionResourceTest(BaseInsiderAuctionWebTest):
     test_post_auction_auction_reversed = snitch(post_auction_auction_reversed)
 
 
-class InsiderAuctionNoBidsResourceTest(BaseInsiderAuctionWebTest):
+class AppraisalAuctionNoBidsResourceTest(BaseAppraisalAuctionWebTest):
     initial_status = 'active.auction'
 
     test_post_auction_zero_bids = snitch(post_auction_no_bids)
@@ -106,11 +106,11 @@ class InsiderAuctionNoBidsResourceTest(BaseInsiderAuctionWebTest):
 
 def suite():
     tests = unittest.TestSuite()
-    tests.addTest(unittest.makeSuite(InsiderAuctionAuctionResourceTest))
-    tests.addTest(unittest.makeSuite(InsiderAuctionBidInvalidationAuctionResourceTest))
-    tests.addTest(unittest.makeSuite(InsiderAuctionDraftBidAuctionResourceTest))
-    tests.addTest(unittest.makeSuite(InsiderAuctionSameValueAuctionResourceTest))
-    tests.addTest(unittest.makeSuite(InsiderAuctionNoBidsResourceTest))
+    tests.addTest(unittest.makeSuite(AppraisalAuctionAuctionResourceTest))
+    tests.addTest(unittest.makeSuite(AppraisalAuctionBidInvalidationAuctionResourceTest))
+    tests.addTest(unittest.makeSuite(AppraisalAuctionDraftBidAuctionResourceTest))
+    tests.addTest(unittest.makeSuite(AppraisalAuctionSameValueAuctionResourceTest))
+    tests.addTest(unittest.makeSuite(AppraisalAuctionNoBidsResourceTest))
     return tests
 
 

@@ -22,7 +22,7 @@ from openprocurement.auctions.core.views.mixins import AuctionDocumentResource
             path='/auctions/{auction_id}/documents/{document_id}',
             auctionsprocurementMethodType="appraisal",
             description="Appraisal auction related binary files (PDFs, etc.)")
-class InsiderAuctionDocumentResource(AuctionDocumentResource):
+class AppraisalAuctionDocumentResource(AuctionDocumentResource):
 
     @json_view(permission='upload_auction_documents', validators=(validate_file_upload,))
     def collection_post(self):

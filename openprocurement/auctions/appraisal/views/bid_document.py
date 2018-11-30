@@ -13,7 +13,7 @@ from openprocurement.auctions.appraisal.constants import TENDER_PERIOD_STATUSES
             path='/auctions/{auction_id}/bids/{bid_id}/documents/{document_id}',
             auctionsprocurementMethodType="appraisal",
             description="Appraisal auction bidder documents")
-class InsiderAuctionBidDocumentResource(AuctionBidDocumentResource):
+class AppraisalAuctionBidDocumentResource(AuctionBidDocumentResource):
 
     def validate_bid_document(self, operation):
         auction = self.request.validated['auction']

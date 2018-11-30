@@ -5,7 +5,7 @@ from libnacl.sign import Signer, Verifier
 
 from openprocurement.auctions.core.tests.base import JSON_RENDERER_ERROR
 
-# InsiderAuctionBidderResourceTest
+# AppraisalAuctionBidderResourceTest
 
 
 def create_auction_bidder_invalid(self):
@@ -471,7 +471,7 @@ def bid_Administrator_change(self):
     self.assertEqual(response.content_type, 'application/json')
     self.assertEqual(response.json['data']["tenderers"][0]["identifier"]["id"], "00000000")
 
-# InsiderAuctionBidderDocumentResourceTest
+# AppraisalAuctionBidderDocumentResourceTest
 
 
 def create_auction_bidder_document_nopending(self):

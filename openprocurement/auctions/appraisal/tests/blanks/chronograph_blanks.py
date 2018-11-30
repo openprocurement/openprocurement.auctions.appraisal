@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from openprocurement.auctions.core.utils import get_now
 
-# InsiderAuctionAuctionPeriodResourceTest
+# AppraisalAuctionAuctionPeriodResourceTest
 
 
 def set_auction_period(self):

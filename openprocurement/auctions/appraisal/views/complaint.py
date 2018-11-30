@@ -21,7 +21,7 @@ from openprocurement.auctions.core.views.mixins import AuctionComplaintResource
             path='/auctions/{auction_id}/complaints/{complaint_id}',
             auctionsprocurementMethodType="appraisal",
             description="Appraisal auction complaints")
-class InsiderAuctionComplaintResource(AuctionComplaintResource):
+class AppraisalAuctionComplaintResource(AuctionComplaintResource):
 
     @json_view(content_type="application/json", validators=(validate_complaint_data,), permission='nobody')
     def collection_post(self):

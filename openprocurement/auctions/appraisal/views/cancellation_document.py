@@ -11,5 +11,5 @@ from openprocurement.auctions.core.views.mixins import AuctionCancellationDocume
             path='/auctions/{auction_id}/cancellations/{cancellation_id}/documents/{document_id}',
             auctionsprocurementMethodType="appraisal",
             description="Appraisal auction cancellation documents")
-class InsiderAuctionCancellationDocumentResource(AuctionCancellationDocumentResource):
+class AppraisalAuctionCancellationDocumentResource(AuctionCancellationDocumentResource):
     pass

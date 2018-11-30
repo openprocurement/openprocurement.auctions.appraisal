@@ -13,7 +13,7 @@ from openprocurement.auctions.core.utils import get_now
 import openprocurement.auctions.appraisal.tests.base as base_test
 from openprocurement.auctions.appraisal.tests.base import (
     test_insider_auction_data as base_test_auction_data,
-    BaseInsiderAuctionWebTest
+    BaseAppraisalAuctionWebTest
 )
 
 
@@ -237,7 +237,7 @@ class DumpsTestAppwebtest(TestApp):
         return resp
 
 
-class AuctionResourceTest(BaseInsiderAuctionWebTest):
+class AuctionResourceTest(BaseAppraisalAuctionWebTest):
     initial_data = test_auction_data
     initial_bids = test_bids
     docservice = True

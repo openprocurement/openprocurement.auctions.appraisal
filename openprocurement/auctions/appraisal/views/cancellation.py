@@ -11,7 +11,7 @@ from openprocurement.auctions.core.views.mixins import AuctionCancellationResour
             path='/auctions/{auction_id}/cancellations/{cancellation_id}',
             auctionsprocurementMethodType="appraisal",
             description="Appraisal auction cancellations")
-class InsiderAuctionCancellationResource(AuctionCancellationResource):
+class AppraisalAuctionCancellationResource(AuctionCancellationResource):
 
     def cancel_lot(self, cancellation=None):
 

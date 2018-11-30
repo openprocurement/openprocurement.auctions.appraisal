@@ -19,7 +19,7 @@ from openprocurement.auctions.core.views.mixins import AuctionLotResource
             path='/auctions/{auction_id}/lots/{lot_id}',
             auctionsprocurementMethodType="appraisal",
             description="Appraisal auction lots")
-class InsiderAuctionLotResource(AuctionLotResource):
+class AppraisalAuctionLotResource(AuctionLotResource):
 
     @json_view(content_type="application/json", validators=(validate_lot_data,), permission='edit_auction')
     def collection_post(self):
