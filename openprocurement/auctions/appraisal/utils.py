@@ -8,7 +8,7 @@ from openprocurement.auctions.core.utils import (
     TZ,
 )
 from openprocurement.auctions.core.interfaces import IAuctionManager
-from openprocurement.auctions.core.models import AUCTION_STAND_STILL_TIME
+from openprocurement.auctions.core.models.schema import AUCTION_STAND_STILL_TIME
 
 from openprocurement.auctions.appraisal.constants import (
     STAGE_TIMEDELTA,

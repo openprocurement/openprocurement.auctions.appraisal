@@ -12,21 +12,26 @@ from zope.interface import implementer
 
 from openprocurement.api.models.schema import (
     SwiftsureProcuringEntity,
+    LokiItem as Item
 )
-from openprocurement.auctions.core.models import (
+from openprocurement.auctions.core.interfaces import (
+    IAuction
+)
+
+from openprocurement.auctions.core.models.roles import (
+    appraisal_auction_roles,
+)
+from openprocurement.auctions.core.models.schema import (
     Auction as BaseAuction,
-    LokiItem as Item,
     dgfCDB2Document,
     dgfCDB2Complaint as Complaint,
     dgfCancellation,
     AuctionParameters,
-    appraisal_auction_roles,
     ComplaintModelType,
     Model,
     ListType,
     Value,
     Period,
-    IAuction,
     get_auction,
     Bid as BaseBid,
     Feature,
