@@ -9,6 +9,7 @@ from openprocurement.auctions.core.tests.base import (
     test_organization as base_test_organization,
     test_auction_data, base_test_bids, test_document_data,
     MOCK_CONFIG as BASE_MOCK_CONFIG,
+    test_item_data
 )
 from openprocurement.auctions.core.utils import (
     apply_data_patch,
@@ -59,7 +60,6 @@ test_insider_auction_data['lotIdentifier'] = 'Q24421K222'
 for item in test_insider_auction_data['items']:
     item['classification']['scheme'] = 'CPV'
     item['classification']['id'] = '51413000-0'
-    item['registrationDetails'] = {"status": "unknown"}
 
 test_insider_auction_data['auctionParameters'] = {
     'type': 'insider',
@@ -141,6 +141,29 @@ for data in test_insider_auction_data, test_insider_auction_data_with_schema:
     data["procurementMethodType"] = DEFAULT_PROCUREMENT_METHOD_TYPE
     del data['minimalStep']
 
+
+# Single item data
+test_appraisal_item_data = deepcopy(test_item_data)
+test_appraisal_item_data['id'] = '1' * 32
+test_appraisal_item_data.update(
+    {
+        "unit": {"code": "code"},
+        "classification": {
+            "scheme": "CPV",
+            "id": "73110000-6",
+            "description": "Description"
+        },
+        "address": {"countryName": "Ukraine"},
+        "quantity": 5,
+        "additionalClassifications": [
+            {
+                "scheme": u"UA-EDR",
+                "id": u"111111-4",
+                "description": u"папір і картон гофровані, паперова й картонна тара"
+            }
+        ]
+    }
+)
 
 class BaseAppraisalWebTest(BaseWebTest):
 
