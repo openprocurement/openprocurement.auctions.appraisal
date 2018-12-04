@@ -12,7 +12,6 @@ from zope.interface import implementer
 
 from openprocurement.api.models.schema import (
     SwiftsureProcuringEntity,
-    LokiItem as Item
 )
 from openprocurement.auctions.core.interfaces import (
     IAuction
@@ -20,6 +19,7 @@ from openprocurement.auctions.core.interfaces import (
 
 from openprocurement.auctions.core.models.roles import (
     appraisal_auction_roles,
+    item_roles
 )
 from openprocurement.auctions.core.models.schema import (
     Auction as BaseAuction,
@@ -42,7 +42,8 @@ from openprocurement.auctions.core.models.schema import (
     validate_lots_uniq,
     validate_items_uniq,
     validate_not_available,
-    validate_contract_type
+    validate_contract_type,
+    dgfCDB2Item as Item
 )
 from openprocurement.auctions.core.plugins.awarding.v3_1.models import (
     Award
@@ -79,6 +80,12 @@ class AppraisalAuctionParameters(AuctionParameters):
         roles = {
             'create': blacklist()
         }
+
+
+class AppraisalItem(Item):
+
+    class Options:
+        roles = item_roles
 
 
 class AuctionAuctionPeriod(Period):
@@ -135,6 +142,14 @@ class Bid(BaseBid):
             return url
 
 
+class AppraisalAward(Award):
+    items = ListType(ModelType(AppraisalItem))
+
+
+class AppraisalContract(Contract):
+    items = ListType(ModelType(AppraisalItem))
+
+
 @implementer(IAuction)
 class IAppraisalAuction(IAuction):
     """Marker interface for Appraisal auctions"""
@@ -146,10 +161,10 @@ class AppraisalAuction(BaseAuction):
     class Options:
         roles = appraisal_auction_roles
     _internal_type = "appraisal"
-    awards = ListType(ModelType(Award), default=list())
+    awards = ListType(ModelType(AppraisalAward), default=list())
     cancellations = ListType(ModelType(dgfCancellation), default=list())
     complaints = ListType(ComplaintModelType(Complaint), default=list())
-    contracts = ListType(ModelType(Contract), default=list())
+    contracts = ListType(ModelType(AppraisalContract), default=list())
     documents = ListType(ModelType(dgfCDB2Document), default=list())  # All documents and attachments related to the auction.
     enquiryPeriod = ModelType(Period)  # The period during which enquiries may be made and will be answered.
     tenderPeriod = ModelType(Period)  # The period when the auction is open for submissions. The end date is the closing date for auction submissions.
@@ -157,7 +172,7 @@ class AppraisalAuction(BaseAuction):
     status = StringType(choices=AUCTION_STATUSES, default='active.tendering')
     features = ListType(ModelType(Feature), validators=[validate_features_uniq, validate_not_available])
     lots = ListType(ModelType(Lot), default=list(), validators=[validate_lots_uniq, validate_not_available])
-    items = ListType(ModelType(Item), required=True, min_size=1, validators=[validate_items_uniq])
+    items = ListType(ModelType(AppraisalItem), required=True, min_size=1, validators=[validate_items_uniq])
     suspended = BooleanType()
     bids = ListType(ModelType(Bid), default=list())  # A list of all the companies who entered submissions for the auction.
     auctionPeriod = ModelType(AuctionAuctionPeriod, required=True, default={})
