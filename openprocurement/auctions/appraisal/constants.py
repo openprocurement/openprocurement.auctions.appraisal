@@ -18,7 +18,7 @@ VIEW_LOCATIONS = [
     "openprocurement.auctions.appraisal.views",
 ]
 
-DEFAULT_PROCUREMENT_METHOD_TYPE = "insider"
+DEFAULT_PROCUREMENT_METHOD_TYPE = "appraisal.insider"
 
 AUCTION_STATUSES = [
     'draft', 'active.tendering', 'active.auction', 'active.qualification',
