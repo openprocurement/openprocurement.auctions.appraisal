@@ -219,7 +219,7 @@ class AppraisalAuction(BaseAuction):
         return Value(dict(amount=0))
 
     @serializable(serialized_name="tenderPeriod", type=ModelType(Period))
-    def tender_Period(self):
+    def tender_period(self):
         if self.tenderPeriod and self.auctionPeriod.startDate:
             end_date = calculate_business_date(self.auctionPeriod.startDate, DUTCH_PERIOD, self)
             if SANDBOX_MODE and self.submissionMethodDetails and 'quick' in self.submissionMethodDetails:
