@@ -38,7 +38,8 @@ from openprocurement.auctions.appraisal.tests.blanks.tender_blanks import (
     # AppraisalAuctionProcessTest
     first_bid_auction,
     auctionUrl_in_active_auction,
-    suspended_auction
+    suspended_auction,
+    move_draft_to_active_tendering
 )
 
 
@@ -63,6 +64,7 @@ class AppraisalAuctionResourceTest(BaseAppraisalWebTest, AuctionResourceTestMixi
     test_create_auction_auctionPeriod = snitch(create_auction_auctionPeriod)
     test_create_auction_generated = snitch(create_auction_generated)
     test_create_auction = snitch(create_auction)
+    test_move_draft_to_active_tendering = snitch(move_draft_to_active_tendering)
 
 
 class AppraisalAuctionProcessTest(BaseAppraisalAuctionWebTest):

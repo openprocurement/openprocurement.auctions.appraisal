@@ -896,3 +896,29 @@ def suspended_auction(self):
     self.app.authorization = ('Basic', ('broker', ''))
     response = self.app.get('/auctions/{}'.format(auction_id))
     self.assertEqual(response.json['data']['status'], 'complete')
+
+
+def move_draft_to_active_tendering(self):
+    data = self.initial_data.copy()
+    data['status'] = 'draft'
+
+    # Auction creation
+    response = self.app.post_json('/auctions', {'data': data})
+    self.assertEqual(response.status, '201 Created')
+    self.assertEqual(response.content_type, 'application/json')
+    self.assertEqual(response.json['data']['status'], 'draft')
+
+    auction_id = response.json['data']['id']
+    owner_token = response.json['access']['token']
+    access_header = {'X-Access-Token': str(owner_token)}
+
+    # Move from draft to active.tendering
+
+    response = self.app.patch_json(
+        '/auctions/{}'.format(auction_id),
+        {'data': {'status': 'active.tendering'}},
+        headers=access_header
+    )
+    self.assertEqual(response.status, '200 OK')
+    self.assertEqual(response.content_type, 'application/json')
+    self.assertEqual(response.json['data']['status'], 'active.tendering')
