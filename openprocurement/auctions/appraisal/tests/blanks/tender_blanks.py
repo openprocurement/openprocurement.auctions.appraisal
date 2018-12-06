@@ -41,6 +41,10 @@ def edit_role(self):
         'features', 'value'
     ])
     role = self.auction._options.roles['edit_active.tendering']
+
+    if SANDBOX_MODE:
+        fields.add('procurementMethodDetails')
+
     if role.function.__name__ == 'blacklist':
         self.assertEqual(set(self.auction._fields) - role.fields, fields)
     else:
