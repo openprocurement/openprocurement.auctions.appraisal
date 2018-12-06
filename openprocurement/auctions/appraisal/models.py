@@ -21,7 +21,6 @@ from openprocurement.auctions.core.interfaces import (
 )
 
 from openprocurement.auctions.core.models.roles import (
-    appraisal_auction_roles,
     item_roles
 )
 from openprocurement.auctions.core.models.schema import (
@@ -54,9 +53,6 @@ from openprocurement.auctions.core.plugins.awarding.v3_1.models import (
 from openprocurement.auctions.core.plugins.contracting.v3_1.models import (
     Contract,
 )
-from openprocurement.auctions.core.validation import (
-    validate_disallow_dgfPlatformLegalDetails
-)
 from openprocurement.auctions.core.utils import (
     rounding_shouldStartAfter_after_midnigth,
     AUCTIONS_COMPLAINT_STAND_STILL_TIME,
@@ -73,8 +69,9 @@ from openprocurement.auctions.appraisal.constants import (
     AUCTION_STATUSES,
     CONTRACT_TYPES
 )
-from openprocurement.auctions.appraisal.utils import generate_auction_url, calc_auction_end_time
 
+from openprocurement.auctions.appraisal.utils import generate_auction_url, calc_auction_end_time
+from openprocurement.auctions.appraisal.roles import appraisal_auction_roles
 
 validate_contract_type = partial(validate_contract_type, choices=CONTRACT_TYPES)
 
