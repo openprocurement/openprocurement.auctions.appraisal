@@ -8,9 +8,13 @@ from openprocurement.auctions.core.tests.document import (
     AuctionDocumentWithDSResourceTestMixin
 )
 
+from openprocurement.auctions.appraisal.tests.blanks.document_blanks import patch_auction_document
+
 
 class AppraisalAuctionDocumentResourceTest(BaseAppraisalAuctionWebTest, AuctionDocumentResourceTestMixin):
     docservice = False
+
+    test_patch_auction_document = snitch(patch_auction_document)
 
 
 class AppraisalAuctionDocumentWithDSResourceTest(AppraisalAuctionDocumentResourceTest, AuctionDocumentWithDSResourceTestMixin):
