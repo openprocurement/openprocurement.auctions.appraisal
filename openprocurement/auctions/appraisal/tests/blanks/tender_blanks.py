@@ -38,7 +38,7 @@ def edit_role(self):
         'bankAccount', 'description', 'title', 'title_en', 'title_ru',
         'minimalStep', 'items', 'tenderAttempts', 'description', 'description_en',
         'description_ru', 'registrationFee', 'guarantee', 'hasEnquiries', 'lotIdentifier',
-        'features'
+        'features', 'value'
     ])
     role = self.auction._options.roles['edit_active.tendering']
     if role.function.__name__ == 'blacklist':
