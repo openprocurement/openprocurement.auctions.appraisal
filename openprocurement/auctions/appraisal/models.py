@@ -13,6 +13,9 @@ from zope.interface import implementer
 from openprocurement.api.models.schema import (
     SwiftsureProcuringEntity,
 )
+from openprocurement.api.models.schematics_extender import (
+    DecimalType,
+)
 from openprocurement.auctions.core.interfaces import (
     IAuction
 )
@@ -51,6 +54,9 @@ from openprocurement.auctions.core.plugins.awarding.v3_1.models import (
 from openprocurement.auctions.core.plugins.contracting.v3_1.models import (
     Contract,
 )
+from openprocurement.auctions.core.validation import (
+    validate_disallow_dgfPlatformLegalDetails
+)
 from openprocurement.auctions.core.utils import (
     rounding_shouldStartAfter_after_midnigth,
     AUCTIONS_COMPLAINT_STAND_STILL_TIME,
@@ -73,8 +79,34 @@ from openprocurement.auctions.appraisal.utils import generate_auction_url, calc_
 validate_contract_type = partial(validate_contract_type, choices=CONTRACT_TYPES)
 
 
+class AppraisalDocument(dgfCDB2Document):
+    documentType = StringType(choices=[
+        'notice', 'technicalSpecifications', 'evaluationCriteria', 'clarifications',
+        'bidders', 'illustration', 'x_PublicAssetCertificate', 'x_presentation',
+        'x_nda', 'x_PlatformLegalDetails', 'x_dgfAssetFamiliarization'
+    ])
+
+
+class AppraisalBidDocument(dgfCDB2Document):
+    documentType = StringType(choices=[
+        'commercialProposal', 'qualificationDocuments',
+        'eligibilityDocuments', 'financialLicense '
+    ])
+
+
+class AppraisalCancellationDocument(dgfCDB2Document):
+    documentType = StringType(choices=['cancellationDetails'])
+
+
+class AppraisalCancellation(dgfCancellation):
+    documents = ListType(
+        ModelType(AppraisalCancellationDocument),
+        default=list(),
+    )
+
+
 class AppraisalAuctionParameters(AuctionParameters):
-    dutchSteps = IntType(min_value=1, max_value=99, default=80)
+    dutchSteps = IntType(min_value=1, max_value=99, default=99)
 
     class Options:
         roles = {
@@ -83,6 +115,8 @@ class AppraisalAuctionParameters(AuctionParameters):
 
 
 class AppraisalItem(Item):
+
+    quantity = DecimalType(precision=-4, required=True)
 
     class Options:
         roles = item_roles
@@ -121,7 +155,7 @@ class Bid(BaseBid):
 
     status = StringType(choices=['active', 'draft', 'invalid'], default='active')
     qualified = BooleanType(required=True, choices=[True])
-    documents = ListType(ModelType(dgfCDB2Document), default=list())
+    documents = ListType(ModelType(AppraisalBidDocument), default=list())
     eligible = BooleanType(required=True, choices=[True])
 
     def validate_value(self, data, value):
@@ -162,10 +196,10 @@ class AppraisalAuction(BaseAuction):
         roles = appraisal_auction_roles
     _internal_type = "appraisal"
     awards = ListType(ModelType(AppraisalAward), default=list())
-    cancellations = ListType(ModelType(dgfCancellation), default=list())
+    cancellations = ListType(ModelType(AppraisalCancellation), default=list())
     complaints = ListType(ComplaintModelType(Complaint), default=list())
     contracts = ListType(ModelType(AppraisalContract), default=list())
-    documents = ListType(ModelType(dgfCDB2Document), default=list())  # All documents and attachments related to the auction.
+    documents = ListType(ModelType(AppraisalDocument), default=list())  # All documents and attachments related to the auction.
     enquiryPeriod = ModelType(Period)  # The period during which enquiries may be made and will be answered.
     tenderPeriod = ModelType(Period)  # The period when the auction is open for submissions. The end date is the closing date for auction submissions.
     tenderAttempts = IntType(choices=[1, 2, 3, 4, 5, 6, 7, 8])
