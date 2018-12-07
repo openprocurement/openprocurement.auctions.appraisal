@@ -17,7 +17,7 @@ Schema
 :documentType:
     string, required
 
-    Possible values for :ref:`auction`
+    Possible values for :ref:`auction` or :ref:`item`
 
     * `notice` - **Auction notice**
 

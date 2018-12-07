@@ -15,6 +15,14 @@ Schema
 
   Internal id of procedure.
 
+:auctionID:
+  string, auto-generated, read-only
+
+  The auction identifier to refer auction to in "paper" documentation. 
+
+  |ocdsDescription|
+  It is included to make the flattened data structure more convenient.
+
 :date:
   :ref:`date`, auto-generated, read-only
 
@@ -24,16 +32,14 @@ Schema
   string, auto-generated, read-only
 
   The entity whom the procedure has been created by.
- 
-:merchandisingObject:
-  string, read-only
 
-  Originates from `lot.id <http://lotsloki.api-docs.registry.ea2.openprocurement.io/en/latest/standard/Lot.html>`_
+:lotIdentifier:
+  string, required
 
   The identifier of a lot, which is to be privatized, within the Registry.
 
 :title:
-  string, multilingual, read-only
+  string, multilingual, required
 
   * Ukrainian by default (required) - Ukrainian title
 
@@ -43,12 +49,10 @@ Schema
 
   Oprionally can be mentioned in English/Russian.
 
-  Originates from `lot.title <http://lotsloki.api-docs.registry.ea2.openprocurement.io/en/latest/standard/Lot.html>`_.
-
   The name of the auction, displayed in listings. 
  
 :description:
-  string, multilingual, read-only
+  string, multilingual, required
 
   |ocdsDescription|
   A description of the goods, services to be provided.
@@ -59,20 +63,8 @@ Schema
 
   * ``decription_ru`` (Russian) - Russian decription
 
-  Originates from `lot.description <http://lotsloki.api-docs.registry.ea2.openprocurement.io/en/latest/standard/Lot.html>`_.
-
-:auctionID:
-  string, auto-generated, read-only
-
-  The auction identifier to refer auction to in "paper" documentation. 
-
-  |ocdsDescription|
-  It is included to make the flattened data structure more convenient.
-
 :tenderAttempts:
-  integer, read-only
-
-  Originates from `auction.tenderAttempts <http://lotsloki.api-docs.registry.ea2.openprocurement.io/en/latest/standard/auction.html>`_.
+  integer, optional
 
   The number which represents what time procedure with a current lot takes place.
 
@@ -84,33 +76,25 @@ Schema
 :procurementMethodType:
   string, read-only
 
-  Originates from `auction.procurementMethodType <http://lotsloki.api-docs.registry.ea2.openprocurement.io/en/latest/standard/auction.html>`_.
-
-  Type of the procedure within the auction announcement. The given value is `sellout.insider`. 
+  Type of the procedure within the auction announcement. The given value is `appraisal.insider`. 
 
 :procurementMethodDetails:
-  string, read-only
-
-  Originates from `auction.procurementMethodDetails <http://lotsloki.api-docs.registry.ea2.openprocurement.io/en/latest/standard/auction.html>`_.
+  string, auto-generated, optional
 
   Parameter that accelerates auction periods. Set quick, accelerator=1440 as text value for procurementMethodDetails for the time frames to be reduced in 1440 times.
 
 :submissionMethod:
-  string, read-only
+  string, auto-generated, read-only
 
   The given value is `electronicAuction`.
 
 :submissionMethodDetails:
-  string, read-only
-
-  Originates from `auction.submissionMethodDetails <http://lotsloki.api-docs.registry.ea2.openprocurement.io/en/latest/standard/auction.html>`_.
+  string, optional
 
   Parameter that works only with mode = “test” and speeds up auction start date.
 
 :procuringEntity:
-  :ref:`ProcuringEntity`, read-only
-
-  Originates from `lot.lotCustodian <http://lotsloki.api-docs.registry.ea2.openprocurement.io/en/latest/standard/organization.html>`_.
+  :ref:`ProcuringEntity`, required
 
   Organization conducting the auction.
 
@@ -118,29 +102,23 @@ Schema
   The entity managing the procurement, which may be different from the buyer who is paying / using the items being procured.
 
 :auctionParameters:
-  :ref:`Auction_Parameters`, read-only
-
-  Originates from `auction.auctionParameters <http://lotsloki.api-docs.registry.ea2.openprocurement.io/en/latest/standard/auction.html>`_.
+  :ref:`Auction_Parameters`, auto-generated, read-only
 
   The parameters that indicates the major specifications of the procedure.
 
 :contractTerms:
-  :ref:`contractTerms`, read-only
-
-  Originates from `lot.items <http://lotsloki.api-docs.registry.ea2.openprocurement.io/en/latest/standard/Lot.html#contracts>`_.
+  :ref:`contractTerms`, required
 
   The parameters that indicates the major specifications of the contract.
 
 :value:
-  :ref:`value`, read-only
-
-  Originates from `auction.value <http://lotsloki.api-docs.registry.ea2.openprocurement.io/en/latest/standard/auction.html>`_. 
+  :ref:`value`, required
 
   |ocdsDescription|
   The total estimated value of the procurement.
 
 :minimalStep:
-  :ref:`value`, read-only
+  :ref:`value`, required
 
   Auction step (increment). `minimalStep.value` that will be always automatically set is 0. Validation rules:
 
@@ -151,28 +129,20 @@ Schema
 :guarantee:
   :ref:`Guarantee`, required
 
-  Originates from `auction.guarantee <http://lotsloki.api-docs.registry.ea2.openprocurement.io/en/latest/standard/auction.html>`_.
-
   The assumption of responsibility for payment of performance of some obligation if the liable party fails to perform to expectations.
 
 :registrationFee:
-  :ref:`Guarantee`, read-only
-
-  Originates from `auction.registrationFee <http://lotsloki.api-docs.registry.ea2.openprocurement.io/en/latest/standard/auction.html>`_.
+  :ref:`Guarantee`, required
 
   The sum of money required to enroll on an official register.
 
 :bankAccount:
-  :ref:`Bank_Account`, read-only
-
-  Originates from `auction.bankAccount <http://lotsloki.api-docs.registry.ea2.openprocurement.io/en/latest/standard/auction.html#bank-account>`_.
+  :ref:`Bank_Account`, optional
 
   Details which uniquely identify a bank account, and are used when making or receiving a payment.
 
 :items:
-  Array of :ref:`item` objects, read-only
-
-  Originates from `lot.items <http://lotsloki.api-docs.registry.ea2.openprocurement.io/en/latest/standard/item.html>`_.
+  Array of :ref:`item` objects, required
 
   List that contains single item being sold. 
 
@@ -180,7 +150,7 @@ Schema
   The goods and services to be purchased, broken into line items wherever possible. Items should not be duplicated, but a quantity of 2 specified instead.
 
 :documents:
-  Array of :ref:`document` objects
+  Array of :ref:`document` objects, optional
  
   |ocdsDescription|
   All documents and attachments related to the auction.
@@ -239,6 +209,8 @@ Schema
 +-------------------------+--------------------------------------+
 |        Status           |            Description               |
 +=========================+======================================+
+| `draft`                 | draft of procedure                   |
++-------------------------+--------------------------------------+
 | `active.tendering`      | tendering period (tendering)         |
 +-------------------------+--------------------------------------+
 | `active.auction`        | auction period (auction)             |
@@ -271,12 +243,12 @@ Schema
   The period when the auction is open for submissions. The end date is the closing date for auction submissions.
 
 :auctionPeriod:
-  :ref:`period`, required
+  :ref:`period`, auto-generated, read-only (required for ``auctionPeriod.startDate``)
 
   Period when Auction is conducted. `startDate` should be provided.
 
 :awardPeriod:
-  :ref:`period`, read-only
+  :ref:`period`, auto-generated, read-only
 
   Awarding process period.
 
@@ -300,11 +272,10 @@ Schema
   string, auto-generated, read-only
 
   Type of the auction.
-
 :dutchSteps:
   integer, optional
 
-  Number of steps within the Dutch auction phase.
+  Number of steps within the Dutch auction phase. 
 
 .. _Bank_Account:
 
@@ -318,6 +289,12 @@ Schema
   string, multilingual, optional
 
   Additional information that has to be noted from the Organizer point.
+
+  * Ukrainian by default - Ukrainian decription
+    
+    * ``decription_en`` (English) - English decription
+    
+    * ``decription_ru`` (Russian) - Russian decription
 
 :bankName:  
   string, required
@@ -334,18 +311,3 @@ Schema
   * 'UA-EDR';
   * 'UA-MFO';
   * 'accountNumber'.
-
-.. _contractTerms:
-
-Contract Terms
-==============
-
-Schema
-------
-
-:type:
-  string, read-only
-
-  Originates from `lot.items <http://lotsloki.api-docs.registry.ea2.openprocurement.io/en/latest/standard/Lot.html#contracts>`_.
-
-  Type of the contract. The only value is `yoke`.

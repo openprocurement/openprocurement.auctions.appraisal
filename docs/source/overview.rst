@@ -1,9 +1,9 @@
 Overview
 ========
 
-openprocurement.auctions.appraisal contains documentaion concerning the type of Small Scale Privatization auctions.
+openprocurement.auctions.appraisal іncludes auction insider documentation.
 
-The procedure to be used is **sellout.insider** which states for privatization's objects.
+The procedure to be used is **appraisal.insider**.
 
 Features
 --------
