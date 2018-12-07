@@ -41,13 +41,13 @@ MOCK_CONFIG_PARTIAL_AUCTION = {
     }
 
 
-
 MOCK_CONFIG = connection_mock_config(
     PARTIAL_MOCK_CONFIG,
     base=BASE_MOCK_CONFIG,
     connector=('plugins', 'api', 'plugins', 'auctions.core', 'plugins')
 )
 
+TEST_ROUTE_PREFIX = '/api/{}'.format(MOCK_CONFIG['config']['main']['api_version'])
 
 MOCK_CONFIG = connection_mock_config(
     MOCK_CONFIG_PARTIAL_AUCTION,

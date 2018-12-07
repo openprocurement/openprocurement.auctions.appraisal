@@ -16,6 +16,12 @@ def check_items_listing(self):
     owner_token = response.json['access']['token']
     access_header = {'X-Access-Token': str(owner_token)}
 
+    self.app.patch_json(
+        '/auctions/{}'.format(auction_id),
+        {'data': {'status': 'active.tendering'}},
+        headers=access_header
+    )
+
     response = self.app.get(
         '/auctions/{}/items'.format(auction_id),
     )
@@ -49,6 +55,11 @@ def check_item_creation(self):
     owner_token = response.json['access']['token']
     access_header = {'X-Access-Token': str(owner_token)}
 
+    self.app.patch_json(
+        '/auctions/{}'.format(auction_id),
+        {'data': {'status': 'active.tendering'}},
+        headers=access_header
+    )
     # Item creation
     response = self.app.post_json(
         '/auctions/{}/items'.format(auction_id),
@@ -85,6 +96,12 @@ def check_item_patch(self):
     auction_id = response.json['data']['id']
     owner_token = response.json['access']['token']
     access_header = {'X-Access-Token': str(owner_token)}
+
+    self.app.patch_json(
+        '/auctions/{}'.format(auction_id),
+        {'data': {'status': 'active.tendering'}},
+        headers=access_header
+    )
 
     # Item creation
     response = self.app.post_json(
@@ -136,6 +153,7 @@ def check_patch_auction_in_not_editable_statuses(self):
     access_header = {'X-Access-Token': str(owner_token)}
 
     self.auction_id = auction_id
+    self.set_status('active.tendering')
 
     # Item creation
     response = self.app.post_json(
@@ -210,6 +228,12 @@ def batch_update_items(self):
     auction_id = response.json['data']['id']
     owner_token = response.json['access']['token']
     access_header = {'X-Access-Token': str(owner_token)}
+
+    self.app.patch_json(
+        '/auctions/{}'.format(auction_id),
+        {'data': {'status': 'active.tendering'}},
+        headers=access_header
+    )
 
     # Update items with batch mode
     item_2 = deepcopy(self.initial_item_data)

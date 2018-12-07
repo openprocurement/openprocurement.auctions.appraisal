@@ -7,7 +7,7 @@ from openprocurement.auctions.appraisal.tests.base import BaseAppraisalAuctionWe
 
 
 class AppraisalAuctionQuestionResourceTest(BaseAppraisalAuctionWebTest, AuctionQuestionResourceTestMixin):
-    pass
+    initial_status = 'active.tendering'
 
 
 def suite():
