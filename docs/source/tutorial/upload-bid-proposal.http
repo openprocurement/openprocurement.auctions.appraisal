@@ -1,33 +1,32 @@
-POST /api/2.3/auctions/ca31727f31f243b089cbc005b8fda5ba/bids/2d61cec5ecd340d5b72e8193a84ec6e1/documents?acc_token=a2b9dcbe25774fe2a9331a7c5da3b88e HTTP/1.0
+POST /api/2.5/auctions/0a3e5825752c49199ced43de14247e09/bids/16331e49f073425798ea4f18f3590c95/documents?acc_token=72db756788834611b45a27690fa30121 HTTP/1.0
 Authorization: Basic YnJva2VyOg==
-Content-Length: 333
+Content-Length: 331
 Content-Type: application/json
-Host: api-sandbox.ea.openprocurement.org
-
+Host: lb.api-sandbox.registry.ea.openprocurement.net
+DATA:
 {
   "data": {
-    "url": "http://public.docs-sandbox.ea.openprocurement.org/get/90f5ca27a7ea4708a1c3a8e79617a134?KeyID=9051732b&Signature=ipsBMoxbbe3M%2FvtE8DvyRQu2jTKBOQd529hukqNHXL0WfgcuQiZzUmIVyb6zCeNOWvg2K%2FKfZ%2Fjn0n6pJKDwAw%3D%3D", 
+    "url": "http://public.docs-sandbox.ea.openprocurement.org/get/4b1b201c1f8a4730b47cc51339ed73b6?KeyID=172d32c8&Signature=HW3OdjLdv9Q7ub16%2BpW1U5D6G655uiOSixlZQBivzK2%2BbDxUMKjCEvaC9dfo8WiDaq73XYI4f8ZkpNHMmcPtDA%3D%3D", 
     "title": "Proposal.pdf", 
     "hash": "md5:00000000000000000000000000000000", 
     "format": "application/pdf"
   }
 }
 
-
-201 Created
-Content-Type: application/json; charset=UTF-8
-Location: http://api-sandbox.ea.openprocurement.org/api/2.3/auctions/ca31727f31f243b089cbc005b8fda5ba/bids/2d61cec5ecd340d5b72e8193a84ec6e1/documents/bc8f62c615d8467fac907dd9b9522d6e
-
+Response: 201 Created
+Content-Type: application/json
+Location: http://lb.api-sandbox.registry.ea.openprocurement.net/api/2.5/auctions/0a3e5825752c49199ced43de14247e09/bids/16331e49f073425798ea4f18f3590c95/documents/0201da15b7944eae82633d7ea11c02e8
+X-Content-Type-Options: nosniff
 {
   "data": {
     "hash": "md5:00000000000000000000000000000000", 
     "format": "application/pdf", 
-    "url": "http://api-sandbox.ea.openprocurement.org/api/2.3/auctions/ca31727f31f243b089cbc005b8fda5ba/bids/2d61cec5ecd340d5b72e8193a84ec6e1/documents/bc8f62c615d8467fac907dd9b9522d6e?download=90f5ca27a7ea4708a1c3a8e79617a134", 
+    "url": "http://lb.api-sandbox.registry.ea.openprocurement.net/api/2.5/auctions/0a3e5825752c49199ced43de14247e09/bids/16331e49f073425798ea4f18f3590c95/documents/0201da15b7944eae82633d7ea11c02e8?download=4b1b201c1f8a4730b47cc51339ed73b6", 
     "title": "Proposal.pdf", 
     "documentOf": "tender", 
-    "datePublished": "2018-03-13T17:49:02.616512+02:00", 
-    "dateModified": "2018-03-13T17:49:02.616532+02:00", 
-    "id": "bc8f62c615d8467fac907dd9b9522d6e"
+    "datePublished": "2018-12-07T19:32:47.381415+02:00", 
+    "dateModified": "2018-12-07T19:32:47.381436+02:00", 
+    "id": "0201da15b7944eae82633d7ea11c02e8"
   }
 }
 

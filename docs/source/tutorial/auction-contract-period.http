@@ -1,36 +1,35 @@
-PATCH /api/2.3/auctions/ca31727f31f243b089cbc005b8fda5ba/contracts/30925f126c174b389a1eed392c9f0c9e?acc_token=0ce53b3a0d5d47778c36b80f90b81ad5 HTTP/1.0
+PATCH /api/2.5/auctions/0a3e5825752c49199ced43de14247e09/contracts/52c8c00a6cbb4c23b9cba3a049f90bce?acc_token=2ae288c6a1204108bc3013241ac553eb HTTP/1.0
 Authorization: Basic YnJva2VyOg==
 Content-Length: 106
 Content-Type: application/json
-Host: api-sandbox.ea.openprocurement.org
-
+Host: lb.api-sandbox.registry.ea.openprocurement.net
+DATA:
 {
   "data": {
     "period": {
-      "startDate": "2018-03-13T17:48:55.444611", 
-      "endDate": "2019-03-13T17:48:55.444611"
+      "startDate": "2018-12-07T19:32:42.122912", 
+      "endDate": "2019-12-07T19:32:42.122912"
     }
   }
 }
 
-
-200 OK
-Content-Type: application/json; charset=UTF-8
-
+Response: 200 OK
+Content-Type: application/json
+X-Content-Type-Options: nosniff
 {
   "data": {
     "status": "pending", 
     "signingPeriod": {
-      "startDate": "2018-03-13T17:49:03.167518+02:00", 
-      "endDate": "2018-03-13T18:09:02.790434+02:00"
+      "startDate": "2018-12-07T19:32:47.965330+02:00", 
+      "endDate": "2019-01-16T18:00:00+02:00"
     }, 
     "items": [
       {
         "description": "Земля для військовослужбовців", 
         "classification": {
-          "scheme": "CAV", 
+          "scheme": "CPV", 
           "description": "Земельні ділянки", 
-          "id": "06000000-2"
+          "id": "51413000-0"
         }, 
         "address": {
           "postalCode": "79000", 
@@ -39,7 +38,7 @@ Content-Type: application/json; charset=UTF-8
           "region": "м. Київ", 
           "locality": "м. Київ"
         }, 
-        "id": "e24b924ada114a0d95d03a8c89eadda7", 
+        "id": "6c318ef0d2954b0480d3310fe83d9266", 
         "unit": {
           "code": "44617100-9", 
           "name": "item"
@@ -70,18 +69,18 @@ Content-Type: application/json; charset=UTF-8
       }
     ], 
     "period": {
-      "startDate": "2018-03-13T17:48:55.444611+02:00", 
-      "endDate": "2019-03-13T17:48:55.444611+02:00"
+      "startDate": "2018-12-07T19:32:42.122912+02:00", 
+      "endDate": "2019-12-07T19:32:42.122912+02:00"
     }, 
     "value": {
       "currency": "UAH", 
-      "amount": 479.0, 
+      "amount": 479, 
       "valueAddedTaxIncluded": true
     }, 
-    "date": "2018-03-13T17:49:03.652359+02:00", 
-    "awardID": "7d4e36e2232f45b0910f887feaf23af1", 
-    "id": "30925f126c174b389a1eed392c9f0c9e", 
-    "contractID": "UA-EA-2018-03-13-000001-1"
+    "date": "2018-12-07T19:32:48.479732+02:00", 
+    "awardID": "f1dbe0f1df254b698f15398a43d79942", 
+    "id": "52c8c00a6cbb4c23b9cba3a049f90bce", 
+    "contractID": "UA-EA-2018-12-07-000002-1"
   }
 }
 

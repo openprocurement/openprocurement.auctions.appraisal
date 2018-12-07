@@ -1,33 +1,32 @@
-POST /api/2.3/auctions/ca31727f31f243b089cbc005b8fda5ba/documents?acc_token=0ce53b3a0d5d47778c36b80f90b81ad5 HTTP/1.0
+POST /api/2.5/auctions/0a3e5825752c49199ced43de14247e09/documents?acc_token=2ae288c6a1204108bc3013241ac553eb HTTP/1.0
 Authorization: Basic YnJva2VyOg==
-Content-Length: 338
+Content-Length: 342
 Content-Type: application/json
-Host: api-sandbox.ea.openprocurement.org
-
+Host: lb.api-sandbox.registry.ea.openprocurement.net
+DATA:
 {
   "data": {
-    "url": "http://public.docs-sandbox.ea.openprocurement.org/get/c53f5a29c33f48fe88c94ba1978e3636?KeyID=9051732b&Signature=JeKnzqyLsGdyy4h2Ei88eek%2FIu1hTOugBzdYoMzYmUFmRzIYZGzaOkKrPJb%2F6EVztWXK8DF6%2FyFtteJ4V9OIBw%3D%3D", 
+    "url": "http://public.docs-sandbox.ea.openprocurement.org/get/281d783c1b6346e780f9f9dab1dcf430?KeyID=172d32c8&Signature=eUyolpt2C0L%2BX1Ua00xdjC4SjmqBmfeR%2Fy2TCDkMTl9xVePFxNxK%2BsuDhMYo7dVMYXTkwfUqwrIot%2B2%2F28aoBQ%3D%3D", 
     "title": "AwardCriteria.pdf", 
     "hash": "md5:00000000000000000000000000000000", 
     "format": "application/pdf"
   }
 }
 
-
-201 Created
-Content-Type: application/json; charset=UTF-8
-Location: http://api-sandbox.ea.openprocurement.org/api/2.3/auctions/ca31727f31f243b089cbc005b8fda5ba/documents/6d59ea99d07546efb587bc43c7d04a5b
-
+Response: 201 Created
+Content-Type: application/json
+Location: http://lb.api-sandbox.registry.ea.openprocurement.net/api/2.5/auctions/0a3e5825752c49199ced43de14247e09/documents/aeb0731d9d994d4e889efb74564aa0e1
+X-Content-Type-Options: nosniff
 {
   "data": {
     "hash": "md5:00000000000000000000000000000000", 
     "format": "application/pdf", 
-    "url": "http://public.docs-sandbox.ea.openprocurement.org/get/c53f5a29c33f48fe88c94ba1978e3636?KeyID=9051732b&Signature=dkQjsWyizoNpcOrbXPCKaJkVSRMjtnyjOYBdqwwu%252BBM4dL3jfTYsKQ6mYy5aFfOvYXHs5MoGMjKyxTFxO5YuDQ%253D%253D", 
+    "url": "http://public.docs-sandbox.ea.openprocurement.org/get/281d783c1b6346e780f9f9dab1dcf430?KeyID=172d32c8&Signature=KFMZBRs5MRqjPYqfG4PJdpRFN4%2FQ8Al4M4vhs0Ao2hiezyi%2FHw3%2Fg3A8tic4SFhOdiwBAT2z%252BE6cOTeh4uiaCw%253D%253D", 
     "title": "AwardCriteria.pdf", 
     "documentOf": "tender", 
-    "datePublished": "2018-03-13T17:49:02.007367+02:00", 
-    "dateModified": "2018-03-13T17:49:02.007397+02:00", 
-    "id": "6d59ea99d07546efb587bc43c7d04a5b"
+    "datePublished": "2018-12-07T19:32:46.631127+02:00", 
+    "dateModified": "2018-12-07T19:32:46.631149+02:00", 
+    "id": "aeb0731d9d994d4e889efb74564aa0e1"
   }
 }
 

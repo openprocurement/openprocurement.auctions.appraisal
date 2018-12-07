@@ -1,13 +1,12 @@
-POST /api/2.3/auctions?opt_pretty=1 HTTP/1.0
+POST /api/2.5/auctions?opt_pretty=1 HTTP/1.0
 Authorization: Basic YnJva2VyOg==
 Content-Length: 4
 Content-Type: application/json
-Host: api-sandbox.ea.openprocurement.org
+Host: lb.api-sandbox.registry.ea.openprocurement.net
 
-
-422 Unprocessable Entity
-Content-Type: application/json; charset=UTF-8
-
+Response: 422 Unprocessable Entity
+Content-Type: application/json
+X-Content-Type-Options: nosniff
 {
   "status": "error", 
   "errors": [

@@ -44,7 +44,11 @@ body of response reveals the information about the created auction: its internal
 `id` (that matches the `Location` segment), its official `auctionID` and
 `dateModified` datestamp stating the moment in time when auction has been last
 modified. Pay attention to the `procurementMethodType`. Note that auction is
-created with `active.tendering` status.
+created with `draft` status, so you need to manually move it to `active.tendering`.
+
+.. include:: tutorial/auction-switch-to-active-tendering.http
+   :code:
+
 
 Let's access the URL of the created object (the `Location` header of the response):
 
@@ -248,7 +252,7 @@ See the `Bid.participationUrl` in the response. Similar, but different, URL can 
 Qualification
 -------------
 After the competitive auction two `awards` are created:
- * for the first candidate (a participant that has submitted the highest valid bid at the auction) - initially has a `pending.verification` status and awaits auction protocol to be uploaded by the organizer;
+ * for the first candidate (a participant that has submitted the highest valid bid at the auction) - initially has a `pending` status and awaits auction protocol to be uploaded by the organizer;
  * for the second candidate (a participant that has submitted the second highest valid bid at the auction).
 
 .. include:: tutorial/get-awards.http
@@ -290,10 +294,10 @@ Within **20 business days after becoming a candidate** he/she must provide payme
 Disqualification of a candidate
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In case of manual disqualification, the organizer has to upload file with cancellation reason:
+In case of manual disqualification, the organizer has to upload file with `act` or `rejectionProtocol` document type:
 
 
-.. include:: qualification/award-active-unsuccessful-upload.http
+.. include:: qualification/upload-rejectionProtocol-doc.http.http
   :code:
 
 
@@ -348,42 +352,14 @@ Let's see the list of all added contract documents:
 .. include:: tutorial/auction-contract-get-documents-again.http
    :code:
 
-Contract prolongation
-~~~~~~~~~~~~~~~~~~~~~
-
-Candidate can prolongate contract signing period by creating prolongation
-
-.. include:: tutorial/prolongation-create.http
-    :code:
-
-Prolongation must have documents attached to be prepared for activation
-
-.. include:: tutorial/prolongation-attach-document.http
-    :code:
-
-Created prolongation has status "draft" by default, so there is a need to set status to "applied" to make it active.
-
-.. include:: tutorial/prolongation-apply.http
-    :code:
-
-When a contract has been prolongated for first time, a short prolongation period applies.
-It is equal to 42 working days. It's also possible to apply long-term (132 days) prolongation:
-just create new :ref:`Prolongation` for the already prolongated :ref:`Contract`, and apply it.
-
-.. include:: tutorial/prolongation-second-time-create.http
-    :code:
-
-.. include:: tutorial/prolongation-long-document-attach.http
-    :code:
-
-.. include:: tutorial/prolongation-long-apply.http
-    :code:
-
-.. _Candidate_disqualification:
-    :code:
 
 Contract registration
 ~~~~~~~~~~~~~~~~~~~~~
+
+Owner has to upload `contractSigned` document to set signature date.
+
+.. include:: tutorial/upload-contractSigned-doc.http
+   :code:
 
 There is a possibility to set custom contract signature date.
 If the date is not set it will be generated on contract registration.

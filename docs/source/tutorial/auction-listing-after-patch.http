@@ -1,28 +1,23 @@
-GET /api/2.3/auctions?opt_pretty=1 HTTP/1.0
-Host: api-sandbox.ea.openprocurement.org
+GET /api/2.5/auctions?opt_pretty=1 HTTP/1.0
+Host: lb.api-sandbox.registry.ea.openprocurement.net
 
-
-200 OK
-Content-Type: application/json; charset=UTF-8
-
+Response: 200 OK
+Content-Type: application/json
+X-Content-Type-Options: nosniff
 {
   "next_page": {
-    "path": "/api/2.3/auctions?offset=2018-03-13T17%3A49%3A01.837792%2B02%3A00", 
-    "uri": "http://api-sandbox.ea.openprocurement.org/api/2.3/auctions?offset=2018-03-13T17%3A49%3A01.837792%2B02%3A00", 
-    "offset": "2018-03-13T17:49:01.837792+02:00"
+    "path": "/api/2.5/auctions?offset=2018-12-07T19%3A32%3A46.278565%2B02%3A00", 
+    "uri": "http://lb.api-sandbox.registry.ea.openprocurement.net/api/2.5/auctions?offset=2018-12-07T19%3A32%3A46.278565%2B02%3A00", 
+    "offset": "2018-12-07T19:32:46.278565+02:00"
   }, 
   "data": [
     {
-      "id": "ca31727f31f243b089cbc005b8fda5ba", 
-      "dateModified": "2018-03-13T17:49:01.720299+02:00"
+      "id": "d62349239bd540f8adcf5571207b2fa4", 
+      "dateModified": "2018-12-07T19:32:45.972957+02:00"
     }, 
     {
-      "id": "bdc764b5b90541328626b89b7d67d5b2", 
-      "dateModified": "2018-03-13T17:49:01.794838+02:00"
-    }, 
-    {
-      "id": "a8a592722cb04fe2a6738adac6ff92d0", 
-      "dateModified": "2018-03-13T17:49:01.837792+02:00"
+      "id": "0a3e5825752c49199ced43de14247e09", 
+      "dateModified": "2018-12-07T19:32:46.278565+02:00"
     }
   ]
 }

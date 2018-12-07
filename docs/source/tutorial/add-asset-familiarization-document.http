@@ -1,9 +1,9 @@
-POST /api/2.3/auctions/ca31727f31f243b089cbc005b8fda5ba/documents?acc_token=0ce53b3a0d5d47778c36b80f90b81ad5 HTTP/1.0
+POST /api/2.5/auctions/0a3e5825752c49199ced43de14247e09/documents?acc_token=2ae288c6a1204108bc3013241ac553eb HTTP/1.0
 Authorization: Basic YnJva2VyOg==
 Content-Length: 160
 Content-Type: application/json
-Host: api-sandbox.ea.openprocurement.org
-
+Host: lb.api-sandbox.registry.ea.openprocurement.net
+DATA:
 {
   "data": {
     "title": "Familiarization with bank asset", 
@@ -12,21 +12,20 @@ Host: api-sandbox.ea.openprocurement.org
   }
 }
 
-
-201 Created
-Content-Type: application/json; charset=UTF-8
-Location: http://api-sandbox.ea.openprocurement.org/api/2.3/auctions/ca31727f31f243b089cbc005b8fda5ba/documents/c2cc28c265a64cdcb3f2bd1bafcd892f
-
+Response: 201 Created
+Content-Type: application/json
+Location: http://lb.api-sandbox.registry.ea.openprocurement.net/api/2.5/auctions/0a3e5825752c49199ced43de14247e09/documents/8e4619deece5428b8527a40c8de0de52
+X-Content-Type-Options: nosniff
 {
   "data": {
     "title": "Familiarization with bank asset", 
     "format": "offline/on-site-examination", 
     "accessDetails": "Familiar with asset: days, time, address", 
     "documentOf": "tender", 
-    "datePublished": "2018-03-13T17:49:02.273728+02:00", 
+    "datePublished": "2018-12-07T19:32:46.964970+02:00", 
     "documentType": "x_dgfAssetFamiliarization", 
-    "dateModified": "2018-03-13T17:49:02.273747+02:00", 
-    "id": "c2cc28c265a64cdcb3f2bd1bafcd892f"
+    "dateModified": "2018-12-07T19:32:46.964991+02:00", 
+    "id": "8e4619deece5428b8527a40c8de0de52"
   }
 }
 
