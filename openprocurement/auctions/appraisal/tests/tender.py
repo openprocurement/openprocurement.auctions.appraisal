@@ -20,10 +20,10 @@ from openprocurement.auctions.core.constants import DGF_ELIGIBILITY_CRITERIA
 
 from openprocurement.auctions.appraisal.models import AppraisalAuction
 from openprocurement.auctions.appraisal.tests.base import (
-    test_insider_auction_data,
+    test_appraisal_auction_data,
     test_organization,
     BaseAppraisalAuctionWebTest, BaseAppraisalWebTest,
-    test_insider_auction_data_with_schema
+    test_appraisal_auction_data_with_schema
 )
 from openprocurement.auctions.appraisal.tests.blanks.tender_blanks import (
     # AppraisalAuctionTest
@@ -51,7 +51,7 @@ from openprocurement.auctions.appraisal.tests.blanks.tender_blanks import (
 
 class AppraisalAuctionTest(BaseAppraisalWebTest):
     auction = AppraisalAuction
-    initial_data = test_insider_auction_data
+    initial_data = test_appraisal_auction_data
 
     test_simple_add_auction = snitch(simple_add_auction)
     test_create_role = snitch(create_role)
@@ -60,7 +60,7 @@ class AppraisalAuctionTest(BaseAppraisalWebTest):
 
 class AppraisalAuctionResourceTest(BaseAppraisalWebTest, AuctionResourceTestMixin, DgfInsiderResourceTestMixin):
     initial_status = 'active.tendering'
-    initial_data = test_insider_auction_data
+    initial_data = test_appraisal_auction_data
     initial_organization = test_organization
     eligibility_criteria = DGF_ELIGIBILITY_CRITERIA
     test_financial_organization = test_organization
@@ -169,7 +169,7 @@ class AppraisalAuctionProcessTest(BaseAppraisalAuctionWebTest):
 
 
 class AppraisalAuctionSchemaResourceTest(AppraisalAuctionResourceTest):
-    initial_data = test_insider_auction_data_with_schema
+    initial_data = test_appraisal_auction_data_with_schema
 
     # def test_create_auction_with_bad_schemas_code(self):
     #     response = self.app.get('/auctions')
@@ -192,7 +192,7 @@ class AppraisalAuctionSchemaResourceTest(AppraisalAuctionResourceTest):
 
 
 class AppraisalAuctionSchemaProcessTest(AppraisalAuctionProcessTest):
-    initial_data = test_insider_auction_data_with_schema
+    initial_data = test_appraisal_auction_data_with_schema
 
 
 class AuctionExtractCredentialsTest(BaseAppraisalAuctionWebTest, ExtractCredentialsMixin):

@@ -55,19 +55,24 @@ MOCK_CONFIG = connection_mock_config(
     connector=('config','auction')
 )
 
-test_insider_auction_data = deepcopy(test_auction_data)
-test_insider_auction_data['lotIdentifier'] = 'Q24421K222'
-for item in test_insider_auction_data['items']:
+test_appraisal_auction_data = deepcopy(test_auction_data)
+test_appraisal_auction_data['lotIdentifier'] = 'Q24421K222'
+for item in test_appraisal_auction_data['items']:
     item['classification']['scheme'] = 'CPV'
     item['classification']['id'] = '51413000-0'
 
-test_insider_auction_data['auctionParameters'] = {
+test_appraisal_auction_data['auctionParameters'] = {
     'type': 'insider',
     'dutchSteps': 88
 }
-test_insider_auction_data.update({
+test_appraisal_auction_data.update({
+    'description': 'description of appraisal auction',
     'registrationFee': {
         'amount': 700.87,
+        'currency': 'UAH'
+    },
+    'guarantee': {
+        'amount': 1000.99,
         'currency': 'UAH'
     },
     'bankAccount': {
@@ -87,13 +92,13 @@ appraisal_document_data['documentType'] = 'x_dgfAssetFamiliarization'
 del appraisal_document_data['hash']
 appraisal_document_data['accessDetails'] = 'access details'
 
-test_insider_auction_data['documents'] = [
+test_appraisal_auction_data['documents'] = [
     appraisal_document_data
 ]
 
-del test_insider_auction_data['dgfID']
-del test_insider_auction_data['dgfDecisionDate']
-del test_insider_auction_data['dgfDecisionID']
+del test_appraisal_auction_data['dgfID']
+del test_appraisal_auction_data['dgfDecisionDate']
+del test_appraisal_auction_data['dgfDecisionID']
 
 schema_properties = {
     "code": "06000000-2",
@@ -110,9 +115,9 @@ schema_properties = {
    }
  }
 
-test_insider_auction_data_with_schema = deepcopy(test_insider_auction_data)
-# test_insider_auction_data_with_schema['items'][0]['classification']['id'] = schema_properties['code']
-# test_insider_auction_data_with_schema['items'][0]['schema_properties'] = schema_properties
+test_appraisal_auction_data_with_schema = deepcopy(test_appraisal_auction_data)
+# test_appraisal_auction_data_with_schema['items'][0]['classification']['id'] = schema_properties['code']
+# test_appraisal_auction_data_with_schema['items'][0]['schema_properties'] = schema_properties
 
 test_organization = deepcopy(base_test_organization)
 test_organization['additionalIdentifiers'] = [{
@@ -137,7 +142,7 @@ test_lots = [
     }
 ]
 
-for data in test_insider_auction_data, test_insider_auction_data_with_schema:
+for data in test_appraisal_auction_data, test_appraisal_auction_data_with_schema:
     data["procurementMethodType"] = DEFAULT_PROCUREMENT_METHOD_TYPE
     del data['minimalStep']
 
@@ -178,7 +183,7 @@ class BaseAppraisalWebTest(BaseWebTest):
 
 class BaseAppraisalAuctionWebTest(BaseAuctionWebTest):
     relative_to = os.path.dirname(__file__)
-    initial_data = test_insider_auction_data
+    initial_data = test_appraisal_auction_data
     initial_organization = test_organization
     mock_config = MOCK_CONFIG
 
