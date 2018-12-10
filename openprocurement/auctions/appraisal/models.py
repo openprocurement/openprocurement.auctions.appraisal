@@ -192,6 +192,7 @@ class AppraisalAuction(BaseAuction):
     class Options:
         roles = appraisal_auction_roles
     _internal_type = "appraisal"
+    description = StringType(required=True)
     awards = ListType(ModelType(AppraisalAward), default=list())
     cancellations = ListType(ModelType(AppraisalCancellation), default=list())
     complaints = ListType(ComplaintModelType(Complaint), default=list())
@@ -209,7 +210,8 @@ class AppraisalAuction(BaseAuction):
     auctionPeriod = ModelType(AuctionAuctionPeriod, required=True, default={})
     auctionParameters = ModelType(AppraisalAuctionParameters)
     minimalStep = ModelType(Value)
-    registrationFee = ModelType(Guarantee)
+    registrationFee = ModelType(Guarantee, required=True)
+    guarantee = ModelType(Guarantee, required=True)
     bankAccount = ModelType(BankAccount)
     procuringEntity = ModelType(SwiftsureProcuringEntity, required=True)
     lotIdentifier = StringType(required=True)
