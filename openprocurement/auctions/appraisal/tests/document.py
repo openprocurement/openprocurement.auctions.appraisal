@@ -13,12 +13,14 @@ from openprocurement.auctions.appraisal.tests.blanks.document_blanks import patc
 
 class AppraisalAuctionDocumentResourceTest(BaseAppraisalAuctionWebTest, AuctionDocumentResourceTestMixin):
     docservice = False
+    initial_status = 'active.tendering'
 
     test_patch_auction_document = snitch(patch_auction_document)
 
 
 class AppraisalAuctionDocumentWithDSResourceTest(AppraisalAuctionDocumentResourceTest, AuctionDocumentWithDSResourceTestMixin):
     docservice = True
+    initial_status = 'active.tendering'
 
     test_create_auction_document_pas = None
     test_put_auction_document_pas = None

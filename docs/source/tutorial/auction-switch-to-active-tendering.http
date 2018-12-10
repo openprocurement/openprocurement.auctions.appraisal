@@ -1,14 +1,13 @@
-PATCH /api/2.5/auctions/0a3e5825752c49199ced43de14247e09?acc_token=2ae288c6a1204108bc3013241ac553eb HTTP/1.0
+PATCH /api/2.5/auctions/0a3e5825752c49199ced43de14247e09 HTTP/1.0
 Authorization: Basic YnJva2VyOg==
-Content-Length: 75
+Content-Length: 40
 Content-Type: application/json
 Host: lb.api-sandbox.registry.ea.openprocurement.net
+X-Access-Token: 2ae288c6a1204108bc3013241ac553eb
 DATA:
 {
   "data": {
-    "tenderPeriod": {
-      "endDate": "2018-12-22T19:32:56.488261+02:00"
-    }
+    "status": "active.tendering"
   }
 }
 
@@ -38,11 +37,11 @@ X-Content-Type-Options: nosniff
       "type": "insider", 
       "dutchSteps": 88
     }, 
-    "dateModified": "2018-12-07T19:32:46.526750+02:00", 
+    "dateModified": "2018-12-07T19:32:46.278565+02:00", 
     "status": "active.tendering", 
     "tenderPeriod": {
       "startDate": "2018-12-07T19:32:46.197484+02:00", 
-      "endDate": "2018-12-22T19:32:56.488261+02:00"
+      "endDate": "2018-12-21T16:15:00+02:00"
     }, 
     "auctionPeriod": {
       "shouldStartAfter": "2018-12-21T00:00:00+02:00"

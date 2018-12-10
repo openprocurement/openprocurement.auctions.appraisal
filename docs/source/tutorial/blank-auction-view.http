@@ -1,67 +1,67 @@
-GET /api/2.3/auctions/ca31727f31f243b089cbc005b8fda5ba HTTP/1.0
+GET /api/2.5/auctions/0a3e5825752c49199ced43de14247e09 HTTP/1.0
 Authorization: Basic YnJva2VyOg==
-Host: api-sandbox.ea.openprocurement.org
+Host: lb.api-sandbox.registry.ea.openprocurement.net
 
-
-200 OK
-Content-Type: application/json; charset=UTF-8
-
+Response: 200 OK
+Content-Type: application/json
+X-Content-Type-Options: nosniff
 {
   "data": {
     "procurementMethod": "open", 
-    "auctionID": "UA-EA-2018-03-13-000001", 
+    "auctionID": "UA-EA-2018-12-07-000002", 
     "enquiryPeriod": {
-      "startDate": "2018-03-13T17:49:01.717562+02:00", 
-      "endDate": "2018-03-26T23:59:50+03:00"
+      "startDate": "2018-12-07T19:32:46.197484+02:00", 
+      "endDate": "2018-12-20T20:00:00+02:00"
+    }, 
+    "registrationFee": {
+      "currency": "UAH", 
+      "amount": 700.87
     }, 
     "submissionMethod": "electronicAuction", 
-    "dgfDecisionDate": "2016-11-17", 
-    "next_check": "2018-03-26T23:59:50+03:00", 
+    "next_check": "2018-12-20T20:00:00+02:00", 
     "awardCriteria": "highestCost", 
-    "dgfDecisionID": "219560", 
     "owner": "broker", 
-    "id": "ca31727f31f243b089cbc005b8fda5ba", 
-    "eligibilityCriteria_ru": "Участником электронного аукциона, предметом продажи на которых являются права требования по кредитным договорам и договорам обеспечения, не может быть пользователь, являющийся заёмщиком (должником относительно банка) и\\или поручителем (имущественным поручителем) по таким кредитным договорам и/или договорам обеспечения.", 
-    "documents": [
-      {
-        "title": "Місце та форма прийому заяв на участь в аукціоні та банківські реквізити для зарахування гарантійних внесків", 
-        "url": "http://torgi.fg.gov.ua/prozorrosale", 
-        "documentOf": "tender", 
-        "datePublished": "2018-03-13T17:49:01.717914+02:00", 
-        "documentType": "x_dgfPlatformLegalDetails", 
-        "dateModified": "2018-03-13T17:49:01.717937+02:00", 
-        "id": "dd4e71968a2c4585846704771946ffb4"
-      }
-    ], 
+    "id": "0a3e5825752c49199ced43de14247e09", 
     "title": "футляри до державних нагород", 
     "tenderAttempts": 1, 
-    "eligibilityCriteria_en": "The user, who is the borrower (the debtor of the bank) and/or guarantor (property guarantor) for loan agreements and/or collateral agreements, cannot be the bidder of the electronic auction, where the items for sale are the claim rights on such loan agreements and collateral agreements.", 
-    "procurementMethodDetails": "quick, accelerator=1440", 
-    "dateModified": "2018-03-13T17:49:01.720299+02:00", 
+    "auctionParameters": {
+      "type": "insider", 
+      "dutchSteps": 88
+    }, 
+    "dateModified": "2018-12-07T19:32:46.278565+02:00", 
     "status": "active.tendering", 
-    "eligibilityCriteria": "Учасником електронного аукціону, предметом продажу на яких є права вимоги за кредитними договорами та договорами забезпечення, не може бути користувач, який є позичальником (боржником відносно банку) та/або поручителем (майновим поручителем) за такими кредитними договорами та/або договорами забезпечення.", 
     "tenderPeriod": {
-      "startDate": "2018-03-13T17:49:01.717562+02:00", 
-      "endDate": "2018-03-27T00:00:30.631944+03:00"
+      "startDate": "2018-12-07T19:32:46.197484+02:00", 
+      "endDate": "2018-12-21T16:15:00+02:00"
     }, 
     "auctionPeriod": {
-      "shouldStartAfter": "2018-03-27T00:00:00+03:00"
+      "shouldStartAfter": "2018-12-21T00:00:00+02:00"
     }, 
-    "procurementMethodType": "appraisal",
-    "dgfID": "219560", 
-    "date": "2018-03-13T17:49:01.717562+02:00", 
+    "bankAccount": {
+      "accountIdentification": [
+        {
+          "scheme": "accountNumber", 
+          "id": "111111-8", 
+          "description": "some description"
+        }
+      ], 
+      "bankName": "name of bank"
+    }, 
+    "procurementMethodType": "appraisal.insider", 
+    "date": "2018-12-07T19:32:46.278565+02:00", 
+    "lotIdentifier": "Q24421K222", 
     "minimalStep": {
       "currency": "UAH", 
-      "amount": 0.0, 
+      "amount": 0, 
       "valueAddedTaxIncluded": true
     }, 
     "items": [
       {
         "description": "Земля для військовослужбовців", 
         "classification": {
-          "scheme": "CAV", 
+          "scheme": "CPV", 
           "description": "Земельні ділянки", 
-          "id": "06000000-2"
+          "id": "51413000-0"
         }, 
         "address": {
           "postalCode": "79000", 
@@ -70,7 +70,7 @@ Content-Type: application/json; charset=UTF-8
           "region": "м. Київ", 
           "locality": "м. Київ"
         }, 
-        "id": "e24b924ada114a0d95d03a8c89eadda7", 
+        "id": "6c318ef0d2954b0480d3310fe83d9266", 
         "unit": {
           "code": "44617100-9", 
           "name": "item"

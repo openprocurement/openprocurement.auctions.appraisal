@@ -1,8 +1,20 @@
 # -*- coding: utf-8 -*-
 from openprocurement.auctions.core.utils import update_logging_context
 from openprocurement.auctions.core.validation import (
-    validate_data
+    validate_data,
+    validate_json_data,
 )
+
+
+def validate_patch_auction_data(request, **kwargs):
+    data = validate_json_data(request)
+
+    if request.context.status == 'draft' and data.get('status') not in [None, 'active.tendering', 'draft']:
+        request.errors.add('body', 'data', 'Can\'t switch auction in such status ({})'.format(data['status']))
+        request.errors.status = 422
+        return
+
+    validate_data(request, type(request.auction), data=data)
 
 
 # Items view validation

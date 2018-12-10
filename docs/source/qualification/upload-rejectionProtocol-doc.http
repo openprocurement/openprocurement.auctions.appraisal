@@ -1,0 +1,35 @@
+POST /api/2.5/auctions/db1ca318fa4d4408a0d96e29ab6e5142/awards/7fea1585f8ff49e88f750a9f89080ce2/documents?acc_token=ba6a7bfc110748baae5dbc8072efd550 HTTP/1.0
+Authorization: Basic YnJva2VyOg==
+Content-Length: 377
+Content-Type: application/json
+Host: lb.api-sandbox.registry.ea.openprocurement.net
+DATA:
+{
+  "data": {
+    "url": "http://public.docs-sandbox.ea.openprocurement.org/get/39e65d50ec2347649cbf1f42d42db41c?KeyID=172d32c8&Signature=Vru5m%2F6RthVKzD9dMOtHG2dm2laD9nCF%2FJGGYsQ7jk7euskj8UGQKwp3C1d26Lq8fmAJSDMbnPHKXFdgE3z4CA%3D%3D", 
+    "title": "RejectionProtocol.pdf", 
+    "format": "application/pdf", 
+    "hash": "md5:00000000000000000000000000000000", 
+    "documentType": "rejectionProtocol"
+  }
+}
+
+Response: 201 Created
+Content-Type: application/json
+Location: http://lb.api-sandbox.registry.ea.openprocurement.net/api/2.5/auctions/db1ca318fa4d4408a0d96e29ab6e5142/awards/7fea1585f8ff49e88f750a9f89080ce2/documents/8ac78d447af448f29e03a884b07ed4c8
+X-Content-Type-Options: nosniff
+{
+  "data": {
+    "hash": "md5:00000000000000000000000000000000", 
+    "author": "auction_owner", 
+    "title": "RejectionProtocol.pdf", 
+    "url": "http://public.docs-sandbox.ea.openprocurement.org/get/39e65d50ec2347649cbf1f42d42db41c?KeyID=172d32c8&Signature=MygIKX4t39lh2CMtjQnjvlwE3R38y2tLlyUNrr8i6%2Fd21%2FL1RqQQrBGXr4jvapxsLduun1Cbh4yUSZzjN58xDA%253D%253D", 
+    "format": "application/pdf", 
+    "documentOf": "auction", 
+    "datePublished": "2018-12-07T19:32:45.701583+02:00", 
+    "documentType": "rejectionProtocol", 
+    "dateModified": "2018-12-07T19:32:45.701602+02:00", 
+    "id": "8ac78d447af448f29e03a884b07ed4c8"
+  }
+}
+

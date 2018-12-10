@@ -18,6 +18,7 @@ appraisal_auction_roles = {
         auction_embedded_role +
         blacklist(
             '_attachments',
+            'status',
             'auctionID',
             'auctionUrl',
             'awardCriteria',

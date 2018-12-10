@@ -1,15 +1,14 @@
-GET /api/2.3/auctions HTTP/1.0
+GET /api/2.5/auctions HTTP/1.0
 Authorization: Basic YnJva2VyOg==
-Host: api-sandbox.ea.openprocurement.org
+Host: lb.api-sandbox.registry.ea.openprocurement.net
 
-
-200 OK
-Content-Type: application/json; charset=UTF-8
-
+Response: 200 OK
+Content-Type: application/json
+X-Content-Type-Options: nosniff
 {
   "next_page": {
-    "path": "/api/2.3/auctions?offset=", 
-    "uri": "http://api-sandbox.ea.openprocurement.org/api/2.3/auctions?offset=", 
+    "path": "/api/2.5/auctions?offset=", 
+    "uri": "http://lb.api-sandbox.registry.ea.openprocurement.net/api/2.5/auctions?offset=", 
     "offset": ""
   }, 
   "data": []

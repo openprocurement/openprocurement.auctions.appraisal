@@ -1,9 +1,9 @@
-PATCH /api/2.3/auctions/6f0f6b78d53f463bbd96a6e7721b15aa/awards/d1083268c50c4fa2b55c30351d57e1c1?acc_token=d04bcd5a5db84bebaf2d7af95aea2a4a HTTP/1.0
+PATCH /api/2.5/auctions/db1ca318fa4d4408a0d96e29ab6e5142/awards/7fea1585f8ff49e88f750a9f89080ce2?acc_token=ba6a7bfc110748baae5dbc8072efd550 HTTP/1.0
 Authorization: Basic YnJva2VyOg==
 Content-Length: 146
 Content-Type: application/json
-Host: api-sandbox.ea.openprocurement.org
-
+Host: lb.api-sandbox.registry.ea.openprocurement.net
+DATA:
 {
   "data": {
     "status": "unsuccessful", 
@@ -12,42 +12,41 @@ Host: api-sandbox.ea.openprocurement.org
   }
 }
 
-
-200 OK
-Content-Type: application/json; charset=UTF-8
-
+Response: 200 OK
+Content-Type: application/json
+X-Content-Type-Options: nosniff
 {
   "data": {
     "status": "unsuccessful", 
     "documents": [
       {
-        "dateModified": "2018-03-13T17:49:00.542652+02:00", 
         "hash": "md5:00000000000000000000000000000000", 
-        "format": "application/pdf", 
-        "url": "http://public.docs-sandbox.ea.openprocurement.org/get/7ede9960779e46a0a2566d2f31dc2cd0?KeyID=3ad9481a&Signature=xxQKAL%252B3srRivLQgQzdsKhX2n4%252BLPsOkt6uYjHQMXjrrL%2FPMPP9iSKa3jQiu3CoRmz5thKn9Qco%2FVIccfnPNDw%253D%253D", 
         "author": "bid_owner", 
-        "documentOf": "tender", 
-        "datePublished": "2018-03-13T17:49:00.542631+02:00", 
-        "documentType": "auctionProtocol", 
         "title": "auction_protocol.pdf", 
-        "id": "ab622968b0944f7d94e2f7702da54c61"
+        "url": "http://public.docs-sandbox.ea.openprocurement.org/get/61f5777fa91e49079818ef3f117c362b?KeyID=172d32c8&Signature=MYxZ8Jxg41Lvt9ePuC18YYkaPrftRN2sdH0UDYrHuMC2jtyYKBLmPtxf%252BapAPgsR6qw9LVndR0yKbO0YpcUlDw%253D%253D", 
+        "format": "application/pdf", 
+        "documentOf": "auction", 
+        "datePublished": "2018-12-07T19:32:45.605096+02:00", 
+        "documentType": "auctionProtocol", 
+        "dateModified": "2018-12-07T19:32:45.605115+02:00", 
+        "id": "60f4968f2e21401c8ec01e3321208d79"
       }, 
       {
-        "dateModified": "2018-03-13T17:49:00.623811+02:00", 
         "hash": "md5:00000000000000000000000000000000", 
-        "description": "Disqualification reason", 
         "author": "auction_owner", 
-        "url": "http://public.docs-sandbox.ea.openprocurement.org/get/719ad9fe39f744acb248bd2d32d9f9af?KeyID=3ad9481a&Signature=tjEu7V%2FxtrYA%252BNpAv6YB5Yje17vtaRGdbpxI71wYj08QHJCb3mYCbJARem%2FpkX%2FoC7SPp5mFNRCqRgT7m3GtBQ%253D%253D", 
+        "title": "RejectionProtocol.pdf", 
+        "url": "http://public.docs-sandbox.ea.openprocurement.org/get/39e65d50ec2347649cbf1f42d42db41c?KeyID=172d32c8&Signature=MygIKX4t39lh2CMtjQnjvlwE3R38y2tLlyUNrr8i6%2Fd21%2FL1RqQQrBGXr4jvapxsLduun1Cbh4yUSZzjN58xDA%253D%253D", 
         "format": "application/pdf", 
-        "documentOf": "tender", 
-        "datePublished": "2018-03-13T17:49:00.623792+02:00", 
-        "title": "Disqualified_reason.pdf", 
-        "id": "a9e934f6aa8d4ed8be541d81c44feef0"
+        "documentOf": "auction", 
+        "datePublished": "2018-12-07T19:32:45.701583+02:00", 
+        "documentType": "rejectionProtocol", 
+        "dateModified": "2018-12-07T19:32:45.701602+02:00", 
+        "id": "8ac78d447af448f29e03a884b07ed4c8"
       }
     ], 
     "verificationPeriod": {
-      "startDate": "2018-03-13T17:49:00.433838+02:00", 
-      "endDate": "2018-03-13T17:49:00.719379+02:00"
+      "startDate": "2018-12-07T19:32:45.485659+02:00", 
+      "endDate": "2018-12-07T19:32:45.820502+02:00"
     }, 
     "description": "Candidate didn’t sign the auction protocol in 3 business days", 
     "title": "Disqualified", 
@@ -79,20 +78,20 @@ Content-Type: application/json; charset=UTF-8
       }
     ], 
     "complaintPeriod": {
-      "startDate": "2018-03-13T17:49:00.161595+02:00", 
-      "endDate": "2018-03-13T17:49:00.719379+02:00"
+      "startDate": "2018-12-07T19:32:45.058461+02:00", 
+      "endDate": "2018-12-07T19:32:45.820502+02:00"
     }, 
-    "bid_id": "408137f98b17480cbd50c7d917d591fd", 
+    "bid_id": "1ba70dadeec448d8aecb003eef0acaad", 
     "value": {
       "currency": "UAH", 
       "amount": 500.0, 
       "valueAddedTaxIncluded": true
     }, 
-    "date": "2018-03-13T17:49:00.729111+02:00", 
-    "id": "d1083268c50c4fa2b55c30351d57e1c1", 
+    "date": "2018-12-07T19:32:45.830042+02:00", 
+    "id": "7fea1585f8ff49e88f750a9f89080ce2", 
     "signingPeriod": {
-      "startDate": "2018-03-13T17:49:00.433838+02:00", 
-      "endDate": "2018-03-13T18:09:00.058838+02:00"
+      "startDate": "2018-12-07T19:32:45.485659+02:00", 
+      "endDate": "2019-01-16T18:00:00+02:00"
     }
   }
 }

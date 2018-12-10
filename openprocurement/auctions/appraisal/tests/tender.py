@@ -35,11 +35,17 @@ from openprocurement.auctions.appraisal.tests.blanks.tender_blanks import (
     create_auction_generated,
     create_auction,
     check_daylight_savings_timezone,
+    auction_Administrator_change,
+    listing,
+    listing_changes,
+    listing_draft,
+    patch_auction,
     # AppraisalAuctionProcessTest
     first_bid_auction,
     auctionUrl_in_active_auction,
     suspended_auction,
-    move_draft_to_active_tendering
+    move_draft_to_active_tendering,
+    move_draft_to_wrong_status
 )
 
 
@@ -59,12 +65,22 @@ class AppraisalAuctionResourceTest(BaseAppraisalWebTest, AuctionResourceTestMixi
     eligibility_criteria = DGF_ELIGIBILITY_CRITERIA
     test_financial_organization = test_organization
 
+    test_create_auction_draft = None
+
+    test_listing = snitch(listing)
+    test_listing_changes = snitch(listing_changes)
+    test_listing_draft = snitch(listing_draft)
+
+    test_patch_auction = snitch(patch_auction)
+
     test_check_daylight_savings_timezone = snitch(check_daylight_savings_timezone)
     test_create_auction_invalid = snitch(create_auction_invalid)
     test_create_auction_auctionPeriod = snitch(create_auction_auctionPeriod)
     test_create_auction_generated = snitch(create_auction_generated)
     test_create_auction = snitch(create_auction)
     test_move_draft_to_active_tendering = snitch(move_draft_to_active_tendering)
+    test_move_draft_to_wrong_status = snitch(move_draft_to_wrong_status)
+    test_auction_Administrator_change = snitch(auction_Administrator_change)
 
 
 class AppraisalAuctionProcessTest(BaseAppraisalAuctionWebTest):
@@ -116,6 +132,13 @@ class AppraisalAuctionProcessTest(BaseAppraisalAuctionWebTest):
         self.assertEqual(response.json['data']['auctionParameters']['type'], 'insider')
         auction_id = self.auction_id = response.json['data']['id']
         owner_token = response.json['access']['token']
+        access_header = {'X-Access-Token': str(owner_token)}
+
+        self.app.patch_json(
+            '/auctions/{}'.format(auction_id),
+            {'data': {'status': 'active.tendering'}},
+            headers=access_header
+        )
 
         #  Patch auctionParameters (Not allowed)
         response = self.app.patch_json('/auctions/{}?acc_token={}'.format(auction_id, owner_token), {

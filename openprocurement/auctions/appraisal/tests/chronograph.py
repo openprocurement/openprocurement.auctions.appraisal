@@ -3,12 +3,6 @@ import unittest
 from datetime import timedelta
 
 from openprocurement.auctions.core.tests.base import snitch
-from openprocurement.auctions.core.tests.blanks.chronograph_blanks import (
-    # AppraisalAuctionSwitchAuctionResourceTest
-    switch_to_auction,
-    # AppraisalAuctionDontSwitchSuspendedAuction2ResourceTest
-    switch_suspended_auction_to_auction,
-)
 from openprocurement.auctions.core.tests.plugins.awarding.v3_1.tests.chronograph import (
     AuctionAwardSwitchResourceTestMixin
 )
@@ -20,6 +14,10 @@ from openprocurement.auctions.appraisal.tests.base import (
     BaseAppraisalAuctionWebTest, test_bids,
 )
 from openprocurement.auctions.appraisal.tests.blanks.chronograph_blanks import (
+    # AppraisalAuctionSwitchAuctionResourceTest
+    switch_to_auction,
+    # AppraisalAuctionDontSwitchSuspendedAuction2ResourceTest
+    switch_suspended_auction_to_auction,
     # AppraisalAuctionAuctionPeriodResourceTest
     set_auction_period,
     reset_auction_period
@@ -78,7 +76,6 @@ class AppraisalAuctionAwardSwitchResourceTest(BaseAppraisalAuctionWebTest, Aucti
         self.app.authorization = authorization
 
 
-
 class AppraisalAuctionAwardSwitch2ResourceTest(BaseAppraisalAuctionWebTest):
     initial_status = 'active.auction'
     initial_bids = test_bids
@@ -123,7 +120,6 @@ class AppraisalAuctionDontSwitchSuspendedAuction2ResourceTest(BaseAppraisalAucti
     initial_bids = test_bids
 
     test_switch_suspended_auction_to_auction = snitch(switch_suspended_auction_to_auction)
-
 
 
 def suite():
