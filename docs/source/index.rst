@@ -21,8 +21,9 @@ Contents:
    :maxdepth: 2
 
    overview
-   procedureWorkflow
+   statusWorkflow
    standard/index
+   awardWorkflow
    tutorial
    acceleration
    upload
@@ -33,10 +34,3 @@ Contents:
 * :ref:`Date Format: ISO 8601 <openprocurementapi:date-format>`
 * :ref:`Performance recommendations <openprocurementapi:performance>`
 * :ref:`API in cluster mode <openprocurementapi:cluster>`
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`search`
