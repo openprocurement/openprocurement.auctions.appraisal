@@ -5,7 +5,7 @@ from openprocurement.auctions.core.tests.base import snitch
 
 from openprocurement.auctions.appraisal.tests.base import (
     BaseAppraisalAuctionWebTest,
-    test_insider_auction_data,
+    test_appraisal_auction_data,
     test_appraisal_item_data
 )
 from openprocurement.auctions.appraisal.tests.blanks.item_blank import (
@@ -17,7 +17,7 @@ from openprocurement.auctions.appraisal.tests.blanks.item_blank import (
     batch_update_items
 )
 
-test_auction_data = deepcopy(test_insider_auction_data)
+test_auction_data = deepcopy(test_appraisal_auction_data)
 
 
 class AppraisalAuctionItemTest(BaseAppraisalAuctionWebTest):

@@ -332,7 +332,8 @@ def create_auction_generated(self):
         u'procurementMethodType', u'id', u'date', u'dateModified', u'auctionID', u'status', u'enquiryPeriod',
         u'tenderPeriod', u'minimalStep', u'items', u'value', u'procuringEntity', u'next_check',
         u'procurementMethod', u'awardCriteria', u'submissionMethod', u'title', u'owner', u'auctionPeriod',
-        u'tenderAttempts', u'auctionParameters', u'bankAccount', u'registrationFee', u'lotIdentifier'
+        u'tenderAttempts', u'auctionParameters', u'bankAccount', u'registrationFee', u'lotIdentifier', u'registrationFee',
+        u'guarantee', u'description'
     ]))
     self.assertNotEqual(data['id'], auction['id'])
     self.assertNotEqual(data['doc_id'], auction['id'])

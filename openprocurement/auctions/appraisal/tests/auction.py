@@ -10,7 +10,7 @@ from openprocurement.auctions.appraisal.tests.base import (
     BaseAppraisalAuctionWebTest,
     test_bids,
     test_organization,
-    test_insider_auction_data
+    test_appraisal_auction_data
 )
 from openprocurement.auctions.appraisal.tests.blanks.auction_blanks import (
     # AppraisalAuctionAuctionResourceTest
@@ -45,7 +45,7 @@ class AppraisalAuctionAuctionResourceTest(BaseAppraisalAuctionWebTest):
 
 class AppraisalAuctionBidInvalidationAuctionResourceTest(BaseAppraisalAuctionWebTest):
     initial_status = 'active.auction'
-    initial_data = test_insider_auction_data
+    initial_data = test_appraisal_auction_data
     initial_bids = [
         {
             "tenderers": [
@@ -65,7 +65,6 @@ class AppraisalAuctionBidInvalidationAuctionResourceTest(BaseAppraisalAuctionWeb
 
 class AppraisalAuctionDraftBidAuctionResourceTest(BaseAppraisalAuctionWebTest):
     initial_status = 'active.auction'
-    # initial_data = test_insider_auction_data
     initial_bids = [
         {
             "tenderers": [
