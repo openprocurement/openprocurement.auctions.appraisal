@@ -17,7 +17,7 @@ Schema
 :documentType:
     string, required
 
-    Possible values for :ref:`auction`
+    Possible values for :ref:`auction` or :ref:`item`
 
     * `notice` - **Auction notice**
 
@@ -109,6 +109,10 @@ Schema
 
     Possible values for :ref:`contract`
 
+    * `notice` - **Contract notice**
+
+    The formal notice that gives details of a contract being signed and valid to start implementation. This may be a link to a downloadable document, to a web page, or to an official gazette in which the notice is contained.
+
     * `contractSigned` - **Signed Contract**
 
     A copy of the signed contract. Consider providing both machine-readable (e.g. original PDF, Word or Open Document format files), and a separate document entry for scanned-signed pages where this is required.
@@ -124,10 +128,6 @@ Schema
     * `act` - **Act**
 
     Documents containing the reasons for termination of work with the participant.
-
-    * `approvalProtocol` - **Approval Protocol**
-
-    Final document of the privatization body regarding the privatization of the object.
 
 :title:
     string, multilingual, required

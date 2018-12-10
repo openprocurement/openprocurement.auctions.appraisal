@@ -4,12 +4,6 @@
 Procedure Workflow
 ##################
 
-The Overall Small-Scale Privatization Process
-=============================================
-
-.. image:: SSP.png
-    :scale: 33%
-
 Status Workflow
 ===============
 
@@ -18,7 +12,7 @@ Status Workflow
     digraph G {
         node [style=filled, fillcolor=seashell2];
         edge[style=dashed,  arrowhead="vee"];
-        "pending.activation" -> "active.tendering" [color="0.7777 1.0000 0.5020"];
+        "draft" -> "active.tendering" [color="0.7777 1.0000 0.5020"];
         edge[style=solid,  arrowhead="vee"];
         "active.tendering" -> "active.qualification" [color="0.7777 1.0000 0.5020"];
         edge[dir="forward"];
@@ -56,3 +50,26 @@ Roles
 :Chronograph: solid
 
 :Organizer:  dashed
+
+Status
+""""""
+
++-------------------------+--------------------------------------+
+|        Status           |            Description               |
++=========================+======================================+
+| `draft`                 | draft of procedure                   |
++-------------------------+--------------------------------------+
+| `active.tendering`      | tendering period (tendering)         |
++-------------------------+--------------------------------------+
+| `active.auction`        | auction period (auction)             |
++-------------------------+--------------------------------------+
+| `active.qualification`  | winner qualification (qualification) |
++-------------------------+--------------------------------------+
+| `active.awarded`        | standstill period (standstill)       |
++-------------------------+--------------------------------------+
+| `unsuccessful`          | unsuccessful auction (unsuccessful)  |
++-------------------------+--------------------------------------+
+| `complete`              | complete auction (complete)          | 
++-------------------------+--------------------------------------+
+| `cancelled`             | cancelled auction (cancelled)        |
++-------------------------+--------------------------------------+

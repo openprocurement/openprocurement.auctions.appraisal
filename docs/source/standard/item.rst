@@ -8,8 +8,6 @@
 Item
 ====
 
-Originates from `lot.items <http://lotsloki.api-docs.registry.ea2.openprocurement.io/en/latest/standard/item.html>`_.
-
 Schema
 ------
 
@@ -22,8 +20,15 @@ Schema
     string, multilingual, required
 
     |ocdsDescription|
+   
     A description of the goods, services to be provided.
+
+    * Ukrainian by default - Ukrainian decription
     
+    * ``decription_en`` (English) - English decription
+    
+    * ``decription_ru`` (Russian) - Russian decription
+
 :classification:
     :ref:`Classification`, required
 
