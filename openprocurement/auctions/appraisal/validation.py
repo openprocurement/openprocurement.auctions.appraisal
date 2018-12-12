@@ -17,6 +17,21 @@ def validate_patch_auction_data(request, **kwargs):
     validate_data(request, type(request.auction), data=data)
 
 
+def validate_update_auction_in_not_allowed_status(request, error_handler, **kwargs):
+    is_system_internal_edit = bool(request.authenticated_role in ['Administrator', 'convoy', 'chronograph', 'auction'])
+
+    if not is_system_internal_edit and request.context.status not in ['draft', 'active.tendering']:
+        request.errors.add('body', 'data', 'Can\'t update auction in current ({}) status'.format(request.context.status))
+        request.errors.status = 403
+        return
+
+    terminated_statuses = ['complete', 'unsuccessful', 'cancelled']
+    if request.authenticated_role != 'Administrator' and request.context.status in terminated_statuses:
+        request.errors.add('body', 'data', 'Can\'t update auction in current ({}) status'.format(request.context.status))
+        request.errors.status = 403
+        return
+
+
 # Items view validation
 def validate_item_data(request, error_handler, **kwargs):
     update_logging_context(request, {'item_id': '__new__'})

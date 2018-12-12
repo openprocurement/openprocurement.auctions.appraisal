@@ -59,7 +59,7 @@ from openprocurement.auctions.core.utils import (
     calculate_business_date,
     SANDBOX_MODE,
     get_now,
-    TZ,
+    TZ
 )
 
 from openprocurement.auctions.appraisal.constants import (
