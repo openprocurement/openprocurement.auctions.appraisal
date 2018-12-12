@@ -1422,3 +1422,12 @@ def patch_auction(self):
     self.assertEqual(response.status, '403 Forbidden')
     self.assertEqual(response.content_type, 'application/json')
     self.assertEqual(response.json['errors'][0]["description"], "Can't update auction in current (complete) status")
+
+    self.app.authorization = ('Basic', ('chronograph', ''))
+
+    response = self.app.patch_json('/auctions/{}?acc_token={}'.format(
+        auction['id'], owner_token
+    ), {'data': {'id': auction['id']}}, status=403)
+    self.assertEqual(response.status, '403 Forbidden')
+    self.assertEqual(response.content_type, 'application/json')
+    self.assertEqual(response.json['errors'][0]["description"], "Can't update auction in current (complete) status")
