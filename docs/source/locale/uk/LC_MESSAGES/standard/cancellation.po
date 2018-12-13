@@ -22,33 +22,24 @@ msgstr "Cancellation"
 msgid "Schema"
 msgstr "Схема"
 
-#: ../../source/standard/cancellation.rst:17
+#: ../../source/standard/cancellation.rst:19
 msgid "string, multilingual, required"
 msgstr "рядок, багатомовний, обов’язковий"
 
-#: ../../source/standard/cancellation.rst:22
-#: ../../source/standard/cancellation.rst:42
-msgid "string"
-msgstr "рядок"
-
-#: ../../source/standard/cancellation.rst:28
-#: ../../source/standard/cancellation.rst:44
+#: ../../source/standard/cancellation.rst:30
+#: ../../source/standard/cancellation.rst:46
 msgid "Possible values are:"
 msgstr "Можливі значення:"
 
-#: ../../source/standard/cancellation.rst:26
+#: ../../source/standard/cancellation.rst:28
 msgid "Default. The request is being prepared."
 msgstr "За замовчуванням. Запит оформляється."
 
-#: ../../source/standard/cancellation.rst:28
+#: ../../source/standard/cancellation.rst:30
 msgid "Cancellation activated."
 msgstr "Скасування активоване."
 
-#: ../../source/standard/cancellation.rst:31
-msgid "List of :ref:`Document` objects"
-msgstr "Список об’єктів :ref:`Document`"
-
-#: ../../source/standard/cancellation.rst:33
+#: ../../source/standard/cancellation.rst:35
 msgid ""
 "Documents accompanying the Cancellation: Protocol of Auction Committee with "
 "decision to cancel the Auction."
@@ -56,25 +47,50 @@ msgstr ""
 "Супровідна документація скасування: Протокол рішення Аукціонного комітету "
 "організатора про скасування аукціону."
 
-#: ../../source/standard/cancellation.rst:37
-msgid "string, :ref:`date`"
-msgstr "рядок, :ref:`date`"
-
-#: ../../source/standard/cancellation.rst:39
+#: ../../source/standard/cancellation.rst:41
 msgid "Cancellation date."
 msgstr "Дата скасування"
 
-#: ../../source/standard/cancellation.rst:46
+#: ../../source/standard/cancellation.rst:48
 msgid "`auction`"
 msgstr "`auction`"
 
-#: ../../source/standard/cancellation.rst:14
-msgid "UID, auto-generated"
-msgstr "UID, генерується автоматично"
-
-#: ../../source/standard/cancellation.rst:19
+#: ../../source/standard/cancellation.rst:21
 msgid "The reason, why auction is being cancelled."
 msgstr "Причина, з якої скасовується аукціон."
+
+#: ../../source/standard/cancellation.rst:14
+msgid "uuid, auto-generated, read-only"
+msgstr ""
+
+#: ../../source/standard/cancellation.rst:16
+msgid "Internal identifier of the object within an array."
+msgstr ""
+
+#: ../../source/standard/cancellation.rst:24
+#: ../../source/standard/cancellation.rst:44
+msgid "string, required"
+msgstr ""
+
+#: ../../source/standard/cancellation.rst:33
+msgid "Array of :ref:`Document` objects, optional"
+msgstr ""
+
+#: ../../source/standard/cancellation.rst:39
+msgid "string, :ref:`date`, auto-generated"
+msgstr ""
+
+#~ msgid "string"
+#~ msgstr "рядок"
+
+#~ msgid "List of :ref:`Document` objects"
+#~ msgstr "Список об’єктів :ref:`Document`"
+
+#~ msgid "string, :ref:`date`"
+#~ msgstr "рядок, :ref:`date`"
+
+#~ msgid "UID, auto-generated"
+#~ msgstr "UID, генерується автоматично"
 
 #~ msgid "`lot`"
 #~ msgstr "`lot`"

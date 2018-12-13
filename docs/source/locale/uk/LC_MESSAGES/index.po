@@ -35,15 +35,6 @@ msgstr ":ref:`Рекомендації для роботи <openprocurementapi:p
 msgid ":ref:`API in cluster mode <openprocurementapi:cluster>`"
 msgstr ":ref:`Робота з API в режимі кластеру <openprocurementapi:cluster>`"
 
-msgid "Indices and tables"
-msgstr "Індекси та таблиці"
-
-msgid ":ref:`genindex`"
-msgstr ":ref:`genindex`"
-
-msgid ":ref:`search`"
-msgstr ":ref:`search`"
-
 msgid "Welcome to openprocurement.auctions.appraisal documentation!"
 msgstr "Вітаємо на сайті документації по openprocurement.auctions.appraisal!"
 
@@ -54,5 +45,15 @@ msgid ""
 "<https://github.com/openprocurement/openprocurement.auctions.dutch/issues>`_."
 msgstr ""
 "Будь ласка повідомляйте про всі проблеми та поради покращень або через "
-"`розсилку <http://groups.google.com/group/open-procurement-general>`_ або через "
-"`issue tracker <https://github.com/openprocurement/openprocurement.auctions.dutch/issues>`_."
+"`розсилку <http://groups.google.com/group/open-procurement-general>`_ або "
+"через `issue tracker "
+"<https://github.com/openprocurement/openprocurement.auctions.dutch/issues>`_."
+
+#~ msgid "Indices and tables"
+#~ msgstr "Індекси та таблиці"
+
+#~ msgid ":ref:`genindex`"
+#~ msgstr ":ref:`genindex`"
+
+#~ msgid ":ref:`search`"
+#~ msgstr ":ref:`search`"

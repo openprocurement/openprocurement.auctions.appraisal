@@ -117,7 +117,7 @@ Schema
     The postal code. For example, 94043.
     
 :countryName:
-    string, multilingual, required
+    string, required
     
     |ocdsDescription|
     The country name. For example, United States.

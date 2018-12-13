@@ -26,8 +26,7 @@ msgstr "Схема"
 msgid "|ocdsDescription| The identifier for this contract."
 msgstr "|ocdsDescription| Ідентифікатор цього договору."
 
-#: ../../source/standard/contract.rst:20 ../../source/standard/contract.rst:32
-#: ../../source/standard/contract.rst:59
+#: ../../source/standard/contract.rst:50
 msgid "string, required"
 msgstr "рядок, обов’язковий"
 
@@ -43,46 +42,23 @@ msgstr ""
 msgid "string, auto-generated, read-only"
 msgstr "рядок, генерується автоматично, лише для читання"
 
-#: ../../source/standard/contract.rst:29 ../../source/standard/contract.rst:38
-msgid "string"
-msgstr "рядок"
-
-#: ../../source/standard/contract.rst:34
-msgid "|ocdsDescription| Contract title"
-msgstr "|ocdsDescription| Назва договору"
-
-#: ../../source/standard/contract.rst:40
-msgid "|ocdsDescription| Contract description"
-msgstr "|ocdsDescription| Опис договору"
-
-#: ../../source/standard/contract.rst:44
+#: ../../source/standard/contract.rst:35
 msgid "`Value` object, auto-generated, read-only"
 msgstr "Об’єкт `Value`, генерується автоматично, лише для читання"
 
-#: ../../source/standard/contract.rst:46
+#: ../../source/standard/contract.rst:37
 msgid "|ocdsDescription| The total value of this contract."
 msgstr "|ocdsDescription| Загальна вартість договору."
 
-#: ../../source/standard/contract.rst:50
-msgid "List of :ref:`Item` objects, auto-generated, read-only"
-msgstr ""
-"Список об’єктів :ref:`Item`, генерується автоматично, лише для читання"
-
-#: ../../source/standard/contract.rst:56
-msgid "List of :ref:`Organization` objects, auto-generated, read-only"
-msgstr ""
-"Список об’єктів :ref:`Organization`, генерується автоматично, лише для "
-"читання"
-
-#: ../../source/standard/contract.rst:61
+#: ../../source/standard/contract.rst:52
 msgid "|ocdsDescription| The current status of the contract."
 msgstr "|ocdsDescription| Поточний статус договору."
 
-#: ../../source/standard/contract.rst:64
+#: ../../source/standard/contract.rst:55
 msgid "Possible values are:"
 msgstr "Можливі значення:"
 
-#: ../../source/standard/contract.rst:66
+#: ../../source/standard/contract.rst:57
 msgid ""
 "`pending` - this contract has been proposed, but is not yet in force. It may"
 " be awaiting signature."
@@ -90,7 +66,7 @@ msgstr ""
 "`pending` - цей договір запропоновано, але він ще не діє. Можливо очікується"
 " його підписання."
 
-#: ../../source/standard/contract.rst:68
+#: ../../source/standard/contract.rst:59
 msgid ""
 "`active` - this contract has been signed by all the parties, and is now "
 "legally in force."
@@ -98,11 +74,11 @@ msgstr ""
 "`active` - цей договір підписаний всіма учасниками, і зараз діє на законних "
 "підставах."
 
-#: ../../source/standard/contract.rst:70
+#: ../../source/standard/contract.rst:61
 msgid "`cancelled` - this contract has been cancelled prior to being signed."
 msgstr "`cancelled` - цей договір було скасовано до підписання."
 
-#: ../../source/standard/contract.rst:71
+#: ../../source/standard/contract.rst:62
 msgid ""
 "`terminated` - this contract was signed and in force, and has now come to a "
 "close.  This may be due to a successful completion of the contract, or may "
@@ -112,19 +88,16 @@ msgstr ""
 "може бути пов'язано з виконанням договору, або з достроковим припиненням "
 "через якусь незавершеність."
 
-#: ../../source/standard/contract.rst:76
+#: ../../source/standard/contract.rst:73
 msgid ":ref:`Period`"
 msgstr ":ref:`Period`"
 
-#: ../../source/standard/contract.rst:78
-msgid "|ocdsDescription| The start and end date for the contract."
-msgstr "|ocdsDescription| Дата початку та завершення договору."
-
-#: ../../source/standard/contract.rst:82 ../../source/standard/contract.rst:88
+#: ../../source/standard/contract.rst:67 ../../source/standard/contract.rst:79
+#: ../../source/standard/contract.rst:85
 msgid "string, :ref:`date`"
 msgstr "рядок, :ref:`date`"
 
-#: ../../source/standard/contract.rst:84
+#: ../../source/standard/contract.rst:69
 msgid ""
 "|ocdsDescription| The date the contract was signed. In the case of multiple "
 "signatures, the date of the last signature."
@@ -132,15 +105,11 @@ msgstr ""
 "|ocdsDescription| Дата підписання договору. Якщо було декілька підписань, то"
 " береться дата останнього підписання."
 
-#: ../../source/standard/contract.rst:90
+#: ../../source/standard/contract.rst:87
 msgid "The date when the contract was changed or activated."
 msgstr "Дата, коли договір був змінений або активований."
 
-#: ../../source/standard/contract.rst:93
-msgid "List of :ref:`Document` objects"
-msgstr "Список об’єктів :ref:`Document`"
-
-#: ../../source/standard/contract.rst:95
+#: ../../source/standard/contract.rst:92
 msgid ""
 "|ocdsDescription| All documents and attachments related to the contract, "
 "including any notices."
@@ -148,11 +117,7 @@ msgstr ""
 "|ocdsDescription| Усі документи та додатки пов’язані з договором, включно з "
 "будь-якими повідомленнями."
 
-#: ../../source/standard/contract.rst:14
-msgid "UID, auto-generated"
-msgstr "UID, генерується автоматично"
-
-#: ../../source/standard/contract.rst:52
+#: ../../source/standard/contract.rst:43
 msgid ""
 "|ocdsDescription| The goods, services, and any intangible outcomes in this "
 "contract. Note: If the items are the same as the award, do not repeat."
@@ -160,3 +125,68 @@ msgstr ""
 "|ocdsDescription| Товари, послуги та інші нематеріальні результати у цій "
 "угоді. Зверніть увагу: Якщо список співпадає з визначенням переможця "
 "`award`, то його не потрібно повторювати."
+
+#: ../../source/standard/contract.rst:14
+msgid "uuid, auto-generated"
+msgstr ""
+
+#: ../../source/standard/contract.rst:20
+msgid "string, required, auto-generated"
+msgstr ""
+
+#: ../../source/standard/contract.rst:28
+msgid ""
+"|ocdsDescription| The `Contract.id` against which this contract is being "
+"issued."
+msgstr ""
+
+#: ../../source/standard/contract.rst:32
+msgid "string, optional"
+msgstr ""
+
+#: ../../source/standard/contract.rst:41
+msgid "Array of :ref:`Item` objects, auto-generated, read-only"
+msgstr ""
+
+#: ../../source/standard/contract.rst:47
+msgid "Array of :ref:`Organization` objects, auto-generated, read-only"
+msgstr ""
+
+#: ../../source/standard/contract.rst:75
+msgid "|ocdsDescription| The start and end date for the contract signing."
+msgstr ""
+
+#: ../../source/standard/contract.rst:81
+msgid "|ocdsDescription| The date the contract was paid."
+msgstr ""
+
+#: ../../source/standard/contract.rst:90
+msgid "Array of :ref:`Document` objects"
+msgstr ""
+
+#~ msgid "string"
+#~ msgstr "рядок"
+
+#~ msgid "|ocdsDescription| Contract title"
+#~ msgstr "|ocdsDescription| Назва договору"
+
+#~ msgid "|ocdsDescription| Contract description"
+#~ msgstr "|ocdsDescription| Опис договору"
+
+#~ msgid "List of :ref:`Item` objects, auto-generated, read-only"
+#~ msgstr ""
+#~ "Список об’єктів :ref:`Item`, генерується автоматично, лише для читання"
+
+#~ msgid "List of :ref:`Organization` objects, auto-generated, read-only"
+#~ msgstr ""
+#~ "Список об’єктів :ref:`Organization`, генерується автоматично, лише для "
+#~ "читання"
+
+#~ msgid "|ocdsDescription| The start and end date for the contract."
+#~ msgstr "|ocdsDescription| Дата початку та завершення договору."
+
+#~ msgid "List of :ref:`Document` objects"
+#~ msgstr "Список об’єктів :ref:`Document`"
+
+#~ msgid "UID, auto-generated"
+#~ msgstr "UID, генерується автоматично"

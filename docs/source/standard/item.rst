@@ -12,7 +12,7 @@ Schema
 ------
 
 :id:
-    uuid, auto-generated, required
+    uuid, auto-generated
 
     Internal identifier for this item.
 
@@ -80,8 +80,6 @@ Schema
 
     `location` usually takes precedence over `address` if both are present.
 
-:registrationDetails:
-    :ref:`registrationDetails`, required
 
 .. _Classification:
 

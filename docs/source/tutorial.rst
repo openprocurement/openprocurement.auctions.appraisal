@@ -33,7 +33,7 @@ Error states that no `data` has been found in JSON body.
 Creating auction
 ----------------
 
-Let's create auction with the minimal data set (only required properties):
+Let's create auction:
 
 .. include:: tutorial/auction-post-attempt-json-data.http
    :code:
@@ -43,8 +43,8 @@ and `Location` response header reports the location of the created object.  The
 body of response reveals the information about the created auction: its internal
 `id` (that matches the `Location` segment), its official `auctionID` and
 `dateModified` datestamp stating the moment in time when auction has been last
-modified. Pay attention to the `procurementMethodType`. Note that auction is
-created with `draft` status, so you need to manually move it to `active.tendering`.
+modified. Pay attention to the `procurementMethodType`. Note that the procedure is
+created in `draft` status, so you need to manually switch it to `active.tendering`.
 
 .. include:: tutorial/auction-switch-to-active-tendering.http
    :code:
@@ -64,33 +64,32 @@ Let's see what listing of auctions reveals us:
 
 We do see the auction's internal `id` and its `dateModified` datestamp.
 
-The previous auction contained only required fields. Let's try creating auction with more data
-(auction has status `created`):
+Let's try creating auction with more data:
 
 .. include:: tutorial/create-auction-procuringEntity.http
    :code:
 
 And again we have `201 Created` response code, `Location` header and body with extra `id`, `auctionID`, and `dateModified` properties.
 
-Let's check what auction registry contains:
+Let's check what "auction registry" contains:
 
 .. include:: tutorial/auction-listing-after-procuringEntity.http
    :code:
 
-And indeed we have 2 auctions now.
+And indeed we have 2 procedures now.
 
 
 Modifying auction
 -----------------
 
-Let's update auction by supplementing it with all other essential properties:
+Let's update procedure by supplementing it with all other essential properties:
 
 .. include:: tutorial/patch-items-value-periods.http
    :code:
 
 .. XXX body is empty for some reason (printf fails)
 
-We see the added properies have merged with existing auction data. Additionally, the `dateModified` property was updated to reflect the last modification datestamp.
+We see the added properties have merged with existing data. Additionally, the `dateModified` property was updated to reflect the last modification datestamp.
 
 Checking the listing again reflects the new modification date:
 
@@ -175,7 +174,7 @@ We can check that there are three uploaded illustrations.
 Enquiries
 ---------
 
-When auction is in `active.tendering` status, interested parties can ask questions:
+When a procedure is in `active.tendering` status, interested parties can ask questions:
 
 .. include:: tutorial/ask-question.http
    :code:
@@ -185,7 +184,7 @@ Organizer can answer them:
 .. include:: tutorial/answer-question.http
    :code:
 
-And one can retrieve the question list:
+And one can retrieve the questions list:
 
 .. include:: tutorial/list-question.http
    :code:
@@ -232,17 +231,18 @@ For the best effect (biggest economy) auction should have multiple bidders regis
 Auction
 -------
 
-After auction is scheduled anybody can visit it to watch. The auction can be reached at `Auction.auctionUrl`:
+The auction can be reached at `Auction.auctionUrl`:
 
 .. include:: tutorial/auction-url.http
    :code:
 
-And bidders can find out their participation URLs via their bids:
+And bidders can find their participation URLs via their bids:
 
 .. include:: tutorial/bidder-participation-url.http
    :code:
 
-See the `Bid.participationUrl` in the response. Similar, but different, URL can be retrieved for other participants:
+See the `Bid.participationUrl` in the response.
+The links can be also retrieved for other participants:
 
 .. include:: tutorial/bidder2-participation-url.http
    :code:
@@ -255,6 +255,8 @@ After the competitive auction two `awards` are created:
  * for the first candidate (a participant that has submitted the highest valid bid at the auction) - initially has a `pending` status and awaits auction protocol to be uploaded by the organizer;
  * for the second candidate (a participant that has submitted the second highest valid bid at the auction).
 
+The procedure receives active.qualification status. The process enters the verificationPeriod with the auto-generated duration of 0-10 business days.
+
 .. include:: tutorial/get-awards.http
   :code:
 
@@ -264,27 +266,20 @@ After the competitive auction two `awards` are created:
 Confirming qualification
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-
-The organizer **must** upload and confirm the auction protocol `auctionProtocol` and add it to the award within **4 business days after the start of the qualification procedure**. The candidate still has a possibility to upload the protocol, but it is neither mandatory, nor sufficient to move to the next status. If the auction protocol has not been uploaded before the end of `verificationPeriod`, the `award` is automatically transferred to the `unsuccessful` status.
-
-
-.. include:: tutorial/bidder-auction-protocol.http
-  :code:
+For the winner to be qualified, the Organizer has to upload auctionProtocol first:
 
 .. include:: tutorial/owner-auction-protocol.http
   :code:
 
+The winner can also upload auctionProtocol to `award`:
 
+.. include:: tutorial/bidder-auction-protocol.http
+  :code:
 
-It is the organizer's duty to upload and confirm the protocol, although the award will not switch the status to "pending.payment" automatically.
-
+With the document being uploaded the Organizer has to switch the award to active status:
 
 .. include:: tutorial/verify-protocol.http
  :code:
-
-
-Within **20 business days after becoming a candidate** he/she must provide payment and organizer has the same time to confirm the payment. Otherwise, the award will automatically become "unsuccessful":
-
 
 .. include:: tutorial/confirm-qualification.http
   :code:
@@ -294,10 +289,10 @@ Within **20 business days after becoming a candidate** he/she must provide payme
 Disqualification of a candidate
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In case of manual disqualification, the organizer has to upload file with `act` or `rejectionProtocol` document type:
+In case of a manual disqualification, the organizer has to upload file with `act` or `rejectionProtocol` document type:
 
 
-.. include:: qualification/upload-rejectionProtocol-doc.http.http
+.. include:: qualification/upload-rejectionProtocol-doc.http
   :code:
 
 
@@ -307,8 +302,6 @@ And disqualify candidate:
 .. include:: qualification/award-active-disqualify.http
   :code:
 
-
-Within 20 business days since becoming candidate a new candidate must confirm qualification with steps described above (:ref:`Qualification`).
 
 .. _Waiting_refusal:
 
@@ -320,53 +313,28 @@ The second candidate (participant that has submitted the second highest valid bi
 .. include:: qualification/award-waiting-cancel.http
   :code:
 
+Note that the action can be completed till the award has `pending.waiting` status.
+
 Signing contract
 ----------------
-
-The candidate has **20 business days after becoming a candidate** to conclude a contract with the bank based on the results of electronic auction.
-
-Uploading contract documentation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-You can upload contract documents. Let's upload contract document:
-
-.. include:: tutorial/auction-contract-upload-document.http
-   :code:
-
-`201 Created` response code and `Location` header confirm that document has been added.
-
-Let's see the list of contract documents:
-
-.. include:: tutorial/auction-contract-get-documents.http
-   :code:
-
-We can add another contract document:
-
-.. include:: tutorial/auction-contract-upload-second-document.http
-   :code:
-
-`201 Created` response code and `Location` header confirm that the second document has been uploaded.
-
-Let's see the list of all added contract documents:
-
-.. include:: tutorial/auction-contract-get-documents-again.http
-   :code:
-
 
 Contract registration
 ~~~~~~~~~~~~~~~~~~~~~
 
-Owner has to upload `contractSigned` document to set signature date.
+For the contract to be activated, the Organizer has
+
+1. to upload `contractSigned` first:
 
 .. include:: tutorial/upload-contractSigned-doc.http
    :code:
 
-There is a possibility to set custom contract signature date.
-If the date is not set it will be generated on contract registration.
-You can register contract:
+2. set value for `dateSigned` and
+3. switch contract status to `active`:
 
 .. include:: tutorial/auction-contract-sign.http
    :code:
+
+As soon as the contracts receives active status, the procedure becomes complete.
 
 Cancelling auction
 ------------------
