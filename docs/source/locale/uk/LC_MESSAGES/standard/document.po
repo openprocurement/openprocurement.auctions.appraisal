@@ -24,56 +24,44 @@ msgid "Schema"
 msgstr "Схема"
 
 #: ../../source/standard/document.rst:15
-#: ../../source/standard/document.rst:125
+#: ../../source/standard/document.rst:156
 msgid "string, auto-generated"
 msgstr "рядок, генерується автоматично"
 
-#: ../../source/standard/document.rst:18
-#: ../../source/standard/document.rst:119
-#: ../../source/standard/document.rst:143
-#: ../../source/standard/document.rst:149
-#: ../../source/standard/document.rst:158
-msgid "string"
-msgstr "рядок"
-
-#: ../../source/standard/document.rst:20
-msgid "Possible values for :ref:`auction`"
-msgstr "Можливі значення для :ref:`auction`"
-
-#: ../../source/standard/document.rst:23
+#: ../../source/standard/document.rst:22
 msgid "`notice` - **Auction notice**"
 msgstr "`notice` - **Повідомлення про аукціон**"
 
-#: ../../source/standard/document.rst:27
+#: ../../source/standard/document.rst:26
 msgid "`technicalSpecifications` - **Technical Specifications**"
 msgstr "`technicalSpecifications` - **Технічні специфікації**"
 
-#: ../../source/standard/document.rst:29
+#: ../../source/standard/document.rst:28
 msgid "Detailed technical information about goods or services to be provided."
 msgstr ""
 "Детальна технічна інформація про товари або послуги, що повинні бути надані."
 
-#: ../../source/standard/document.rst:31
+#: ../../source/standard/document.rst:30
 msgid "`evaluationCriteria` - **Evaluation Criteria**"
 msgstr "`evaluationCriteria` - **Критерії оцінки**"
 
-#: ../../source/standard/document.rst:33
+#: ../../source/standard/document.rst:32
 msgid "Information about how bids will be evaluated."
 msgstr "Інформація про те, як будуть оцінюватись пропозиції."
 
-#: ../../source/standard/document.rst:35
+#: ../../source/standard/document.rst:34
 msgid "`clarifications` - **Clarifications to bidders questions**"
 msgstr "`clarifications` - **Пояснення до питань заданих учасниками**"
 
-#: ../../source/standard/document.rst:37
+#: ../../source/standard/document.rst:36
 msgid "Including replies to issues raised in pre-bid conferences."
 msgstr "Включає відповіді на питання, підняті на передтендерних конференціях."
 
-#: ../../source/standard/document.rst:39
+#: ../../source/standard/document.rst:38
 msgid "`bidders` - **Information on bidders**"
 msgstr "`bidders` - **Інформація про учасників**"
 
-#: ../../source/standard/document.rst:41
+#: ../../source/standard/document.rst:40
 msgid ""
 "Information on bidders or participants, their validation documents and any "
 "procedural exemptions for which they qualify."
@@ -81,23 +69,23 @@ msgstr ""
 "Інформація про учасників, їхні документи для перевірки та будь-які "
 "процесуальні пільги, на які вони можуть претендувати."
 
-#: ../../source/standard/document.rst:68
+#: ../../source/standard/document.rst:88
 msgid "Possible values for :ref:`award`"
 msgstr "Можливі значення для :ref:`award`"
 
-#: ../../source/standard/document.rst:71
+#: ../../source/standard/document.rst:90
 msgid "`winningBid` - **Winning Bid**"
 msgstr "`winningBid` - **Пропозиція, що перемогла**"
 
-#: ../../source/standard/document.rst:73
+#: ../../source/standard/document.rst:110
 msgid "Possible values for :ref:`contract`"
 msgstr "Можливі значення для :ref:`contract`"
 
-#: ../../source/standard/document.rst:76
+#: ../../source/standard/document.rst:112
 msgid "`notice` - **Contract notice**"
 msgstr "`notice` - **Повідомлення про договір**"
 
-#: ../../source/standard/document.rst:78
+#: ../../source/standard/document.rst:114
 msgid ""
 "The formal notice that gives details of a contract being signed and valid to"
 " start implementation. This may be a link to a downloadable document, to a "
@@ -107,43 +95,38 @@ msgstr ""
 "на документ, веб-сторінку, чи на офіційний бюлетень, де розміщено "
 "повідомлення."
 
-#: ../../source/standard/document.rst:80
+#: ../../source/standard/document.rst:116
 msgid "`contractSigned` - **Signed Contract**"
 msgstr "`contractSigned` - **Підписаний договір**"
 
-#: ../../source/standard/document.rst:82
+#: ../../source/standard/document.rst:120
 msgid "`contractAnnexe` - **Annexes to the Contract**"
 msgstr "`contractAnnexe` - **Додатки до договору**"
 
-#: ../../source/standard/document.rst:85
+#: ../../source/standard/document.rst:64
 msgid "Possible values for :ref:`bid`"
 msgstr "Можливі значення для :ref:`bid`"
 
-#: ../../source/standard/document.rst:88
+#: ../../source/standard/document.rst:66
 msgid "`commercialProposal` - **Сommercial proposal**"
 msgstr "`commercialProposal` - **Цінова пропозиція**"
 
-#: ../../source/standard/document.rst:90
+#: ../../source/standard/document.rst:70
 msgid "`qualificationDocuments` - **Qualification documents**"
 msgstr ""
 "`qualificationDocuments` - **Документи, що підтверджують кваліфікацію**"
 
-#: ../../source/standard/document.rst:92
+#: ../../source/standard/document.rst:74
 msgid "`eligibilityDocuments` - **Eligibility documents**"
 msgstr ""
 "`eligibilityDocuments` - **Документи, що підтверджують відповідність** (в "
 "тому числі, відповідність вимогам ст. 17)"
 
-#: ../../source/standard/document.rst:102
-#: ../../source/standard/document.rst:108
-msgid "string, multilingual"
-msgstr "рядок, багатомовний"
-
-#: ../../source/standard/document.rst:104
+#: ../../source/standard/document.rst:135
 msgid "|ocdsDescription| The document title."
 msgstr "|ocdsDescription| Назва документа."
 
-#: ../../source/standard/document.rst:110
+#: ../../source/standard/document.rst:141
 msgid ""
 "|ocdsDescription| A short description of the document. In the event the "
 "document is not accessible online, the description field can be used to "
@@ -153,7 +136,7 @@ msgstr ""
 "онлайн, то поле опису можна використати для вказання способу отримання копії"
 " документа."
 
-#: ../../source/standard/document.rst:121
+#: ../../source/standard/document.rst:152
 msgid ""
 "|ocdsDescription| The format of the document taken from the `IANA Media "
 "Types code list <http://www.iana.org/assignments/media-types/>`_, with the "
@@ -165,24 +148,19 @@ msgstr ""
 "значенням 'offline/print', що буде використовуватись, коли запис цього "
 "документа використовується для опису офлайнової публікації документа."
 
-#: ../../source/standard/document.rst:127
+#: ../../source/standard/document.rst:158
 msgid "|ocdsDescription| Direct link to the document or attachment."
 msgstr "|ocdsDescription| Пряме посилання на документ чи додаток."
 
-#: ../../source/standard/document.rst:131
-#: ../../source/standard/document.rst:137
-msgid "string, :ref:`date`"
-msgstr "рядок, :ref:`date`"
-
-#: ../../source/standard/document.rst:133
+#: ../../source/standard/document.rst:164
 msgid "|ocdsDescription| The date on which the document was first published."
 msgstr "|ocdsDescription| Дата, коли документ був опублікований вперше."
 
-#: ../../source/standard/document.rst:139
+#: ../../source/standard/document.rst:170
 msgid "|ocdsDescription| Date that the document was last modified"
 msgstr "|ocdsDescription| Дата, коли документ був змінений востаннє."
 
-#: ../../source/standard/document.rst:145
+#: ../../source/standard/document.rst:176
 msgid ""
 "|ocdsDescription| Specifies the language of the linked document using either"
 " two-digit `ISO 639-1 "
@@ -195,19 +173,19 @@ msgstr ""
 "розширений `BCP47 language tags <http://www.w3.org/International/articles"
 "/language-tags/>`_."
 
-#: ../../source/standard/document.rst:151
+#: ../../source/standard/document.rst:182
 msgid "Possible values are:"
 msgstr "Можливі значення:"
 
-#: ../../source/standard/document.rst:153
+#: ../../source/standard/document.rst:184
 msgid "`auction`"
 msgstr "`auction`"
 
-#: ../../source/standard/document.rst:154
+#: ../../source/standard/document.rst:185
 msgid "`item`"
 msgstr "`item`"
 
-#: ../../source/standard/document.rst:25
+#: ../../source/standard/document.rst:24
 msgid ""
 "The formal notice that gives details of an auction. This may be a link to a "
 "downloadable document, to a web page, or to an official gazette in which the"
@@ -217,28 +195,15 @@ msgstr ""
 " документ, веб-сторінку, чи на офіційний бюлетень, де розміщено "
 "повідомлення."
 
-#: ../../source/standard/document.rst:45
+#: ../../source/standard/document.rst:42
 msgid "`illustration` - **Illustrations**"
 msgstr "`illustration` - **Ілюстрації**"
 
-#: ../../source/standard/document.rst:43
-msgid ""
-"`virtualDataRoom` - **Virtual Data Room**"
-msgstr ""
-"`virtualDataRoom` - **Віртуальна кімната для роботи з конфіденційними "
-"даними**"
+#: ../../source/standard/document.rst:78
+msgid "`financialLicense` - **License**"
+msgstr "`financialLicense` - **Ліцензія**"
 
-#: ../../source/standard/document.rst:94
-msgid ""
-"`financialLicense` - **License**"
-msgstr ""
-"`financialLicense` - **Ліцензія**"
-
-#: ../../source/standard/document.rst:114
-msgid "integer"
-msgstr "ціле число"
-
-#: ../../source/standard/document.rst:116
+#: ../../source/standard/document.rst:147
 msgid ""
 "Sorting (display order) parameter used for illustrations. The smaller number"
 " is, the higher illustration is in the sorting. If index is not specified, "
@@ -251,11 +216,11 @@ msgstr ""
 "ілюстрації мають однакове значення параметру, то порядок сортування буде "
 "залежати від дати публікації."
 
-#: ../../source/standard/document.rst:96
+#: ../../source/standard/document.rst:98
 msgid "`auctionProtocol` - **Auction protocol**"
 msgstr "`auctionProtocol` - **Протокол торгів**"
 
-#: ../../source/standard/document.rst:98
+#: ../../source/standard/document.rst:100
 msgid ""
 "Auction protocol describes all participants and determines the candidate "
 "(participant that has submitted the highest bid proposal during the "
@@ -265,33 +230,25 @@ msgstr ""
 "що під час аукціону подав найбільшу цінову пропозицію, а при однакових "
 "цінових пропозиціях, того, що подав пропозицію раніше."
 
-#: ../../source/standard/document.rst:160
-msgid "ID of related :ref:`item`."
-msgstr "Ідентифікатор пов'язаних об'єктів :ref:`item`."
-
-#: ../../source/standard/document.rst:47
-msgid "`x_dgfPublicAssetCertificate` - **Public Asset Certificate**"
-msgstr "`x_dgfPublicAssetCertificate` - **Публічний Паспорт Активу**"
-
-#: ../../source/standard/document.rst:49
+#: ../../source/standard/document.rst:46
 msgid ""
 "Information about the auction. It is a link to the Public Asset Certificate."
 msgstr ""
 "Інформація про аукціон. Це гіперпосилання на Публічний Паспорт Активу."
 
-#: ../../source/standard/document.rst:51
+#: ../../source/standard/document.rst:48
 msgid "`x_presentation` - **Presentation**"
 msgstr "`x_presentation` - **Презентація**"
 
-#: ../../source/standard/document.rst:53
+#: ../../source/standard/document.rst:50
 msgid "Presentation about an asset that is being sold."
 msgstr "Презентація активу виставленого на продаж."
 
-#: ../../source/standard/document.rst:55
+#: ../../source/standard/document.rst:52
 msgid "`x_nda` - **Non-disclosure Agreement (NDA)**"
 msgstr "`x_nda` - **Договір про нерозголошення (NDA)**"
 
-#: ../../source/standard/document.rst:57
+#: ../../source/standard/document.rst:54
 msgid ""
 "A non-disclosure agreement between a participant and a bank/Deposit "
 "Guarantee Fund."
@@ -299,11 +256,7 @@ msgstr ""
 "Договір про нерозголошення між учасником та банком/Фондом Гарантування "
 "Вкладів."
 
-#: ../../source/standard/document.rst:59
-msgid "`x_dgfPlatformLegalDetails` - **Platform Legal Details**"
-msgstr "`x_dgfPlatformLegalDetails` - **Юридична Інформація Майданчиків**"
-
-#: ../../source/standard/document.rst:61
+#: ../../source/standard/document.rst:58
 msgid ""
 "Place and application forms for participation in the auction as well as bank"
 " details for transferring guarantee deposits."
@@ -311,35 +264,182 @@ msgstr ""
 "Місце та форма прийому заяв на участь в аукціоні та банківські реквізити для"
 " зарахування гарантійних внесків."
 
-msgid "`tenderNotice` - **Auction notice**"
-msgstr "`tenderNotice` - **Паспорт торгів**"
-
-msgid ""
-"Detailed technical information about goods or services to be provided. This "
-"is where the public asset certificate is uploaded."
-msgstr ""
-"Детальна технічна інформація про товари або послуги, що повинні бути надані."
-" Тут завантажується публічний паспорт активу."
-
 msgid "`x_dgfAssetFamiliarization` - **Asset Familiarization**"
 msgstr ""
 
-msgid "Required for `x_dgfAssetFamiliarization` document."
-msgstr ""
-
-#: ../../source/standard/document.rst:63
+#: ../../source/standard/document.rst:60
 msgid "`x_dgfAssetFamiliarization` - **Asset Familiarization**"
 msgstr ""
 
-#: ../../source/standard/document.rst:65
+#: ../../source/standard/document.rst:62
 msgid ""
 "Goods examination procedure rules / Asset familiarization procedure in data "
 "room. Contains information on where and when a given document can be "
 "examined offline."
 msgstr ""
-"Порядок ознайомлення з майном / Порядок ознайомлення з активом у кімнаті"
-" даних. Містить інформацію про те де і коли певний документ можна переглянути"
+"Порядок ознайомлення з майном / Порядок ознайомлення з активом у кімнаті "
+"даних. Містить інформацію про те де і коли певний документ можна переглянути"
 " вживу."
+
+#: ../../source/standard/document.rst:18
+#: ../../source/standard/document.rst:180
+msgid "string, required"
+msgstr ""
+
+#: ../../source/standard/document.rst:20
+msgid "Possible values for :ref:`auction` or :ref:`item`"
+msgstr ""
+
+#: ../../source/standard/document.rst:44
+msgid "`x_PublicAssetCertificate` - **Public Asset Certificate**"
+msgstr ""
+
+#: ../../source/standard/document.rst:56
+msgid "`x_PlatformLegalDetails` - **Platform Legal Details**"
+msgstr ""
+
+#: ../../source/standard/document.rst:68
+msgid "Commercial offers of the auction participants."
+msgstr ""
+
+#: ../../source/standard/document.rst:72
+msgid "Documents confirming the qualification of the participant."
+msgstr ""
+
+#: ../../source/standard/document.rst:76
+msgid ""
+"Documents confirming the compliance of the participant with the "
+"requirements."
+msgstr ""
+
+#: ../../source/standard/document.rst:80
+msgid "A license that allows you to work with financial documents."
+msgstr ""
+
+#: ../../source/standard/document.rst:82
+msgid "Possible values for :ref:`cancellation`"
+msgstr ""
+
+#: ../../source/standard/document.rst:84
+msgid "`cancellationDetails` - **Details of cancellation**"
+msgstr ""
+
+#: ../../source/standard/document.rst:86
+msgid "Document containing information on the reasons for cancellation."
+msgstr ""
+
+#: ../../source/standard/document.rst:92
+msgid ""
+"Documentation of the winning bid, including, wherever applicable, a full "
+"copy of the proposal received."
+msgstr ""
+
+#: ../../source/standard/document.rst:94
+msgid "`admissionProtocol` - **Admission Protocol**"
+msgstr ""
+
+#: ../../source/standard/document.rst:96
+msgid ""
+"A protocol that allows a contestant to become a winner. Loaded when only one"
+" bid was made."
+msgstr ""
+
+#: ../../source/standard/document.rst:102
+#: ../../source/standard/document.rst:124
+msgid "`rejectionProtocol` - **Rejection Protocol**"
+msgstr ""
+
+#: ../../source/standard/document.rst:104
+#: ../../source/standard/document.rst:108
+#: ../../source/standard/document.rst:126
+#: ../../source/standard/document.rst:130
+msgid ""
+"Documents containing the reasons for termination of work with the "
+"participant."
+msgstr ""
+
+#: ../../source/standard/document.rst:106
+#: ../../source/standard/document.rst:128
+msgid "`act` - **Act**"
+msgstr ""
+
+#: ../../source/standard/document.rst:118
+msgid ""
+"A copy of the signed contract. Consider providing both machine-readable "
+"(e.g. original PDF, Word or Open Document format files), and a separate "
+"document entry for scanned-signed pages where this is required."
+msgstr ""
+
+#: ../../source/standard/document.rst:122
+msgid ""
+"Copies of annexes and other supporting documentation related to the "
+"contract."
+msgstr ""
+
+#: ../../source/standard/document.rst:133
+msgid "string, multilingual, required"
+msgstr ""
+
+#: ../../source/standard/document.rst:139
+msgid "string, multilingual, optional"
+msgstr ""
+
+#: ../../source/standard/document.rst:145
+msgid "integer, optional"
+msgstr ""
+
+#: ../../source/standard/document.rst:150
+#: ../../source/standard/document.rst:174
+#: ../../source/standard/document.rst:188
+#: ../../source/standard/document.rst:193
+msgid "string, optional"
+msgstr ""
+
+#: ../../source/standard/document.rst:162
+#: ../../source/standard/document.rst:168
+msgid "string, :ref:`date`, auto-generated"
+msgstr ""
+
+#: ../../source/standard/document.rst:190
+msgid "Internal ID of related :ref:`item`."
+msgstr ""
+
+#: ../../source/standard/document.rst:195
+msgid "Required for `x_dgfAssetFamiliarization` document."
+msgstr ""
+
+#: ../../source/standard/document.rst:195
+msgid "Required for `x_dgfAssetFamiliarization` document."
+msgstr ""
+
+#~ msgid "string"
+#~ msgstr "рядок"
+
+#~ msgid "Possible values for :ref:`auction`"
+#~ msgstr "Можливі значення для :ref:`auction`"
+
+#~ msgid "string, multilingual"
+#~ msgstr "рядок, багатомовний"
+
+#~ msgid "string, :ref:`date`"
+#~ msgstr "рядок, :ref:`date`"
+
+#~ msgid "`virtualDataRoom` - **Virtual Data Room**"
+#~ msgstr ""
+#~ "`virtualDataRoom` - **Віртуальна кімната для роботи з конфіденційними "
+#~ "даними**"
+
+#~ msgid "integer"
+#~ msgstr "ціле число"
+
+#~ msgid "ID of related :ref:`item`."
+#~ msgstr "Ідентифікатор пов'язаних об'єктів :ref:`item`."
+
+#~ msgid "`x_dgfPublicAssetCertificate` - **Public Asset Certificate**"
+#~ msgstr "`x_dgfPublicAssetCertificate` - **Публічний Паспорт Активу**"
+
+#~ msgid "`x_dgfPlatformLegalDetails` - **Platform Legal Details**"
+#~ msgstr "`x_dgfPlatformLegalDetails` - **Юридична Інформація Майданчиків**"
 
 #~ msgid "`tenderNotice` - **Auction notice**"
 #~ msgstr "`tenderNotice` - **Паспорт торгів**"
@@ -351,8 +451,15 @@ msgstr ""
 #~ "Детальна технічна інформація про товари або послуги, що повинні бути надані."
 #~ " Тут завантажується публічний паспорт активу."
 
-#~ msgid "Required for `x_dgfAssetFamiliarization` document."
+#~ msgid "`tenderNotice` - **Auction notice**"
+#~ msgstr "`tenderNotice` - **Паспорт торгів**"
+
+#~ msgid ""
+#~ "Detailed technical information about goods or services to be provided. This "
+#~ "is where the public asset certificate is uploaded."
 #~ msgstr ""
+#~ "Детальна технічна інформація про товари або послуги, що повинні бути надані."
+#~ " Тут завантажується публічний паспорт активу."
 
 #~ msgid ""
 #~ "Goods examination procedure rules / Asset familiarization procedure in data "

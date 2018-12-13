@@ -188,3 +188,8 @@ Schema
     string, optional
 
     Internal ID of related :ref:`item`.
+
+:accessDetails:
+   string, optional
+
+   Required for `x_dgfAssetFamiliarization` document.

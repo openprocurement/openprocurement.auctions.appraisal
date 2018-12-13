@@ -55,7 +55,9 @@ Schema
     The currency in 3-letter ISO 4217 format.
 
 :valueAddedTaxIncluded:
-    bool, required
+    bool, optional
+
+    Value by default is `True`.
 
 .. _guarantee:
 

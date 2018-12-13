@@ -76,7 +76,8 @@ Schema
 :procurementMethodType:
   string, required
 
-  Type of the procedure within the auction announcement. 
+  Type of the procedure within the auction announcement.
+  The appropriate value is `appraisal.insider`.
 
 :procurementMethodDetails:
   string, optional
@@ -102,7 +103,7 @@ Schema
   The entity managing the procurement, which may be different from the buyer who is paying / using the items being procured.
 
 :auctionParameters:
-  :ref:`Auction_Parameters`, auto-generated, read-only
+  :ref:`Auction_Parameters`
 
   The parameters that indicates the major specifications of the procedure.
 
@@ -115,11 +116,7 @@ Schema
 :minimalStep:
   :ref:`value`, auto-generated, read-only
 
-  Auction step (increment). `minimalStep.value` that will be always automatically set is 0. Validation rules:
-
-  * `amount` should be greater than `Auction.value.amount`
-  * `currency` should either be absent or match `Auction.value.currency`
-  * `valueAddedTaxIncluded` should either be absent or match `Auction.value.valueAddedTaxIncluded`
+  Auction step (increment). `minimalStep.value` that will be always automatically set is 0.
 
 :guarantee:
   :ref:`Guarantee`, required
@@ -145,7 +142,7 @@ Schema
   The goods and services to be purchased, broken into line items wherever possible. Items should not be duplicated, but a quantity of 2 specified instead.
 
 :documents:
-  Array of :ref:`document` objects, optional
+  Array of :ref:`document` objects
  
   |ocdsDescription|
   All documents and attachments related to the auction.

@@ -18,53 +18,45 @@ msgstr ""
 msgid "Bid"
 msgstr "Bid"
 
-#: ../../source/standard/bid.rst:11 ../../source/standard/bid.rst:69
+#: ../../source/standard/bid.rst:11
 msgid "Schema"
 msgstr "Схема"
-
-#: ../../source/standard/bid.rst:14
-msgid "List of :ref:`Organization` objects"
-msgstr "Список об’єктів :ref:`Organization` "
 
 #: ../../source/standard/bid.rst:17
 msgid "string, :ref:`date`, auto-generated"
 msgstr "рядок, :ref:`date`, генерується автоматично"
 
-#: ../../source/standard/bid.rst:25
-msgid "string"
-msgstr "рядок"
-
-#: ../../source/standard/bid.rst:27
+#: ../../source/standard/bid.rst:29
 msgid "Possible values are:"
 msgstr "Можливі значення:"
 
-#: ../../source/standard/bid.rst:29
+#: ../../source/standard/bid.rst:31
 msgid "`draft`"
 msgstr "`draft` - чернетка"
 
-#: ../../source/standard/bid.rst:30
+#: ../../source/standard/bid.rst:32
 msgid "`active`"
 msgstr "`active` - активна ставка"
 
-#: ../../source/standard/bid.rst:33
+#: ../../source/standard/bid.rst:35
 msgid ":ref:`Value`, required"
 msgstr ":ref:`Value`, обов’язково"
 
-#: ../../source/standard/bid.rst:35
+#: ../../source/standard/bid.rst:37
 msgid "Validation rules:"
 msgstr "Правила валідації:"
 
-#: ../../source/standard/bid.rst:37
+#: ../../source/standard/bid.rst:39
 msgid "`amount` should be less than `Auction.value.amout`"
 msgstr "`amount` повинно бути меншим, ніж `Auction.value.amount`"
 
-#: ../../source/standard/bid.rst:38
+#: ../../source/standard/bid.rst:40
 msgid "`currency` should either be absent or match `Auction.value.currency`"
 msgstr ""
 "`currency` повинно або бути відсутнім, або відповідати "
 "`Auction.value.currency`"
 
-#: ../../source/standard/bid.rst:39
+#: ../../source/standard/bid.rst:41
 msgid ""
 "`valueAddedTaxIncluded` should either be absent or match "
 "`Auction.value.valueAddedTaxIncluded`"
@@ -72,42 +64,91 @@ msgstr ""
 "Значення `valueAddedTaxIncluded` повинно бути або відсутнім, або співпадати "
 "з `Auction.value.valueAddedTaxIncluded`"
 
-msgid "List of :ref:`Document` objects"
-msgstr "Список об’єктів :ref:`Document`"
-
-msgid "List of :ref:`Parameter` objects"
-msgstr "Список об’єктів :ref:`Parameter`"
-
+#: ../../source/standard/bid.rst:51
 msgid "A web address for participation in auction."
 msgstr "Веб-адреса для участі в аукціоні."
 
-msgid "Parameter"
-msgstr "Parameter"
-
+#: ../../source/standard/bid.rst:27
 msgid "string, required"
 msgstr "рядок, обов’язковий"
 
-msgid "float, required"
-msgstr "float, обов’язково"
-
-msgid "UID, auto-generated"
-msgstr "UID, генерується автоматично"
-
-msgid "URL"
-msgstr "URL-адреса"
-
-msgid "Feature code."
-msgstr "Код критерію."
-
-msgid "Feature value."
-msgstr "Значення критерію."
-
+#: ../../source/standard/bid.rst:54
 msgid "bool, required"
 msgstr "булеве значення, обов'язково"
 
-msgid "bool"
-msgstr "булеве значення"
-
+#: ../../source/standard/bid.rst:19
 msgid "Date when bid has been submitted."
 msgstr "Дата подачі пропозиції."
 
+#: ../../source/standard/bid.rst:14
+msgid "List of :ref:`Organization` objects, required"
+msgstr ""
+
+#: ../../source/standard/bid.rst:22
+msgid "uuid, auto-generated"
+msgstr ""
+
+#: ../../source/standard/bid.rst:24
+msgid "Internal identifire of bid."
+msgstr ""
+
+#: ../../source/standard/bid.rst:44
+msgid "Array of :ref:`Document`, optional"
+msgstr ""
+
+#: ../../source/standard/bid.rst:46
+msgid "All documents needed."
+msgstr ""
+
+#: ../../source/standard/bid.rst:49
+msgid "URL, auto-generated"
+msgstr ""
+
+#: ../../source/standard/bid.rst:56
+msgid ""
+"Confirms the absence of grounds for refusal to participate. CDB accepts only"
+" true value."
+msgstr ""
+
+#: ../../source/standard/bid.rst:59
+msgid "bool, optional"
+msgstr ""
+
+#: ../../source/standard/bid.rst:61
+msgid ""
+"Confirms compliance of eligibility criteria set by the customer in the "
+"tendering documents. CDB accepts only true value."
+msgstr ""
+
+#~ msgid "List of :ref:`Organization` objects"
+#~ msgstr "Список об’єктів :ref:`Organization` "
+
+#~ msgid "string"
+#~ msgstr "рядок"
+
+#~ msgid "List of :ref:`Document` objects"
+#~ msgstr "Список об’єктів :ref:`Document`"
+
+#~ msgid "List of :ref:`Parameter` objects"
+#~ msgstr "Список об’єктів :ref:`Parameter`"
+
+#~ msgid "Parameter"
+#~ msgstr "Parameter"
+
+#~ msgid "float, required"
+#~ msgstr "float, обов’язково"
+
+#~ msgid "UID, auto-generated"
+#~ msgstr "UID, генерується автоматично"
+
+#~ msgid "URL"
+#~ msgstr "URL-адреса"
+
+#~ msgid "Feature code."
+#~ msgstr "Код критерію."
+
+#~ msgid "Feature value."
+#~ msgstr "Значення критерію."
+
+#~ msgid "bool"
+#~ msgstr "булеве значення"

@@ -11,7 +11,6 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: uk\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Lokalize 2.0\n"
 
@@ -19,25 +18,13 @@ msgstr ""
 msgid "Schema"
 msgstr "Схема"
 
-#: ../../source/standard/procuringentity.rst:15
-msgid "string, multilingual"
-msgstr "рядок, багатомовний"
-
 #: ../../source/standard/procuringentity.rst:17
 msgid "|ocdsDescription| The common name of the organization."
 msgstr "|ocdsDescription| Назва організації."
 
-#: ../../source/standard/procuringentity.rst:21
-msgid ":ref:`Identifier`"
-msgstr ":ref:`Identifier`"
-
 #: ../../source/standard/procuringentity.rst:23
 msgid "|ocdsDescription| The primary identifier for this organization."
 msgstr "|ocdsDescription| Ідентифікатор цієї організації."
-
-#: ../../source/standard/procuringentity.rst:27
-msgid "List of :ref:`identifier` objects"
-msgstr "Список об’єктів :ref:`identifier`"
 
 #: ../../source/standard/procuringentity.rst:30
 msgid ":ref:`Address`, required"
@@ -47,11 +34,7 @@ msgstr ":ref:`Address`, обов’язково"
 msgid ":ref:`ContactPoint`, required"
 msgstr ":ref:`ContactPoint`, обов’язково"
 
-#: ../../source/standard/procuringentity.rst:36
-msgid "string"
-msgstr "рядок"
-
-#: ../../source/standard/procuringentity.rst:43
+#: ../../source/standard/procuringentity.rst:42
 msgid "Possible values:"
 msgstr "Можливі значення:"
 
@@ -86,3 +69,31 @@ msgstr ""
 " є державними, комунальними, казенними підприємствами, господарськими "
 "товариствами чи об'єднаннями підприємств, у яких державна чи комунальна "
 "частка складає 50 і більше відсотків"
+
+#: ../../source/standard/procuringentity.rst:15
+msgid "string, multilingual, optional"
+msgstr ""
+
+#: ../../source/standard/procuringentity.rst:21
+msgid ":ref:`Identifier`, required"
+msgstr ""
+
+#: ../../source/standard/procuringentity.rst:27
+msgid "Array of :ref:`identifier` objects"
+msgstr ""
+
+#: ../../source/standard/procuringentity.rst:36
+msgid "string, optional"
+msgstr ""
+
+#~ msgid "string, multilingual"
+#~ msgstr "рядок, багатомовний"
+
+#~ msgid ":ref:`Identifier`"
+#~ msgstr ":ref:`Identifier`"
+
+#~ msgid "List of :ref:`identifier` objects"
+#~ msgstr "Список об’єктів :ref:`identifier`"
+
+#~ msgid "string"
+#~ msgstr "рядок"
