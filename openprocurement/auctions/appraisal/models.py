@@ -87,7 +87,7 @@ class AppraisalDocument(dgfCDB2Document):
 class AppraisalBidDocument(dgfCDB2Document):
     documentType = StringType(choices=[
         'commercialProposal', 'qualificationDocuments',
-        'eligibilityDocuments', 'financialLicense '
+        'eligibilityDocuments', 'financialLicense'
     ])
 
 
