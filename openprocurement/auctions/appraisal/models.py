@@ -77,21 +77,28 @@ validate_contract_type = partial(validate_contract_type, choices=CONTRACT_TYPES)
 
 
 class AppraisalDocument(dgfCDB2Document):
+    documentOf = StringType(
+        required=True,
+        choices=[
+            'auction',
+            'item',
+            'lot'],
+        default='auction')
     documentType = StringType(choices=[
         'notice', 'technicalSpecifications', 'evaluationCriteria', 'clarifications',
         'bidders', 'illustration', 'x_PublicAssetCertificate', 'x_presentation',
-        'x_nda', 'x_PlatformLegalDetails', 'x_dgfAssetFamiliarization'
+        'x_nda', 'x_PlatformLegalDetails', 'x_dgfAssetFamiliarization', 'contractProforma'
     ])
 
 
-class AppraisalBidDocument(dgfCDB2Document):
+class AppraisalBidDocument(AppraisalDocument):
     documentType = StringType(choices=[
         'commercialProposal', 'qualificationDocuments',
         'eligibilityDocuments', 'financialLicense'
     ])
 
 
-class AppraisalCancellationDocument(dgfCDB2Document):
+class AppraisalCancellationDocument(AppraisalDocument):
     documentType = StringType(choices=['cancellationDetails'])
 
 
