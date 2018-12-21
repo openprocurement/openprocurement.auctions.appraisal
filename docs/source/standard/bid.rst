@@ -19,7 +19,7 @@ Schema
     Date when bid has been submitted.
 
 :id:
-    uuid, auto-generated
+    uid, auto-generated
 
     Internal identifire of bid.
 
