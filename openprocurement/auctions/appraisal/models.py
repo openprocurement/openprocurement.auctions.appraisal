@@ -76,6 +76,20 @@ from openprocurement.auctions.appraisal.roles import appraisal_auction_roles
 validate_contract_type = partial(validate_contract_type, choices=CONTRACT_TYPES)
 
 
+class TenderPeriod(Period):
+
+    def validate_startDate(self, data, value):
+        if value and data.get('endDate') and data.get('endDate') < value:
+            raise ValidationError(u"period should begin before its end")
+
+    def validate_endDate(self, data, value):
+        if value and data.get('startDate') and value > data['startDate']:
+            min_end_date_limit = calculate_business_date(data['startDate'], timedelta(days=7), self, working_days=True)
+
+            if value < min_end_date_limit:
+                raise ValidationError(u"tenderPeriod should be at least 7 working days")
+
+
 class AppraisalDocument(dgfCDB2Document):
     documentType = StringType(choices=[
         'notice', 'technicalSpecifications', 'evaluationCriteria', 'clarifications',
@@ -199,7 +213,7 @@ class AppraisalAuction(BaseAuction):
     contracts = ListType(ModelType(AppraisalContract), default=list())
     documents = ListType(ModelType(AppraisalDocument), default=list())  # All documents and attachments related to the auction.
     enquiryPeriod = ModelType(Period)  # The period during which enquiries may be made and will be answered.
-    tenderPeriod = ModelType(Period)  # The period when the auction is open for submissions. The end date is the closing date for auction submissions.
+    tenderPeriod = ModelType(TenderPeriod)  # The period when the auction is open for submissions. The end date is the closing date for auction submissions.
     tenderAttempts = IntType(choices=[1, 2, 3, 4, 5, 6, 7, 8])
     status = StringType(choices=AUCTION_STATUSES, default='draft')
     features = ListType(ModelType(Feature), validators=[validate_features_uniq, validate_not_available])
@@ -251,7 +265,7 @@ class AppraisalAuction(BaseAuction):
     def auction_minimalStep(self):
         return Value(dict(amount=0))
 
-    @serializable(serialized_name="tenderPeriod", type=ModelType(Period))
+    @serializable(serialized_name="tenderPeriod", type=ModelType(TenderPeriod))
     def tender_period(self):
         if self.tenderPeriod and self.auctionPeriod.startDate:
             end_date = calculate_business_date(self.auctionPeriod.startDate, DUTCH_PERIOD, self)
