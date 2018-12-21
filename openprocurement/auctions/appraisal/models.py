@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 from functools import partial
 
+from datetime import timedelta
+
 from pyramid.security import Allow
 from schematics.exceptions import ValidationError
 from schematics.types import StringType, BooleanType, IntType, MD5Type
@@ -214,6 +216,7 @@ class AppraisalAuction(BaseAuction):
     documents = ListType(ModelType(AppraisalDocument), default=list())  # All documents and attachments related to the auction.
     enquiryPeriod = ModelType(Period)  # The period during which enquiries may be made and will be answered.
     tenderPeriod = ModelType(TenderPeriod)  # The period when the auction is open for submissions. The end date is the closing date for auction submissions.
+    rectificationPeriod = ModelType(Period)
     tenderAttempts = IntType(choices=[1, 2, 3, 4, 5, 6, 7, 8])
     status = StringType(choices=AUCTION_STATUSES, default='draft')
     features = ListType(ModelType(Feature), validators=[validate_features_uniq, validate_not_available])
@@ -252,6 +255,8 @@ class AppraisalAuction(BaseAuction):
             role = 'concierge'
         else:
             role = 'edit_{}'.format(request.context.status)
+            if request.context.status == 'active.tendering' and get_now() < self.rectification_period.endDate:
+                role += '_during_rectification_period'
         return role
 
     def initialize(self):
@@ -264,6 +269,18 @@ class AppraisalAuction(BaseAuction):
     @serializable(serialized_name="minimalStep", type=ModelType(Value))
     def auction_minimalStep(self):
         return Value(dict(amount=0))
+
+    @serializable(serialized_name="rectificationPeriod", type=ModelType(Period), serialize_when_none=False)
+    def rectification_period(self):
+        if self.tenderPeriod:
+            self.rectificationPeriod = Period()
+            self.rectificationPeriod.startDate = self.tenderPeriod.startDate
+            self.rectificationPeriod.endDate = calculate_business_date(self.tenderPeriod.endDate, -timedelta(days=5), self, working_days=True)
+
+            if self.rectificationPeriod.startDate > self.rectificationPeriod.endDate:
+                self.rectificationPeriod.startDate = self.rectificationPeriod.endDate = None
+
+        return self.rectificationPeriod
 
     @serializable(serialized_name="tenderPeriod", type=ModelType(TenderPeriod))
     def tender_period(self):

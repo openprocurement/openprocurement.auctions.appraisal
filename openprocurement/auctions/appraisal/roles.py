@@ -44,9 +44,10 @@ appraisal_auction_roles = {
             'submissionMethod',
             'suspended',
             'tenderPeriod',
+            'rectificationPeriod'
         )
     ),
-    'edit_active.tendering': (
+    'edit_active.tendering_during_rectification_period': (
         edit_role +
         blacklist(
             'auctionParameters',
@@ -70,8 +71,10 @@ appraisal_auction_roles = {
             'submissionMethodDetails_ru',
             'suspended',
             'tenderPeriod',
+            'rectificationPeriod'
         )
     ),
+    'edit_active.tendering': whitelist(),
     'Administrator': (
         Administrator_role +
         whitelist(
