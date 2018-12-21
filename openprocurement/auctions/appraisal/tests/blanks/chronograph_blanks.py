@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from datetime import datetime, timedelta
 
-from openprocurement.auctions.core.utils import get_now
+from openprocurement.auctions.core.utils import get_now, calculate_business_date
 
 # AppraisalAuctionAuctionPeriodResourceTest
 
@@ -131,49 +131,6 @@ def reset_auction_period(self):
     self.assertEqual(response.json['data']["status"], 'active.auction')
     self.assertNotIn('9999-01-01T00:00:00', item['auctionPeriod']['startDate'])
     self.assertGreater(response.json['data']['next_check'], response.json['data']['enquiryPeriod']['endDate'])
-
-    auction = self.db.get(self.auction_id)
-    self.assertGreater(auction['next_check'], response.json['data']['enquiryPeriod']['endDate'])
-    auction['enquiryPeriod']['endDate'] = auction['enquiryPeriod']['startDate']
-    if self.initial_lots:
-        auction['lots'][0]['auctionPeriod']['startDate'] = auction['enquiryPeriod']['startDate']
-    else:
-        auction['auctionPeriod']['startDate'] = auction['enquiryPeriod']['startDate']
-    self.db.save(auction)
-
-    response = self.app.patch_json('/auctions/{}'.format(self.auction_id), {'data': {'id': self.auction_id}})
-    if self.initial_lots:
-        item = response.json['data']["lots"][0]
-    else:
-        item = response.json['data']
-    self.assertGreaterEqual(item['auctionPeriod']['shouldStartAfter'],
-                            response.json['data']['enquiryPeriod']['endDate'])
-    self.assertNotIn('next_check', response.json['data'])
-    self.assertNotIn('next_check', self.db.get(self.auction_id))
-    shouldStartAfter = item['auctionPeriod']['shouldStartAfter']
-
-    response = self.app.patch_json('/auctions/{}'.format(self.auction_id), {'data': {'id': self.auction_id}})
-    if self.initial_lots:
-        item = response.json['data']["lots"][0]
-    else:
-        item = response.json['data']
-    self.assertEqual(item['auctionPeriod']['shouldStartAfter'], shouldStartAfter)
-    self.assertNotIn('next_check', response.json['data'])
-
-    if self.initial_lots:
-        response = self.app.patch_json('/auctions/{}'.format(self.auction_id), {
-            'data': {"lots": [{"auctionPeriod": {"startDate": "9999-01-01T00:00:00"}}]}})
-        item = response.json['data']["lots"][0]
-    else:
-        response = self.app.patch_json('/auctions/{}'.format(self.auction_id),
-                                       {'data': {"auctionPeriod": {"startDate": "9999-01-01T00:00:00"}}})
-        item = response.json['data']
-    self.assertEqual(response.status, '200 OK')
-    self.assertEqual(response.json['data']["status"], 'active.auction')
-    self.assertGreaterEqual(item['auctionPeriod']['shouldStartAfter'],
-                            response.json['data']['enquiryPeriod']['endDate'])
-    self.assertIn('9999-01-01T00:00:00', item['auctionPeriod']['startDate'])
-    self.assertIn('9999-01-01T00:00:00', response.json['data']['next_check'])
 
 
 def switch_to_auction(self):

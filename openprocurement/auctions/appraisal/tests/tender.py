@@ -40,6 +40,8 @@ from openprocurement.auctions.appraisal.tests.blanks.tender_blanks import (
     listing_changes,
     listing_draft,
     patch_auction,
+    tender_period_validation,
+    rectification_period_generation,
     # AppraisalAuctionProcessTest
     first_bid_auction,
     auctionUrl_in_active_auction,
@@ -81,7 +83,8 @@ class AppraisalAuctionResourceTest(BaseAppraisalWebTest, AuctionResourceTestMixi
     test_move_draft_to_active_tendering = snitch(move_draft_to_active_tendering)
     test_move_draft_to_wrong_status = snitch(move_draft_to_wrong_status)
     test_auction_Administrator_change = snitch(auction_Administrator_change)
-
+    test_tender_period_validation = snitch(tender_period_validation)
+    test_rectification_period_generation = snitch(rectification_period_generation)
 
 class AppraisalAuctionProcessTest(BaseAppraisalAuctionWebTest):
     test_financial_organization = test_organization

@@ -4,9 +4,11 @@ from datetime import timedelta, datetime
 from iso8601 import parse_date
 import pytz
 
+from isodate import parse_datetime
+
 from openprocurement.auctions.core.tests.base import JSON_RENDERER_ERROR
 from openprocurement.auctions.core.utils import (
-    SANDBOX_MODE, TZ, get_now
+    SANDBOX_MODE, TZ, get_now, calculate_business_date
 )
 
 from openprocurement.auctions.appraisal.tests.base import TEST_ROUTE_PREFIX
@@ -37,7 +39,7 @@ def edit_role(self):
         'description_ru', 'registrationFee', 'guarantee', 'hasEnquiries', 'lotIdentifier',
         'features', 'value'
     ])
-    role = self.auction._options.roles['edit_active.tendering']
+    role = self.auction._options.roles['edit_active.tendering_during_rectification_period']
 
     if SANDBOX_MODE:
         fields.add('procurementMethodDetails')
@@ -333,7 +335,7 @@ def create_auction_generated(self):
         u'tenderPeriod', u'minimalStep', u'items', u'value', u'procuringEntity', u'next_check',
         u'procurementMethod', u'awardCriteria', u'submissionMethod', u'title', u'owner', u'auctionPeriod',
         u'tenderAttempts', u'auctionParameters', u'bankAccount', u'registrationFee', u'lotIdentifier', u'registrationFee',
-        u'guarantee', u'description'
+        u'guarantee', u'description', u'rectificationPeriod'
     ]))
     self.assertNotEqual(data['id'], auction['id'])
     self.assertNotEqual(data['doc_id'], auction['id'])
@@ -366,13 +368,13 @@ def create_auction(self):
         self.assertEqual(set(auction) - set(self.initial_data), set([
             u'id', u'dateModified', u'auctionID', u'date', u'status', u'procurementMethod',
             u'awardCriteria', u'submissionMethod', u'next_check', u'owner', u'enquiryPeriod', u'tenderPeriod',
-            u'minimalStep'
+            u'minimalStep', u'rectificationPeriod'
         ]))
     else:
         self.assertEqual(set(auction) - set(self.initial_data), set([
             u'id', u'dateModified', u'auctionID', u'date', u'status', u'procurementMethod',
             u'awardCriteria', u'submissionMethod', u'next_check', u'owner', u'enquiryPeriod', u'tenderPeriod',
-            u'minimalStep'
+            u'minimalStep', u'rectificationPeriod'
         ]))
 
     response = self.app.get('/auctions/{}'.format(auction['id']))
@@ -419,13 +421,57 @@ def check_daylight_savings_timezone(self):
     for i in (10, 90, 180, 210, 240):
         data.update({
             "auctionPeriod": {
-                "startDate": (now + timedelta(days=i)).isoformat(),
+                "startDate": calculate_business_date(now, timedelta(days=i), None, working_days=True).isoformat(),
             }})
         response = self.app.post_json('/auctions', {'data': data})
         timezone_after = parse_date(response.json['data']['tenderPeriod']['endDate']).astimezone(tz=ua_tz)
         timezone_after = timezone_after.strftime('%Z')
         list_of_timezone_bools.append(timezone_before != timezone_after)
     self.assertTrue(any(list_of_timezone_bools))
+
+
+def tender_period_validation(self):
+    data = deepcopy(self.initial_data)
+    data['auctionPeriod']['startDate'] = (get_now() + timedelta(days=1)).isoformat()
+    response = self.app.post_json('/auctions', {'data': data}, status=422)
+    self.assertEqual(response.status, '422 Unprocessable Entity')
+    self.assertEqual(response.content_type, 'application/json')
+    self.assertEqual(
+        response.json['errors'][0]['description']['endDate'][0],
+        'tenderPeriod should be at least 7 working days'
+    )
+
+    response = self.app.post_json('/auctions', {"data": self.initial_data})
+    self.assertEqual(response.status, '201 Created')
+    self.assertEqual(response.content_type, 'application/json')
+    tender_period = {
+        'startDate': parse_datetime(response.json['data']['tenderPeriod']['startDate']),
+        'endDate': parse_datetime(response.json['data']['tenderPeriod']['endDate']),
+    }
+
+    # Check if tenderPeriod last more than 7 working days
+    expected_end_date = calculate_business_date(tender_period['startDate'], timedelta(days=7), None, working_days=True)
+    self.assertGreaterEqual(tender_period['endDate'], expected_end_date)
+
+
+def rectification_period_generation(self):
+    response = self.app.post_json('/auctions', {"data": self.initial_data})
+    self.assertEqual(response.status, '201 Created')
+    self.assertEqual(response.content_type, 'application/json')
+    tender_period = {
+        'startDate': parse_datetime(response.json['data']['tenderPeriod']['startDate']),
+        'endDate': parse_datetime(response.json['data']['tenderPeriod']['endDate']),
+    }
+    rectification_period = {
+        'startDate': parse_datetime(response.json['data']['rectificationPeriod']['startDate']),
+        'endDate': parse_datetime(response.json['data']['rectificationPeriod']['endDate']),
+    }
+
+    self.assertEqual(tender_period['startDate'], rectification_period['startDate'])
+
+    # Check if there is 5 working days between rectificationPeriod.endDate and tenderPeriod.endDate
+    # expected_end_date = calculate_business_date(rectification_period['endDate'], timedelta(days=5), None, working_days=True)
+    # self.assertEqual(tender_period['endDate'], expected_end_date)
 
 # AppraisalAuctionProcessTest
 
@@ -652,7 +698,12 @@ def auctionUrl_in_active_auction(self):
     auction_id = self.auction_id = response.json['data']['id']
     owner_token = response.json['access']['token']
     # switch to active.tendering
-    response = self.set_status('active.tendering', {"auctionPeriod": {"startDate": (get_now() + timedelta(days=10)).isoformat()}})
+    response = self.set_status(
+        'active.tendering',
+        {
+            "auctionPeriod": {"startDate": calculate_business_date(get_now(), timedelta(days=10), None, working_days=True).isoformat()}
+        }
+    )
     self.assertIn("auctionPeriod", response.json['data'])
     # create bid
     self.app.authorization = ('Basic', ('broker', ''))
