@@ -15,7 +15,8 @@ from openprocurement.auctions.appraisal.tests.blanks.item_blanks import (
     check_patch_auction_in_not_editable_statuses,
     validate_change_items_after_rectification_period,
     batch_create_items,
-    batch_update_items
+    batch_update_items,
+    check_bids_invalidation
 )
 
 test_auction_data = deepcopy(test_appraisal_auction_data)
@@ -33,6 +34,7 @@ class AppraisalAuctionItemTest(BaseAppraisalAuctionWebTest):
     test_validate_change_items_after_rectification_period = snitch(validate_change_items_after_rectification_period)
     test_batch_create_items = snitch(batch_create_items)
     test_batch_update_items = snitch(batch_update_items)
+    test_check_bids_invalidation = snitch(check_bids_invalidation)
 
 
 def suite():

@@ -8,7 +8,10 @@ from openprocurement.auctions.core.tests.document import (
     AuctionDocumentWithDSResourceTestMixin
 )
 
-from openprocurement.auctions.appraisal.tests.blanks.document_blanks import patch_auction_document
+from openprocurement.auctions.appraisal.tests.blanks.document_blanks import (
+    patch_auction_document,
+    check_bids_invalidation
+)
 
 
 class AppraisalAuctionDocumentResourceTest(BaseAppraisalAuctionWebTest, AuctionDocumentResourceTestMixin):
@@ -16,6 +19,7 @@ class AppraisalAuctionDocumentResourceTest(BaseAppraisalAuctionWebTest, AuctionD
     initial_status = 'active.tendering'
 
     test_patch_auction_document = snitch(patch_auction_document)
+    test_check_bids_invalidation = snitch(check_bids_invalidation)
 
 
 class AppraisalAuctionDocumentWithDSResourceTest(AppraisalAuctionDocumentResourceTest, AuctionDocumentWithDSResourceTestMixin):
