@@ -11,7 +11,7 @@ Schema
 ------
 
 :id:
-  uuid, auto-generated, read-only
+  uid, auto-generated, read-only
 
   Internal id of procedure.
 
@@ -47,7 +47,7 @@ Schema
 
   * ``title_ru`` (Russian) - Russian title
 
-  Oprionally can be mentioned in English/Russian.
+  Optionally can be mentioned in English/Russian.
 
   The name of the auction, displayed in listings. 
  
@@ -159,7 +159,7 @@ Schema
   Questions to `procuringEntity` and answers to them.
 
 :bids:
-  Array of :ref:`bid` objects, optional (required for the process to be succsessful)
+  Array of :ref:`bid` objects
 
   A list of all bids placed in the auction with information about participants, their proposals and other qualification documentation.
 
@@ -211,11 +211,11 @@ Schema
 +-------------------------+--------------------------------------+
 | `active.awarded`        | standstill period (standstill)       |
 +-------------------------+--------------------------------------+
-| `unsuccessful`          | unsuccessful auction (unsuccessful)  |
+| `unsuccessful`          | unsuccessful procedure (unsuccessful)|
 +-------------------------+--------------------------------------+
-| `complete`              | complete auction (complete)          | 
+| `complete`              | complete procedure (complete)        |
 +-------------------------+--------------------------------------+
-| `cancelled`             | cancelled auction (cancelled)        |
+| `cancelled`             | cancelled procedure (cancelled)      |
 +-------------------------+--------------------------------------+
 
 :enquiryPeriod:

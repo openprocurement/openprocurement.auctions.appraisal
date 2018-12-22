@@ -4,67 +4,56 @@ msgstr ""
 "Project-Id-Version: openprocurement.auctions.dgf 0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-12 15:36+0300\n"
-"PO-Revision-Date: 2016-11-29 15:18+0200\n"
+"PO-Revision-Date: 2018-12-14 16:33+0200\n"
 "Last-Translator: greg <greg@quintagroup.com>\n"
 "Language-Team: Ukrainian <kde-i18n-doc@kde.org>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 2.0\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Poedit 2.2\n"
 
-#: ../../source/standard/award.rst:8
 msgid "Award"
 msgstr "Award"
 
-#: ../../source/standard/award.rst:11
 msgid "Schema"
 msgstr "Схема"
 
-#: ../../source/standard/award.rst:14 ../../source/standard/award.rst:20
 msgid "string, auto-generated, read-only"
 msgstr "рядок, генерується автоматично, лише для читання"
 
-#: ../../source/standard/award.rst:27
 msgid ""
-"|ocdsDescription| The current status of the award drawn from the "
-"`awardStatus` codelist."
+"|ocdsDescription| The current status of the award drawn from the `awardStatus` "
+"codelist."
 msgstr ""
 "|ocdsDescription| Поточний статус рішення, взятий зі списку кодів "
 "`awardStatus`."
 
-#: ../../source/standard/award.rst:30
 msgid "Possible values are:"
 msgstr "Можливі значення:"
 
-#: ../../source/standard/award.rst:35
 msgid "`active` - the auction is awarded to the bidder from the `bid_id`"
 msgstr "`active` - аукціон виграв учасник з пропозицією `bid_id`"
 
-#: ../../source/standard/award.rst:50
 msgid "string, :ref:`Date`, auto-generated, read-only"
 msgstr "рядок, :ref:`Date`, генерується автоматично, лише для читання"
 
-#: ../../source/standard/award.rst:52
 msgid "|ocdsDescription| The date of the contract award."
 msgstr "|ocdsDescription| Дата рішення про підписання договору."
 
-#: ../../source/standard/award.rst:56
 msgid "`Value` object, auto-generated, read-only"
 msgstr "О’єкт :ref:`Value`, генерується автоматично, лише для читання"
 
-#: ../../source/standard/award.rst:58
 msgid "|ocdsDescription| The total value of this award."
 msgstr "|ocdsDescription| Загальна вартість згідно цього рішення."
 
-#: ../../source/standard/award.rst:64
 msgid "|ocdsDescription| The suppliers awarded with this award."
 msgstr ""
 "|ocdsDescription| Постачальники, що були визнані переможцями згідно цього "
 "рішення."
 
-#: ../../source/standard/award.rst:76
 msgid ""
 "|ocdsDescription| All documents and attachments related to the award, "
 "including any notices."
@@ -72,25 +61,21 @@ msgstr ""
 "|ocdsDescription| Усі документи та додатки пов’язані з рішенням, включно з "
 "будь-якими повідомленнями."
 
-#: ../../source/standard/award.rst:16
 msgid "|ocdsDescription| Identifier for this award."
 msgstr "|ocdsDescription| Ідентифікатор цього рішення."
 
-#: ../../source/standard/award.rst:22
 msgid "The ID of a bid that the award relates to."
-msgstr "ID пропозиції, що виграла закупівлю"
+msgstr "ID пропозиції, що виграла закупівлю."
 
-#: ../../source/standard/award.rst:70
 msgid ""
 "|ocdsDescription| The goods and services awarded in this award, broken into "
-"line items wherever possible. Items should not be duplicated, but the "
-"quantity should be specified instead."
+"line items wherever possible. Items should not be duplicated, but the quantity "
+"should be specified instead."
 msgstr ""
-"|ocdsDescription| Товари та послуги, що розглядались цим рішенням, поділені "
-"на окремі рядки, де це можливо. Елементи не повинні бути продубльовані, а "
-"повинні мати вказану кількість."
+"|ocdsDescription| Товари та послуги, що розглядались цим рішенням, поділені на "
+"окремі рядки, де це можливо. Елементи не повинні бути продубльовані, а повинні "
+"мати вказану кількість."
 
-#: ../../source/standard/award.rst:32
 msgid ""
 "`pending.verification` - the procedure awaits the auction protocol to be "
 "uploaded"
@@ -98,19 +83,16 @@ msgstr ""
 "`pending.verification`- очікується завантаження підписаного переможцем "
 "протоколу аукціону"
 
-#: ../../source/standard/award.rst:33
 msgid "`pending.payment` - the procedure awaits the payment to be made"
 msgstr "`pending.payment` - очікується оплата"
 
-#: ../../source/standard/award.rst:36
 msgid ""
 "`pending.waiting` - the second bidder awaits the first bidder to be "
 "disqualified"
 msgstr ""
-"`pending.waiting` - другий по списку учасник очікує дискваліфікації першого "
-"по списку учасника торгів"
+"`pending.waiting` - другий по списку учасник очікує дискваліфікації першого по "
+"списку учасника торгів"
 
-#: ../../source/standard/award.rst:42
 msgid ""
 "The period of uploading (for the auction winner) and verification (for the "
 "bank) of the auction protocol"
@@ -118,45 +100,36 @@ msgstr ""
 "Період завантаження (переможцем аукціону) і верифікації (банком) протоколу "
 "аукціону"
 
-#: ../../source/standard/award.rst:47
-msgid ""
-"The period for the contract to be activated in the system (by the bank)"
+msgid "The period for the contract to be activated in the system (by the bank)"
 msgstr "Період очікування активації контракту (банком)"
 
-#: ../../source/standard/award.rst:34
 msgid ""
 "`unsuccessful` - the award has been rejected by the qualification committee "
 "(bank)"
-msgstr ""
-"`unsuccessful` - учасника дискваліфікував кваліфікаційний комітет (банк)"
+msgstr "`unsuccessful` - учасника дискваліфікував кваліфікаційний комітет (банк)"
 
-#: ../../source/standard/award.rst:37
 msgid ""
-"`cancelled` - the second bidder does not want to wait for the first bidder "
-"to be disqualified"
+"`cancelled` - the second bidder does not want to wait for the first bidder to "
+"be disqualified"
 msgstr ""
 "`cancelled` - другий по списку учасник вирішив не чекати на дискваліфікацію "
 "першого по списку учасника"
 
-#: ../../source/standard/award.rst:25
 msgid "string, required"
-msgstr ""
+msgstr "рядок, обов'язковий"
 
-#: ../../source/standard/award.rst:40 ../../source/standard/award.rst:45
 msgid ":ref:`period`, auto-generated, read-only"
-msgstr ""
+msgstr ":ref:`period`, генерується автоматично, тільки для читання"
 
-#: ../../source/standard/award.rst:62
 msgid "Array of :ref:`Organization` objects, auto-generated, read-only"
 msgstr ""
+"Масив об'єктів :ref:`Organization`, генерується автоматично, лише для читання"
 
-#: ../../source/standard/award.rst:68
 msgid "Array of :ref:`Item` objects, auto-generated, read-only"
-msgstr ""
+msgstr "Масив об'єктів :ref:`Item`, генерується автоматично, лише для читання"
 
-#: ../../source/standard/award.rst:74
 msgid "Array of :ref:`Document` objects, required"
-msgstr ""
+msgstr "Масив об'єктів :ref:`Document`, обов'язкове"
 
 #~ msgid "string, multilingual"
 #~ msgstr "рядок, багатомовний"
