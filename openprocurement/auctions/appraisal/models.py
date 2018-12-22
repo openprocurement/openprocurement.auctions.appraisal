@@ -47,7 +47,8 @@ from openprocurement.auctions.core.models.schema import (
     validate_items_uniq,
     validate_not_available,
     validate_contract_type,
-    dgfCDB2Item as Item
+    dgfCDB2Item as Item,
+    IsoDateTimeType
 )
 from openprocurement.auctions.core.plugins.awarding.v3_1.models import (
     Award
@@ -90,6 +91,10 @@ class TenderPeriod(Period):
 
             if value < min_end_date_limit:
                 raise ValidationError(u"tenderPeriod should be at least 7 working days")
+
+
+class RectificationPeriod(Period):
+    invalidationDate = IsoDateTimeType()
 
 
 class AppraisalDocument(dgfCDB2Document):
@@ -216,7 +221,7 @@ class AppraisalAuction(BaseAuction):
     documents = ListType(ModelType(AppraisalDocument), default=list())  # All documents and attachments related to the auction.
     enquiryPeriod = ModelType(Period)  # The period during which enquiries may be made and will be answered.
     tenderPeriod = ModelType(TenderPeriod)  # The period when the auction is open for submissions. The end date is the closing date for auction submissions.
-    rectificationPeriod = ModelType(Period)
+    rectificationPeriod = ModelType(RectificationPeriod)
     tenderAttempts = IntType(choices=[1, 2, 3, 4, 5, 6, 7, 8])
     status = StringType(choices=AUCTION_STATUSES, default='draft')
     features = ListType(ModelType(Feature), validators=[validate_features_uniq, validate_not_available])
@@ -270,10 +275,10 @@ class AppraisalAuction(BaseAuction):
     def auction_minimalStep(self):
         return Value(dict(amount=0))
 
-    @serializable(serialized_name="rectificationPeriod", type=ModelType(Period), serialize_when_none=False)
+    @serializable(serialized_name="rectificationPeriod", type=ModelType(RectificationPeriod), serialize_when_none=False)
     def rectification_period(self):
         if self.tenderPeriod:
-            self.rectificationPeriod = Period()
+            self.rectificationPeriod = RectificationPeriod() if not self.rectificationPeriod else self.rectificationPeriod
             self.rectificationPeriod.startDate = self.tenderPeriod.startDate
             self.rectificationPeriod.endDate = calculate_business_date(self.tenderPeriod.endDate, -timedelta(days=5), self, working_days=True)
 
