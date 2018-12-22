@@ -94,3 +94,12 @@ def merge_auction_results(auction, request):
 
 def calc_auction_end_time(stages, start):
     return start + stages * STAGE_TIMEDELTA + SERVICE_TIMEDELTA + SEALEDBID_TIMEDELTA + BESTBID_TIMEDELTA + AUCTION_STAND_STILL_TIME
+
+
+def invalidate_bids_data(auction):
+    if auction.status == 'active.tendering' and get_now() > auction.rectificationPeriod.endDate:
+        return
+
+    for bid in auction['bids']:
+        setattr(bid, "status", "invalid")
+    auction.rectificationPeriod.invalidationDate = get_now()
