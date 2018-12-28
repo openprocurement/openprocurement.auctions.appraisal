@@ -72,7 +72,7 @@ class AppraisalAuctionDraftBidAuctionResourceTest(BaseAppraisalAuctionWebTest):
             ],
             'qualified': True,
             "eligible": True,
-            'status' : 'draft'
+            'status': 'draft'
         }
         for i in range(3)
     ]

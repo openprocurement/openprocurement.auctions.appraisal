@@ -13,6 +13,8 @@ from openprocurement.auctions.appraisal.validation import (
     validate_patch_item_data,
     validate_change_item
 )
+from openprocurement.auctions.appraisal.utils import invalidate_bids_data
+
 
 post_validators = (validate_change_item, validate_item_data)
 patch_validators = (validate_change_item, validate_patch_item_data)
@@ -36,6 +38,10 @@ class AuctionItemResource(APIResource):
         """Lot Item Upload"""
         item = self.request.validated['item']
         self.context.items.append(item)
+
+        if self.request.authenticated_role == 'auction_owner':
+            invalidate_bids_data(self.request.auction)
+
         if save_auction(self.request):
             self.LOGGER.info(
                 'Created lot item {}'.format(item.id),
@@ -59,6 +65,10 @@ class AuctionItemResource(APIResource):
     @json_view(content_type="application/json", permission='edit_auction', validators=patch_validators)
     def patch(self):
         """Lot Item Update"""
+
+        if self.request.authenticated_role == 'auction_owner':
+            invalidate_bids_data(self.request.auction)
+
         if apply_patch(self.request, src=self.request.context.serialize()):
             self.LOGGER.info(
                 'Updated lot item {}'.format(self.request.context.id),

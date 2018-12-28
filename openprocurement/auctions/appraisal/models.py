@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 from functools import partial
 
+from datetime import timedelta
+
 from pyramid.security import Allow
 from schematics.exceptions import ValidationError
 from schematics.types import StringType, BooleanType, IntType, MD5Type
@@ -45,7 +47,8 @@ from openprocurement.auctions.core.models.schema import (
     validate_items_uniq,
     validate_not_available,
     validate_contract_type,
-    dgfCDB2Item as Item
+    dgfCDB2Item as Item,
+    IsoDateTimeType
 )
 from openprocurement.auctions.core.plugins.awarding.v3_1.models import (
     Award
@@ -74,6 +77,24 @@ from openprocurement.auctions.appraisal.utils import generate_auction_url, calc_
 from openprocurement.auctions.appraisal.roles import appraisal_auction_roles
 
 validate_contract_type = partial(validate_contract_type, choices=CONTRACT_TYPES)
+
+
+class TenderPeriod(Period):
+
+    def validate_startDate(self, data, value):
+        if value and data.get('endDate') and data.get('endDate') < value:
+            raise ValidationError(u"period should begin before its end")
+
+    def validate_endDate(self, data, value):
+        if value and data.get('startDate') and value > data['startDate']:
+            min_end_date_limit = calculate_business_date(data['startDate'], timedelta(days=7), self, working_days=True)
+
+            if value < min_end_date_limit:
+                raise ValidationError(u"tenderPeriod should be at least 7 working days")
+
+
+class RectificationPeriod(Period):
+    invalidationDate = IsoDateTimeType()
 
 
 class AppraisalDocument(dgfCDB2Document):
@@ -206,7 +227,8 @@ class AppraisalAuction(BaseAuction):
     contracts = ListType(ModelType(AppraisalContract), default=list())
     documents = ListType(ModelType(AppraisalDocument), default=list())  # All documents and attachments related to the auction.
     enquiryPeriod = ModelType(Period)  # The period during which enquiries may be made and will be answered.
-    tenderPeriod = ModelType(Period)  # The period when the auction is open for submissions. The end date is the closing date for auction submissions.
+    tenderPeriod = ModelType(TenderPeriod)  # The period when the auction is open for submissions. The end date is the closing date for auction submissions.
+    rectificationPeriod = ModelType(RectificationPeriod)
     tenderAttempts = IntType(choices=[1, 2, 3, 4, 5, 6, 7, 8])
     status = StringType(choices=AUCTION_STATUSES, default='draft')
     features = ListType(ModelType(Feature), validators=[validate_features_uniq, validate_not_available])
@@ -245,6 +267,8 @@ class AppraisalAuction(BaseAuction):
             role = 'concierge'
         else:
             role = 'edit_{}'.format(request.context.status)
+            if request.context.status == 'active.tendering' and get_now() < self.rectification_period.endDate:
+                role += '_during_rectification_period'
         return role
 
     def initialize(self):
@@ -258,7 +282,19 @@ class AppraisalAuction(BaseAuction):
     def auction_minimalStep(self):
         return Value(dict(amount=0))
 
-    @serializable(serialized_name="tenderPeriod", type=ModelType(Period))
+    @serializable(serialized_name="rectificationPeriod", type=ModelType(RectificationPeriod), serialize_when_none=False)
+    def rectification_period(self):
+        if self.tenderPeriod:
+            self.rectificationPeriod = RectificationPeriod() if not self.rectificationPeriod else self.rectificationPeriod
+            self.rectificationPeriod.startDate = self.tenderPeriod.startDate
+            self.rectificationPeriod.endDate = calculate_business_date(self.tenderPeriod.endDate, -timedelta(days=5), self, working_days=True)
+
+            if self.rectificationPeriod.startDate > self.rectificationPeriod.endDate:
+                self.rectificationPeriod.startDate = self.rectificationPeriod.endDate = None
+
+        return self.rectificationPeriod
+
+    @serializable(serialized_name="tenderPeriod", type=ModelType(TenderPeriod))
     def tender_period(self):
         if self.tenderPeriod and self.auctionPeriod.startDate:
             end_date = calculate_business_date(self.auctionPeriod.startDate, DUTCH_PERIOD, self)

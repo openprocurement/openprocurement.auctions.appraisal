@@ -115,3 +115,103 @@ def patch_auction_document(self):
     self.assertEqual(response.content_type, 'application/json')
     self.assertEqual(response.json['errors'][0]["description"],
                      "Can't update document in current (active.auction) auction status")
+
+
+def check_bids_invalidation(self):
+    self.app.authorization = ('Basic', ('broker', ''))
+
+    # Auction creation
+    data = self.initial_data.copy()
+    response = self.app.post_json('/auctions', {'data': data})
+    self.assertEqual(response.status, '201 Created')
+    self.assertEqual(response.content_type, 'application/json')
+
+    auction_id = response.json['data']['id']
+    owner_token = response.json['access']['token']
+    access_header = {'X-Access-Token': str(owner_token)}
+
+    self.auction_id = auction_id
+    self.set_status('active.tendering')
+
+    # Create and activate bid
+    response = self.app.post_json(
+        '/auctions/{}/bids'.format(auction_id),
+        {'data': {'tenderers': [self.initial_organization], "status": "draft", 'qualified': True, 'eligible': True}}
+    )
+    self.assertEqual(response.status, '201 Created')
+    self.assertEqual(response.content_type, 'application/json')
+    bidder_id = response.json['data']['id']
+    bid_token = response.json['access']['token']
+
+    self.app.patch_json(
+        '/auctions/{}/bids/{}?acc_token={}'.format(auction_id, bidder_id, bid_token),
+        {'data': {'status': 'active'}}
+    )
+
+    # Create document
+    response = self.app.post(
+        '/auctions/{}/documents'.format(auction_id),
+        headers=access_header,
+        upload_files=[('file', str(Header(u'укр.doc', 'utf-8')), 'content')]
+    )
+    self.assertEqual(response.status, '201 Created')
+    self.assertEqual(response.content_type, 'application/json')
+    doc_id = response.json['data']['id']
+
+    # Check if bid invalidated
+    response = self.app.get('/auctions/{}/bids/{}?acc_token={}'.format(auction_id, bidder_id, bid_token))
+    self.assertEqual(response.json['data']['status'], 'invalid')
+
+    response = self.app.get('/auctions/{}'.format(auction_id))
+    self.assertIn('invalidationDate', response.json['data']['rectificationPeriod'])
+    invalidation_date = response.json['data']['rectificationPeriod']['invalidationDate']
+
+    # Activate bid again and check if status changes
+    self.app.patch_json(
+        '/auctions/{}/bids/{}?acc_token={}'.format(auction_id, bidder_id, bid_token),
+        {'data': {'status': 'active'}}
+    )
+
+    response = self.app.get('/auctions/{}/bids/{}?acc_token={}'.format(auction_id, bidder_id, bid_token))
+    self.assertEqual(response.json['data']['status'], 'active')
+
+    # Put document
+    response = self.app.put(
+        '/auctions/{}/documents/{}'.format(auction_id, doc_id),
+        headers=access_header,
+        upload_files=[('file', str(Header(u'укр.doc', 'utf-8')), 'content')]
+    )
+    self.assertEqual(response.status, '200 OK')
+    self.assertEqual(response.content_type, 'application/json')
+
+    response = self.app.get('/auctions/{}/bids/{}?acc_token={}'.format(auction_id, bidder_id, bid_token))
+    self.assertEqual(response.json['data']['status'], 'invalid')
+
+    response = self.app.get('/auctions/{}'.format(auction_id))
+    self.assertIn('invalidationDate', response.json['data']['rectificationPeriod'])
+    self.assertNotEqual(invalidation_date, response.json['data']['rectificationPeriod']['invalidationDate'])
+    invalidation_date = response.json['data']['rectificationPeriod']['invalidationDate']
+
+    response = self.app.patch_json(
+        '/auctions/{}/bids/{}?acc_token={}'.format(auction_id, bidder_id, bid_token),
+        {'data': {'status': 'active'}}
+    )
+    self.assertEqual(response.json['data']['status'], 'active')
+
+    # Patch document
+    response = self.app.patch_json(
+        '/auctions/{}/documents/{}'.format(self.auction_id, doc_id),
+        {"data": {
+                "description": "document description"
+        }},
+        headers=access_header
+    )
+    self.assertEqual(response.status, '200 OK')
+    self.assertEqual(response.content_type, 'application/json')
+
+    response = self.app.get('/auctions/{}/bids/{}?acc_token={}'.format(auction_id, bidder_id, bid_token))
+    self.assertEqual(response.json['data']['status'], 'invalid')
+
+    response = self.app.get('/auctions/{}'.format(auction_id))
+    self.assertIn('invalidationDate', response.json['data']['rectificationPeriod'])
+    self.assertNotEqual(invalidation_date, response.json['data']['rectificationPeriod']['invalidationDate'])

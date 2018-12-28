@@ -1,15 +1,19 @@
 # -*- coding: utf-8 -*-
 from copy import deepcopy
+from uuid import uuid4
 from datetime import timedelta, datetime
 from iso8601 import parse_date
 import pytz
 
+from isodate import parse_datetime
+
 from openprocurement.auctions.core.tests.base import JSON_RENDERER_ERROR
 from openprocurement.auctions.core.utils import (
-    SANDBOX_MODE, TZ, get_now
+    SANDBOX_MODE, TZ, get_now, calculate_business_date
 )
 
 from openprocurement.auctions.appraisal.tests.base import TEST_ROUTE_PREFIX
+from openprocurement.auctions.appraisal.models import AppraisalAuction
 
 # AppraisalAuctionTest
 
@@ -37,7 +41,7 @@ def edit_role(self):
         'description_ru', 'registrationFee', 'guarantee', 'hasEnquiries', 'lotIdentifier',
         'features', 'value'
     ])
-    role = self.auction._options.roles['edit_active.tendering']
+    role = self.auction._options.roles['edit_active.tendering_during_rectification_period']
 
     if SANDBOX_MODE:
         fields.add('procurementMethodDetails')
@@ -333,7 +337,7 @@ def create_auction_generated(self):
         u'tenderPeriod', u'minimalStep', u'items', u'value', u'procuringEntity', u'next_check',
         u'procurementMethod', u'awardCriteria', u'submissionMethod', u'title', u'owner', u'auctionPeriod',
         u'tenderAttempts', u'auctionParameters', u'bankAccount', u'registrationFee', u'lotIdentifier', u'registrationFee',
-        u'guarantee', u'description'
+        u'guarantee', u'description', u'rectificationPeriod'
     ]))
     self.assertNotEqual(data['id'], auction['id'])
     self.assertNotEqual(data['doc_id'], auction['id'])
@@ -366,13 +370,13 @@ def create_auction(self):
         self.assertEqual(set(auction) - set(self.initial_data), set([
             u'id', u'dateModified', u'auctionID', u'date', u'status', u'procurementMethod',
             u'awardCriteria', u'submissionMethod', u'next_check', u'owner', u'enquiryPeriod', u'tenderPeriod',
-            u'minimalStep'
+            u'minimalStep', u'rectificationPeriod'
         ]))
     else:
         self.assertEqual(set(auction) - set(self.initial_data), set([
             u'id', u'dateModified', u'auctionID', u'date', u'status', u'procurementMethod',
             u'awardCriteria', u'submissionMethod', u'next_check', u'owner', u'enquiryPeriod', u'tenderPeriod',
-            u'minimalStep'
+            u'minimalStep', u'rectificationPeriod'
         ]))
 
     response = self.app.get('/auctions/{}'.format(auction['id']))
@@ -419,13 +423,104 @@ def check_daylight_savings_timezone(self):
     for i in (10, 90, 180, 210, 240):
         data.update({
             "auctionPeriod": {
-                "startDate": (now + timedelta(days=i)).isoformat(),
+                "startDate": calculate_business_date(now, timedelta(days=i), None, working_days=True).isoformat(),
             }})
         response = self.app.post_json('/auctions', {'data': data})
         timezone_after = parse_date(response.json['data']['tenderPeriod']['endDate']).astimezone(tz=ua_tz)
         timezone_after = timezone_after.strftime('%Z')
         list_of_timezone_bools.append(timezone_before != timezone_after)
     self.assertTrue(any(list_of_timezone_bools))
+
+
+def tender_period_validation(self):
+    data = deepcopy(self.initial_data)
+    data['auctionPeriod']['startDate'] = (get_now() + timedelta(days=1)).isoformat()
+    response = self.app.post_json('/auctions', {'data': data}, status=422)
+    self.assertEqual(response.status, '422 Unprocessable Entity')
+    self.assertEqual(response.content_type, 'application/json')
+    self.assertEqual(
+        response.json['errors'][0]['description']['endDate'][0],
+        'tenderPeriod should be at least 7 working days'
+    )
+
+    response = self.app.post_json('/auctions', {"data": self.initial_data})
+    self.assertEqual(response.status, '201 Created')
+    self.assertEqual(response.content_type, 'application/json')
+    tender_period = {
+        'startDate': parse_datetime(response.json['data']['tenderPeriod']['startDate']),
+        'endDate': parse_datetime(response.json['data']['tenderPeriod']['endDate']),
+    }
+
+    # Check if tenderPeriod last more than 7 working days
+    expected_end_date = calculate_business_date(tender_period['startDate'], timedelta(days=7), None, working_days=True)
+    self.assertGreaterEqual(tender_period['endDate'], expected_end_date)
+
+
+def rectification_period_generation(self):
+    response = self.app.post_json('/auctions', {"data": self.initial_data})
+    self.assertEqual(response.status, '201 Created')
+    self.assertEqual(response.content_type, 'application/json')
+    tender_period = {
+        'startDate': parse_datetime(response.json['data']['tenderPeriod']['startDate']),
+        'endDate': parse_datetime(response.json['data']['tenderPeriod']['endDate']),
+    }
+    rectification_period = {
+        'startDate': parse_datetime(response.json['data']['rectificationPeriod']['startDate']),
+        'endDate': parse_datetime(response.json['data']['rectificationPeriod']['endDate']),
+    }
+
+    self.assertEqual(tender_period['startDate'], rectification_period['startDate'])
+
+    # Check if there is 5 working days between rectificationPeriod.endDate and tenderPeriod.endDate
+    expected_end_date = calculate_business_date(rectification_period['endDate'], timedelta(days=5), None, working_days=True)
+    self.assertEqual(tender_period['endDate'], expected_end_date)
+
+
+def edit_after_rectification_period(self):
+    response = self.app.post_json('/auctions', {'data': self.initial_data})
+    self.assertEqual(response.status, '201 Created')
+    self.assertEqual(response.content_type, 'application/json')
+
+    auction_id = response.json['data']['id']
+    owner_token = response.json['access']['token']
+    access_header = {'X-Access-Token': str(owner_token)}
+
+    self.app.patch_json(
+        '/auctions/{}'.format(auction_id),
+        {'data': {'status': 'active.tendering'}},
+        headers=access_header
+    )
+
+    # Change rectification period
+    fromdb = self.db.get(auction_id)
+    fromdb = AppraisalAuction(fromdb)
+
+    fromdb.tenderPeriod.startDate = calculate_business_date(
+        fromdb.tenderPeriod.startDate,
+        -timedelta(days=15),
+        fromdb,
+        working_days=True
+    )
+    fromdb.tenderPeriod.endDate = calculate_business_date(
+        fromdb.tenderPeriod.startDate,
+        timedelta(days=7),
+        fromdb,
+        working_days=True
+    )
+    fromdb = fromdb.store(self.db)
+    self.assertEqual(fromdb.id, auction_id)
+
+    # Check that nothing changed after patch
+    unique_descr = 'description_' + uuid4().hex
+    self.app.patch_json(
+        '/auctions/{}'.format(auction_id),
+        {'data': {'description': unique_descr}},
+        headers=access_header
+    )
+
+    response = self.app.get('/auctions/{}'.format(auction_id))
+    self.assertNotEqual(response.json['data']['description'], unique_descr)
+
 
 # AppraisalAuctionProcessTest
 
@@ -652,7 +747,12 @@ def auctionUrl_in_active_auction(self):
     auction_id = self.auction_id = response.json['data']['id']
     owner_token = response.json['access']['token']
     # switch to active.tendering
-    response = self.set_status('active.tendering', {"auctionPeriod": {"startDate": (get_now() + timedelta(days=10)).isoformat()}})
+    response = self.set_status(
+        'active.tendering',
+        {
+            "auctionPeriod": {"startDate": calculate_business_date(get_now(), timedelta(days=10), None, working_days=True).isoformat()}
+        }
+    )
     self.assertIn("auctionPeriod", response.json['data'])
     # create bid
     self.app.authorization = ('Basic', ('broker', ''))
@@ -1356,6 +1456,7 @@ def patch_auction(self):
     )
     auction = response.json['data']
     dateModified = auction.pop('dateModified')
+    auction['rectificationPeriod'].pop('invalidationDate')
 
     response = self.app.patch_json('/auctions/{}?acc_token={}'.format(auction['id'], owner_token),
                                    {'data': {'status': 'cancelled'}})
@@ -1382,9 +1483,9 @@ def patch_auction(self):
     self.assertEqual(response.status, '200 OK')
     self.assertEqual(response.content_type, 'application/json')
     new_auction = response.json['data']
-    new_dateModified = new_auction.pop('dateModified')
+    new_auction.pop('dateModified')
+    new_auction['rectificationPeriod'].pop('invalidationDate')
     self.assertEqual(auction, new_auction)
-    self.assertEqual(dateModified, new_dateModified)
 
     date_modified_to_patch = (datetime.now() + timedelta(days=30)).isoformat()
     response = self.app.patch_json('/auctions/{}?acc_token={}'.format(
@@ -1394,9 +1495,10 @@ def patch_auction(self):
     self.assertEqual(response.content_type, 'application/json')
     new_auction2 = response.json['data']
     new_dateModified2 = new_auction2.pop('dateModified')
+    new_auction2['rectificationPeriod'].pop('invalidationDate')
     self.assertEqual(new_auction, new_auction2)
     self.assertNotEqual(date_modified_to_patch, new_dateModified2)
-    self.assertEqual(new_dateModified, new_dateModified2)
+    # self.assertEqual(new_dateModified, new_dateModified2)
 
     response = self.app.patch_json('/auctions/{}?acc_token={}'.format(
         auction['id'], owner_token
@@ -1422,3 +1524,96 @@ def patch_auction(self):
     self.assertEqual(response.status, '403 Forbidden')
     self.assertEqual(response.content_type, 'application/json')
     self.assertEqual(response.json['errors'][0]["description"], "Can't update auction in current (complete) status")
+
+
+def check_bids_invalidation(self):
+    self.app.authorization = ('Basic', ('broker', ''))
+
+    # Auction creation
+    data = self.initial_data.copy()
+    response = self.app.post_json('/auctions', {'data': data})
+    self.assertEqual(response.status, '201 Created')
+    self.assertEqual(response.content_type, 'application/json')
+
+    auction_id = response.json['data']['id']
+    owner_token = response.json['access']['token']
+    access_header = {'X-Access-Token': str(owner_token)}
+
+    self.auction_id = auction_id
+    self.set_status('active.tendering')
+
+    # Create and activate bid
+    response = self.app.post_json(
+        '/auctions/{}/bids'.format(auction_id),
+        {'data': {'tenderers': [self.initial_organization], "status": "draft", 'qualified': True, 'eligible': True}}
+    )
+    self.assertEqual(response.status, '201 Created')
+    self.assertEqual(response.content_type, 'application/json')
+    bidder_id = response.json['data']['id']
+    bid_token = response.json['access']['token']
+
+    self.app.patch_json(
+        '/auctions/{}/bids/{}?acc_token={}'.format(auction_id, bidder_id, bid_token),
+        {'data': {'status': 'active'}}
+    )
+
+    # Empty patch on auction
+    self.app.patch_json(
+        'auctions/{}'.format(auction_id),
+        {'data': {}},
+        headers=access_header
+    )
+
+    # Check if bid invalidated
+    response = self.app.get(
+        '/auctions/{}/bids/{}?acc_token={}'.format(auction_id, bidder_id, bid_token)
+    )
+    self.assertEqual(response.json['data']['status'], 'invalid')
+
+    response = self.app.get('/auctions/{}'.format(auction_id))
+    self.assertIn('invalidationDate', response.json['data']['rectificationPeriod'])
+    invalidation_date = response.json['data']['rectificationPeriod']['invalidationDate']
+
+    # Activate bid again and check if status changes
+    self.app.patch_json(
+        '/auctions/{}/bids/{}?acc_token={}'.format(auction_id, bidder_id, bid_token),
+        {'data': {'status': 'active'}}
+    )
+
+    response = self.app.get(
+        '/auctions/{}/bids/{}?acc_token={}'.format(auction_id, bidder_id, bid_token)
+    )
+    self.assertEqual(response.json['data']['status'], 'active')
+
+    # Change rectification period
+    fromdb = self.db.get(auction_id)
+    fromdb = AppraisalAuction(fromdb)
+
+    fromdb.tenderPeriod.startDate = calculate_business_date(
+        fromdb.tenderPeriod.startDate,
+        -timedelta(days=15),
+        fromdb,
+        working_days=True
+    )
+    fromdb.tenderPeriod.endDate = calculate_business_date(
+        fromdb.tenderPeriod.startDate,
+        timedelta(days=7),
+        fromdb,
+        working_days=True
+    )
+    fromdb = fromdb.store(self.db)
+    self.assertEqual(fromdb.id, auction_id)
+
+    # Check that nothing changed after patch
+    self.app.patch_json(
+        'auctions/{}'.format(auction_id),
+        {'data': {}},
+        headers=access_header
+    )
+    response = self.app.get(
+        '/auctions/{}/bids/{}?acc_token={}'.format(auction_id, bidder_id, bid_token)
+    )
+    self.assertEqual(response.json['data']['status'], 'active')
+
+    response = self.app.get('/auctions/{}'.format(auction_id))
+    self.assertEqual(invalidation_date, response.json['data']['rectificationPeriod']['invalidationDate'])

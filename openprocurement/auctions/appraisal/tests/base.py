@@ -13,7 +13,8 @@ from openprocurement.auctions.core.tests.base import (
 )
 from openprocurement.auctions.core.utils import (
     apply_data_patch,
-    connection_mock_config
+    connection_mock_config,
+    calculate_business_date
 )
 
 
@@ -56,6 +57,9 @@ MOCK_CONFIG = connection_mock_config(
 )
 
 test_appraisal_auction_data = deepcopy(test_auction_data)
+test_appraisal_auction_data['auctionPeriod'] = {
+    'startDate': calculate_business_date(now, timedelta(days=8), None, working_days=True).isoformat()
+}
 test_appraisal_auction_data['lotIdentifier'] = 'Q24421K222'
 for item in test_appraisal_auction_data['items']:
     item['classification']['scheme'] = 'CPV'
@@ -192,26 +196,31 @@ class BaseAppraisalAuctionWebTest(BaseAuctionWebTest):
         if status == 'active.tendering':
             data.update({
                 "enquiryPeriod": {
-                    "startDate": (now).isoformat(),
+                    "startDate": now.isoformat(),
                     "endDate": (now + timedelta(days=1)).isoformat()
                 },
                 "tenderPeriod": {
-                    "startDate": (now).isoformat(),
-                    "endDate": (now + timedelta(days=5)).isoformat()
+                    "startDate": now.isoformat(),
+                    "endDate": calculate_business_date(now, timedelta(days=8), None, working_days=True).isoformat()
                 }
             })
         elif status == 'active.auction':
             data.update({
                 "enquiryPeriod": {
                     "startDate": (now - timedelta(days=20)).isoformat(),
-                    "endDate": (now).isoformat()
+                    "endDate": now.isoformat()
                 },
                 "tenderPeriod": {
                     "startDate": (now - timedelta(days=20)).isoformat(),
-                    "endDate": (now + timedelta(hours=1)).isoformat()
+                    "endDate": calculate_business_date(
+                        now - timedelta(days=20),
+                        timedelta(days=8),
+                        None,
+                        working_days=True
+                    ).isoformat()
                 },
                 "auctionPeriod": {
-                    "startDate": (now).isoformat()
+                    "startDate": now.isoformat()
                 }
             })
             if self.initial_lots:
@@ -219,7 +228,7 @@ class BaseAppraisalAuctionWebTest(BaseAuctionWebTest):
                     'lots': [
                         {
                             "auctionPeriod": {
-                                "startDate": (now).isoformat()
+                                "startDate": now.isoformat()
                             }
                         }
                         for i in self.initial_lots
@@ -233,14 +242,19 @@ class BaseAppraisalAuctionWebTest(BaseAuctionWebTest):
                 },
                 "tenderPeriod": {
                     "startDate": (now - timedelta(days=20)).isoformat(),
-                    "endDate": (now - timedelta(days=1)).isoformat()
+                    "endDate": calculate_business_date(
+                        now - timedelta(days=20),
+                        timedelta(days=8),
+                        None,
+                        working_days=True
+                    ).isoformat()
                 },
                 "auctionPeriod": {
                     "startDate": (now - timedelta(days=2)).isoformat(),
-                    "endDate": (now).isoformat()
+                    "endDate": now.isoformat()
                 },
                 "awardPeriod": {
-                    "startDate": (now).isoformat()
+                    "startDate": now.isoformat()
                 }
             })
             if self.initial_lots:
@@ -249,7 +263,7 @@ class BaseAppraisalAuctionWebTest(BaseAuctionWebTest):
                         {
                             "auctionPeriod": {
                                 "startDate": (now - timedelta(days=1)).isoformat(),
-                                "endDate": (now).isoformat()
+                                "endDate": now.isoformat()
                             }
                         }
                         for i in self.initial_lots
@@ -263,15 +277,37 @@ class BaseAppraisalAuctionWebTest(BaseAuctionWebTest):
                 },
                 "tenderPeriod": {
                     "startDate": (now - timedelta(days=20)).isoformat(),
-                    "endDate": (now - timedelta(days=11)).isoformat()
+                    "endDate": calculate_business_date(
+                        now - timedelta(days=20),
+                        timedelta(days=8),
+                        None,
+                        working_days=True
+                    ).isoformat()
                 },
                 "auctionPeriod": {
-                    "startDate": (now - timedelta(days=12)).isoformat(),
-                    "endDate": (now - timedelta(days=10)).isoformat()
+                    "startDate": calculate_business_date(
+                        now - timedelta(days=20),
+                        timedelta(days=8),
+                        None,
+                        working_days=True
+                    ).isoformat()
+,
+                    "endDate": calculate_business_date(
+                        now - timedelta(days=20),
+                        timedelta(days=10),
+                        None,
+                        working_days=True
+                    ).isoformat()
+
                 },
                 "awardPeriod": {
-                    "startDate": (now - timedelta(days=10)).isoformat(),
-                    "endDate": (now).isoformat()
+                    "startDate": calculate_business_date(
+                        now - timedelta(days=20),
+                        timedelta(days=10),
+                        None,
+                        working_days=True
+                    ).isoformat(),
+                    "endDate": now.isoformat()
                 }
             })
             if self.initial_lots:
@@ -280,7 +316,7 @@ class BaseAppraisalAuctionWebTest(BaseAuctionWebTest):
                         {
                             "auctionPeriod": {
                                 "startDate": (now - timedelta(days=1)).isoformat(),
-                                "endDate": (now).isoformat()
+                                "endDate": now.isoformat()
                             }
                         }
                         for i in self.initial_lots
@@ -294,17 +330,43 @@ class BaseAppraisalAuctionWebTest(BaseAuctionWebTest):
                 },
                 "tenderPeriod": {
                     "startDate": (now - timedelta(days=20)).isoformat(),
-                    "endDate": (now - timedelta(days=13)).isoformat()
+                    "endDate": calculate_business_date(
+                        now - timedelta(days=20),
+                        timedelta(days=8),
+                        None,
+                        working_days=True
+                    ).isoformat()
                 },
                 "auctionPeriod": {
-                    "startDate": (now - timedelta(days=11)).isoformat(),
-                    "endDate": (now - timedelta(days=10)).isoformat()
+                    "startDate": calculate_business_date(
+                        now - timedelta(days=20),
+                        timedelta(days=11),
+                        None,
+                        working_days=True
+                    ).isoformat(),
+                    "endDate": calculate_business_date(
+                        now - timedelta(days=20),
+                        timedelta(days=10),
+                        None,
+                        working_days=True
+                    ).isoformat(),
                 },
                 "awardPeriod": {
-                    "startDate": (now - timedelta(days=10)).isoformat(),
-                    "endDate": (now - timedelta(days=10)).isoformat()
+                    "startDate": calculate_business_date(
+                        now - timedelta(days=20),
+                        timedelta(days=10),
+                        None,
+                        working_days=True
+                    ).isoformat(),
+                    "endDate": calculate_business_date(
+                        now - timedelta(days=20),
+                        timedelta(days=10),
+                        None,
+                        working_days=True
+                    ).isoformat()
                 }
             })
+
             if self.initial_lots:
                 data.update({
                     'lots': [

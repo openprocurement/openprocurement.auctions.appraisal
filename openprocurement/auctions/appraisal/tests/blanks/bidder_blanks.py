@@ -556,3 +556,10 @@ def patch_auction_bidder_document(self):
     self.assertEqual(response.status, '403 Forbidden')
     self.assertEqual(response.content_type, 'application/json')
     self.assertEqual(response.json['errors'][0]["description"], "Can't update document in current (active.awarded) auction status")
+
+    # Add item
+    # Patch item
+
+    # Add document
+    # Put document
+    # Patch document

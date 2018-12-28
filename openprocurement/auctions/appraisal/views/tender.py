@@ -12,7 +12,7 @@ from openprocurement.auctions.appraisal.validation import (
 from openprocurement.auctions.core.interfaces import IAuctionManager
 from openprocurement.auctions.core.views.mixins import AuctionResource
 
-from openprocurement.auctions.appraisal.utils import check_status
+from openprocurement.auctions.appraisal.utils import check_status, invalidate_bids_data
 
 
 @opresource(name='appraisal:Auction',
@@ -36,7 +36,10 @@ class AppraisalAuctionResource(AuctionResource):
             check_status(self.request)
             save_auction(self.request)
         else:
-            apply_patch(self.request, src=self.request.validated['auction_src'])
+            apply_patch(self.request, save=False, src=self.request.validated['auction_src'])
+            if self.request.authenticated_role == 'auction_owner':
+                invalidate_bids_data(self.request.context)
+            save_auction(self.request)
         self.LOGGER.info('Updated auction {}'.format(auction.id),
                          extra=context_unpack(self.request, {'MESSAGE_ID': 'auction_patch'}))
         return {'data': auction.serialize(auction.status)}

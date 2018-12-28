@@ -15,6 +15,7 @@ from openprocurement.auctions.core.validation import (
     validate_patch_document_data,
 )
 from openprocurement.auctions.core.views.mixins import AuctionDocumentResource
+from openprocurement.auctions.appraisal.utils import invalidate_bids_data
 
 
 @opresource(name='appraisal:Auction Documents',
@@ -34,6 +35,10 @@ class AppraisalAuctionDocumentResource(AuctionDocumentResource):
             return
         document = dgf_upload_file(self.request)
         self.context.documents.append(document)
+
+        if self.request.authenticated_role == 'auction_owner':
+            invalidate_bids_data(self.request.auction)
+
         if save_auction(self.request):
             self.LOGGER.info('Created auction document {}'.format(document.id),
                         extra=context_unpack(self.request, {'MESSAGE_ID': 'auction_document_create'}, {'document_id': document.id}))
@@ -68,6 +73,10 @@ class AppraisalAuctionDocumentResource(AuctionDocumentResource):
             return
         document = dgf_upload_file(self.request)
         self.request.validated['auction'].documents.append(document)
+
+        if self.request.authenticated_role == 'auction_owner':
+            invalidate_bids_data(self.request.auction)
+
         if save_auction(self.request):
             self.LOGGER.info('Updated auction document {}'.format(self.request.context.id),
                         extra=context_unpack(self.request, {'MESSAGE_ID': 'auction_document_put'}))
@@ -81,6 +90,10 @@ class AppraisalAuctionDocumentResource(AuctionDocumentResource):
             self.request.errors.add('body', 'data', 'Can\'t update document in current ({}) auction status'.format(self.request.validated['auction_status']))
             self.request.errors.status = 403
             return
+
+        if self.request.authenticated_role == 'auction_owner':
+            invalidate_bids_data(self.request.auction)
+
         if apply_patch(self.request, src=self.request.context.serialize()):
             update_file_content_type(self.request)
             self.LOGGER.info('Updated auction document {}'.format(self.request.context.id),
