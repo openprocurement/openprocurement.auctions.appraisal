@@ -472,8 +472,8 @@ def rectification_period_generation(self):
     self.assertEqual(tender_period['startDate'], rectification_period['startDate'])
 
     # Check if there is 5 working days between rectificationPeriod.endDate and tenderPeriod.endDate
-    # expected_end_date = calculate_business_date(rectification_period['endDate'], timedelta(days=5), None, working_days=True)
-    # self.assertEqual(tender_period['endDate'], expected_end_date)
+    expected_end_date = calculate_business_date(rectification_period['endDate'], timedelta(days=5), None, working_days=True)
+    self.assertEqual(tender_period['endDate'], expected_end_date)
 
 
 def edit_after_rectification_period(self):
