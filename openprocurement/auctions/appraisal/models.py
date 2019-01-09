@@ -79,20 +79,6 @@ from openprocurement.auctions.appraisal.roles import appraisal_auction_roles
 validate_contract_type = partial(validate_contract_type, choices=CONTRACT_TYPES)
 
 
-class TenderPeriod(Period):
-
-    def validate_startDate(self, data, value):
-        if value and data.get('endDate') and data.get('endDate') < value:
-            raise ValidationError(u"period should begin before its end")
-
-    def validate_endDate(self, data, value):
-        if value and data.get('startDate') and value > data['startDate']:
-            min_end_date_limit = calculate_business_date(data['startDate'], timedelta(days=7), self, working_days=True)
-
-            if value < min_end_date_limit:
-                raise ValidationError(u"tenderPeriod should be at least 7 working days")
-
-
 class RectificationPeriod(Period):
     invalidationDate = IsoDateTimeType()
 
@@ -227,7 +213,7 @@ class AppraisalAuction(BaseAuction):
     contracts = ListType(ModelType(AppraisalContract), default=list())
     documents = ListType(ModelType(AppraisalDocument), default=list())  # All documents and attachments related to the auction.
     enquiryPeriod = ModelType(Period)  # The period during which enquiries may be made and will be answered.
-    tenderPeriod = ModelType(TenderPeriod)  # The period when the auction is open for submissions. The end date is the closing date for auction submissions.
+    tenderPeriod = ModelType(Period)  # The period when the auction is open for submissions. The end date is the closing date for auction submissions.
     rectificationPeriod = ModelType(RectificationPeriod)
     tenderAttempts = IntType(choices=[1, 2, 3, 4, 5, 6, 7, 8])
     status = StringType(choices=AUCTION_STATUSES, default='draft')
@@ -278,6 +264,30 @@ class AppraisalAuction(BaseAuction):
         if value.currency != u'UAH':
             raise ValidationError(u"currency should be only UAH")
 
+    def validate_tenderPeriod(self, data, value):
+        if not value:
+            return
+
+        new_startDate = value.get('startDate')
+        new_endDate = value.get('endDate')
+
+        # validate startDate
+        if new_startDate and data.get('endDate') and data.get('endDate') < new_startDate:
+            raise ValidationError(u"period should begin before its end")
+
+        # validate endDate
+        if new_endDate and data.get('startDate') and new_endDate > data['startDate']:
+            min_end_date_limit = calculate_business_date(
+                data['startDate'],
+                timedelta(days=7),
+                self,
+                working_days=True
+            )
+
+            if new_endDate < min_end_date_limit:
+                raise ValidationError(u"tenderPeriod should be at least 7 working days")
+
+
     @serializable(serialized_name="minimalStep", type=ModelType(Value))
     def auction_minimalStep(self):
         return Value(dict(amount=0))
@@ -294,7 +304,7 @@ class AppraisalAuction(BaseAuction):
 
         return self.rectificationPeriod
 
-    @serializable(serialized_name="tenderPeriod", type=ModelType(TenderPeriod))
+    @serializable(serialized_name="tenderPeriod", type=ModelType(Period))
     def tender_period(self):
         if self.tenderPeriod and self.auctionPeriod.startDate:
             end_date = calculate_business_date(self.auctionPeriod.startDate, DUTCH_PERIOD, self)
