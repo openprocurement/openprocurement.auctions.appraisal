@@ -6,7 +6,7 @@ from datetime import timedelta
 from openprocurement.auctions.core.tests.award import (
     AuctionAwardDocumentResourceTestMixin
 )
-from openprocurement.auctions.core.tests.plugins.awarding.v3_1.tests.award import (
+from openprocurement.auctions.core.tests.plugins.awarding.v3_2.tests.award import (
     AuctionAwardProcessTestMixin,
     CreateAuctionAwardTestMixin
 

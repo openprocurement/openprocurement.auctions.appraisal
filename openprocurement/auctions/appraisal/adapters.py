@@ -6,8 +6,8 @@ from openprocurement.auctions.core.adapters import (
     AuctionConfigurator,
     AuctionManagerAdapter
 )
-from openprocurement.auctions.core.plugins.awarding.v3_1.adapters import (
-    AwardingV3_1ConfiguratorMixin
+from openprocurement.auctions.core.plugins.awarding.v3_2.adapters import (
+    AwardingV3_2ConfiguratorMixin
 )
 from openprocurement.auctions.core.utils import (
     calculate_business_date,
@@ -22,7 +22,7 @@ from openprocurement.auctions.appraisal.constants import (
 
 
 class AuctionAppraisalConfigurator(AuctionConfigurator,
-                                AwardingV3_1ConfiguratorMixin):
+                                   AwardingV3_2ConfiguratorMixin):
     name = 'Auction Appraisal Configurator'
     model = AppraisalAuction
     pending_admission_for_one_bid = False

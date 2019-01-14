@@ -3,7 +3,7 @@ import unittest
 from datetime import timedelta
 
 from openprocurement.auctions.core.tests.base import snitch
-from openprocurement.auctions.core.tests.plugins.awarding.v3_1.tests.chronograph import (
+from openprocurement.auctions.core.tests.plugins.awarding.v3_2.tests.chronograph import (
     AuctionAwardSwitchResourceTestMixin
 )
 

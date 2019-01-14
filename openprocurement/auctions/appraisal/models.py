@@ -50,7 +50,7 @@ from openprocurement.auctions.core.models.schema import (
     dgfCDB2Item as Item,
     IsoDateTimeType
 )
-from openprocurement.auctions.core.plugins.awarding.v3_1.models import (
+from openprocurement.auctions.core.plugins.awarding.v3_2.models import (
     Award
 )
 from openprocurement.auctions.core.plugins.contracting.v3_1.models import (
