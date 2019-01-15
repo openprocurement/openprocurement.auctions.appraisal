@@ -265,26 +265,15 @@ class AppraisalAuction(BaseAuction):
             raise ValidationError(u"currency should be only UAH")
 
     def validate_tenderPeriod(self, data, value):
-        if not value:
-            return
+        if value and value.get('startDate') and value.get('endDate'):
 
-        new_startDate = value.get('startDate')
-        new_endDate = value.get('endDate')
-
-        # validate startDate
-        if new_startDate and data.get('endDate') and data.get('endDate') < new_startDate:
-            raise ValidationError(u"period should begin before its end")
-
-        # validate endDate
-        if new_endDate and data.get('startDate') and new_endDate > data['startDate']:
             min_end_date_limit = calculate_business_date(
-                data['startDate'],
+                value['startDate'],
                 timedelta(days=7),
-                self,
+                data,
                 working_days=True
             )
-
-            if new_endDate < min_end_date_limit:
+            if value['endDate'] < min_end_date_limit:
                 raise ValidationError(u"tenderPeriod should be at least 7 working days")
 
 
