@@ -204,6 +204,9 @@ class Bid(BaseBid):
 class AppraisalAward(Award):
     items = ListType(ModelType(AppraisalItem))
 
+    VERIFY_AUCTION_PROTOCOL_TIME = timedelta(days=6)
+    CONTRACT_SIGNING_TIME = timedelta(days=20)
+
 
 class AppraisalContract(Contract):
     items = ListType(ModelType(AppraisalItem))
