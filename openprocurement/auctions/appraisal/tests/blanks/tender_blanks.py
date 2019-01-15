@@ -266,8 +266,7 @@ def create_auction_invalid(self):
 
 def create_auction_auctionPeriod(self):
     data = self.initial_data.copy()
-    #tenderPeriod = data.pop('tenderPeriod')
-    #data['auctionPeriod'] = {'startDate': tenderPeriod['endDate']}
+
     response = self.app.post_json('/auctions', {'data': data})
     self.assertEqual(response.status, '201 Created')
     self.assertEqual(response.content_type, 'application/json')
@@ -439,7 +438,7 @@ def tender_period_validation(self):
     self.assertEqual(response.status, '422 Unprocessable Entity')
     self.assertEqual(response.content_type, 'application/json')
     self.assertEqual(
-        response.json['errors'][0]['description']['endDate'][0],
+        response.json['errors'][0]['description'][0],
         'tenderPeriod should be at least 7 working days'
     )
 
@@ -454,6 +453,22 @@ def tender_period_validation(self):
     # Check if tenderPeriod last more than 7 working days
     expected_end_date = calculate_business_date(tender_period['startDate'], timedelta(days=7), None, working_days=True)
     self.assertGreaterEqual(tender_period['endDate'], expected_end_date)
+
+    if SANDBOX_MODE:
+        data = deepcopy(self.initial_data)
+        data['procurementMethodDetails'] = 'quick, accelerator=1440'
+        period_duration = 500
+        data['auctionPeriod']['startDate'] = (get_now() + timedelta(seconds=period_duration)).isoformat()
+
+        response = self.app.post_json('/auctions', {"data": data})
+        self.assertEqual(response.status, '201 Created')
+        self.assertEqual(response.content_type, 'application/json')
+        tender_period = {
+            'startDate': parse_datetime(response.json['data']['tenderPeriod']['startDate']),
+            'endDate': parse_datetime(response.json['data']['tenderPeriod']['endDate']),
+        }
+        delta = tender_period['endDate'] - tender_period['startDate']
+        self.assertAlmostEqual(delta.total_seconds(), 500, delta=50)
 
 
 def rectification_period_generation(self):

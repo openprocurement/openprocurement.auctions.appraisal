@@ -276,9 +276,10 @@ class BaseAppraisalAuctionWebTest(BaseAuctionWebTest):
                     "endDate": (now - timedelta(days=13)).isoformat()
                 },
                 "tenderPeriod": {
-                    "startDate": (now - timedelta(days=20)).isoformat(),
+                    "startDate": 
+                        calculate_business_date(now, -timedelta(days=20), None, working_days=True).isoformat(),
                     "endDate": calculate_business_date(
-                        now - timedelta(days=20),
+                        calculate_business_date(now, -timedelta(days=20), None, working_days=True),
                         timedelta(days=8),
                         None,
                         working_days=True
@@ -286,14 +287,14 @@ class BaseAppraisalAuctionWebTest(BaseAuctionWebTest):
                 },
                 "auctionPeriod": {
                     "startDate": calculate_business_date(
-                        now - timedelta(days=20),
+                        calculate_business_date(now, -timedelta(days=20), None, working_days=True),
                         timedelta(days=8),
                         None,
                         working_days=True
                     ).isoformat()
 ,
                     "endDate": calculate_business_date(
-                        now - timedelta(days=20),
+                        calculate_business_date(now, -timedelta(days=20), None, working_days=True),
                         timedelta(days=10),
                         None,
                         working_days=True
@@ -302,7 +303,7 @@ class BaseAppraisalAuctionWebTest(BaseAuctionWebTest):
                 },
                 "awardPeriod": {
                     "startDate": calculate_business_date(
-                        now - timedelta(days=20),
+                        calculate_business_date(now, -timedelta(days=20), None, working_days=True),
                         timedelta(days=10),
                         None,
                         working_days=True
