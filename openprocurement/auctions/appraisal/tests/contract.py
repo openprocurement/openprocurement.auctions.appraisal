@@ -6,6 +6,7 @@ from openprocurement.auctions.core.tests.contract import (
     AuctionContractResourceTestMixin,
     AuctionContractDocumentResourceTestMixin
 )
+from openprocurement.auctions.core.tests.base import snitch
 from openprocurement.auctions.core.tests.plugins.contracting.v3_1.tests.contract import (
     AuctionContractV3_1ResourceTestCaseMixin
 )
@@ -14,6 +15,9 @@ from openprocurement.auctions.core.utils import (
     get_related_award_of_contract
 )
 
+from openprocurement.auctions.appraisal.tests.blanks.contract_blanks import (
+    patch_auction_contract_to_active
+)
 from openprocurement.auctions.appraisal.tests.base import (
     BaseAppraisalAuctionWebTest, test_bids,
 )
@@ -38,7 +42,6 @@ DOCUMENTS = {
 }
 
 
-
 class AppraisalAuctionContractResourceTest(
     BaseAppraisalAuctionWebTest,
     AuctionContractResourceTestMixin,
@@ -46,6 +49,8 @@ class AppraisalAuctionContractResourceTest(
 ):
     initial_status = 'active.auction'
     initial_bids = test_bids
+
+    test_patch_auction_contract_to_active = snitch(patch_auction_contract_to_active)
 
     def setUp(self):
         self.initial_data['value']['amount'] = 479.0 / 2

@@ -9,6 +9,9 @@ from openprocurement.auctions.core.adapters import (
 from openprocurement.auctions.core.plugins.awarding.v3_1.adapters import (
     AwardingV3_1ConfiguratorMixin
 )
+from openprocurement.auctions.core.plugins.contracting.v3_1.adapters import (
+    ContractingV3_1ConfiguratorMixin
+)
 from openprocurement.auctions.core.utils import (
     calculate_business_date,
     SANDBOX_MODE,
@@ -22,10 +25,12 @@ from openprocurement.auctions.appraisal.constants import (
 
 
 class AuctionAppraisalConfigurator(AuctionConfigurator,
-                                AwardingV3_1ConfiguratorMixin):
+                                AwardingV3_1ConfiguratorMixin,
+                                ContractingV3_1ConfiguratorMixin):
     name = 'Auction Appraisal Configurator'
     model = AppraisalAuction
     pending_admission_for_one_bid = False
+    is_contract_signed_required = True
 
 
 class AuctionAppraisalManagerAdapter(AuctionManagerAdapter):
