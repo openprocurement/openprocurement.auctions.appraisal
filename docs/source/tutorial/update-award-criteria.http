@@ -1,12 +1,12 @@
-PUT /api/2.5/auctions/0a3e5825752c49199ced43de14247e09/documents/aeb0731d9d994d4e889efb74564aa0e1?acc_token=2ae288c6a1204108bc3013241ac553eb HTTP/1.0
+PUT /api/2.5/auctions/e0c4d484a95140569171138086703f23/documents/b85a9b4422084bd49a2885b32fe9b4b9?acc_token=4cc54038a92f4f578a435ca9cb041343 HTTP/1.0
 Authorization: Basic YnJva2VyOg==
-Content-Length: 336
+Content-Length: 340
 Content-Type: application/json
-Host: lb.api-sandbox.registry.ea.openprocurement.net
+Host: https://lb.api-sandbox.ea2.openprocurement.net/api/2.3/auctions
 DATA:
 {
   "data": {
-    "url": "http://public.docs-sandbox.ea.openprocurement.org/get/25fbbbe7a6e5459eb51b8f46cbd2b4bd?KeyID=172d32c8&Signature=JUH6oxyz3zM%2BNsKdzEjnYY6J33ADlNQdr2MhesW0zxjSOPDzAyPojbRLXa8zxmXnQ1pCTcOXlBQ3jkGbSi9rBw%3D%3D", 
+    "url": "http://public.docs-sandbox.ea.openprocurement.org/get/53ef485f1a1f41b6a6fbad631572346c?KeyID=172d32c8&Signature=iGf3uU89QfT3uYjaki1iOM3cwLEK9edS1%2Bu9y7VKX7Nixog6vvI%2BQL9kVh23Dzgh52QK7bX%2BXQQqoAq4uraKBQ%3D%3D", 
     "title": "AwardCriteria-2.pdf", 
     "hash": "md5:00000000000000000000000000000000", 
     "format": "application/pdf"
@@ -19,13 +19,13 @@ X-Content-Type-Options: nosniff
 {
   "data": {
     "hash": "md5:00000000000000000000000000000000", 
-    "format": "application/pdf", 
-    "url": "http://public.docs-sandbox.ea.openprocurement.org/get/25fbbbe7a6e5459eb51b8f46cbd2b4bd?KeyID=172d32c8&Signature=O%252Bl5pUX65yElbq4o5A2E1gTpXBN4EihOth%252Bb3XseESkl57q9YkZQuovXwz27N5L0sWNB70TIaNeQUD0pa19zBg%253D%253D", 
     "title": "AwardCriteria-2.pdf", 
-    "documentOf": "tender", 
-    "datePublished": "2018-12-07T19:32:46.631127+02:00", 
-    "dateModified": "2018-12-07T19:32:46.690425+02:00", 
-    "id": "aeb0731d9d994d4e889efb74564aa0e1"
+    "url": "http://public.docs-sandbox.ea.openprocurement.org/get/53ef485f1a1f41b6a6fbad631572346c?KeyID=172d32c8&Signature=zS2ipM2G7i8Y%252BpT9XNBXW2Hi9LM4x8w40wpyHXaZJRCymcX5BJLEELPBgK8SDWqB22j8DvskE1XSa75hh7n3Dg%253D%253D", 
+    "format": "application/pdf", 
+    "documentOf": "auction", 
+    "datePublished": "2019-01-28T12:32:17.724608+02:00", 
+    "dateModified": "2019-01-28T12:32:17.817955+02:00", 
+    "id": "b85a9b4422084bd49a2885b32fe9b4b9"
   }
 }
 

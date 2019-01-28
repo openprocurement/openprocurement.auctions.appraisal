@@ -1,8 +1,8 @@
-PATCH /api/2.5/auctions/0a3e5825752c49199ced43de14247e09/bids/16331e49f073425798ea4f18f3590c95?acc_token=72db756788834611b45a27690fa30121 HTTP/1.0
+PATCH /api/2.5/auctions/e0c4d484a95140569171138086703f23/bids/f59572206a724c87901cfd00ff8244ff?acc_token=898cfa971bac42239310ee094fdb7b78 HTTP/1.0
 Authorization: Basic YnJva2VyOg==
 Content-Length: 30
 Content-Type: application/json
-Host: lb.api-sandbox.registry.ea.openprocurement.net
+Host: https://lb.api-sandbox.ea2.openprocurement.net/api/2.3/auctions
 DATA:
 {
   "data": {
@@ -17,7 +17,7 @@ X-Content-Type-Options: nosniff
   "data": {
     "status": "active", 
     "eligible": true, 
-    "date": "2018-12-07T19:32:47.242401+02:00", 
+    "date": "2019-01-28T12:32:18.673849+02:00", 
     "qualified": true, 
     "tenderers": [
       {
@@ -42,8 +42,8 @@ X-Content-Type-Options: nosniff
       }
     ], 
     "owner": "broker", 
-    "id": "16331e49f073425798ea4f18f3590c95", 
-    "participationUrl": "http://auction-sandbox.openprocurement.org/insider-auctions/0a3e5825752c49199ced43de14247e09/login?bidder_id=16331e49f073425798ea4f18f3590c95&signature=vatRL%2BMAjtLyjJNv34jZn8wZZmLAlJlPJSUuDCIbdqvUOXLssSZW9j9upKHRTRyV68YLF%2BX5YSbjijINhvoeBg%3D%3D"
+    "id": "f59572206a724c87901cfd00ff8244ff", 
+    "participationUrl": "http://auction-sandbox.openprocurement.org/insider-auctions/e0c4d484a95140569171138086703f23/login?bidder_id=f59572206a724c87901cfd00ff8244ff&signature=qlOLANfxG6AFyIZQ1OW4yMLNPZyNNexBKT5LicVdwBCqBICJyql4YvkHdQ8bI4qDhdqV61B/CRq7Xqc3DtXzDA%3D%3D"
   }
 }
 

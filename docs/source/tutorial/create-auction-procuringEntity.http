@@ -1,8 +1,8 @@
 POST /api/2.5/auctions?opt_pretty=1 HTTP/1.0
 Authorization: Basic YnJva2VyOg==
-Content-Length: 2343
+Content-Length: 2463
 Content-Type: application/json
-Host: lb.api-sandbox.registry.ea.openprocurement.net
+Host: https://lb.api-sandbox.ea2.openprocurement.net/api/2.3/auctions
 DATA:
 {
   "data": {
@@ -25,9 +25,10 @@ DATA:
         "documentType": "x_dgfAssetFamiliarization"
       }
     ], 
+    "description": "description of appraisal auction", 
     "title": "футляри до державних нагород", 
     "auctionPeriod": {
-      "startDate": "2018-12-21"
+      "startDate": "2019-02-07T12:32:10.895130"
     }, 
     "tenderAttempts": 1, 
     "procurementMethodType": "appraisal.insider", 
@@ -64,7 +65,7 @@ DATA:
           "description": "Земельні ділянки"
         }, 
         "description": "Земля для військовослужбовців", 
-        "id": "971975dbd9384856b693ec7e8cc39982", 
+        "id": "80fdd02d97304cdebb7fc6fbcdc0980f", 
         "unit": {
           "code": "44617100-9", 
           "name": "item"
@@ -80,25 +81,29 @@ DATA:
     "registrationFee": {
       "currency": "UAH", 
       "amount": 700.87
+    }, 
+    "guarantee": {
+      "currency": "UAH", 
+      "amount": 1000.99
     }
   }
 }
 
 Response: 201 Created
 Content-Type: application/json
-Location: http://lb.api-sandbox.registry.ea.openprocurement.net/api/2.5/auctions/8cce67fe5acc42edaf36089bbb186c4d
+Location: http://https://lb.api-sandbox.ea2.openprocurement.net/api/2.3/auctions/api/2.5/auctions/2a4f3f66ced44d0b9b014e0a814c01b8
 X-Content-Type-Options: nosniff
 {
   "access": {
-    "transfer": "5f418678a3224f49a63ba07cb3da66d6", 
-    "token": "73becd61bea04e399ec266b165b60754"
+    "transfer": "23333c81574b4a0881a13faabb465343", 
+    "token": "453a05152a3e4685910c1f11cd7a08d4"
   }, 
   "data": {
     "procurementMethod": "open", 
-    "auctionID": "UA-EA-2018-12-07-000003", 
+    "auctionID": "UA-EA-2019-01-28-000003", 
     "enquiryPeriod": {
-      "startDate": "2018-12-07T19:32:46.350295+02:00", 
-      "endDate": "2018-12-20T20:00:00+02:00"
+      "startDate": "2019-01-28T12:32:17.344409+02:00", 
+      "endDate": "2019-02-06T20:00:00+02:00"
     }, 
     "registrationFee": {
       "currency": "UAH", 
@@ -107,18 +112,23 @@ X-Content-Type-Options: nosniff
     "submissionMethod": "electronicAuction", 
     "awardCriteria": "highestCost", 
     "owner": "broker", 
-    "id": "8cce67fe5acc42edaf36089bbb186c4d", 
+    "id": "2a4f3f66ced44d0b9b014e0a814c01b8", 
+    "description": "description of appraisal auction", 
     "title": "футляри до державних нагород", 
     "tenderAttempts": 1, 
     "auctionParameters": {
       "type": "insider", 
       "dutchSteps": 88
     }, 
-    "dateModified": "2018-12-07T19:32:46.373307+02:00", 
+    "guarantee": {
+      "currency": "UAH", 
+      "amount": 1000.99
+    }, 
+    "dateModified": "2019-01-28T12:32:17.370791+02:00", 
     "status": "draft", 
     "tenderPeriod": {
-      "startDate": "2018-12-07T19:32:46.350295+02:00", 
-      "endDate": "2018-12-21T16:15:00+02:00"
+      "startDate": "2019-01-28T12:32:17.344409+02:00", 
+      "endDate": "2019-02-07T16:15:00+02:00"
     }, 
     "title_en": "Cases with state awards", 
     "bankAccount": {
@@ -132,8 +142,12 @@ X-Content-Type-Options: nosniff
       "bankName": "name of bank"
     }, 
     "procurementMethodType": "appraisal.insider", 
-    "date": "2018-12-07T19:32:46.350295+02:00", 
+    "date": "2019-01-28T12:32:17.344409+02:00", 
     "lotIdentifier": "Q24421K222", 
+    "rectificationPeriod": {
+      "startDate": "2019-01-28T12:32:17.344409+02:00", 
+      "endDate": "2019-01-31T16:15:00+02:00"
+    }, 
     "minimalStep": {
       "currency": "UAH", 
       "amount": 0, 
@@ -146,7 +160,7 @@ X-Content-Type-Options: nosniff
           "name": "item"
         }, 
         "description": "Земля для військовослужбовців", 
-        "id": "971975dbd9384856b693ec7e8cc39982", 
+        "id": "80fdd02d97304cdebb7fc6fbcdc0980f", 
         "classification": {
           "scheme": "CPV", 
           "description": "Земельні ділянки", 

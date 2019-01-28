@@ -1,12 +1,12 @@
-POST /api/2.5/auctions/0a3e5825752c49199ced43de14247e09/documents?acc_token=2ae288c6a1204108bc3013241ac553eb HTTP/1.0
+POST /api/2.5/auctions/e0c4d484a95140569171138086703f23/documents?acc_token=4cc54038a92f4f578a435ca9cb041343 HTTP/1.0
 Authorization: Basic YnJva2VyOg==
-Content-Length: 342
+Content-Length: 338
 Content-Type: application/json
-Host: lb.api-sandbox.registry.ea.openprocurement.net
+Host: https://lb.api-sandbox.ea2.openprocurement.net/api/2.3/auctions
 DATA:
 {
   "data": {
-    "url": "http://public.docs-sandbox.ea.openprocurement.org/get/281d783c1b6346e780f9f9dab1dcf430?KeyID=172d32c8&Signature=eUyolpt2C0L%2BX1Ua00xdjC4SjmqBmfeR%2Fy2TCDkMTl9xVePFxNxK%2BsuDhMYo7dVMYXTkwfUqwrIot%2B2%2F28aoBQ%3D%3D", 
+    "url": "http://public.docs-sandbox.ea.openprocurement.org/get/2a50abcb014040178e7422cf1e55cca5?KeyID=172d32c8&Signature=We5g3BGI2rDgwnPIeYsc56v90VyARtx3eTUBXUIEGKPD0EotViIKc%2BcOdvjT%2BtoIaLbrZFhnQTtAZH%2BqQp6vDQ%3D%3D", 
     "title": "AwardCriteria.pdf", 
     "hash": "md5:00000000000000000000000000000000", 
     "format": "application/pdf"
@@ -15,18 +15,18 @@ DATA:
 
 Response: 201 Created
 Content-Type: application/json
-Location: http://lb.api-sandbox.registry.ea.openprocurement.net/api/2.5/auctions/0a3e5825752c49199ced43de14247e09/documents/aeb0731d9d994d4e889efb74564aa0e1
+Location: http://https://lb.api-sandbox.ea2.openprocurement.net/api/2.3/auctions/api/2.5/auctions/e0c4d484a95140569171138086703f23/documents/b85a9b4422084bd49a2885b32fe9b4b9
 X-Content-Type-Options: nosniff
 {
   "data": {
     "hash": "md5:00000000000000000000000000000000", 
-    "format": "application/pdf", 
-    "url": "http://public.docs-sandbox.ea.openprocurement.org/get/281d783c1b6346e780f9f9dab1dcf430?KeyID=172d32c8&Signature=KFMZBRs5MRqjPYqfG4PJdpRFN4%2FQ8Al4M4vhs0Ao2hiezyi%2FHw3%2Fg3A8tic4SFhOdiwBAT2z%252BE6cOTeh4uiaCw%253D%253D", 
     "title": "AwardCriteria.pdf", 
-    "documentOf": "tender", 
-    "datePublished": "2018-12-07T19:32:46.631127+02:00", 
-    "dateModified": "2018-12-07T19:32:46.631149+02:00", 
-    "id": "aeb0731d9d994d4e889efb74564aa0e1"
+    "url": "http://public.docs-sandbox.ea.openprocurement.org/get/2a50abcb014040178e7422cf1e55cca5?KeyID=172d32c8&Signature=Fl3iQGfQngVzqc8YA2LFUMT6xg8mCVfoYw82EDdi6eC2G0OnvFmLiGVbfN1hLSudC%2F7pUs7mBtVxF%2FxtASBsBA%253D%253D", 
+    "format": "application/pdf", 
+    "documentOf": "auction", 
+    "datePublished": "2019-01-28T12:32:17.724608+02:00", 
+    "dateModified": "2019-01-28T12:32:17.724645+02:00", 
+    "id": "b85a9b4422084bd49a2885b32fe9b4b9"
   }
 }
 

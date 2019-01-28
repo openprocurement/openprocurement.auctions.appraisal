@@ -12,7 +12,7 @@ from openprocurement.auctions.core.utils import get_now
 
 import openprocurement.auctions.appraisal.tests.base as base_test
 from openprocurement.auctions.appraisal.tests.base import (
-    test_insider_auction_data as base_test_auction_data,
+    test_appraisal_auction_data as base_test_auction_data,
     BaseAppraisalAuctionWebTest
 )
 
@@ -219,6 +219,8 @@ class AuctionResourceTest(BaseAppraisalAuctionWebTest):
         if self.docservice:
             self.setUpDS()
             self.app.app.registry.docservice_url = 'http://public.docs-sandbox.ea.openprocurement.org'
+
+        self.app.hostname = 'https://lb.api-sandbox.ea2.openprocurement.net/api/2.3/auctions'
 
     def generate_docservice_url(self):
         return super(AuctionResourceTest, self).generate_docservice_url().replace('/localhost/', '/public.docs-sandbox.ea.openprocurement.org/')

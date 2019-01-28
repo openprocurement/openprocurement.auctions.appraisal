@@ -1,8 +1,8 @@
-POST /api/2.5/auctions/0a3e5825752c49199ced43de14247e09/documents?acc_token=2ae288c6a1204108bc3013241ac553eb HTTP/1.0
+POST /api/2.5/auctions/e0c4d484a95140569171138086703f23/documents?acc_token=4cc54038a92f4f578a435ca9cb041343 HTTP/1.0
 Authorization: Basic YnJva2VyOg==
-Content-Length: 430
+Content-Length: 432
 Content-Type: application/json
-Host: lb.api-sandbox.registry.ea.openprocurement.net
+Host: https://lb.api-sandbox.ea2.openprocurement.net/api/2.3/auctions
 DATA:
 {
   "data": {
@@ -10,7 +10,7 @@ DATA:
     "hash": "md5:00000000000000000000000000000000", 
     "description": "Second illustration description", 
     "title": "second_illustration.jpeg", 
-    "url": "http://public.docs-sandbox.ea.openprocurement.org/get/717b626eca294ca683983c7357f8ac38?KeyID=172d32c8&Signature=tdc33dMEwZvfYuMpUTjTSFZWPYjDPbz3Iz0KMrhyT5p%2B2EOwOC37AQZFJWix4BZP4RFfMBhPkLqc0cwOuURiCA%3D%3D", 
+    "url": "http://public.docs-sandbox.ea.openprocurement.org/get/8581590c05844a9c8d527b63232aff4a?KeyID=172d32c8&Signature=59BJ8pQObCY9eHUi9v5Bp%2B0s67mYVWCZWLR7Z5FVKYcWfzO4aDn1NNse3g1odrR4rJJhfS%2B6SClFFF2KAdUUCA%3D%3D", 
     "format": "image/jpeg", 
     "documentType": "illustration"
   }
@@ -18,7 +18,7 @@ DATA:
 
 Response: 201 Created
 Content-Type: application/json
-Location: http://lb.api-sandbox.registry.ea.openprocurement.net/api/2.5/auctions/0a3e5825752c49199ced43de14247e09/documents/daf3e8d92dfa45dfb53b9e1642e7d536
+Location: http://https://lb.api-sandbox.ea2.openprocurement.net/api/2.3/auctions/api/2.5/auctions/e0c4d484a95140569171138086703f23/documents/84bace22f9114d8d98f2c9c06a858c6d
 X-Content-Type-Options: nosniff
 {
   "data": {
@@ -26,13 +26,13 @@ X-Content-Type-Options: nosniff
     "hash": "md5:00000000000000000000000000000000", 
     "description": "Second illustration description", 
     "format": "image/jpeg", 
-    "url": "http://public.docs-sandbox.ea.openprocurement.org/get/717b626eca294ca683983c7357f8ac38?KeyID=172d32c8&Signature=rwjpcybLuSvPSPIBB%252Bzvu9BHKaaPDA7T1ztY55ZQSbDIJ9LJogTRYDJn%252B0VZ0EtS4PM482htRZzrOhiD4KheCg%253D%253D", 
+    "url": "http://public.docs-sandbox.ea.openprocurement.org/get/8581590c05844a9c8d527b63232aff4a?KeyID=172d32c8&Signature=4lr0rXnd1icb0cmt9itu1y2c1OWAZrI3nyi8JYtfY6llpSryb2sVvlV6HgGDJiJTYA4yW7OqXmMZXwZuzArxDA%253D%253D", 
     "title": "second_illustration.jpeg", 
-    "documentOf": "tender", 
-    "datePublished": "2018-12-07T19:32:46.823785+02:00", 
+    "documentOf": "auction", 
+    "datePublished": "2019-01-28T12:32:18.049118+02:00", 
     "documentType": "illustration", 
-    "dateModified": "2018-12-07T19:32:46.823805+02:00", 
-    "id": "daf3e8d92dfa45dfb53b9e1642e7d536"
+    "dateModified": "2019-01-28T12:32:18.049168+02:00", 
+    "id": "84bace22f9114d8d98f2c9c06a858c6d"
   }
 }
 

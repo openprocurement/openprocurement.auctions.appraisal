@@ -1,6 +1,6 @@
-GET /api/2.5/auctions/0a3e5825752c49199ced43de14247e09/awards HTTP/1.0
+GET /api/2.5/auctions/e0c4d484a95140569171138086703f23/awards HTTP/1.0
 Authorization: Basic YnJva2VyOg==
-Host: lb.api-sandbox.registry.ea.openprocurement.net
+Host: https://lb.api-sandbox.ea2.openprocurement.net/api/2.3/auctions
 
 Response: 200 OK
 Content-Type: application/json
@@ -10,12 +10,12 @@ X-Content-Type-Options: nosniff
     {
       "status": "pending", 
       "verificationPeriod": {
-        "startDate": "2018-12-07T19:32:47.965330+02:00", 
-        "endDate": "2018-12-21T18:00:00+02:00"
+        "startDate": "2019-01-28T12:32:19.988125+02:00", 
+        "endDate": "2019-02-05T18:00:00+02:00"
       }, 
       "signingPeriod": {
-        "startDate": "2018-12-07T19:32:47.965330+02:00", 
-        "endDate": "2019-01-16T18:00:00+02:00"
+        "startDate": "2019-01-28T12:32:19.988125+02:00", 
+        "endDate": "2019-02-18T18:00:00+02:00"
       }, 
       "suppliers": [
         {
@@ -40,21 +40,21 @@ X-Content-Type-Options: nosniff
         }
       ], 
       "complaintPeriod": {
-        "startDate": "2018-12-07T19:32:47.965330+02:00"
+        "startDate": "2019-01-28T12:32:19.988125+02:00"
       }, 
-      "bid_id": "917fb2cdbacd4536ba64aeca993f8f53", 
+      "bid_id": "a22200d873de40e39f7f4ab5dd59f7eb", 
       "value": {
         "currency": "UAH", 
         "amount": 479, 
         "valueAddedTaxIncluded": true
       }, 
-      "date": "2018-12-07T19:32:47.965330+02:00", 
-      "id": "f1dbe0f1df254b698f15398a43d79942"
+      "date": "2019-01-28T12:32:19.988125+02:00", 
+      "id": "8e0279bc48cd41949e6ba8d436f31a0f"
     }, 
     {
       "status": "pending.waiting", 
       "complaintPeriod": {
-        "startDate": "2018-12-07T19:32:47.965330+02:00"
+        "startDate": "2019-01-28T12:32:19.988125+02:00"
       }, 
       "suppliers": [
         {
@@ -78,14 +78,14 @@ X-Content-Type-Options: nosniff
           }
         }
       ], 
-      "bid_id": "16331e49f073425798ea4f18f3590c95", 
+      "bid_id": "f59572206a724c87901cfd00ff8244ff", 
       "value": {
         "currency": "UAH", 
         "amount": 469, 
         "valueAddedTaxIncluded": true
       }, 
-      "date": "2018-12-07T19:32:47.965330+02:00", 
-      "id": "6db7e816045d472988cfe99940d2e89f"
+      "date": "2019-01-28T12:32:19.988125+02:00", 
+      "id": "24f7e995bebe479d8acf5d3a9337ff3d"
     }
   ]
 }
