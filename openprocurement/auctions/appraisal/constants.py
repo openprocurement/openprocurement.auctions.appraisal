@@ -32,4 +32,4 @@ CONTRACT_TYPES = ['yoke']
 DEFAULT_LEVEL_OF_ACCREDITATION = {'create': [1],
                                   'edit': [2]}
 
-DOCUMENT_TYPE_REQUIRED_FROM = datetime(year=2019, month=1, day=1, tzinfo=TZ)
+DOCUMENT_TYPE_REQUIRED_FROM = datetime(year=2019, month=2, day=1, tzinfo=TZ)
