@@ -63,6 +63,7 @@ from openprocurement.auctions.core.utils import (
     SANDBOX_MODE,
     get_now,
     TZ,
+    time_dependent_value
 )
 
 from openprocurement.auctions.appraisal.constants import (
@@ -70,7 +71,8 @@ from openprocurement.auctions.appraisal.constants import (
     QUICK_DUTCH_PERIOD,
     NUMBER_OF_STAGES,
     AUCTION_STATUSES,
-    CONTRACT_TYPES
+    CONTRACT_TYPES,
+    DOCUMENT_TYPE_REQUIRED_FROM
 )
 
 from openprocurement.auctions.appraisal.utils import generate_auction_url, calc_auction_end_time
@@ -107,6 +109,11 @@ class AppraisalBidDocument(AppraisalDocument):
 
 class AppraisalCancellationDocument(AppraisalDocument):
     documentType = StringType(choices=['cancellationDetails'])
+
+    def validate_documentType(self, data, value):
+        if value is None:
+            if time_dependent_value(DOCUMENT_TYPE_REQUIRED_FROM, False, True, compared_date=data['datePublished']):
+                raise ValidationError('documentType is required')
 
 
 class AppraisalCancellation(dgfCancellation):
