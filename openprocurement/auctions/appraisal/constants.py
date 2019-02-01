@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
-from datetime import timedelta
+from datetime import datetime, timedelta
+from openprocurement.auctions.core.constants import TZ
+
 
 DUTCH_PERIOD = timedelta(minutes=405)
 QUICK_DUTCH_PERIOD = timedelta(minutes=10)
@@ -30,3 +32,4 @@ CONTRACT_TYPES = ['yoke']
 DEFAULT_LEVEL_OF_ACCREDITATION = {'create': [1],
                                   'edit': [2]}
 
+DOCUMENT_TYPE_REQUIRED_FROM = datetime(year=2019, month=2, day=1, tzinfo=TZ)
