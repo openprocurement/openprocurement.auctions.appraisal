@@ -16,37 +16,27 @@ Award Section
         subgraph cluster_1 {
             node [style=filled, fillcolor=seashell2];
             edge[style=dashed,  arrowhead="vee", label="*"];
-            "pending.admission" -> "pending";
-            edge[style=dashed,  arrowhead="vee", label="**"];
             "pending" -> "active";
             node [style=filled, fillcolor=white];
-            edge[style=solid,  arrowhead="vee", label="~", constraint=false];
-            "pending.admission" -> "unsuccessful";
-            edge[style=dashed,  arrowhead="vee", label="~~", constraint=false];
-            "pending.admission" -> "unsuccessful";
-            edge[style=dashed,  arrowhead="vee",  label="***", constraint=false];
+
+            edge[style=dashed,  arrowhead="vee",  label="**", constraint=false];
             "pending" -> "unsuccessful";
-            edge[style=solid,  arrowhead="vee", label="~~~", constraint=false];
+            edge[style=solid,  arrowhead="vee", label="~", constraint=false];
             "active" -> "unsuccessful"; 
             label = "Awarding Process";
             color=white
-            {rank=same; "pending" "unsuccessful"}
+            {rank=same; "active" "unsuccessful"}
         }
     }
+
 Legend
 """"""
 
- \* admission protocol is uploaded and award is switched to `pending` by the organizer.
- 
- \*\* protocol is uploaded and award is switched to `active` by the organizer.
+ \* protocol is uploaded and award is switched to `active` by the organizer.
 
- \*\*\* organizer has decided to disqualify the bidder.
+ \*\* organizer has decided to disqualify the bidder.
 
- \~ admission protocol is not uploaded and award is not switched to `pending` by the organizer in time.
-
- \~\~ organizer has decided to disqualify the bidder. The appropriate document is uploaded and award is manually switched to `unsuccessful`.
-
- \~\~\~ organizer switched contract to `cancelled`.
+ \~ organizer switched contract to `cancelled`.
 
 Roles
 """""
@@ -93,17 +83,13 @@ Procedure Description
 
 1. The procedure receives `active.qualification` status. 
 
-2. The award initially receives `pending.admission` status. The process enters the `admissionPeriod` with the auto-generated duration of 0-5 business days. During this term the organizer uploads the protocol (`documentType: admissionProtocol`) first and manually switches award to `pending` status then. Simultaneously the awarding process enters the the `verificationPeriod` phase. If needed actions are not completed, the award automatically receives `unsuccessful` status, so the procedure will be switched to `unsuccessful` as well.
+2. The award with the qualifying bid initially receives `pending` status.The process enters the `verificationPeriod` with the auto-generated duration of 0-6 business days. During this term the organizer uploads the protocol (`documentType: auctionProtocol`) first and manually switches award to `active` status then. Simultaneously the awarding process enters the signingPeriod phase and the procedure receives `active.awarded` status.
 
-    2.1 If the organizer decides to disqualify the bidder, a document (`documentType: rejectionProtocol` or `act`) has to be uploaded first and the award has to be manually switched to `unsuccessful` then. The procedure will be given `unsuccessful` status this way.
+    2.1 If the organizer decides to disqualify the bidder, a document (`documentType: rejectionProtocol` or `act`) has to be uploaded first and the award has to be manually switched to `unsuccessful` then.
 
-3. When the conditions are met, the process enters the `verificationPeriod` with the auto-generated duration of 0-10 business days. During this term the organizer uploads the protocol (`documentType: auctionProtocol`) first and manually switches award to `active` status then. Simultaneously the awarding process enters the signingPeriod phase and the procedure receives `active.awarded` status.
+3. When the qualification procedure enters the `signingPeriod` stage, which lasts up to 20 days from the beginning of the bidder qualification process. The contract of the qualifying bid initially receives a `pending` status. Within this time, the organizer should upload the document (`documentType: contractSigned`) in the system and manually switch contract to `active` status in order to successfully finish the qualification procedure.
 
-    3.1 If the organizer decides to disqualify the bidder, a document (`documentType: rejectionProtocol` or `act`) has to be uploaded first and the award has to be manually switched to `unsuccessful` then.
-
-4. When the qualification procedure enters the `signingPeriod` stage, which lasts up to 20 days from the beginning of the bidder qualification process. The contract of the qualifying bid initially receives a `pending` status. Within this time, the organizer should upload the document (`documentType: contractSigned`) in the system and manually switch contract to `active` status in order to successfully finish the qualification procedure.
-
-    4.1 For the bidder to be disqualified a document (`documentType: rejectionProtocol` or `act`) has to be uploaded first and the contract has to be manually switched to `cancelled` by the organizer then. When all of the actions are done, award will receive `unsuccessful` status.
+    3.1 For the bidder to be disqualified a document (`documentType: rejectionProtocol` or `act`) has to be uploaded first and the contract has to be manually switched to `cancelled` by the organizer then. When all of the actions are done, award will receive `unsuccessful` status.
 
 Procedure Workflow for 2 Submitted Bids or More
 ================================================
@@ -148,7 +134,7 @@ Legend
 
  \*\*\* organizer has decided to disqualify the bidder.
 
- \~\~\~ organizer switched contract to `cancelled`.
+ \~ organizer switched contract to `cancelled`.
 
 Roles
 """""
@@ -195,7 +181,7 @@ Procedure Description
 
 1. The procedure receives `active.qualification` status. 
 
-2. The award with the highest qualifying bid initially receives `pending` status. The process enters the `verificationPeriod` with the auto-generated duration of 0-10 business days. During this term the organizer uploads the protocol (`documentType: auctionProtocol`) first and manually switches award to `active` status then. Simultaneously the procedure enters the signingPeriod phase and the procedure receives `active.awarded` status.
+2. The award with the highest qualifying bid initially receives `pending` status. The process enters the `verificationPeriod` with the auto-generated duration of 0-6 business days. During this term the organizer uploads the protocol (`documentType: auctionProtocol`) first and manually switches award to `active` status then. Simultaneously the procedure enters the signingPeriod phase and the procedure receives `active.awarded` status.
 
     2.1 If the organizer decides to disqualify the bidder, a document (`documentType: rejectionProtocol` or `act`) has to be uploaded first and the award has to be manually switched to `unsuccessful` then.
 
@@ -211,15 +197,9 @@ Notes
 
 1. The auto-generated period duration does not influence the actions which can be done.
 
-2. For the bidder to be qualified and not invalidated, the bid should be in the amount of more or equal to the starting price of the auction + the minimal step of the auction.
+2. The organizer can disqualify the award at any stage of the awarding process up to the moment, when a document with the `documentType: contractSigned` has been uploaded.
 
-    2.1. In case the first two highest bids do not exceed the amount of starting price + the minimal step, the awards are not being formed at all, and the procedure automatically becomes `unsuccessful`.
-
-    2.2 In case the second highest bid is smaller than the starting price + the minimal step, two awards are formed with the smaller one becoming unsuccessful immediately. The first highest bid (if larger than the value.amount + minimmalStep.amount) undergoes the awarding procedure and can win the auction.
-
-3. The organizer can disqualify the award at any stage of the awarding process up to the moment, when a document with the `documentType: contractSigned` has been uploaded.
-
-4. The second highest qualifying bidder can disqualify themselves at any point in time BEFORE the start of their qualification process.
+3. The second highest qualifying bidder can disqualify themselves at any point in time BEFORE the start of their qualification process.
 
 Statuses
 ========
