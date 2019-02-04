@@ -327,10 +327,6 @@ class AppraisalAuction(BaseAuction):
                 checks.append(self.auctionPeriod.startDate.astimezone(TZ))
             elif now < calc_auction_end_time(NUMBER_OF_STAGES, self.auctionPeriod.startDate).astimezone(TZ):
                 checks.append(calc_auction_end_time(NUMBER_OF_STAGES, self.auctionPeriod.startDate).astimezone(TZ))
-        elif not self.lots and self.status == 'active.qualification':
-            for award in self.awards:
-                if award.status == 'pending':
-                    checks.append(award.verificationPeriod.endDate.astimezone(TZ))
         elif not self.lots and self.status == 'active.awarded' and not any([
                 i.status in self.block_complaint_status
                 for i in self.complaints
@@ -344,9 +340,6 @@ class AppraisalAuction(BaseAuction):
                 for a in self.awards
                 if a.complaintPeriod.endDate
             ]
-            for award in self.awards:
-                if award.status == 'active':
-                    checks.append(award.signingPeriod.endDate.astimezone(TZ))
 
             last_award_status = self.awards[-1].status if self.awards else ''
             if standStillEnds and last_award_status == 'unsuccessful':
