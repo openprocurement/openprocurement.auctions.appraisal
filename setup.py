@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '1.0.0'
+VERSION = '1.1.0'
 
 entry_points = {
     'openprocurement.auctions.core.plugins': [
@@ -28,7 +28,7 @@ docs_requires = requires + [
 test_requires = requires + []
 
 setup(name='openprocurement.auctions.appraisal',
-      version=version,
+      version=VERSION,
       description="",
       long_description=open("README.md").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
