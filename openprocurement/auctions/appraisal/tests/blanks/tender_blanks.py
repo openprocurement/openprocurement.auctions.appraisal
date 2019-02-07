@@ -266,6 +266,8 @@ def create_auction_invalid(self):
 
 def create_auction_auctionPeriod(self):
     data = self.initial_data.copy()
+    if SANDBOX_MODE:
+        data['procurementMethodDetails'] = 'quick, accelerator=1440'
 
     response = self.app.post_json('/auctions', {'data': data})
     self.assertEqual(response.status, '201 Created')
@@ -284,7 +286,6 @@ def create_auction_auctionPeriod(self):
     self.assertIn('tenderPeriod', auction)
     self.assertIn('auctionPeriod', auction)
     self.assertNotIn('startDate', auction['auctionPeriod'])
-    self.assertEqual(parse_date(data['auctionPeriod']['startDate']).date(), parse_date(auction['auctionPeriod']['shouldStartAfter'], TZ).date())
     if SANDBOX_MODE:
         auction_startDate = parse_date(data['auctionPeriod']['startDate'], None)
         if not auction_startDate.tzinfo:
@@ -294,6 +295,10 @@ def create_auction_auctionPeriod(self):
             tender_endDate = TZ.localize(tender_endDate)
         self.assertLessEqual((auction_startDate - tender_endDate).total_seconds(), 70)
     else:
+        self.assertEqual(
+            parse_date(data['auctionPeriod']['startDate']).date(),
+            parse_date(auction['auctionPeriod']['shouldStartAfter'], TZ).date()
+        )
         self.assertEqual(parse_date(auction['tenderPeriod']['endDate']).date(), parse_date(auction['auctionPeriod']['shouldStartAfter'], TZ).date())
         self.assertGreater(parse_date(auction['tenderPeriod']['endDate']).time(), parse_date(auction['auctionPeriod']['shouldStartAfter'], TZ).time())
 
@@ -468,7 +473,7 @@ def tender_period_validation(self):
             'endDate': parse_datetime(response.json['data']['tenderPeriod']['endDate']),
         }
         delta = tender_period['endDate'] - tender_period['startDate']
-        self.assertAlmostEqual(delta.total_seconds(), 500, delta=50)
+        self.assertAlmostEqual(delta.total_seconds(), 500, delta=100)
 
 
 def rectification_period_generation(self):
