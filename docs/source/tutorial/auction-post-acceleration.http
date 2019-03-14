@@ -1,8 +1,8 @@
 POST /api/2.5/auctions?opt_pretty=1 HTTP/1.0
 Authorization: Basic YnJva2VyOg==
-Content-Length: 2437
+Content-Length: 2541
 Content-Type: application/json
-Host: lb.api-sandbox.registry.ea.openprocurement.net
+Host: https://lb.api-sandbox.ea2.openprocurement.net/api/2.3/auctions
 DATA:
 {
   "data": {
@@ -25,10 +25,11 @@ DATA:
         "documentType": "x_dgfAssetFamiliarization"
       }
     ], 
+    "description": "description of appraisal auction", 
     "title": "футляри до державних нагород", 
     "submissionMethodDetails": "quick", 
     "auctionPeriod": {
-      "startDate": "2018-12-07T19:37:42.122912"
+      "startDate": "2019-01-28T12:37:10.896560"
     }, 
     "tenderAttempts": 1, 
     "procurementMethodType": "appraisal.insider", 
@@ -36,25 +37,11 @@ DATA:
       "currency": "UAH", 
       "amount": 100
     }, 
-    "procuringEntity": {
-      "contactPoint": {
-        "name": "Державне управління справами", 
-        "telephone": "0440000000"
-      }, 
-      "identifier": {
-        "scheme": "UA-EDR", 
-        "id": "00037256", 
-        "uri": "http://www.dus.gov.ua/"
-      }, 
-      "name": "Державне управління справами", 
-      "address": {
-        "countryName": "Україна", 
-        "postalCode": "01220", 
-        "region": "м. Київ", 
-        "streetAddress": "вул. Банкова, 11, корпус 1", 
-        "locality": "м. Київ"
-      }
+    "guarantee": {
+      "currency": "UAH", 
+      "amount": 1000.99
     }, 
+    "mode": "test", 
     "procurementMethodDetails": "quick, accelerator=1440", 
     "auctionParameters": {
       "type": "insider", 
@@ -86,25 +73,43 @@ DATA:
       "currency": "UAH", 
       "amount": 700.87
     }, 
-    "mode": "test"
+    "procuringEntity": {
+      "contactPoint": {
+        "name": "Державне управління справами", 
+        "telephone": "0440000000"
+      }, 
+      "identifier": {
+        "scheme": "UA-EDR", 
+        "id": "00037256", 
+        "uri": "http://www.dus.gov.ua/"
+      }, 
+      "name": "Державне управління справами", 
+      "address": {
+        "countryName": "Україна", 
+        "postalCode": "01220", 
+        "region": "м. Київ", 
+        "streetAddress": "вул. Банкова, 11, корпус 1", 
+        "locality": "м. Київ"
+      }
+    }
   }
 }
 
 Response: 201 Created
 Content-Type: application/json
-Location: http://lb.api-sandbox.registry.ea.openprocurement.net/api/2.5/auctions/9af528a450ff469f9de221592f692689
+Location: http://https://lb.api-sandbox.ea2.openprocurement.net/api/2.3/auctions/api/2.5/auctions/a1160b54ee7a48d499562af4a31fdf1f
 X-Content-Type-Options: nosniff
 {
   "access": {
-    "transfer": "58a56b55c8804ba0b84c821f51b11b09", 
-    "token": "9b1620a5392c4f81b1f5f7134a2662de"
+    "transfer": "d197f5adc19b4448a1e241f7bd0802ba", 
+    "token": "be9ea0d391d94d0faa53a4bba41e3908"
   }, 
   "data": {
     "procurementMethod": "open", 
-    "auctionID": "UA-EA-2018-12-07-000002", 
+    "auctionID": "UA-EA-2019-01-28-000002", 
     "enquiryPeriod": {
-      "startDate": "2018-12-07T19:32:44.179187+02:00", 
-      "endDate": "2018-12-07T19:36:43.051993+02:00"
+      "startDate": "2019-01-28T12:32:14.272562+02:00", 
+      "endDate": "2019-01-28T12:36:29.347326+02:00"
     }, 
     "registrationFee": {
       "currency": "UAH", 
@@ -114,18 +119,23 @@ X-Content-Type-Options: nosniff
     "awardCriteria": "highestCost", 
     "owner": "broker", 
     "title_en": "[TESTING] ", 
-    "id": "9af528a450ff469f9de221592f692689", 
+    "id": "a1160b54ee7a48d499562af4a31fdf1f", 
+    "description": "description of appraisal auction", 
     "title": "[ТЕСТУВАННЯ] футляри до державних нагород", 
     "tenderAttempts": 1, 
     "auctionParameters": {
       "type": "insider", 
       "dutchSteps": 88
     }, 
-    "dateModified": "2018-12-07T19:32:44.193873+02:00", 
+    "guarantee": {
+      "currency": "UAH", 
+      "amount": 1000.99
+    }, 
+    "dateModified": "2019-01-28T12:32:14.291361+02:00", 
     "status": "draft", 
     "tenderPeriod": {
-      "startDate": "2018-12-07T19:32:44.179187+02:00", 
-      "endDate": "2018-12-07T19:46:43.051993+02:00"
+      "startDate": "2019-01-28T12:32:14.272562+02:00", 
+      "endDate": "2019-01-28T12:46:29.347326+02:00"
     }, 
     "procurementMethodDetails": "quick, accelerator=1440", 
     "bankAccount": {
@@ -139,8 +149,12 @@ X-Content-Type-Options: nosniff
       "bankName": "name of bank"
     }, 
     "procurementMethodType": "appraisal.insider", 
-    "date": "2018-12-07T19:32:44.179187+02:00", 
+    "date": "2019-01-28T12:32:14.272562+02:00", 
     "lotIdentifier": "Q24421K222", 
+    "rectificationPeriod": {
+      "startDate": "2019-01-28T12:32:14.272562+02:00", 
+      "endDate": "2019-01-28T12:41:29.347326+02:00"
+    }, 
     "submissionMethodDetails": "quick", 
     "items": [
       {
@@ -157,7 +171,7 @@ X-Content-Type-Options: nosniff
           "region": "м. Київ", 
           "locality": "м. Київ"
         }, 
-        "id": "c8cbcff2ffb84067894a08532bc5df3c", 
+        "id": "b303d615b75c4bed9bc4210bc4491c87", 
         "unit": {
           "code": "44617100-9", 
           "name": "item"

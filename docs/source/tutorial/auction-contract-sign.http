@@ -1,13 +1,13 @@
-PATCH /api/2.5/auctions/0a3e5825752c49199ced43de14247e09/contracts/52c8c00a6cbb4c23b9cba3a049f90bce?acc_token=2ae288c6a1204108bc3013241ac553eb HTTP/1.0
+PATCH /api/2.5/auctions/e0c4d484a95140569171138086703f23/contracts/d76886a9843e4f808588f58574dcb6c9?acc_token=4cc54038a92f4f578a435ca9cb041343 HTTP/1.0
 Authorization: Basic YnJva2VyOg==
 Content-Length: 80
 Content-Type: application/json
-Host: lb.api-sandbox.registry.ea.openprocurement.net
+Host: https://lb.api-sandbox.ea2.openprocurement.net/api/2.3/auctions
 DATA:
 {
   "data": {
     "status": "active", 
-    "dateSigned": "2018-12-07T19:32:49.271660+02:00"
+    "dateSigned": "2019-01-28T12:32:21.632395+02:00"
   }
 }
 
@@ -21,38 +21,38 @@ X-Content-Type-Options: nosniff
       {
         "hash": "md5:00000000000000000000000000000000", 
         "title": "contract_first_document.doc", 
-        "url": "http://public.docs-sandbox.ea.openprocurement.org/get/192d63d4ee8c4e5783ba864437e16811?KeyID=172d32c8&Signature=AfFKO8OjjV6cc148At93UUUsnQON3Qkn5uU%252B1EFiNiaRDy2662PdFJIR%252BLxLK4ksoTtYMdDeJcoHNL2HNWxXCg%253D%253D", 
+        "url": "http://public.docs-sandbox.ea.openprocurement.org/get/b7d0b588dd384a978d9ffb21449240f1?KeyID=172d32c8&Signature=LgYWwqGPjlhYsD53mpm8fhwedTGzfeLj0fi6TReADET4PMRZN4qnMRCAMnTnMVQnfNAVvLbWyJ4WvCq3XdWGCQ%253D%253D", 
         "format": "application/msword", 
         "documentOf": "auction", 
-        "datePublished": "2018-12-07T19:32:48.821086+02:00", 
-        "dateModified": "2018-12-07T19:32:48.821108+02:00", 
-        "id": "0fa184d9b85c48afa58dd0b158137147"
+        "datePublished": "2019-01-28T12:32:21.096880+02:00", 
+        "dateModified": "2019-01-28T12:32:21.096930+02:00", 
+        "id": "bc2700d6e7fd485ea78e86cb23fbe9bf"
       }, 
       {
         "hash": "md5:00000000000000000000000000000000", 
         "title": "contract_second_document.doc", 
-        "url": "http://public.docs-sandbox.ea.openprocurement.org/get/150e1cac670847978a63679ad5035b51?KeyID=172d32c8&Signature=l0XwRwi2%2FWbI%252BBJeHWOU2vYG91iN0xIn1tM6dVi91rMTmbyX8ieqgyKJVXVZIr5BWXSkP4Wtv8pYmYNEgcQLCQ%253D%253D", 
+        "url": "http://public.docs-sandbox.ea.openprocurement.org/get/27494a750520467582b01376318dd217?KeyID=172d32c8&Signature=9sdWrx0iQvYIUAxDgiR32B9BSYmOZ96gJsR0e8MPapGT5dFb8q2N2GfJddGJEFRcNLBTJT%2Fup4jUrmMJeOOvBA%253D%253D", 
         "format": "application/msword", 
         "documentOf": "auction", 
-        "datePublished": "2018-12-07T19:32:48.991511+02:00", 
-        "dateModified": "2018-12-07T19:32:48.991535+02:00", 
-        "id": "f15c60c6f2924ff4938390632fb9170f"
+        "datePublished": "2019-01-28T12:32:21.318353+02:00", 
+        "dateModified": "2019-01-28T12:32:21.318392+02:00", 
+        "id": "60b804cd00ec403f99158d127f552d7e"
       }, 
       {
         "hash": "md5:00000000000000000000000000000000", 
         "title": "signDocument.pdf", 
-        "url": "http://public.docs-sandbox.ea.openprocurement.org/get/308046ba669a40e4b0fb6131821d57db?KeyID=172d32c8&Signature=Tv%2FgWMW%252BUYsqR%252BvJ96EONdrQ81XjEUg0LUd0e0ai756iPQsDUuDoAIqDPz0ihUnk5TiStJL%252B0yLgoJ7LsO3qBA%253D%253D", 
+        "url": "http://public.docs-sandbox.ea.openprocurement.org/get/9148af89eed54101a3fa62cf4422f6d0?KeyID=172d32c8&Signature=BQNh3no6i2XeO7SjTp1kmzNMtUN3n31qczIjfxF%2FYBzO%2FLNZdr3UXrgR7rdTbQ7vu9uvwNvURBrZCeFq234dAQ%253D%253D", 
         "format": "application/pdf", 
         "documentOf": "auction", 
-        "datePublished": "2018-12-07T19:32:49.173081+02:00", 
+        "datePublished": "2019-01-28T12:32:21.514717+02:00", 
         "documentType": "contractSigned", 
-        "dateModified": "2018-12-07T19:32:49.173102+02:00", 
-        "id": "5ce1938047f647589624e127c55c4fd7"
+        "dateModified": "2019-01-28T12:32:21.514739+02:00", 
+        "id": "277b59122b864c5fbdee3161f295e02d"
       }
     ], 
     "signingPeriod": {
-      "startDate": "2018-12-07T19:32:47.965330+02:00", 
-      "endDate": "2019-01-16T18:00:00+02:00"
+      "startDate": "2019-01-28T12:32:19.988125+02:00", 
+      "endDate": "2019-02-18T18:00:00+02:00"
     }, 
     "items": [
       {
@@ -69,7 +69,7 @@ X-Content-Type-Options: nosniff
           "region": "м. Київ", 
           "locality": "м. Київ"
         }, 
-        "id": "6c318ef0d2954b0480d3310fe83d9266", 
+        "id": "46ff602897964fdeb334c4a55e9bc9d7", 
         "unit": {
           "code": "44617100-9", 
           "name": "item"
@@ -100,19 +100,19 @@ X-Content-Type-Options: nosniff
       }
     ], 
     "period": {
-      "startDate": "2018-12-07T19:32:42.122912+02:00", 
-      "endDate": "2019-12-07T19:32:42.122912+02:00"
+      "startDate": "2019-01-28T12:32:10.896560+02:00", 
+      "endDate": "2020-01-28T12:32:10.896560+02:00"
     }, 
-    "dateSigned": "2018-12-07T19:32:49.271660+02:00", 
+    "dateSigned": "2019-01-28T12:32:21.632395+02:00", 
     "value": {
       "currency": "UAH", 
       "amount": 479, 
       "valueAddedTaxIncluded": true
     }, 
-    "date": "2018-12-07T19:32:49.354423+02:00", 
-    "awardID": "f1dbe0f1df254b698f15398a43d79942", 
-    "id": "52c8c00a6cbb4c23b9cba3a049f90bce", 
-    "contractID": "UA-EA-2018-12-07-000002-1"
+    "date": "2019-01-28T12:32:21.772640+02:00", 
+    "awardID": "8e0279bc48cd41949e6ba8d436f31a0f", 
+    "id": "d76886a9843e4f808588f58574dcb6c9", 
+    "contractID": "UA-EA-2019-01-28-000002-1"
   }
 }
 

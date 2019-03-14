@@ -1,6 +1,6 @@
-GET /api/2.5/auctions/0a3e5825752c49199ced43de14247e09/documents/83124e21000e4fcbb2459ebdeed9d813 HTTP/1.0
+GET /api/2.5/auctions/e0c4d484a95140569171138086703f23/documents/c33444fdcca243b382630e9924d54509 HTTP/1.0
 Authorization: Basic YnJva2VyOg==
-Host: lb.api-sandbox.registry.ea.openprocurement.net
+Host: https://lb.api-sandbox.ea2.openprocurement.net/api/2.3/auctions
 
 Response: 200 OK
 Content-Type: application/json
@@ -10,14 +10,14 @@ X-Content-Type-Options: nosniff
     "hash": "md5:00000000000000000000000000000000", 
     "description": "document description", 
     "format": "application/pdf", 
-    "url": "http://public.docs-sandbox.ea.openprocurement.org/get/cec2473dcf334f84a6eda4dd4f223b54?KeyID=172d32c8&Signature=vXiuThpgZnfDuei34UPauCckBdIIvbgf1PQwN3%2Fhtku0QtnmYZE%252BEDhG0dF5qWNTjbOL06QJBJxbimPxh2XSDg%253D%253D", 
+    "url": "http://public.docs-sandbox.ea.openprocurement.org/get/6ac51cb148a042db8c3ff05ca03e17eb?KeyID=172d32c8&Signature=ODek9PjlhbCkmeL80dDgAiaDHzTqYEmQSYBqYnKfyIFMJoQsrLkzcPHkb3Cnpj%2FYCHink%252B2Hl6ag%252BbdlGkv1DA%253D%253D", 
     "title": "Notice.pdf", 
-    "documentOf": "tender", 
-    "datePublished": "2018-12-07T19:32:46.577230+02:00", 
+    "documentOf": "auction", 
+    "datePublished": "2019-01-28T12:32:17.643280+02:00", 
     "previousVersions": [], 
     "documentType": "technicalSpecifications", 
-    "dateModified": "2018-12-07T19:32:46.577251+02:00", 
-    "id": "83124e21000e4fcbb2459ebdeed9d813"
+    "dateModified": "2019-01-28T12:32:17.643302+02:00", 
+    "id": "c33444fdcca243b382630e9924d54509"
   }
 }
 

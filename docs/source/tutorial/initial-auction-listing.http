@@ -1,20 +1,20 @@
 GET /api/2.5/auctions HTTP/1.0
 Authorization: Basic YnJva2VyOg==
-Host: lb.api-sandbox.registry.ea.openprocurement.net
+Host: https://lb.api-sandbox.ea2.openprocurement.net/api/2.3/auctions
 
 Response: 200 OK
 Content-Type: application/json
 X-Content-Type-Options: nosniff
 {
   "next_page": {
-    "path": "/api/2.5/auctions?offset=2018-12-07T19%3A32%3A45.972957%2B02%3A00", 
-    "uri": "http://lb.api-sandbox.registry.ea.openprocurement.net/api/2.5/auctions?offset=2018-12-07T19%3A32%3A45.972957%2B02%3A00", 
-    "offset": "2018-12-07T19:32:45.972957+02:00"
+    "path": "/api/2.5/auctions?offset=2019-01-28T12%3A32%3A16.843339%2B02%3A00", 
+    "uri": "http://https://lb.api-sandbox.ea2.openprocurement.net/api/2.3/auctions/api/2.5/auctions?offset=2019-01-28T12%3A32%3A16.843339%2B02%3A00", 
+    "offset": "2019-01-28T12:32:16.843339+02:00"
   }, 
   "data": [
     {
-      "id": "d62349239bd540f8adcf5571207b2fa4", 
-      "dateModified": "2018-12-07T19:32:45.972957+02:00"
+      "id": "3fead5d747954a879aa64ef0852cd77a", 
+      "dateModified": "2019-01-28T12:32:16.843339+02:00"
     }
   ]
 }

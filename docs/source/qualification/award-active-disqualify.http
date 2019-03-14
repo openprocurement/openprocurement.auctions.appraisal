@@ -1,8 +1,8 @@
-PATCH /api/2.5/auctions/db1ca318fa4d4408a0d96e29ab6e5142/awards/7fea1585f8ff49e88f750a9f89080ce2?acc_token=ba6a7bfc110748baae5dbc8072efd550 HTTP/1.0
+PATCH /api/2.5/auctions/17a42b23eaed4286a8937da1348817bb/awards/4e8136ff281a4f97aca77361f2e29641?acc_token=b08a569f0fc244778d05c70166974957 HTTP/1.0
 Authorization: Basic YnJva2VyOg==
 Content-Length: 146
 Content-Type: application/json
-Host: lb.api-sandbox.registry.ea.openprocurement.net
+Host: https://lb.api-sandbox.ea2.openprocurement.net/api/2.3/auctions
 DATA:
 {
   "data": {
@@ -23,30 +23,30 @@ X-Content-Type-Options: nosniff
         "hash": "md5:00000000000000000000000000000000", 
         "author": "bid_owner", 
         "title": "auction_protocol.pdf", 
-        "url": "http://public.docs-sandbox.ea.openprocurement.org/get/61f5777fa91e49079818ef3f117c362b?KeyID=172d32c8&Signature=MYxZ8Jxg41Lvt9ePuC18YYkaPrftRN2sdH0UDYrHuMC2jtyYKBLmPtxf%252BapAPgsR6qw9LVndR0yKbO0YpcUlDw%253D%253D", 
+        "url": "http://public.docs-sandbox.ea.openprocurement.org/get/f7bfc14aee6f407dbce67342bec27cfe?KeyID=172d32c8&Signature=Z2WHBaMxm15G%252BTbq%2F5DNaCRA05rZV9F0XK1yx2%2FnywzB5d5aNfCSJSW1S6vYZleOfvx%252B11CBfXTAfe34x%2FYYCg%253D%253D", 
         "format": "application/pdf", 
         "documentOf": "auction", 
-        "datePublished": "2018-12-07T19:32:45.605096+02:00", 
+        "datePublished": "2019-01-28T12:32:16.391113+02:00", 
         "documentType": "auctionProtocol", 
-        "dateModified": "2018-12-07T19:32:45.605115+02:00", 
-        "id": "60f4968f2e21401c8ec01e3321208d79"
+        "dateModified": "2019-01-28T12:32:16.391142+02:00", 
+        "id": "81dd291ccb2342628e48c70e22593b4d"
       }, 
       {
         "hash": "md5:00000000000000000000000000000000", 
         "author": "auction_owner", 
         "title": "RejectionProtocol.pdf", 
-        "url": "http://public.docs-sandbox.ea.openprocurement.org/get/39e65d50ec2347649cbf1f42d42db41c?KeyID=172d32c8&Signature=MygIKX4t39lh2CMtjQnjvlwE3R38y2tLlyUNrr8i6%2Fd21%2FL1RqQQrBGXr4jvapxsLduun1Cbh4yUSZzjN58xDA%253D%253D", 
+        "url": "http://public.docs-sandbox.ea.openprocurement.org/get/990c527a9fe34b218bcb6330691b6a3a?KeyID=172d32c8&Signature=npfcCCOLpOyFNfnK9p0RC4z5%252BMbLIAozLJ4nOE0tw033hfeLUdS%252BFndF4MtD8MZPw86N%2FG79eG%2F62fpy54S9BQ%253D%253D", 
         "format": "application/pdf", 
         "documentOf": "auction", 
-        "datePublished": "2018-12-07T19:32:45.701583+02:00", 
+        "datePublished": "2019-01-28T12:32:16.508364+02:00", 
         "documentType": "rejectionProtocol", 
-        "dateModified": "2018-12-07T19:32:45.701602+02:00", 
-        "id": "8ac78d447af448f29e03a884b07ed4c8"
+        "dateModified": "2019-01-28T12:32:16.508385+02:00", 
+        "id": "b743cbdfd1444110bfdf3740457ddff1"
       }
     ], 
     "verificationPeriod": {
-      "startDate": "2018-12-07T19:32:45.485659+02:00", 
-      "endDate": "2018-12-07T19:32:45.820502+02:00"
+      "startDate": "2019-01-28T12:32:16.245982+02:00", 
+      "endDate": "2019-01-28T12:32:16.660016+02:00"
     }, 
     "description": "Candidate didn’t sign the auction protocol in 3 business days", 
     "title": "Disqualified", 
@@ -78,20 +78,20 @@ X-Content-Type-Options: nosniff
       }
     ], 
     "complaintPeriod": {
-      "startDate": "2018-12-07T19:32:45.058461+02:00", 
-      "endDate": "2018-12-07T19:32:45.820502+02:00"
+      "startDate": "2019-01-28T12:32:15.706689+02:00", 
+      "endDate": "2019-01-28T12:32:16.660016+02:00"
     }, 
-    "bid_id": "1ba70dadeec448d8aecb003eef0acaad", 
+    "bid_id": "9d7e4eed27534b56b663ea362332e0ab", 
     "value": {
       "currency": "UAH", 
       "amount": 500.0, 
       "valueAddedTaxIncluded": true
     }, 
-    "date": "2018-12-07T19:32:45.830042+02:00", 
-    "id": "7fea1585f8ff49e88f750a9f89080ce2", 
+    "date": "2019-01-28T12:32:16.672132+02:00", 
+    "id": "4e8136ff281a4f97aca77361f2e29641", 
     "signingPeriod": {
-      "startDate": "2018-12-07T19:32:45.485659+02:00", 
-      "endDate": "2019-01-16T18:00:00+02:00"
+      "startDate": "2019-01-28T12:32:16.245982+02:00", 
+      "endDate": "2019-02-18T18:00:00+02:00"
     }
   }
 }

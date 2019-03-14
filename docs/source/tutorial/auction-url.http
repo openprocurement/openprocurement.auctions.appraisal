@@ -1,6 +1,6 @@
-GET /api/2.5/auctions/0a3e5825752c49199ced43de14247e09 HTTP/1.0
+GET /api/2.5/auctions/e0c4d484a95140569171138086703f23 HTTP/1.0
 Authorization: Basic YnJva2VyOg==
-Host: lb.api-sandbox.registry.ea.openprocurement.net
+Host: https://lb.api-sandbox.ea2.openprocurement.net/api/2.3/auctions
 
 Response: 200 OK
 Content-Type: application/json
@@ -8,112 +8,113 @@ X-Content-Type-Options: nosniff
 {
   "data": {
     "procurementMethod": "open", 
-    "auctionID": "UA-EA-2018-12-07-000002", 
-    "auctionUrl": "http://auction-sandbox.openprocurement.org/insider-auctions/0a3e5825752c49199ced43de14247e09", 
+    "auctionID": "UA-EA-2019-01-28-000002", 
+    "auctionUrl": "http://auction-sandbox.openprocurement.org/insider-auctions/e0c4d484a95140569171138086703f23", 
     "enquiryPeriod": {
-      "startDate": "2018-11-17T19:32:42.120568+02:00", 
-      "endDate": "2018-12-07T19:32:42.120568+02:00"
+      "startDate": "2019-01-08T12:32:10.895130+02:00", 
+      "endDate": "2019-01-28T12:32:10.895130+02:00"
     }, 
     "registrationFee": {
       "currency": "UAH", 
       "amount": 700.87
     }, 
     "submissionMethod": "electronicAuction", 
-    "next_check": "2018-12-08T02:48:32.120568+02:00", 
+    "next_check": "2019-01-28T19:48:00.895130+02:00", 
     "awardCriteria": "highestCost", 
     "questions": [
       {
         "description": "Просимо додати таблицю потрібної калорійності харчування", 
         "title": "Калорійність", 
-        "date": "2018-12-07T19:32:47.052175+02:00", 
+        "date": "2019-01-28T12:32:18.382280+02:00", 
         "answer": "Таблицю додано в файлі \"Kalorijnist.xslx\"", 
-        "id": "1bbe17842ab4463cacb3386646914f1c", 
+        "id": "8a9247bb32fe4b1abcc87d59d4b65f53", 
         "questionOf": "tender"
       }
     ], 
     "owner": "broker", 
-    "id": "0a3e5825752c49199ced43de14247e09", 
+    "id": "e0c4d484a95140569171138086703f23", 
+    "description": "description of appraisal auction", 
     "documents": [
       {
         "hash": "md5:00000000000000000000000000000000", 
         "description": "document description", 
         "format": "application/pdf", 
-        "url": "http://public.docs-sandbox.ea.openprocurement.org/get/cec2473dcf334f84a6eda4dd4f223b54?KeyID=172d32c8&Signature=vXiuThpgZnfDuei34UPauCckBdIIvbgf1PQwN3%2Fhtku0QtnmYZE%252BEDhG0dF5qWNTjbOL06QJBJxbimPxh2XSDg%253D%253D", 
+        "url": "http://public.docs-sandbox.ea.openprocurement.org/get/6ac51cb148a042db8c3ff05ca03e17eb?KeyID=172d32c8&Signature=ODek9PjlhbCkmeL80dDgAiaDHzTqYEmQSYBqYnKfyIFMJoQsrLkzcPHkb3Cnpj%2FYCHink%252B2Hl6ag%252BbdlGkv1DA%253D%253D", 
         "title": "Notice.pdf", 
-        "documentOf": "tender", 
-        "datePublished": "2018-12-07T19:32:46.577230+02:00", 
+        "documentOf": "auction", 
+        "datePublished": "2019-01-28T12:32:17.643280+02:00", 
         "documentType": "technicalSpecifications", 
-        "dateModified": "2018-12-07T19:32:46.577251+02:00", 
-        "id": "83124e21000e4fcbb2459ebdeed9d813"
+        "dateModified": "2019-01-28T12:32:17.643302+02:00", 
+        "id": "c33444fdcca243b382630e9924d54509"
       }, 
       {
         "hash": "md5:00000000000000000000000000000000", 
-        "format": "application/pdf", 
-        "url": "http://public.docs-sandbox.ea.openprocurement.org/get/281d783c1b6346e780f9f9dab1dcf430?KeyID=172d32c8&Signature=KFMZBRs5MRqjPYqfG4PJdpRFN4%2FQ8Al4M4vhs0Ao2hiezyi%2FHw3%2Fg3A8tic4SFhOdiwBAT2z%252BE6cOTeh4uiaCw%253D%253D", 
         "title": "AwardCriteria.pdf", 
-        "documentOf": "tender", 
-        "datePublished": "2018-12-07T19:32:46.631127+02:00", 
-        "dateModified": "2018-12-07T19:32:46.631149+02:00", 
-        "id": "aeb0731d9d994d4e889efb74564aa0e1"
+        "url": "http://public.docs-sandbox.ea.openprocurement.org/get/2a50abcb014040178e7422cf1e55cca5?KeyID=172d32c8&Signature=Fl3iQGfQngVzqc8YA2LFUMT6xg8mCVfoYw82EDdi6eC2G0OnvFmLiGVbfN1hLSudC%2F7pUs7mBtVxF%2FxtASBsBA%253D%253D", 
+        "format": "application/pdf", 
+        "documentOf": "auction", 
+        "datePublished": "2019-01-28T12:32:17.724608+02:00", 
+        "dateModified": "2019-01-28T12:32:17.724645+02:00", 
+        "id": "b85a9b4422084bd49a2885b32fe9b4b9"
       }, 
       {
         "hash": "md5:00000000000000000000000000000000", 
-        "format": "application/pdf", 
-        "url": "http://public.docs-sandbox.ea.openprocurement.org/get/25fbbbe7a6e5459eb51b8f46cbd2b4bd?KeyID=172d32c8&Signature=O%252Bl5pUX65yElbq4o5A2E1gTpXBN4EihOth%252Bb3XseESkl57q9YkZQuovXwz27N5L0sWNB70TIaNeQUD0pa19zBg%253D%253D", 
         "title": "AwardCriteria-2.pdf", 
-        "documentOf": "tender", 
-        "datePublished": "2018-12-07T19:32:46.631127+02:00", 
-        "dateModified": "2018-12-07T19:32:46.690425+02:00", 
-        "id": "aeb0731d9d994d4e889efb74564aa0e1"
+        "url": "http://public.docs-sandbox.ea.openprocurement.org/get/53ef485f1a1f41b6a6fbad631572346c?KeyID=172d32c8&Signature=zS2ipM2G7i8Y%252BpT9XNBXW2Hi9LM4x8w40wpyHXaZJRCymcX5BJLEELPBgK8SDWqB22j8DvskE1XSa75hh7n3Dg%253D%253D", 
+        "format": "application/pdf", 
+        "documentOf": "auction", 
+        "datePublished": "2019-01-28T12:32:17.724608+02:00", 
+        "dateModified": "2019-01-28T12:32:17.817955+02:00", 
+        "id": "b85a9b4422084bd49a2885b32fe9b4b9"
       }, 
       {
         "index": 1, 
         "hash": "md5:00000000000000000000000000000000", 
         "description": "First illustration description", 
         "format": "image/jpeg", 
-        "url": "http://public.docs-sandbox.ea.openprocurement.org/get/86a31bfc90b146daada8bcaaea249fae?KeyID=172d32c8&Signature=v9rr8%2F2XvR3seMAi4OUguDPt7nvVwsuDxhtsyamgVhxbiCwR6q%2FsqwRqG8uoGzXgEQRJW%2Fx0%2FoLlJsIpJt0QBQ%253D%253D", 
+        "url": "http://public.docs-sandbox.ea.openprocurement.org/get/c82312f5185f4134ad73697a076eb077?KeyID=172d32c8&Signature=TGH4gd2rROfKB3wsnIwhIfPMu45Caqv2EG3yjy5NJl1C12z1wf1XcfvsavyA%2F7pnWqRX3Eo%252BTUqSn69pPiiiCQ%253D%253D", 
         "title": "first_illustration.jpeg", 
-        "documentOf": "tender", 
-        "datePublished": "2018-12-07T19:32:46.749631+02:00", 
+        "documentOf": "auction", 
+        "datePublished": "2019-01-28T12:32:17.924605+02:00", 
         "documentType": "illustration", 
-        "dateModified": "2018-12-07T19:32:46.749652+02:00", 
-        "id": "9fb85bc93fca46a2aa1249dcc332f91f"
+        "dateModified": "2019-01-28T12:32:17.924642+02:00", 
+        "id": "44c7331c169b47f6aea97b05846b0d74"
       }, 
       {
         "index": 2, 
         "hash": "md5:00000000000000000000000000000000", 
         "description": "Second illustration description", 
         "format": "image/jpeg", 
-        "url": "http://public.docs-sandbox.ea.openprocurement.org/get/717b626eca294ca683983c7357f8ac38?KeyID=172d32c8&Signature=rwjpcybLuSvPSPIBB%252Bzvu9BHKaaPDA7T1ztY55ZQSbDIJ9LJogTRYDJn%252B0VZ0EtS4PM482htRZzrOhiD4KheCg%253D%253D", 
+        "url": "http://public.docs-sandbox.ea.openprocurement.org/get/8581590c05844a9c8d527b63232aff4a?KeyID=172d32c8&Signature=4lr0rXnd1icb0cmt9itu1y2c1OWAZrI3nyi8JYtfY6llpSryb2sVvlV6HgGDJiJTYA4yW7OqXmMZXwZuzArxDA%253D%253D", 
         "title": "second_illustration.jpeg", 
-        "documentOf": "tender", 
-        "datePublished": "2018-12-07T19:32:46.823785+02:00", 
+        "documentOf": "auction", 
+        "datePublished": "2019-01-28T12:32:18.049118+02:00", 
         "documentType": "illustration", 
-        "dateModified": "2018-12-07T19:32:46.823805+02:00", 
-        "id": "daf3e8d92dfa45dfb53b9e1642e7d536"
+        "dateModified": "2019-01-28T12:32:18.049168+02:00", 
+        "id": "84bace22f9114d8d98f2c9c06a858c6d"
       }, 
       {
         "index": 2, 
         "hash": "md5:00000000000000000000000000000000", 
         "description": "Third illustration description", 
         "format": "image/jpeg", 
-        "url": "http://public.docs-sandbox.ea.openprocurement.org/get/170853d3f13f4886832435402282bc23?KeyID=172d32c8&Signature=uC3%252BL3KgN9A42hXxQBrhPlLYT%252BdYey2%252BF4BNKFlbWaowXGlgodrRDkyG1ZQYDroD8Xc85Ybj0nhDqVHvw1QfBQ%253D%253D", 
+        "url": "http://public.docs-sandbox.ea.openprocurement.org/get/175b11887c4d48498b9aa02d194ed679?KeyID=172d32c8&Signature=TOp%252BFcDvaNPDgm%2Fl%252BznQuaqJRM7qjfxV4EvgmHIfM9fXyJjyneOu9k%252B28BNJn0qA3FEGFzDyHONIx8msSzlvDw%253D%253D", 
         "title": "third_illustration.jpeg", 
-        "documentOf": "tender", 
-        "datePublished": "2018-12-07T19:32:46.884752+02:00", 
+        "documentOf": "auction", 
+        "datePublished": "2019-01-28T12:32:18.139983+02:00", 
         "documentType": "illustration", 
-        "dateModified": "2018-12-07T19:32:46.884775+02:00", 
-        "id": "77f73be3f482443ba8bb5b7e8912fd09"
+        "dateModified": "2019-01-28T12:32:18.140007+02:00", 
+        "id": "2e87d27713dd488ab403104d6b41b338"
       }, 
       {
         "title": "Familiarization with bank asset", 
         "format": "offline/on-site-examination", 
         "accessDetails": "Familiar with asset: days, time, address", 
-        "documentOf": "tender", 
-        "datePublished": "2018-12-07T19:32:46.964970+02:00", 
+        "documentOf": "auction", 
+        "datePublished": "2019-01-28T12:32:18.267862+02:00", 
         "documentType": "x_dgfAssetFamiliarization", 
-        "dateModified": "2018-12-07T19:32:46.964991+02:00", 
-        "id": "8e4619deece5428b8527a40c8de0de52"
+        "dateModified": "2019-01-28T12:32:18.267912+02:00", 
+        "id": "70f92e8fa46046e3955bab0701ffedf1"
       }
     ], 
     "title": "футляри до державних нагород", 
@@ -122,15 +123,19 @@ X-Content-Type-Options: nosniff
       "type": "insider", 
       "dutchSteps": 88
     }, 
-    "dateModified": "2018-12-07T19:32:47.692042+02:00", 
+    "guarantee": {
+      "currency": "UAH", 
+      "amount": 1000.99
+    }, 
+    "dateModified": "2019-01-28T12:32:19.472633+02:00", 
     "status": "active.auction", 
     "tenderPeriod": {
-      "startDate": "2018-11-17T19:32:42.120568+02:00", 
-      "endDate": "2018-12-08T02:17:42.120568+02:00"
+      "startDate": "2019-01-08T12:32:10.895130+02:00", 
+      "endDate": "2019-01-28T19:17:10.895130+02:00"
     }, 
     "auctionPeriod": {
-      "startDate": "2018-12-07T19:32:42.120568+02:00", 
-      "shouldStartAfter": "2018-12-08T00:00:00+02:00"
+      "startDate": "2019-01-28T12:32:10.895130+02:00", 
+      "shouldStartAfter": "2019-01-29T00:00:00+02:00"
     }, 
     "bankAccount": {
       "accountIdentification": [
@@ -143,8 +148,13 @@ X-Content-Type-Options: nosniff
       "bankName": "name of bank"
     }, 
     "procurementMethodType": "appraisal.insider", 
-    "date": "2018-12-07T19:32:47.692042+02:00", 
+    "date": "2019-01-28T12:32:19.472633+02:00", 
     "lotIdentifier": "Q24421K222", 
+    "rectificationPeriod": {
+      "startDate": "2019-01-08T12:32:10.895130+02:00", 
+      "endDate": "2019-01-21T19:17:10.895130+02:00", 
+      "invalidationDate": "2019-01-28T12:32:18.268192+02:00"
+    }, 
     "minimalStep": {
       "currency": "UAH", 
       "amount": 0, 
@@ -165,7 +175,7 @@ X-Content-Type-Options: nosniff
           "region": "м. Київ", 
           "locality": "м. Київ"
         }, 
-        "id": "6c318ef0d2954b0480d3310fe83d9266", 
+        "id": "46ff602897964fdeb334c4a55e9bc9d7", 
         "unit": {
           "code": "44617100-9", 
           "name": "item"

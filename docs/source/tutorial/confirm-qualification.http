@@ -1,8 +1,8 @@
-PATCH /api/2.5/auctions/0a3e5825752c49199ced43de14247e09/awards/f1dbe0f1df254b698f15398a43d79942?acc_token=2ae288c6a1204108bc3013241ac553eb HTTP/1.0
+PATCH /api/2.5/auctions/e0c4d484a95140569171138086703f23/awards/8e0279bc48cd41949e6ba8d436f31a0f?acc_token=4cc54038a92f4f578a435ca9cb041343 HTTP/1.0
 Authorization: Basic YnJva2VyOg==
 Content-Length: 30
 Content-Type: application/json
-Host: lb.api-sandbox.registry.ea.openprocurement.net
+Host: https://lb.api-sandbox.ea2.openprocurement.net/api/2.3/auctions
 DATA:
 {
   "data": {
@@ -21,34 +21,34 @@ X-Content-Type-Options: nosniff
         "hash": "md5:00000000000000000000000000000000", 
         "author": "bid_owner", 
         "title": "SignedAuctionProtocol.pdf", 
-        "url": "http://public.docs-sandbox.ea.openprocurement.org/get/d94678530a8140178253836ae17c8afb?KeyID=172d32c8&Signature=fAOV7UZXfEw8oUGoZSyObb9TMbJK2A1U376Ohz4McIga0d2ufu7mCABtiP6ipU2bFo8RLlOBbWIH%2F4SGD%2F1vCg%253D%253D", 
+        "url": "http://public.docs-sandbox.ea.openprocurement.org/get/733e3efd60604f2c8c2e2142fca2f269?KeyID=172d32c8&Signature=aof6f%252BRhjahdFxYpQm%2Fc8bJxVu0TLoPAWVrMptbcSVoWiIGRObTlVDvelXFarRhIkCrZsp9laoSOA%252BYN8c%2FrDQ%253D%253D", 
         "format": "application/pdf", 
         "documentOf": "auction", 
-        "datePublished": "2018-12-07T19:32:48.260451+02:00", 
+        "datePublished": "2019-01-28T12:32:20.409366+02:00", 
         "documentType": "auctionProtocol", 
-        "dateModified": "2018-12-07T19:32:48.260471+02:00", 
-        "id": "13322079f72742e7933534f02cd7601d"
+        "dateModified": "2019-01-28T12:32:20.409386+02:00", 
+        "id": "c15f1049d5c84aeaa164e4bb650daa0f"
       }, 
       {
         "hash": "md5:00000000000000000000000000000000", 
         "author": "auction_owner", 
         "title": "SignedAuctionProtocol.pdf", 
-        "url": "http://public.docs-sandbox.ea.openprocurement.org/get/78a1d7c337734c71b2942841190a694a?KeyID=172d32c8&Signature=Bwq936Hc3KHQrGs96q%252BrEXvKaCpy91Y4dENE1ZDw%252B5FkoeFWKMrNhqrMJfSpeSL2C8snOu5tuaYkUeDVE9ajAg%253D%253D", 
+        "url": "http://public.docs-sandbox.ea.openprocurement.org/get/a833a8df66ed44a18260bd021ab7cd2c?KeyID=172d32c8&Signature=eAp2158FA%2F7m6SiQ9tICQOXDjLYWFjoEcyvhx%2FIJ6gio4FBZig5r9IVWZFBMKC%252Bl36EJOWUwDKVnKTT0OlK5AA%253D%253D", 
         "format": "application/pdf", 
         "documentOf": "auction", 
-        "datePublished": "2018-12-07T19:32:48.354668+02:00", 
+        "datePublished": "2019-01-28T12:32:20.543980+02:00", 
         "documentType": "auctionProtocol", 
-        "dateModified": "2018-12-07T19:32:48.354687+02:00", 
-        "id": "d42edd1abf044a16b546fc3558127548"
+        "dateModified": "2019-01-28T12:32:20.544014+02:00", 
+        "id": "85b3a0d97fcb4b83af6b5a21b2789c4c"
       }
     ], 
     "verificationPeriod": {
-      "startDate": "2018-12-07T19:32:47.965330+02:00", 
-      "endDate": "2018-12-07T19:32:48.473679+02:00"
+      "startDate": "2019-01-28T12:32:19.988125+02:00", 
+      "endDate": "2019-01-28T12:32:20.693449+02:00"
     }, 
     "signingPeriod": {
-      "startDate": "2018-12-07T19:32:47.965330+02:00", 
-      "endDate": "2019-01-16T18:00:00+02:00"
+      "startDate": "2019-01-28T12:32:19.988125+02:00", 
+      "endDate": "2019-02-18T18:00:00+02:00"
     }, 
     "suppliers": [
       {
@@ -73,17 +73,17 @@ X-Content-Type-Options: nosniff
       }
     ], 
     "complaintPeriod": {
-      "startDate": "2018-12-07T19:32:47.965330+02:00", 
-      "endDate": "2018-12-07T19:32:48.473679+02:00"
+      "startDate": "2019-01-28T12:32:19.988125+02:00", 
+      "endDate": "2019-01-28T12:32:20.693449+02:00"
     }, 
-    "bid_id": "917fb2cdbacd4536ba64aeca993f8f53", 
+    "bid_id": "a22200d873de40e39f7f4ab5dd59f7eb", 
     "value": {
       "currency": "UAH", 
       "amount": 479, 
       "valueAddedTaxIncluded": true
     }, 
-    "date": "2018-12-07T19:32:48.488046+02:00", 
-    "id": "f1dbe0f1df254b698f15398a43d79942"
+    "date": "2019-01-28T12:32:20.705871+02:00", 
+    "id": "8e0279bc48cd41949e6ba8d436f31a0f"
   }
 }
 

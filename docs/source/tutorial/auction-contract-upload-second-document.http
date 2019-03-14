@@ -1,12 +1,12 @@
-POST /api/2.5/auctions/0a3e5825752c49199ced43de14247e09/contracts/52c8c00a6cbb4c23b9cba3a049f90bce/documents?acc_token=2ae288c6a1204108bc3013241ac553eb HTTP/1.0
+POST /api/2.5/auctions/e0c4d484a95140569171138086703f23/contracts/d76886a9843e4f808588f58574dcb6c9/documents?acc_token=4cc54038a92f4f578a435ca9cb041343 HTTP/1.0
 Authorization: Basic YnJva2VyOg==
-Content-Length: 346
+Content-Length: 352
 Content-Type: application/json
-Host: lb.api-sandbox.registry.ea.openprocurement.net
+Host: https://lb.api-sandbox.ea2.openprocurement.net/api/2.3/auctions
 DATA:
 {
   "data": {
-    "url": "http://public.docs-sandbox.ea.openprocurement.org/get/150e1cac670847978a63679ad5035b51?KeyID=172d32c8&Signature=c6HGr8l8BOZ7gEgi4yVhiqlvBYYjLc3Ig6CnjoVz3O8xbx1vJEPK8WGwBMD7XwVRa2eBaGif7gTYuM2bM6fIDw%3D%3D", 
+    "url": "http://public.docs-sandbox.ea.openprocurement.org/get/27494a750520467582b01376318dd217?KeyID=172d32c8&Signature=F5xlCJXZslC3e%2FtHcFfnGYNrlFpv2noYKeP8tUZoKgz5A8y64NDdwCpCMubqTZk8nBLOE%2BiGS%2BF2bBq01ZMtBg%3D%3D", 
     "title": "contract_second_document.doc", 
     "hash": "md5:00000000000000000000000000000000", 
     "format": "application/msword"
@@ -15,18 +15,18 @@ DATA:
 
 Response: 201 Created
 Content-Type: application/json
-Location: http://lb.api-sandbox.registry.ea.openprocurement.net/api/2.5/auctions/0a3e5825752c49199ced43de14247e09/contracts/52c8c00a6cbb4c23b9cba3a049f90bce/documents/f15c60c6f2924ff4938390632fb9170f
+Location: http://https://lb.api-sandbox.ea2.openprocurement.net/api/2.3/auctions/api/2.5/auctions/e0c4d484a95140569171138086703f23/contracts/d76886a9843e4f808588f58574dcb6c9/documents/60b804cd00ec403f99158d127f552d7e
 X-Content-Type-Options: nosniff
 {
   "data": {
     "hash": "md5:00000000000000000000000000000000", 
     "title": "contract_second_document.doc", 
-    "url": "http://public.docs-sandbox.ea.openprocurement.org/get/150e1cac670847978a63679ad5035b51?KeyID=172d32c8&Signature=l0XwRwi2%2FWbI%252BBJeHWOU2vYG91iN0xIn1tM6dVi91rMTmbyX8ieqgyKJVXVZIr5BWXSkP4Wtv8pYmYNEgcQLCQ%253D%253D", 
+    "url": "http://public.docs-sandbox.ea.openprocurement.org/get/27494a750520467582b01376318dd217?KeyID=172d32c8&Signature=9sdWrx0iQvYIUAxDgiR32B9BSYmOZ96gJsR0e8MPapGT5dFb8q2N2GfJddGJEFRcNLBTJT%2Fup4jUrmMJeOOvBA%253D%253D", 
     "format": "application/msword", 
     "documentOf": "auction", 
-    "datePublished": "2018-12-07T19:32:48.991511+02:00", 
-    "dateModified": "2018-12-07T19:32:48.991535+02:00", 
-    "id": "f15c60c6f2924ff4938390632fb9170f"
+    "datePublished": "2019-01-28T12:32:21.318353+02:00", 
+    "dateModified": "2019-01-28T12:32:21.318392+02:00", 
+    "id": "60b804cd00ec403f99158d127f552d7e"
   }
 }
 
