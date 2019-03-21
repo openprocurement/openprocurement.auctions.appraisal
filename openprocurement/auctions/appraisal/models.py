@@ -296,8 +296,12 @@ class AppraisalAuction(BaseAuction):
         if self.tenderPeriod:
             self.rectificationPeriod = RectificationPeriod() if not self.rectificationPeriod else self.rectificationPeriod
             self.rectificationPeriod.startDate = self.tenderPeriod.startDate
-            self.rectificationPeriod.endDate = calculate_business_date(self.tenderPeriod.endDate, -timedelta(days=5), self, working_days=True)
-
+            self.rectificationPeriod.endDate = calculate_business_date(
+                self.tenderPeriod.endDate.astimezone(TZ),
+                -timedelta(days=5),
+                self,
+                working_days=True
+            )
             if self.rectificationPeriod.startDate > self.rectificationPeriod.endDate:
                 self.rectificationPeriod.startDate = self.rectificationPeriod.endDate = None
 
