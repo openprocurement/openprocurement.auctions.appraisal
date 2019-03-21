@@ -303,6 +303,7 @@ class AppraisalAuction(BaseAuction):
                 self,
                 working_days=True
             )
+
             if self.rectificationPeriod.startDate > self.rectificationPeriod.endDate:
                 self.rectificationPeriod.startDate = self.rectificationPeriod.endDate = None
 

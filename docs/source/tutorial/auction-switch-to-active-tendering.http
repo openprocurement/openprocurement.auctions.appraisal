@@ -1,9 +1,9 @@
-PATCH /api/2.5/auctions/0a3e5825752c49199ced43de14247e09 HTTP/1.0
+PATCH /api/2.5/auctions/e0c4d484a95140569171138086703f23 HTTP/1.0
 Authorization: Basic YnJva2VyOg==
 Content-Length: 40
 Content-Type: application/json
-Host: lb.api-sandbox.registry.ea.openprocurement.net
-X-Access-Token: 2ae288c6a1204108bc3013241ac553eb
+Host: https://lb.api-sandbox.ea2.openprocurement.net/api/2.3/auctions
+X-Access-Token: 4cc54038a92f4f578a435ca9cb041343
 DATA:
 {
   "data": {
@@ -17,34 +17,39 @@ X-Content-Type-Options: nosniff
 {
   "data": {
     "procurementMethod": "open", 
-    "auctionID": "UA-EA-2018-12-07-000002", 
+    "auctionID": "UA-EA-2019-01-28-000002", 
     "enquiryPeriod": {
-      "startDate": "2018-12-07T19:32:46.197484+02:00", 
-      "endDate": "2018-12-20T20:00:00+02:00"
+      "startDate": "2019-01-28T12:32:17.146983+02:00", 
+      "endDate": "2019-02-06T20:00:00+02:00"
     }, 
     "registrationFee": {
       "currency": "UAH", 
       "amount": 700.87
     }, 
     "submissionMethod": "electronicAuction", 
-    "next_check": "2018-12-20T20:00:00+02:00", 
+    "next_check": "2019-02-06T20:00:00+02:00", 
     "awardCriteria": "highestCost", 
     "owner": "broker", 
-    "id": "0a3e5825752c49199ced43de14247e09", 
+    "id": "e0c4d484a95140569171138086703f23", 
+    "description": "description of appraisal auction", 
     "title": "футляри до державних нагород", 
     "tenderAttempts": 1, 
     "auctionParameters": {
       "type": "insider", 
       "dutchSteps": 88
     }, 
-    "dateModified": "2018-12-07T19:32:46.278565+02:00", 
+    "guarantee": {
+      "currency": "UAH", 
+      "amount": 1000.99
+    }, 
+    "dateModified": "2019-01-28T12:32:17.260260+02:00", 
     "status": "active.tendering", 
     "tenderPeriod": {
-      "startDate": "2018-12-07T19:32:46.197484+02:00", 
-      "endDate": "2018-12-21T16:15:00+02:00"
+      "startDate": "2019-01-28T12:32:17.146983+02:00", 
+      "endDate": "2019-02-07T16:15:00+02:00"
     }, 
     "auctionPeriod": {
-      "shouldStartAfter": "2018-12-21T00:00:00+02:00"
+      "shouldStartAfter": "2019-02-07T00:00:00+02:00"
     }, 
     "bankAccount": {
       "accountIdentification": [
@@ -57,8 +62,13 @@ X-Content-Type-Options: nosniff
       "bankName": "name of bank"
     }, 
     "procurementMethodType": "appraisal.insider", 
-    "date": "2018-12-07T19:32:46.278565+02:00", 
+    "date": "2019-01-28T12:32:17.260260+02:00", 
     "lotIdentifier": "Q24421K222", 
+    "rectificationPeriod": {
+      "startDate": "2019-01-28T12:32:17.146983+02:00", 
+      "endDate": "2019-01-31T16:15:00+02:00", 
+      "invalidationDate": "2019-01-28T12:32:17.257914+02:00"
+    }, 
     "minimalStep": {
       "currency": "UAH", 
       "amount": 0, 
@@ -79,7 +89,7 @@ X-Content-Type-Options: nosniff
           "region": "м. Київ", 
           "locality": "м. Київ"
         }, 
-        "id": "6c318ef0d2954b0480d3310fe83d9266", 
+        "id": "46ff602897964fdeb334c4a55e9bc9d7", 
         "unit": {
           "code": "44617100-9", 
           "name": "item"
