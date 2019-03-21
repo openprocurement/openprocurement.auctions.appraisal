@@ -199,6 +199,7 @@ class AppraisalAward(Award):
 
     VERIFY_AUCTION_PROTOCOL_TIME = timedelta(days=6)
     CONTRACT_SIGNING_TIME = timedelta(days=20)
+    SIGNING_PERIOD_WITH_WORKING_DAYS = True
 
 
 class AppraisalContract(Contract):
