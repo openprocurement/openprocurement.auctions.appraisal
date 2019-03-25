@@ -33,3 +33,16 @@ DEFAULT_LEVEL_OF_ACCREDITATION = {'create': [1],
                                   'edit': [2]}
 
 DOCUMENT_TYPE_REQUIRED_FROM = datetime(year=2019, month=2, day=8, tzinfo=TZ)
+
+VERIFICATION_PERIOD_PARAMS = {
+    'delta': timedelta(days=6),
+    'specific_hour': 18,
+    'working_days': True
+}
+
+SIGNING_PERIOD_PARAMS = {
+    'delta': timedelta(days=20),
+    'specific_hour': 18,
+    'working_days': True,
+    'result_is_working_day': True
+}
