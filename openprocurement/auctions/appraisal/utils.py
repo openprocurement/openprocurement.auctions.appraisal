@@ -1,11 +1,14 @@
 # -*- coding: utf-8 -*-
 from logging import getLogger
+from functools import partial
 from pkg_resources import get_distribution
 
 from openprocurement.auctions.core.utils import (
     context_unpack,
     get_now,
     TZ,
+    dgf_upload_file,
+    API_DOCUMENT_BLACKLISTED_FIELDS
 )
 from openprocurement.auctions.core.interfaces import IAuctionManager
 from openprocurement.auctions.core.models.schema import AUCTION_STAND_STILL_TIME
@@ -103,3 +106,7 @@ def invalidate_bids_data(auction):
     for bid in auction['bids']:
         setattr(bid, "status", "invalid")
     auction.rectificationPeriod.invalidationDate = get_now()
+
+
+APPRAISAL_DOCUMENT_BLACKLISTED_FIELDS = API_DOCUMENT_BLACKLISTED_FIELDS + ('accessDetails',)
+appraisal_upload_file = partial(dgf_upload_file, blacklisted_fields=APPRAISAL_DOCUMENT_BLACKLISTED_FIELDS)
