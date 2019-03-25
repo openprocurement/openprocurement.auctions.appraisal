@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 from email.header import Header
+from copy import deepcopy
+
 from openprocurement.api.utils import get_now
 
 
@@ -215,3 +217,39 @@ def check_bids_invalidation(self):
     response = self.app.get('/auctions/{}'.format(auction_id))
     self.assertIn('invalidationDate', response.json['data']['rectificationPeriod'])
     self.assertNotEqual(invalidation_date, response.json['data']['rectificationPeriod']['invalidationDate'])
+
+
+def put_access_details(self):
+    self.app.authorization = ('Basic', ('broker', ''))
+
+    data = self.initial_data.copy()
+    response = self.app.post_json('/auctions', {'data': data})
+    self.assertEqual(response.status, '201 Created')
+    self.assertEqual(response.content_type, 'application/json')
+
+    auction_id = response.json['data']['id']
+    owner_token = response.json['access']['token']
+    access_header = {'X-Access-Token': str(owner_token)}
+
+    self.auction_id = auction_id
+    self.set_status('active.tendering')
+
+    data = {
+        'title': u'укр.doc',
+        'format': 'offline/on-site-examination',
+        'documentType': 'x_dgfAssetFamiliarization',
+        'accessDetails': 'some some'
+    }
+
+    response = self.app.post_json(
+        '/auctions/{}/documents'.format(auction_id),
+        headers=access_header,
+        params={'data': data}
+    )
+    self.assertEqual(response.json['data']['accessDetails'], data['accessDetails'])
+
+    updated_data = deepcopy(data)
+    updated_data['accessDetails'] = 'Updated access details'
+    response = self.app.put_json('/auctions/{}/documents/{}'.format(self.auction_id, response.json['data']['id']),
+        headers=access_header, params={'data': updated_data})
+    self.assertEqual(response.json['data']['accessDetails'], updated_data['accessDetails'])
