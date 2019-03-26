@@ -18,6 +18,9 @@ from openprocurement.auctions.appraisal.tests.blanks.chronograph_blanks import (
     switch_to_auction,
     # AppraisalAuctionDontSwitchSuspendedAuction2ResourceTest
     switch_suspended_auction_to_auction,
+    # AppraisalAuctionAuctionPeriodResourceTest
+    set_auction_period,
+    reset_auction_period
 )
 
 
@@ -25,6 +28,13 @@ class AppraisalAuctionSwitchAuctionResourceTest(BaseAppraisalAuctionWebTest):
     initial_bids = test_bids
 
     test_switch_to_auction = snitch(switch_to_auction)
+
+
+class AppraisalAuctionAuctionPeriodResourceTest(BaseAppraisalAuctionWebTest):
+    initial_bids = test_bids
+
+    test_set_auction_period = snitch(set_auction_period)
+    test_reset_auction_period = snitch(reset_auction_period)
 
 
 class AppraisalAuctionAwardSwitchResourceTest(BaseAppraisalAuctionWebTest, AuctionAwardSwitchResourceTestMixin):
@@ -115,6 +125,7 @@ class AppraisalAuctionDontSwitchSuspendedAuction2ResourceTest(BaseAppraisalAucti
 def suite():
     tests = unittest.TestSuite()
     tests.addTest(unittest.makeSuite(AppraisalAuctionSwitchAuctionResourceTest))
+    tests.addTest(unittest.makeSuite(AppraisalAuctionAuctionPeriodResourceTest))
     tests.addTest(unittest.makeSuite(AppraisalAuctionAwardSwitchResourceTest))
     tests.addTest(unittest.makeSuite(AppraisalAuctionAwardSwitch2ResourceTest))
     tests.addTest(unittest.makeSuite(AppraisalAuctionDontSwitchSuspendedAuction2ResourceTest))
