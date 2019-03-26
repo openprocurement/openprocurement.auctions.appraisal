@@ -28,7 +28,10 @@ from openprocurement.auctions.appraisal.tests.blanks.auction_blanks import (
     post_auction_auction_not_changed,
     post_auction_auction_reversed,
     # AppraisalAuctionNoBidsResourceTest
-    post_auction_no_bids
+    post_auction_no_bids,
+    # AppraisalAuctionBridgePatchPeriod
+    set_auction_period,
+    reset_auction_period,
 )
 
 
@@ -103,6 +106,13 @@ class AppraisalAuctionNoBidsResourceTest(BaseAppraisalAuctionWebTest):
     test_post_auction_zero_bids = snitch(post_auction_no_bids)
 
 
+class AppraisalAuctionBridgePatchPeriod(BaseAppraisalAuctionWebTest):
+    initial_status = 'active.tendering'
+
+    test_set_auction_period = snitch(set_auction_period)
+    test_reset_auction_period = snitch(reset_auction_period)
+
+
 def suite():
     tests = unittest.TestSuite()
     tests.addTest(unittest.makeSuite(AppraisalAuctionAuctionResourceTest))
@@ -110,6 +120,7 @@ def suite():
     tests.addTest(unittest.makeSuite(AppraisalAuctionDraftBidAuctionResourceTest))
     tests.addTest(unittest.makeSuite(AppraisalAuctionSameValueAuctionResourceTest))
     tests.addTest(unittest.makeSuite(AppraisalAuctionNoBidsResourceTest))
+    tests.addTest(unittest.makeSuite(AppraisalAuctionBridgePatchPeriod))
     return tests
 
 
