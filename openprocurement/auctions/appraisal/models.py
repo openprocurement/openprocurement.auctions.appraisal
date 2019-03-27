@@ -72,7 +72,9 @@ from openprocurement.auctions.appraisal.constants import (
     NUMBER_OF_STAGES,
     AUCTION_STATUSES,
     CONTRACT_TYPES,
-    DOCUMENT_TYPE_REQUIRED_FROM
+    DOCUMENT_TYPE_REQUIRED_FROM,
+    VERIFICATION_PERIOD_PARAMS as APPRAISAL_VERIFICATION_PERIOD_PARAMS,
+    SIGNING_PERIOD_PARAMS as APPRAISAL_SIGNING_PERIOD_PARAMS
 )
 
 from openprocurement.auctions.appraisal.utils import generate_auction_url, calc_auction_end_time
@@ -197,8 +199,8 @@ class Bid(BaseBid):
 class AppraisalAward(Award):
     items = ListType(ModelType(AppraisalItem))
 
-    VERIFY_AUCTION_PROTOCOL_TIME = timedelta(days=6)
-    CONTRACT_SIGNING_TIME = timedelta(days=20)
+    VERIFICATION_PERIOD_PARAMS = APPRAISAL_VERIFICATION_PERIOD_PARAMS
+    SIGNING_PERIOD_PARAMS = APPRAISAL_SIGNING_PERIOD_PARAMS
 
 
 class AppraisalContract(Contract):
@@ -296,7 +298,12 @@ class AppraisalAuction(BaseAuction):
         if self.tenderPeriod:
             self.rectificationPeriod = RectificationPeriod() if not self.rectificationPeriod else self.rectificationPeriod
             self.rectificationPeriod.startDate = self.tenderPeriod.startDate
-            self.rectificationPeriod.endDate = calculate_business_date(self.tenderPeriod.endDate.astimezone(TZ), -timedelta(days=5), self, working_days=True)
+            self.rectificationPeriod.endDate = calculate_business_date(
+                self.tenderPeriod.endDate.astimezone(TZ),
+                -timedelta(days=5),
+                self,
+                working_days=True
+            )
 
             if self.rectificationPeriod.startDate > self.rectificationPeriod.endDate:
                 self.rectificationPeriod.startDate = self.rectificationPeriod.endDate = None

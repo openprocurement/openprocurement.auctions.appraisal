@@ -3,6 +3,7 @@ import unittest
 
 from datetime import timedelta
 
+from openprocurement.auctions.core.tests.base import snitch
 from openprocurement.auctions.core.tests.award import (
     AuctionAwardDocumentResourceTestMixin
 )
@@ -15,8 +16,9 @@ from openprocurement.auctions.core.utils import get_now, get_related_contract_of
 
 from openprocurement.auctions.appraisal.tests.base import (
     BaseAppraisalAuctionWebTest,
-    test_bids,
+    test_bids
 )
+from openprocurement.auctions.appraisal.tests.blanks.award_blanks import check_signing_period
 
 
 class AppraisalAuctionCreateAwardTest(BaseAppraisalAuctionWebTest, CreateAuctionAwardTestMixin):
@@ -29,6 +31,8 @@ class AppraisalAuctionAwardProcessTest(BaseAppraisalAuctionWebTest, AuctionAward
     initial_status = 'active.auction'
     initial_bids = test_bids
     docservice = True
+
+    test_check_signing_period = snitch(check_signing_period)
 
     def upload_rejection_protocol(self, award):
         owner_token = self.auction_token
