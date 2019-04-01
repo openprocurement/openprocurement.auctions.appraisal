@@ -10,7 +10,8 @@ from openprocurement.auctions.core.tests.document import (
 
 from openprocurement.auctions.appraisal.tests.blanks.document_blanks import (
     patch_auction_document,
-    check_bids_invalidation
+    check_bids_invalidation,
+    put_access_details
 )
 
 
@@ -28,6 +29,7 @@ class AppraisalAuctionDocumentWithDSResourceTest(AppraisalAuctionDocumentResourc
 
     test_create_auction_document_pas = None
     test_put_auction_document_pas = None
+    test_put_access_details = snitch(put_access_details)
 
 
 def suite():
