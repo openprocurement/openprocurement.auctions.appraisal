@@ -15,7 +15,7 @@ from openprocurement.auctions.core.validation import (
     validate_patch_document_data,
 )
 from openprocurement.auctions.core.views.mixins import AuctionDocumentResource
-from openprocurement.auctions.appraisal.utils import invalidate_bids_data
+from openprocurement.auctions.appraisal.utils import invalidate_bids_data, appraisal_file_upload
 
 
 @opresource(name='appraisal:Auction Documents',
@@ -71,7 +71,7 @@ class AppraisalAuctionDocumentResource(AuctionDocumentResource):
             self.request.errors.add('body', 'data', 'Can\'t update document in current ({}) auction status'.format(self.request.validated['auction_status']))
             self.request.errors.status = 403
             return
-        document = dgf_upload_file(self.request)
+        document = appraisal_file_upload(self.request)
         self.request.validated['auction'].documents.append(document)
 
         if self.request.authenticated_role == 'auction_owner':

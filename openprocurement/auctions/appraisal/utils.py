@@ -6,6 +6,7 @@ from openprocurement.auctions.core.utils import (
     context_unpack,
     get_now,
     TZ,
+    dgf_upload_file
 )
 from openprocurement.auctions.core.interfaces import IAuctionManager
 from openprocurement.auctions.core.models.schema import AUCTION_STAND_STILL_TIME
@@ -14,7 +15,8 @@ from openprocurement.auctions.appraisal.constants import (
     STAGE_TIMEDELTA,
     BESTBID_TIMEDELTA,
     SEALEDBID_TIMEDELTA,
-    SERVICE_TIMEDELTA
+    SERVICE_TIMEDELTA,
+    DOCUMENT_BLACKLISTED_FIELDS
 )
 
 from urllib import quote
@@ -103,3 +105,7 @@ def invalidate_bids_data(auction):
     for bid in auction['bids']:
         setattr(bid, "status", "invalid")
     auction.rectificationPeriod.invalidationDate = get_now()
+
+
+def appraisal_file_upload(request, blacklisted_fields=DOCUMENT_BLACKLISTED_FIELDS):
+    return dgf_upload_file(request, blacklisted_fields)
