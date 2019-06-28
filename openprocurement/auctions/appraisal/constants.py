@@ -46,3 +46,12 @@ SIGNING_PERIOD_PARAMS = {
     'working_days': True,
     'result_is_working_day': True
 }
+
+DOCUMENT_BLACKLISTED_FIELDS = [
+    'title',
+    'format',
+    'url',
+    'dateModified',
+    'accessDetails',
+    'hash'
+]
